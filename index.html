@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="resort">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Villa Rudolf – průvodce</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#33493a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2333493a' d='M3 20L9 8l4 7 2-3 6 8z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe5;--paper:#fbf9f3;--ink:#2c302b;--heading:#33493a;--muted:#73786d;
+  --accent:#33493a;--accent-2:#92703c;--line:#ded6c2;
+  --ok:#42604c;--ok-soft:#e9ece1;--rain:#48708c;--rain-soft:#e5ecf1;
+  --amber:#92703c;--amber-soft:#f2e9d8;--warn:#9c4234;--warn-soft:#f3e3df;
+  --radius:14px;--font-d:"Spectral",Georgia,serif;--font-b:"Instrument Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:600px;margin:0 auto;padding:20px 16px calc(40px + env(safe-area-inset-bottom));}
+.icon{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-0.2em;}
+b,strong{font-weight:700;}
+a{color:var(--accent);}
+
+.hero{text-align:center;border-top:1px solid var(--accent-2);border-bottom:1px solid var(--line);padding:22px 6px 24px;margin-bottom:22px;}
+.hero .kick{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-2);}
+.hero h1{font-family:var(--font-d);font-weight:600;font-size:clamp(1.7rem,7vw,2.3rem);line-height:1.12;margin:.35em 0 .2em;color:var(--heading);}
+.hero .sub{color:var(--muted);font-size:.95rem;}
+.hero .party{margin-top:8px;font-size:.85rem;color:var(--muted);display:flex;gap:6px 14px;justify-content:center;flex-wrap:wrap;}
+.hero .party span{display:inline-flex;align-items:center;gap:5px;}
+
+.sec-h{display:flex;align-items:center;gap:10px;margin:30px 0 12px;}
+.sec-h .icon{color:var(--accent-2);width:1.3em;height:1.3em;}
+.sec-h h2{font-family:var(--font-d);font-weight:600;font-size:1.3rem;color:var(--heading);}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:14px;}
+.today{border:none;border-left:4px solid var(--acc,var(--accent));border-radius:10px;background:var(--paper);box-shadow:0 2px 14px rgba(51,73,58,.07);padding:18px 18px 18px 16px;}
+.today .lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--acc,var(--accent-2));}
+.today h3{font-family:var(--font-d);font-weight:600;font-size:1.25rem;margin:3px 0 6px;color:var(--heading);}
+.today .meta{font-size:.85rem;color:var(--muted);margin-bottom:8px;}
+
+.day{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line);}
+.day:first-child{border-top:none;}
+.day .wx{flex:none;width:74px;text-align:center;}
+.day .wx .dt{font-weight:700;font-size:.82rem;color:var(--accent);}
+.day .wx .ic{color:var(--accent-2);margin:3px 0;}
+.day .wx .ic .icon{width:1.9em;height:1.9em;stroke-width:1.5;}
+.day .wx .tp{font-weight:700;font-size:.95rem;}
+.day .wx .tp small{font-weight:600;color:var(--muted);font-size:.8em;}
+.day .wx .cd{font-size:.72rem;color:var(--muted);}
+.day .pick{min-width:0;flex:1;}
+.day .pick .nm{font-weight:700;color:var(--heading);}
+.day .pick .nm .acc{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--acc,var(--accent));margin-right:6px;vertical-align:middle;}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.badge{font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:99px;background:var(--ok-soft);color:var(--ok);}
+.badge.rain{background:var(--rain-soft);color:var(--rain);}
+.badge.warn{background:var(--warn-soft);color:var(--warn);}
+.badge.heat{background:var(--amber-soft);color:var(--amber);}
+.alts{margin-top:8px;font-size:.82rem;color:var(--muted);}
+.alts a{text-decoration:none;font-weight:600;color:var(--accent);}
+
+.note{display:flex;gap:9px;background:var(--amber-soft);border-radius:10px;padding:12px 14px;font-size:.85rem;margin:8px 0 0;}
+.note .icon{color:var(--amber);margin-top:.15em;}
+
+.trip{scroll-margin-top:14px;border-top:4px solid var(--acc,var(--accent));}
+.trip .tg{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc,var(--accent-2));}
+.trip h3{font-family:var(--font-d);font-weight:600;font-size:1.18rem;color:var(--heading);margin:2px 0 8px;line-height:1.25;}
+.trip p{font-size:.92rem;text-wrap:pretty;}
+.facts{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:.86rem;}
+.facts .lbl{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.cost{margin-top:10px;font-size:.9rem;background:var(--ok-soft);border-radius:8px;padding:8px 12px;}
+.cost b{color:var(--ok);}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line);font-size:.88rem;}
+.links a{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-decoration:none;color:var(--accent);white-space:nowrap;}
+.links .icon{color:var(--acc,var(--accent-2));}
+
+footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:.76rem;color:var(--muted);text-align:center;text-wrap:pretty;}
+.loading{text-align:center;color:var(--muted);padding:60px 0;}
+@media(min-width:520px){.facts{grid-template-columns:1fr 1fr;gap:10px 22px;}}
+</style>
+</head>
+<body>
+<svg style="display:none">
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
+<symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M19.07 4.93l-1.41 1.41M15.947 12.65a4 4 0 0 0-5.925-4.128M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></symbol>
+<symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M20 16.6A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25M16 13v5M8 13v5M12 15v5"/></symbol>
+<symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+<symbol id="i-fort" viewBox="0 0 24 24"><path d="M22 20v-9H2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2ZM18 11V4H6v7M15 22v-4a3 3 0 0 0-6 0v4M6 4V2M18 4V2M10 4V2M14 4V2"/></symbol>
+<symbol id="i-tree" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17ZM12 22v-3"/></symbol>
+<symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+<symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-bike" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2ZM13 5v2M13 17v2M13 11v2"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3ZM12 9v4M12 17h.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/><circle cx="18" cy="5" r="2"/></symbol>
+</svg>
+
+<div class="wrap"><div id="app"><div class="loading">…</div></div></div>
+
+<script>
+/* ===== Konfigurace ===== */
+const CFG = {
+  TRIPS_URL: 'data/trips.json',
+  FORECAST_URL: 'data/forecast.json',
+  DEMO_GUEST_URL: 'data/demo-guest.json',
+  VILLA: 'villa',
+  // Ostrý provoz: doplň po vytvoření Supabase projektu. Prázdné = demo režim (čte demo-guest.json).
+  SUPABASE_URL: '',
+  SUPABASE_ANON_KEY: '',
+  UMAMI_SRC: 'https://178-104-207-97.sslip.io/script.js',
+  UMAMI_ID: 'e7532123-5434-44e1-a7ef-6c5d18bed939'
+};
+
+/* ===== i18n ===== */
+const I18N = {
+  cs:{greet:'Vážená rodino',welcome:'připravili jsme vám tipy na výlety v okolí – řazené podle počasí, věku dětí i velikosti vaší skupiny.',
+    arrival:'Příjezd',departure:'Odjezd',adults:'dospělí',kids:'děti',today:'Dnešní tip',tomorrow:'Zítřek',
+    arrivingIn:d=>`Přijíždíte za ${d} ${d===1?'den':(d<5?'dny':'dní')}`,plan:'Plán podle počasí',allTrips:'Všechny výlety',
+    recommend:'Doporučeno',alt:'nebo',forParty:'Odhad pro vaši partu',openLabel:'Otevřeno',priceLabel:'Vstupné',
+    transport:'Doprava',byFoot:'pěšky od vily',min:'min autem',foot:'Výlet přímo od vily',
+    reservation:'Pro skupinu doporučujeme rezervovat předem.',idDocs:'Do Polska má mít vlastní doklad i každé dítě.',
+    capacity:'Před cestou zkontrolujte obsazenost online.',
+    wxLive:'Počasí živě z yr.no',updated:'aktualizováno',planNote:'Plán se řídí předpovědí a je jen doporučení – ráno mrkněte na aktuální počasí a dny klidně prohoďte (outdoor za hezka, indoor za deště).',
+    footer:'Připraveno ve Ville Rudolf · ceny a otevírací doby ověřte před cestou · počasí: yr.no.',thanks:'Děkujeme za návštěvu a přejeme šťastnou cestu domů!',
+    why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu'}},
+  de:{greet:'Liebe Familie',welcome:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter, Alter der Kinder und Größe Ihrer Gruppe.',
+    arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
+    arrivingIn:d=>`Anreise in ${d} ${d===1?'Tag':'Tagen'}`,plan:'Plan nach Wetter',allTrips:'Alle Ausflüge',
+    recommend:'Empfohlen',alt:'oder',forParty:'Schätzung für Ihre Gruppe',openLabel:'Öffnungszeiten',priceLabel:'Eintritt',
+    transport:'Anfahrt',byFoot:'zu Fuß von der Villa',min:'Min. mit dem Auto',foot:'Ausflug direkt von der Villa',
+    reservation:'Für die Gruppe bitte vorab reservieren.',idDocs:'Nach Polen braucht auch jedes Kind einen eigenen Ausweis.',
+    capacity:'Vor der Fahrt die Auslastung online prüfen.',
+    wxLive:'Wetter live von yr.no',updated:'aktualisiert',planNote:'Der Plan folgt der Vorhersage und ist nur eine Empfehlung – schauen Sie morgens aufs aktuelle Wetter und tauschen Sie die Tage ruhig (Outdoor bei Sonne, Indoor bei Regen).',
+    footer:'Zusammengestellt in der Villa Rudolf · Preise und Öffnungszeiten vorab prüfen · Wetter: yr.no.',thanks:'Danke für Ihren Besuch und eine gute Heimreise!',
+    why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht'}},
+  en:{greet:'Dear guests',welcome:'we put together trip ideas nearby – ranked by weather, kids’ ages and your group size.',
+    arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
+    arrivingIn:d=>`Arriving in ${d} day${d===1?'':'s'}`,plan:'Weather-based plan',allTrips:'All trips',
+    recommend:'Recommended',alt:'or',forParty:'Estimate for your group',openLabel:'Open',priceLabel:'Admission',
+    transport:'Getting there',byFoot:'on foot from the villa',min:'min by car',foot:'Trip straight from the villa',
+    reservation:'For a group, book ahead.',idDocs:'For Poland every child needs their own ID.',
+    capacity:'Check live occupancy before you go.',
+    wxLive:'Live weather from yr.no',updated:'updated',planNote:'The plan follows the forecast and is only a suggestion – check today’s weather in the morning and swap days freely (outdoor when sunny, indoor when wet).',
+    footer:'Prepared at Villa Rudolf · verify prices and hours before you go · weather: yr.no.',thanks:'Thank you for visiting and safe travels home!',
+    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}}
+};
+
+/* ===== Počasí: kategorie -> ikona + text ===== */
+const CAT = {
+  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',wet:1},
+  heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',wet:1},
+  rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',wet:1},
+  showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',wet:.5},
+  snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',wet:1},
+  fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',wet:0},
+  cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',wet:0},
+  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',wet:0},
+  fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',wet:0},
+  clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',wet:0}
+};
+const isWet = c => CAT[c] ? CAT[c].wet : 0;
+const isNice = c => ['clear','fair','partly'].includes(c);
+
+/* ===== Doporučovací jádro ===== */
+function partyFlags(p){
+  const kids = p.children||[];
+  return {
+    size:(p.adults||0)+kids.length,
+    hasToddler:kids.some(a=>a<=4),
+    hasYoungKid:kids.some(a=>a>=5&&a<=9),
+    hasKid:kids.some(a=>a<=11),
+    hasTeen:kids.some(a=>a>=12)|| (kids.length===0), // bez dětí = dospělá parta, adrenalin OK
+    isGroup:((p.adults||0)+kids.length)>=8
+  };
+}
+// tvrdé filtry pro daný den
+function eligible(trip,day,fl){
+  if(trip.needsClearLowWind){ if(day && (isWet(day.cat)||day.cat==='fog'||(day.windKmh&&day.windKmh>=45))) return false; }
+  if(fl.hasToddler && trip.effort==='hard') return false;
+  return true;
+}
+function scoreTrip(trip,day,fl){
+  let s=0; const c=day?day.cat:null; const hot=day&&day.max>=28; const cold=day&&day.max<=12;
+  if(c){
+    if(['rain','heavyrain','thunder'].includes(c)){ s += (trip.indoorOrCovered||trip.rainOk)?3:-3.5; }
+    else if(c==='showers'){ s += (trip.indoorOrCovered||trip.rainOk)?1:-1; }
+    else if(isNice(c)){ s += trip.outdoor?2:(trip.lovesHeat?0:-1); }
+  }
+  if(hot){ if(trip.lovesHeat) s+=3; else if(trip.outdoor&&trip.effort!=='easy') s-=1.5; }
+  if(cold){ s += trip.indoorOrCovered?1:-1; }
+  if(fl.hasTeen){ if(['adrenalin','active','viewpoint'].includes(trip.category)|| ['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) s+=1.5; }
+  if(fl.hasToddler||fl.hasYoungKid){ if(['janske-hallenbad','baumwipfelpfad','aqua-vrchlabi','aquapark-karpacz'].includes(trip.id)) s+=1.5; if(trip.stairs) s-=1; }
+  if(trip.byFoot) s+=0.6;
+  return s;
+}
+function whyBadges(trip,day,fl,L){
+  const w=L.why,out=[],c=day?day.cat:null,hot=day&&day.max>=28,cold=day&&day.max<=12;
+  if(c&&['rain','heavyrain','thunder','showers'].includes(c)&&(trip.indoorOrCovered||trip.rainOk)) out.push({t:w.rain,k:'rain'});
+  else if(hot&&trip.lovesHeat) out.push({t:w.heat,k:'heat'});
+  else if(c&&isNice(c)&&trip.outdoor) out.push({t:w.clear,k:''});
+  else if(cold&&trip.indoorOrCovered) out.push({t:w.cold,k:''});
+  if(fl.hasTeen&&['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) out.push({t:w.adrenalin,k:'heat'});
+  if((fl.hasToddler||fl.hasYoungKid)&&['janske-hallenbad','baumwipfelpfad'].includes(trip.id)) out.push({t:w.kids,k:''});
+  if(trip.byFoot) out.push({t:w.foot,k:''});
+  return out.slice(0,3);
+}
+// plán na celý pobyt s anti-opakováním
+function buildPlan(trips,days,fl){
+  const used=new Set(), plan=[];
+  for(const day of days){
+    const ranked=trips.filter(t=>eligible(t,day,fl)).map(t=>({t,sc:scoreTrip(t,day,fl)})).sort((a,b)=>b.sc-a.sc);
+    let pick=ranked.find(r=>!used.has(r.t.id))||ranked[0];
+    if(pick){ used.add(pick.t.id); }
+    const alts=ranked.filter(r=>pick&&r.t.id!==pick.t.id&&r.sc>0).slice(0,2).map(r=>r.t);
+    plan.push({day,pick:pick?pick.t:null,alts});
+  }
+  return plan;
+}
+
+/* ===== Pomocné ===== */
+const qs=new URLSearchParams(location.search);
+const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||''));
+function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(lang==='cs'?'cs-CZ':(lang==='de'?'de-DE':'en-GB'),{weekday:'short',day:'numeric',month:'numeric'});}
+function daysBetween(a,b){const out=[];let d=new Date(a+'T00:00:00Z');const e=new Date(b+'T00:00:00Z');while(d<=e){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+async function loadGuest(token){
+  if(!token||token==='demo'||!CFG.SUPABASE_URL){const r=await fetch(CFG.DEMO_GUEST_URL);return await r.json();}
+  const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/verify_token',{method:'POST',headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},body:JSON.stringify({p_token:token})});
+  if(!r.ok) throw new Error('token');
+  const rows=await r.json(); return Array.isArray(rows)?rows[0]:rows;
+}
+
+/* ===== Render ===== */
+function wxFor(forecast,locId,date){const loc=forecast&&forecast.byLocation&&forecast.byLocation[locId];return loc&&loc.daily?loc.daily[date]:null;}
+function wxCell(day,lang){if(!day)return '<div class="cd">–</div>';const m=CAT[day.cat]||CAT.cloudy;return `<div class="ic"><svg class="icon"><use href="#${m.ic}"></use></svg></div><div class="tp">${day.max}°<small>/${day.min}°</small></div><div class="cd">${m[lang]||m.cs}</div>`;}
+
+function partyEstimate(trip,party,lang){
+  // hrubý odhad: použijeme dospělé × první částku z ceny, jen orientační (ostře ať počítá ostrý ceník)
+  return null; // ponecháno na Fázi 2 (přesný ceník per věk); zatím ukazujeme oficiální ceny v kartě
+}
+
+function render(data){
+  const {guest,trips,forecast}=data;
+  const lang=(guest.lang in I18N)?guest.lang:'de';
+  const L=I18N[lang];
+  document.documentElement.lang=lang;
+  const party=guest.party||{adults:2,children:[]};
+  const fl=partyFlags(party);
+  const stay=daysBetween(guest.arrival,guest.departure);
+  const days=stay.map(d=>({date:d, ...(wxFor(forecast,CFG.VILLA,d)||{})}));
+  const plan=buildPlan(trips,days,fl);
+  const tripById=Object.fromEntries(trips.map(t=>[t.id,t]));
+  const today=new Date().toISOString().slice(0,10);
+  const gen=forecast&&forecast.generatedAt?new Date(forecast.generatedAt):null;
+
+  const childTxt=(party.children&&party.children.length)?`<span><svg class="icon"><use href="#i-users"></use></svg>${party.children.length} ${L.kids} (${party.children.join(', ')})</span>`:'';
+  let html=`<header class="hero">
+    <div class="kick">Villa Rudolf · Krkonoše</div>
+    <h1>${esc(L.greet)}${guest.name&&guest.name.last?' '+esc(guest.name.last):''}</h1>
+    <div class="sub">${esc(L.welcome)}</div>
+    <div class="party">
+      <span><svg class="icon"><use href="#i-calendar"></use></svg>${fmtDate(guest.arrival,lang)} – ${fmtDate(guest.departure,lang)}</span>
+      <span><svg class="icon"><use href="#i-users"></use></svg>${party.adults} ${L.adults}</span>${childTxt}
+    </div></header>`;
+
+  // HERO – dnes / příjezd
+  let heroDay=plan.find(p=>p.day.date===today)||null, heroLabel=L.today;
+  if(!heroDay){
+    if(today<guest.arrival){const dd=Math.round((new Date(guest.arrival)-new Date(today))/864e5);heroLabel=L.arrivingIn(dd);heroDay=plan[0];}
+    else if(today>guest.departure){heroDay=null;}
+  }
+  if(heroDay&&heroDay.pick){const t=heroDay.pick;const bs=whyBadges(t,heroDay.day,fl,L);
+    html+=`<div class="today" style="--acc:${t.accent}">
+      <div class="lbl">${esc(heroLabel)}</div>
+      <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
+      <div class="meta">${heroDay.day.cat?(CAT[heroDay.day.cat][lang]+' · '+heroDay.day.max+'°C · '):''}${esc(tt(t.tagline,lang))}</div>
+      <div class="badges">${bs.map(b=>`<span class="badge ${b.k}">${esc(b.t)}</span>`).join('')}</div>
+      <div class="alts"><a href="#${t.id}">${lang==='de'?'Details':(lang==='en'?'Details':'Detail')} →</a></div>
+    </div>`;}
+  else if(today>guest.departure){html+=`<div class="today"><h3>${esc(L.thanks)}</h3></div>`;}
+
+  // PLÁN PODLE POČASÍ
+  html+=`<div class="sec-h"><svg class="icon"><use href="#i-route"></use></svg><h2>${esc(L.plan)}</h2></div><div class="card">`;
+  for(const p of plan){const t=p.pick;
+    html+=`<div class="day"><div class="wx"><div class="dt">${fmtDate(p.day.date,lang)}</div>${wxCell(p.day.cat?p.day:null,lang)}</div><div class="pick">`;
+    if(t){const bs=whyBadges(t,p.day,fl,L);
+      html+=`<div class="nm" style="--acc:${t.accent}"><span class="acc"></span><a href="#${t.id}" style="text-decoration:none;color:inherit">${esc(tt(t.name,lang))}</a></div>
+        <div class="badges">${bs.map(b=>`<span class="badge ${b.k}">${esc(b.t)}</span>`).join('')}</div>`;
+      if(p.alts.length)html+=`<div class="alts">${L.alt}: ${p.alts.map(a=>`<a href="#${a.id}">${esc(tt(a.name,lang).split('–')[0].split('(')[0].trim())}</a>`).join(' · ')}</div>`;
+    }
+    html+=`</div></div>`;}
+  html+=`</div><div class="note"><svg class="icon"><use href="#i-info"></use></svg><span>${esc(L.planNote)}</span></div>`;
+
+  // VŠECHNY VÝLETY
+  html+=`<div class="sec-h"><svg class="icon"><use href="#i-pin"></use></svg><h2>${esc(L.allTrips)}</h2></div>`;
+  for(const t of trips){
+    const open=tt(t.openNote,lang),price=tt(t.price,lang);
+    html+=`<div class="card trip" id="${t.id}" style="--acc:${t.accent}">
+      <div class="tg">${esc(tt(t.tagline,lang))}</div>
+      <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
+      <p>${esc(tt(t.desc,lang))}</p>
+      <div class="facts">
+        <div><div class="lbl">${L.openLabel}</div>${esc(open)}</div>
+        <div><div class="lbl">${L.priceLabel}</div>${esc(price)}</div>
+        <div><div class="lbl">${L.transport}</div>${t.byFoot?L.byFoot:(t.travelMin+' '+L.min)}</div>
+      </div>`;
+    const warns=[];
+    if(t.group&&t.group.reservation&&fl.isGroup)warns.push(L.reservation);
+    if(t.crossBorderId&&(party.children&&party.children.length))warns.push(L.idDocs);
+    if(t.group&&t.group.capacity)warns.push(L.capacity);
+    for(const wn of warns)html+=`<div class="note"><svg class="icon"><use href="#i-alert"></use></svg><span>${esc(wn)}</span></div>`;
+    html+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div></div>`;
+  }
+
+  html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(lang==='cs'?'cs-CZ':'de-DE',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
+  document.getElementById('app').innerHTML=html;
+}
+
+/* ===== Start ===== */
+(async function(){
+  try{
+    const token=qs.get('t')||'demo';
+    const [guest,tripsRaw,forecast]=await Promise.all([
+      loadGuest(token),
+      fetch(CFG.TRIPS_URL).then(r=>r.json()),
+      fetch(CFG.FORECAST_URL).then(r=>r.json()).catch(()=>null)
+    ]);
+    render({guest,trips:tripsRaw.trips,forecast});
+  }catch(e){
+    document.getElementById('app').innerHTML='<div class="loading">Průvodce se nepodařilo načíst. / Guide konnte nicht geladen werden.</div>';
+    console.error(e);
+  }
+})();
+</script>
+
+<script defer src="https://178-104-207-97.sslip.io/script.js" data-website-id="e7532123-5434-44e1-a7ef-6c5d18bed939"></script>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="http"]');if(!a||!window.umami)return;var s=a.closest('.trip'),h=s&&s.querySelector('h3');window.umami.track('Link-Klick',{ausflug:h?h.textContent.trim().slice(0,48):'Allg.',link:(a.textContent||a.href).trim().replace(/\s+/g,' ').slice(0,60),url:a.href});});
+</script>
+</body>
+</html>

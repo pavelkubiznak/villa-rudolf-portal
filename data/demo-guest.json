@@ -1,0 +1,13 @@
+{
+  "_comment": "Ukázkový host pro DEMO režim (?t=demo). Žádná reálná data. V ostrém provozu tohle dodá Supabase přes token.",
+  "token": "demo",
+  "name": { "first": "Familie", "last": "Demo" },
+  "lang": "de",
+  "arrival": "2026-06-30",
+  "departure": "2026-07-04",
+  "party": {
+    "adults": 4,
+    "children": [6, 15]
+  },
+  "notes": ""
+}

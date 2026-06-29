@@ -1,0 +1,187 @@
+{
+  "_comment": "Katalog výletů Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de). Tagy pohánějí doporučovací jádro.",
+  "trips": [
+    {
+      "id": "snezka-cablecar",
+      "icon": "mountain",
+      "accent": "#4f6d7a",
+      "coords": { "lat": 50.7359, "lon": 15.7400, "alt": 1603 },
+      "travelMin": 20, "byFoot": false,
+      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
+      "needsClearLowWind": true, "effort": "moderate", "stairs": false, "crossBorderId": false,
+      "minAge": 0, "bestFor": ["teen", "adult", "child"],
+      "group": { "groupTariffMin": 20, "reservation": false, "capacity": null },
+      "name": { "cs": "Sněžka (1603 m) lanovkou nebo pěšky", "de": "Sněžka (1603 m) – Seilbahn oder zu Fuß" },
+      "tagline": { "cs": "nejvyšší hora · autem 20 min do Pece", "de": "höchster Berg · 20 Min. nach Pec" },
+      "desc": { "cs": "Kabinová lanovka z Pece pod Sněžkou na vrchol za ~15 min; sportovci mohou pěšky. Vrchol je na hranici s Polskem.", "de": "Kabinenseilbahn von Pec pod Sněžkou in ~15 Min. auf den Gipfel; sportlich auch zu Fuß. Der Gipfel liegt an der Grenze zu Polen." },
+      "openNote": { "cs": "hlavní sezóna denně 8:00–19:00; nahoru jen za příznivého počasí (vítr <60 km/h)", "de": "Hauptsaison täglich 8:00–19:00; nur bei gutem Wetter bis zum Gipfel (Wind <60 km/h)" },
+      "price": { "cs": "dospělí tam a zpět 750 Kč · 12–17 let 680 Kč · skupina od 20 os. 680 Kč/os.", "de": "Erwachsene hin & zurück 750 Kč · 12–17 J. 680 Kč · Gruppe ab 20 Pers. 680 Kč/Pers." },
+      "links": [
+        { "icon": "globe", "label": "snezkalanovka.cz", "url": "https://www.snezkalanovka.cz/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem do Pece", "de": "Mapy.cz – Route nach Pec" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "stachelberg",
+      "icon": "fort",
+      "accent": "#7a6840",
+      "coords": { "lat": 50.6340, "lon": 15.9060, "alt": 615 },
+      "travelMin": 15, "byFoot": false,
+      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": false,
+      "needsClearLowWind": false, "effort": "moderate", "stairs": true, "crossBorderId": false,
+      "minAge": 5, "bestFor": ["child", "teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
+      "name": { "cs": "Pevnost Stachelberg – výprava do podzemí", "de": "Festung Stachelberg – Expedition in den Untergrund" },
+      "tagline": { "cs": "historie a podzemí · autem 15 min", "de": "Geschichte & Untertage · 15 Min." },
+      "desc": { "cs": "Největší moderní pevnost v Čechách: sestup 52 m hluboko do 3,5 km chodeb (186 schodů). V podzemí stálých ~8 °C.", "de": "Größte moderne Festung Tschechiens: 52 m hinab in 3,5 km Gänge (186 Stufen). Unter Tage konstant ~8 °C." },
+      "openNote": { "cs": "v červnu čt–ne 10:00–17:00", "de": "im Juni Do–So 10:00–17:00" },
+      "price": { "cs": "dospělí 200 Kč · děti 6–15 let 100 Kč · rodina 2+2 500 Kč", "de": "Erwachsene 200 Kč · Kinder 6–15 J. 100 Kč · Familie 2+2 500 Kč" },
+      "links": [
+        { "icon": "globe", "label": "stachelberg.cz", "url": "https://www.stachelberg.cz/" },
+        { "icon": "ticket", "label": { "cs": "Vstupenky online", "de": "Tickets online" }, "url": "https://portal.colosseum.eu/Tours?mrsid=382" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "baumwipfelpfad",
+      "icon": "tree",
+      "accent": "#4a7257",
+      "coords": { "lat": 50.6300, "lon": 15.7830, "alt": 650 },
+      "travelMin": 0, "byFoot": true,
+      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
+      "needsClearLowWind": false, "effort": "moderate", "stairs": false, "crossBorderId": false,
+      "minAge": 0, "bestFor": ["child", "teen", "adult", "toddler"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
+      "name": { "cs": "Pěšky do Janských Lázní a na Stezku korunami stromů", "de": "Zu Fuß nach Janské Lázně und auf den Baumwipfelpfad" },
+      "tagline": { "cs": "příroda a výhledy · pěšky od vily · nově s medvědy", "de": "Natur & Aussicht · zu Fuß · neu mit Bären" },
+      "desc": { "cs": "Klasika od vily (~4 km lesem): kolonáda, pak Stezka korunami stromů s 43m věží, tobogánem a Medvědí stezkou.", "de": "Klassiker ab der Villa (~4 km Wald): Kolonnade, dann Baumwipfelpfad mit 43-m-Turm, Tunnelrutsche und Bärenpfad." },
+      "openNote": { "cs": "v červnu denně 9:30–19:00", "de": "im Juni täglich 9:30–19:00" },
+      "price": { "cs": "dospělí (od 15 let) 450 Kč · děti 3–14 let 350 Kč · tobogán 50 Kč", "de": "Erwachsene (ab 15) 450 Kč · Kinder 3–14 J. 350 Kč · Tunnelrutsche 50 Kč" },
+      "links": [
+        { "icon": "globe", "label": "treetop-walks.com/krkonose", "url": "https://treetop-walks.com/krkonose/" },
+        { "icon": "ticket", "label": { "cs": "E-shop vstupenek", "de": "Ticket-Shop" }, "url": "https://eshop.stezkakrkonose.cz/cz/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – pěšky od vily", "de": "Mapy.cz – zu Fuß" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking" }
+      ]
+    },
+    {
+      "id": "janske-hallenbad",
+      "icon": "waves",
+      "accent": "#44786d",
+      "coords": { "lat": 50.6315, "lon": 15.7805, "alt": 640 },
+      "travelMin": 0, "byFoot": true,
+      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
+      "minAge": 0, "bestFor": ["toddler", "child", "adult"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
+      "name": { "cs": "Krytý bazén v Janských Lázních (Aquacentrum)", "de": "Hallenbad in Janské Lázně (Aquacentrum)" },
+      "tagline": { "cs": "lázeňská relaxace · pěšky od vily", "de": "Wellness im Kurort · zu Fuß" },
+      "desc": { "cs": "Bazén z minerálních pramenů (27 °C), vířivky, protiproud a saunový svět – hned za kolonádou.", "de": "Becken mit Mineralquellwasser (27 °C), Whirlpools, Gegenstrom und Saunawelt – direkt an der Kolonnade." },
+      "openNote": { "cs": "pro veřejnost po–pá 16–21, so–ne 13–21", "de": "öffentlich Mo–Fr 16–21, Sa–So 13–21" },
+      "price": { "cs": "bazén 240 Kč · bazén+sauny dospělí 400 Kč", "de": "Bad 240 Kč · Bad+Sauna Erwachsene 400 Kč" },
+      "links": [
+        { "icon": "globe", "label": "janskelazne.com", "url": "https://www.janskelazne.com/aquacentrum/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – pěšky", "de": "Mapy.cz – zu Fuß" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking" }
+      ]
+    },
+    {
+      "id": "aqua-vrchlabi",
+      "icon": "waves",
+      "accent": "#4a708e",
+      "coords": { "lat": 50.6264, "lon": 15.6094, "alt": 480 },
+      "travelMin": 25, "byFoot": false,
+      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
+      "minAge": 0, "bestFor": ["toddler", "child", "teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": 141 },
+      "name": { "cs": "Aquacentrum Vrchlabí", "de": "Aquacentrum Vrchlabí" },
+      "tagline": { "cs": "plavání a tobogány · autem 25 min", "de": "Schwimmen & Rutschen · 25 Min." },
+      "desc": { "cs": "Moderní bazény (2022): 25m bazén, divoká řeka, 60m tobogán s jízdou ve tmě, vířivky. Web ukazuje obsazenost živě.", "de": "Moderne Bäder (2022): 25-m-Becken, Wildwasser, 60-m-Tunnelrutsche, Whirlpools. Website zeigt Live-Auslastung." },
+      "openNote": { "cs": "před cestou zkontrolujte obsazenost online (kapacita 141)", "de": "vor der Fahrt Auslastung online prüfen (Kapazität 141)" },
+      "price": { "cs": "prvních 75 min 165 Kč, denní max 290 Kč", "de": "erste 75 Min. 165 Kč, Tagesmax. 290 Kč" },
+      "links": [
+        { "icon": "globe", "label": { "cs": "obsazenost živě", "de": "Auslastung live" }, "url": "https://www.aquacentrum-vrchlabi.cz/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "aquapark-karpacz",
+      "icon": "waves",
+      "accent": "#5d6890",
+      "coords": { "lat": 50.7766, "lon": 15.7546, "alt": 720 },
+      "travelMin": 45, "byFoot": false,
+      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": true,
+      "minAge": 0, "bestFor": ["toddler", "child", "teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
+      "name": { "cs": "Aquapark Tropikana – Karpacz (PL)", "de": "Aquapark Tropikana – Karpacz (PL)" },
+      "tagline": { "cs": "aquapark za hranicemi · autem 45 min", "de": "Aquapark im Ausland · 45 Min." },
+      "desc": { "cs": "Velký hotelový aquapark hned za hranicí: vlny, skluzavky, 8 vířivek, solná i ledová jeskyně. Pozor na doklady i pro děti.", "de": "Großer Hotel-Aquapark hinter der Grenze: Wellen, Rutschen, 8 Whirlpools, Salz- und Eisgrotte. Ausweise auch für Kinder mitnehmen." },
+      "openNote": { "cs": "po–pá 11–21, so–ne 9–21", "de": "Mo–Fr 11–21, Sa–So 9–21" },
+      "price": { "cs": "dospělí 80 zł / 1,5 h · děti do 14 let −50 %", "de": "Erwachsene 80 zł / 1,5 Std. · Kinder bis 14 J. −50 %" },
+      "links": [
+        { "icon": "globe", "label": "golebiewski.pl", "url": "https://www.golebiewski.pl/cz/karpacz/aquapark-cz" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "harrachov-glass",
+      "icon": "flame",
+      "accent": "#a05c30",
+      "coords": { "lat": 50.7710, "lon": 15.4296, "alt": 665 },
+      "travelMin": 50, "byFoot": false,
+      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": false,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
+      "minAge": 0, "bestFor": ["child", "teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
+      "name": { "cs": "Sklárna Harrachov & Mumlavské vodopády", "de": "Glashütte Harrachov & Mumlava-Wasserfälle" },
+      "tagline": { "cs": "řemeslo a vodopády · autem 50 min", "de": "Handwerk & Wasserfälle · 50 Min." },
+      "desc": { "cs": "Nejstarší fungující sklárna v Čechách: 45min prohlídka tavení a foukání skla. Kousek dál zdarma Mumlavské vodopády (lehká procházka).", "de": "Älteste arbeitende Glashütte Tschechiens: 45-Min.-Führung am Ofen. Nebenan kostenlos die Mumlava-Wasserfälle (leichter Weg)." },
+      "openNote": { "cs": "prohlídky denně 8–15; skupiny předem rezervovat", "de": "Führungen täglich 8–15; Gruppen vorab anmelden" },
+      "price": { "cs": "dospělí 250 Kč · děti 6–17 let 100 Kč · vodopády zdarma", "de": "Erwachsene 250 Kč · Kinder 6–17 J. 100 Kč · Wasserfälle gratis" },
+      "links": [
+        { "icon": "globe", "label": "sklarnaharrachov.cz", "url": "https://sklarnaharrachov.cz/sklarna/exkurze" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "bobsled-pec",
+      "icon": "zap",
+      "accent": "#9e5242",
+      "coords": { "lat": 50.6985, "lon": 15.7346, "alt": 769 },
+      "travelMin": 20, "byFoot": false,
+      "outdoor": true, "indoorOrCovered": false, "rainOk": true, "lovesHeat": false,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
+      "minAge": 8, "bestFor": ["child", "teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
+      "name": { "cs": "Bobová dráha Relaxpark Pec pod Sněžkou", "de": "Sommerrodelbahn Relaxpark Pec pod Sněžkou" },
+      "tagline": { "cs": "adrenalin · autem 20 min · jezdí za každého počasí", "de": "Adrenalin · 20 Min. · bei jedem Wetter" },
+      "desc": { "cs": "900 m nerezová dráha, dvojsedačky až 40 km/h, jezdí i v dešti. Od 8 let lze jet samostatně.", "de": "900 m Edelstahlbahn, Zweisitzer bis 40 km/h, fährt auch bei Regen. Ab 8 Jahren allein." },
+      "openNote": { "cs": "červen denně 9–18, červenec/srpen 9–20", "de": "Juni täglich 9–18, Juli/Aug. 9–20" },
+      "price": { "cs": "jízda ~160–210 Kč; 10 jízd ~1 300 Kč", "de": "Fahrt ~160–210 Kč; 10 Fahrten ~1 300 Kč" },
+      "links": [
+        { "icon": "globe", "label": "relaxpark.cz", "url": "https://www.relaxpark.cz/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic" }
+      ]
+    },
+    {
+      "id": "ebikes",
+      "icon": "bike",
+      "accent": "#5e7a40",
+      "coords": { "lat": 50.6388, "lon": 15.7621, "alt": 640 },
+      "travelMin": 12, "byFoot": false,
+      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
+      "needsClearLowWind": false, "effort": "moderate", "stairs": false, "crossBorderId": false,
+      "minAge": 12, "bestFor": ["teen", "adult"],
+      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
+      "name": { "cs": "E-kola & cyklovýlety v Krkonoších", "de": "E-Bikes & Radfahren im Riesengebirge" },
+      "tagline": { "cs": "aktivně · půjčovna v Janských Lázních", "de": "aktiv · Verleih in Janské Lázně" },
+      "desc": { "cs": "Přes 900 km značených tras. S e-koly zvládne dlouhé výlety i mládež a parta drží pohromadě. Půjčovna SkiResort Live.", "de": "Über 900 km Radwege. Mit E-Bikes schaffen auch Jugendliche lange Touren. Verleih SkiResort Live." },
+      "openNote": { "cs": "červen 9–17, červenec/srpen 9–18; rezervovat předem", "de": "Juni 9–17, Juli/Aug. 9–18; vorab reservieren" },
+      "price": { "cs": "junior e-kolo 590 Kč/den · dospělí od 1 250 Kč/den", "de": "Junior-E-Bike 590 Kč/Tag · Erwachsene ab 1 250 Kč/Tag" },
+      "links": [
+        { "icon": "globe", "label": "leto.skiresort.cz", "url": "https://leto.skiresort.cz/letni-aktivity/elektrokola/" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – půjčovna", "de": "Mapy.cz – Verleih" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic" }
+      ]
+    }
+  ]
+}
