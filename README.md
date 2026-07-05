@@ -22,10 +22,10 @@ návštěvy/kliky měří **Umami**. Jediný ruční krok: vložení odkazu do z
 
 ## Kroky k ostrému provozu
 1. **Hosting:** nasaď tuto složku na GitHub Pages nebo Cloudflare Pages (doména je na Cloudflare).
-2. **Supabase:** založ projekt v EU, spusť `supabase/schema.sql`. Do `index.html` → `CFG`
-   doplň `SUPABASE_URL` a `SUPABASE_ANON_KEY` (anon key, RLS chrání data).
-3. **Počasí cron:** na Hetzneru `node scripts/fetch-forecast.mjs` přes cron 2×/den a
-   výsledný `forecast.json` publikuj (commit do repa nebo servíruj přes Caddy s CORS).
+2. **Supabase:** HOTOVO (2026-07-05) — schéma `vr_bookings` + `vr_verify_token`/`vr_update_party`
+   běží v projektu `fpknbrzbqpalguajskut` (sdílený, vr_ prefix); CFG v `index.html` je zapojené.
+3. **Počasí cron:** HOTOVO (2026-07-05) — `/opt/vr-portal/refresh-weather.sh` na Hetzneru,
+   cron `15 5,15 * * *`, push přes deploy key, log `/var/log/vr-weather.log`.
 4. **n8n ingest:** workflow na Gmail trigger (Booking.com): naparsuj jméno/termín/počty,
    vyrob `RAW_TOKEN`, ulož `sha256(token)` do `bookings`, sestav URL `…/?t=RAW_TOKEN`
    a **připrav uvítací zprávu v jazyce hosta** (Gmail draft / tlačítko v owner dashboardu).

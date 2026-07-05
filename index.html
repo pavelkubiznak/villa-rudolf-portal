@@ -118,8 +118,8 @@ const CFG = {
   DEMO_GUEST_URL: 'data/demo-guest.json',
   VILLA: 'villa',
   // Ostrý provoz: doplň po vytvoření Supabase projektu. Prázdné = demo režim (čte demo-guest.json).
-  SUPABASE_URL: '',
-  SUPABASE_ANON_KEY: '',
+  SUPABASE_URL: 'https://fpknbrzbqpalguajskut.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwa25icnpicXBhbGd1YWpza3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDEyMTAsImV4cCI6MjA5Mjg3NzIxMH0.goat1c7Y1YnpTq7_XyMD3LROElkVI6E27f0B3EG8btA',
   UMAMI_SRC: 'https://178-104-207-97.sslip.io/script.js',
   UMAMI_ID: 'e7532123-5434-44e1-a7ef-6c5d18bed939'
 };
@@ -245,7 +245,7 @@ async function loadGuest(token){
     g.arrival=lp(1); g.departure=lp(5);
     return g;
   }
-  const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/verify_token',{method:'POST',headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},body:JSON.stringify({p_token:token})});
+  const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_verify_token',{method:'POST',headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},body:JSON.stringify({p_token:token})});
   if(!r.ok) throw new Error('token');
   const rows=await r.json(); return Array.isArray(rows)?rows[0]:rows;
 }
