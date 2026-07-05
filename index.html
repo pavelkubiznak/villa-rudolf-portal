@@ -8,6 +8,8 @@
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#33493a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2333493a' d='M3 20L9 8l4 7 2-3 6 8z'/%3E%3C/svg%3E">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,6 +35,19 @@ a{color:var(--accent);}
 .hero .sub{color:var(--muted);font-size:.95rem;}
 .hero .party{margin-top:8px;font-size:.85rem;color:var(--muted);display:flex;gap:6px 14px;justify-content:center;flex-wrap:wrap;}
 .hero .party span{display:inline-flex;align-items:center;gap:5px;}
+.party-edit{background:none;border:none;cursor:pointer;font:inherit;color:var(--accent);display:inline-flex;align-items:center;gap:4px;padding:2px 4px;border-radius:6px;font-weight:600;}
+.party-edit:hover{background:var(--ok-soft);}
+.party-edit .icon{width:1em;height:1em;color:var(--accent-2);}
+.edit-form{margin:-8px 0 22px;}
+.edit-form h3{font-family:var(--font-d);font-weight:600;font-size:1.1rem;color:var(--heading);margin-bottom:12px;}
+.edit-form label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:5px;}
+.edit-form .fld{margin-bottom:14px;}
+.edit-form input{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);}
+.edit-form input:focus{outline:2px solid var(--accent-2);outline-offset:0;border-color:var(--accent-2);}
+.edit-form .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.edit-form button{font:inherit;font-weight:600;padding:10px 18px;border-radius:10px;cursor:pointer;border:1px solid var(--line);}
+.edit-form .save{background:var(--accent);color:#fbf9f3;border-color:var(--accent);}
+.edit-form .close{background:var(--paper);color:var(--muted);}
 
 .sec-h{display:flex;align-items:center;gap:10px;margin:30px 0 12px;}
 .sec-h .icon{color:var(--accent-2);width:1.3em;height:1.3em;}
@@ -106,6 +121,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-si
 <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
 <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
 <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/><circle cx="18" cy="5" r="2"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
 </svg>
 
 <div class="wrap"><div id="app"><div class="loading">…</div></div></div>
@@ -134,6 +150,7 @@ const I18N = {
     reservation:'Pro skupinu doporučujeme rezervovat předem.',idDocs:'Do Polska má mít vlastní doklad i každé dítě.',
     capacity:'Před cestou zkontrolujte obsazenost online.',
     wxLive:'Počasí živě z yr.no',updated:'aktualizováno',planNote:'Plán se řídí předpovědí a je jen doporučení – ráno mrkněte na aktuální počasí a dny klidně prohoďte (outdoor za hezka, indoor za deště).',
+    editParty:'upravit',editTitle:'Upřesnit skupinu',editAdults:'Dospělí',editKids:'Věk dětí (např. 8, 12)',editSave:'Uložit',editClose:'Zavřít',
     footer:'Připraveno ve Ville Rudolf · ceny a otevírací doby ověřte před cestou · počasí: yr.no.',thanks:'Děkujeme za návštěvu a přejeme šťastnou cestu domů!',
     why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu'}},
   de:{greet:'Liebe Familie',welcome:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter, Alter der Kinder und Größe Ihrer Gruppe.',
@@ -144,6 +161,7 @@ const I18N = {
     reservation:'Für die Gruppe bitte vorab reservieren.',idDocs:'Nach Polen braucht auch jedes Kind einen eigenen Ausweis.',
     capacity:'Vor der Fahrt die Auslastung online prüfen.',
     wxLive:'Wetter live von yr.no',updated:'aktualisiert',planNote:'Der Plan folgt der Vorhersage und ist nur eine Empfehlung – schauen Sie morgens aufs aktuelle Wetter und tauschen Sie die Tage ruhig (Outdoor bei Sonne, Indoor bei Regen).',
+    editParty:'anpassen',editTitle:'Gruppe anpassen',editAdults:'Erwachsene',editKids:'Alter der Kinder (z. B. 8, 12)',editSave:'Speichern',editClose:'Schließen',
     footer:'Zusammengestellt in der Villa Rudolf · Preise und Öffnungszeiten vorab prüfen · Wetter: yr.no.',thanks:'Danke für Ihren Besuch und eine gute Heimreise!',
     why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht'}},
   en:{greet:'Dear guests',welcome:'we put together trip ideas nearby – ranked by weather, kids’ ages and your group size.',
@@ -154,6 +172,7 @@ const I18N = {
     reservation:'For a group, book ahead.',idDocs:'For Poland every child needs their own ID.',
     capacity:'Check live occupancy before you go.',
     wxLive:'Live weather from yr.no',updated:'updated',planNote:'The plan follows the forecast and is only a suggestion – check today’s weather in the morning and swap days freely (outdoor when sunny, indoor when wet).',
+    editParty:'edit',editTitle:'Adjust your group',editAdults:'Adults',editKids:'Children’s ages (e.g. 8, 12)',editSave:'Save',editClose:'Close',
     footer:'Prepared at Villa Rudolf · verify prices and hours before you go · weather: yr.no.',thanks:'Thank you for visiting and safe travels home!',
     why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}}
 };
@@ -237,6 +256,33 @@ function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDa
 function daysBetween(a,b){const out=[];let d=new Date(a+'T00:00:00Z');const e=new Date(b+'T00:00:00Z');while(d<=e){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
+/* ===== Úprava skupiny (localStorage + Supabase RPC) ===== */
+const partyKey=token=>'vr-party-'+token;
+function parseParty(adultsRaw,kidsRaw){
+  let adults=parseInt(adultsRaw,10); if(!Number.isFinite(adults))adults=1;
+  adults=Math.min(30,Math.max(1,adults));
+  const children=String(kidsRaw||'').split(',')
+    .map(s=>parseInt(s.trim(),10))
+    .filter(n=>Number.isFinite(n))
+    .map(n=>Math.min(17,Math.max(0,n)))
+    .slice(0,20);
+  return {adults,children};
+}
+function loadPartyOverride(token){
+  try{const raw=localStorage.getItem(partyKey(token));if(!raw)return null;const p=JSON.parse(raw);
+    if(p&&typeof p.adults==='number'&&Array.isArray(p.children))return p;}catch(e){}
+  return null;
+}
+function savePartyOverride(token,party){
+  try{localStorage.setItem(partyKey(token),JSON.stringify(party));}catch(e){}
+  if(token&&token!=='demo'&&CFG.SUPABASE_URL){
+    fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_update_party',{method:'POST',
+      headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},
+      body:JSON.stringify({p_token:token,p_adults:party.adults,p_children:party.children})
+    }).then(r=>{if(!r.ok)console.warn('vr_update_party HTTP '+r.status);}).catch(e=>console.warn('vr_update_party',e));
+  }
+}
+
 async function loadGuest(token){
   if(!token||token==='demo'||!CFG.SUPABASE_URL){
     const g=await (await fetch(CFG.DEMO_GUEST_URL)).json();
@@ -259,7 +305,7 @@ function partyEstimate(trip,party,lang){
   return null; // ponecháno na Fázi 2 (přesný ceník per věk); zatím ukazujeme oficiální ceny v kartě
 }
 
-function render(data){
+function render(data,token){
   const {guest,trips,forecast}=data;
   const lang=(guest.lang in I18N)?guest.lang:'de';
   const L=I18N[lang];
@@ -281,7 +327,17 @@ function render(data){
     <div class="party">
       <span><svg class="icon"><use href="#i-calendar"></use></svg>${fmtDate(guest.arrival,lang)} – ${fmtDate(guest.departure,lang)}</span>
       <span><svg class="icon"><use href="#i-users"></use></svg>${party.adults} ${L.adults}</span>${childTxt}
-    </div></header>`;
+      <button type="button" class="party-edit" id="party-edit-btn"><svg class="icon"><use href="#i-edit"></use></svg>${esc(L.editParty)}</button>
+    </div></header>
+    <div class="card edit-form" id="edit-form" hidden>
+      <h3>${esc(L.editTitle)}</h3>
+      <div class="fld"><label for="ef-adults">${esc(L.editAdults)}</label>
+        <input type="number" id="ef-adults" min="1" max="30" step="1" inputmode="numeric" value="${party.adults}"></div>
+      <div class="fld"><label for="ef-kids">${esc(L.editKids)}</label>
+        <input type="text" id="ef-kids" inputmode="numeric" value="${esc((party.children||[]).join(', '))}"></div>
+      <div class="btns"><button type="button" class="save" id="ef-save">${esc(L.editSave)}</button>
+        <button type="button" class="close" id="ef-close">${esc(L.editClose)}</button></div>
+    </div>`;
 
   // HERO – dnes / příjezd
   let heroDay=plan.find(p=>p.day.date===today)||null, heroLabel=L.today;
@@ -334,6 +390,26 @@ function render(data){
 
   html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(lang==='cs'?'cs-CZ':'de-DE',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
   document.getElementById('app').innerHTML=html;
+
+  // ===== Úprava skupiny: ovládání formuláře =====
+  const form=document.getElementById('edit-form');
+  const btn=document.getElementById('party-edit-btn');
+  if(form&&btn){
+    const open=()=>{form.hidden=false;btn.setAttribute('aria-expanded','true');const a=document.getElementById('ef-adults');if(a)a.focus();};
+    const close=()=>{form.hidden=true;btn.setAttribute('aria-expanded','false');};
+    btn.addEventListener('click',()=>{form.hidden?open():close();});
+    const closeBtn=document.getElementById('ef-close');
+    if(closeBtn)closeBtn.addEventListener('click',close);
+    const saveBtn=document.getElementById('ef-save');
+    if(saveBtn)saveBtn.addEventListener('click',()=>{
+      const adultsRaw=(document.getElementById('ef-adults')||{}).value;
+      const kidsRaw=(document.getElementById('ef-kids')||{}).value;
+      const np=parseParty(adultsRaw,kidsRaw);
+      savePartyOverride(token,np);
+      data.guest.party=np;
+      render(data,token); // přerenderuj celé UI s novým party (plán se přepočítá)
+    });
+  }
 }
 
 /* ===== Start ===== */
@@ -345,12 +421,24 @@ function render(data){
       fetch(CFG.TRIPS_URL).then(r=>r.json()),
       fetch(CFG.FORECAST_URL).then(r=>r.json()).catch(()=>null)
     ]);
-    render({guest,trips:tripsRaw.trips,forecast});
+    // lokální override skupiny (host si upravil partu; funguje i v demu)
+    const ov=loadPartyOverride(token);
+    if(ov)guest.party=ov;
+    render({guest,trips:tripsRaw.trips,forecast},token);
   }catch(e){
     document.getElementById('app').innerHTML='<div class="loading">Průvodce se nepodařilo načíst. / Guide konnte nicht geladen werden.</div>';
     console.error(e);
   }
 })();
+
+/* ===== Service worker (PWA, offline) — relativní cesta kvůli GH Pages subpath ===== */
+try{
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',function(){
+      navigator.serviceWorker.register('./sw.js').catch(function(e){console.warn('SW',e);});
+    });
+  }
+}catch(e){/* jsdom apod. — SW není k dispozici */}
 </script>
 
 <script defer src="https://178-104-207-97.sslip.io/script.js" data-website-id="e7532123-5434-44e1-a7ef-6c5d18bed939"></script>

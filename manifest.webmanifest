@@ -1,0 +1,17 @@
+{
+  "name": "Villa Rudolf – Reiseführer / průvodce",
+  "short_name": "Villa Rudolf",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3efe5",
+  "theme_color": "#33493a",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ]
+}
