@@ -1,157 +1,130 @@
-# n8n workflow „VR booking ingest"
+# n8n workflow „VR – nový host"
 
-Automatický příjem rezervací z Booking.com → zápis do Supabase (`vr_bookings`) → příprava uvítací
-zprávy s odkazem na guest portál. Odkaz vkládá majitel do zprávy na Booking.com **ručně** – Booking
-blokuje odkazy od botů, takže workflow končí uloženým Gmail draftem, nikoli automatickým odesláním.
+Automatický příjem nové rezervace přes **webhook** → založení hosta v Supabase (`vr_bookings`
+přes RPC `vr_create_booking`) → vygenerování odkazu na guest portál + hotové uvítací zprávy
+v jazyce hosta. Odkaz vkládá majitel do zprávy hostovi (např. na Booking.com) **ručně** – Booking
+blokuje odkazy od botů, takže workflow jen vrátí připravený text a odkaz, nic sám neodesílá.
 
 Portál: <https://pavelkubiznak.github.io/villa-rudolf-portal/>
-Supabase projekt: `fpknbrzbqpalguajskut` (sdílený, tabulky s prefixem `vr_`)
+Supabase projekt: `fpknbrzbqpalguajskut` (sdílený, tabulky a funkce s prefixem `vr_`)
+n8n: běží jako Docker kontejner `n8n` na produkčním serveru, port jen `127.0.0.1:5678`.
 
 ---
 
 ## Bezpečnost tokenů (přečti první)
 
 - Hostovi posíláme **RAW token** (32 hex znaků = 128 bit) v odkazu `?t=RAWTOKEN`.
-- Do databáze ukládáme **jen sha256 hash** (`token_hash`). RAW token nikam neukládáme.
-- `SERVICE_ROLE` klíč Supabase patří **výhradně do n8n credentials**. NIKDY ho nedávej do tohoto
-  repozitáře, do URL, do logů ani do Gmail draftu.
-- `expires_at = departure + 30 dní`. Po expiraci `vr_verify_token` vrací prázdno a portál token odmítne.
+- Do databáze ukládáme **jen sha256 hash** (`token_hash`). RAW token nikam neukládáme – vzniká
+  v Code nodu, projde workflowem jen do odkazu a uvítací zprávy, a dál nikam.
+- Zápis rezervace probíhá přes RPC `vr_create_booking` s **veřejným anon klíčem** + malým
+  **ingest secretem** (`p_secret`). Ingest secret smí JEN zakládat rezervace (malý blast radius);
+  je uložený uvnitř workflow (Code node), **nikoli v tomto repozitáři**. `SERVICE_ROLE` klíč se
+  **nepoužívá** a nikdy nesmí být v repu, v URL, v logu ani ve zprávě hostovi.
+- `expires_at`: workflow posílá `p_expires: null` (bez expirace). Denní úklid řeší RPC
+  `vr_purge_expired` (viz níže).
+
+---
+
+## Trigger: webhook
+
+- **Node:** `n8n-nodes-base.webhook` (typeVersion 2)
+- **Method:** `POST`
+- **Path:** `vr-new-guest`
+- **Response Mode:** `responseNode` (odpověď vrací node „Odpověď")
+- **URL (přes SSH tunel na server):** `POST http://localhost:5678/webhook/vr-new-guest`
+
+Tělo požadavku (JSON) je v n8n dostupné pod `$json.body`:
+
+```json
+{
+  "first_name": "Max",
+  "last_name":  "Mustermann",
+  "lang":       "de",              // cs | de | en (default de)
+  "arrival":    "2026-07-10",      // YYYY-MM-DD
+  "departure":  "2026-07-15",      // YYYY-MM-DD
+  "adults":     2,                  // int, clamp 1–30, default 2
+  "children":   "8, 10",           // string „8, 10" NEBO pole [8,10]; clamp 0–17, max 20
+  "booking_ref": "BK-12345"        // volitelné; když chybí, vygeneruje se VR-YYYY-MM-DD-xxxxxx
+}
+```
 
 ---
 
 ## Přehled uzlů (nodes)
 
 ```
-Gmail Trigger ──▶ Function (parse) ──▶ Function (token) ──▶ HTTP Request (upsert) ──▶ Function (zpráva) ──▶ Gmail (create draft)
+Webhook ──▶ Připravit (Code) ──▶ Založit v Supabase (HTTP) ──▶ Odpověď (Respond to Webhook)
 ```
 
-### 1) Gmail Trigger
+### 1) Webhook
 
-- Trigger na příchozí e-mail.
-- Filtr na potvrzení z Booking.com – např. label `Booking` nebo dotaz
-  `from:booking.com subject:(potvrzení OR confirmed OR bestätigt) newer_than:2d`.
-- Doporučení: v Gmailu si vytvoř filtr, který potvrzení automaticky štítkuje labelem `Booking`,
-  a v triggeru sleduj právě ten label. Sníží to falešné spuštění.
+Přijme POST na `vr-new-guest`, tělo je pod `$json.body`. Response mode = „responseNode".
 
-### 2) Function – parse rezervace
+### 2) Připravit (Code, typeVersion 2)
 
-Vytáhne z těla e-mailu jméno, termín, počty osob a jazyk. Selektory uprav podle reálné šablony
-e-mailu (Booking mění formát). Návratem je jeden objekt s poli, která workflow dál používá.
+Používá builtin `require('crypto')`. Dělá:
 
-```js
-// n8n Function node – vstup: $json (Gmail zpráva; text v $json.text nebo $json.snippet)
-const body = $json.text || $json.html || $json.snippet || '';
+- `rawToken = crypto.randomBytes(16).toString('hex')` – 32 hex = 128 bit.
+- `tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex')` – ukládá se do DB.
+- **děti:** string → split podle čárek → čísla; pole → totéž. Clamp 0–17, nevalidní ignoruje,
+  max 20. Prázdné = `[]`.
+- **adults:** clamp 1–30, default 2. **lang:** cs|de|en, default de.
+- **booking_ref:** když chybí → `VR-` + dnešní datum + `-` + prvních 6 znaků rawTokenu.
+- **link** = `https://pavelkubiznak.github.io/villa-rudolf-portal/?t=` + rawToken.
+- **welcome** = uvítací šablona v jazyce hosta, s dosazeným `{LINK}` a jménem (příjmení, jinak
+  fallback „Gäste" / „hosté" / „guests").
+- Sestaví `rpcBody` = `{ p_secret, p_booking_ref, p_token_hash, p_first, p_last, p_lang,
+  p_arrival, p_departure, p_adults, p_children, p_expires: null }`. Ingest secret je inline
+  v tomto nodu (viz Bezpečnost – neuvádí se v repu).
 
-function m(re, d = '') { const x = body.match(re); return x ? x[1].trim() : d; }
+Výstup jedné položky: `{ rawToken, tokenHash, booking_ref, link, welcome, lang, rpcBody }`.
 
-// --- Uprav regexy podle reálného potvrzení ---
-const firstName  = m(/Jm[ée]no[:\s]+([^\n\r]+?)\s/i, '');
-const lastName   = m(/P[řr][ií]jmen[ií][:\s]+([^\n\r]+)/i, '') || m(/Guest[:\s]+\S+\s+([^\n\r]+)/i, '');
-const bookingRef = m(/(?:Booking number|Rezervace|Buchungsnummer)[:\s#]+(\d[\d\- ]+)/i, '').replace(/\s/g, '');
-const arrival    = m(/(?:Check-?in|P[řr][ií]jezd|Anreise)[:\s]+(\d{4}-\d{2}-\d{2})/i, '');
-const departure  = m(/(?:Check-?out|Odjezd|Abreise)[:\s]+(\d{4}-\d{2}-\d{2})/i, '');
-const adults     = parseInt(m(/(\d+)\s*(?:dosp[ěe]l|adult|Erwachsene)/i, '2'), 10) || 2;
-const country    = m(/(?:Country|Zem[ěe]|Land)[:\s]+([^\n\r]+)/i, '');
+> **n8n quirk:** `rpcBody` se skládá tady v Code nodu, aby v HTTP nodu bylo v těle jen
+> `JSON.stringify($json.rpcBody)`. Nikdy nedávej composite template literal + `JSON.stringify`
+> do jednoho `={{ }}` výrazu.
 
-// děti: buď počet, nebo seznam věků „8, 12"
-const childrenAges = (m(/(?:v[ěe]k d[ěe]t[ií]|children ages|Alter der Kinder)[:\s]+([\d,\s]+)/i, '')
-  .split(',').map(s => parseInt(s.trim(), 10)).filter(n => Number.isFinite(n)));
-
-// jazyk podle země hosta
-const c = country.toLowerCase();
-let lang = 'de';
-if (/(czech|česk|tschech)/.test(c)) lang = 'cs';
-else if (/(germ|deutsch|austria|österreich|schweiz|swiss)/.test(c)) lang = 'de';
-else if (/(united|great britain|england|usa|ireland|netherlands|poland)/.test(c)) lang = 'en';
-
-return [{ json: { bookingRef, firstName, lastName, lang, arrival, departure, adults, children: childrenAges } }];
-```
-
-### 3) Function – vygeneruj token a hash
-
-RAW token vzniká zde a **projde workflowem jen do finální zprávy**. Do DB jde hash, do zprávy RAW.
-
-```js
-const crypto = require('crypto');
-const d = $json;
-
-const rawToken  = crypto.randomBytes(16).toString('hex');            // 32 hex = 128 bit
-const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
-
-// expires_at = departure + 30 dní
-const exp = new Date(d.departure + 'T00:00:00Z');
-exp.setUTCDate(exp.getUTCDate() + 30);
-
-return [{ json: {
-  ...d,
-  rawToken,
-  tokenHash,
-  expiresAt: exp.toISOString(),
-  link: 'https://pavelkubiznak.github.io/villa-rudolf-portal/?t=' + rawToken
-}}];
-```
-
-### 4) HTTP Request – upsert do Supabase
+### 3) Založit v Supabase (HTTP Request, typeVersion 4.2)
 
 - **Method:** `POST`
-- **URL:** `https://fpknbrzbqpalguajskut.supabase.co/rest/v1/vr_bookings`
-- **Headers:**
-  - `apikey`: `={{ $credentials.supabaseServiceRole }}`  ← SERVICE_ROLE, jen z n8n credentials
-  - `Authorization`: `Bearer ={{ $credentials.supabaseServiceRole }}`
+- **URL:** `https://fpknbrzbqpalguajskut.supabase.co/rest/v1/rpc/vr_create_booking`
+- **Headers** (anon klíč je **veřejný** – je i v portál HTML):
+  - `apikey`: `<anon key>`
+  - `Authorization`: `Bearer <anon key>`
   - `Content-Type`: `application/json`
-  - `Prefer`: `resolution=merge-duplicates`  (upsert podle unikátního `booking_ref`)
-- **Body (JSON):**
+- **Body (JSON):** `={{ JSON.stringify($json.rpcBody) }}`
+- **Response Format: `Text`** (v options → Response → Response Format = Text, výstup do `data`).
+
+> **n8n quirk (důležité):** RPC vrací **holé uuid jako JSON string** (`"…-uuid-…"`) s hlavičkou
+> `application/json`. HTTP node ve výchozím „autodetect JSON" režimu takový skalární JSON odmítne
+> chybou *„Response body is not valid JSON. Change Response Format to Text."* Proto je Response
+> Format nastavený na **Text** – uuid pak přijde jako text do `$json.data` (i s uvozovkami),
+> které node „Odpověď" ořízne.
+
+RPC při špatném `p_secret` vrací `{"code":"P0001","message":"unauthorized"}` (HTTP 400).
+
+### 4) Odpověď (Respond to Webhook, typeVersion 1)
+
+Vrátí JSON:
 
 ```json
 {
-  "booking_ref": "={{ $json.bookingRef }}",
-  "token_hash":  "={{ $json.tokenHash }}",
-  "first_name":  "={{ $json.firstName }}",
-  "last_name":   "={{ $json.lastName }}",
-  "lang":        "={{ $json.lang }}",
-  "arrival":     "={{ $json.arrival }}",
-  "departure":   "={{ $json.departure }}",
-  "adults":      "={{ $json.adults }}",
-  "children":    "={{ $json.children }}",
-  "expires_at":  "={{ $json.expiresAt }}"
+  "ok": true,
+  "id": "<uuid nové rezervace>",
+  "booking_ref": "<booking_ref>",
+  "link": "https://pavelkubiznak.github.io/villa-rudolf-portal/?t=<rawToken>",
+  "welcome": "<hotová uvítací zpráva v jazyce hosta>"
 }
 ```
 
-> `Prefer: resolution=merge-duplicates` zajistí, že opakované potvrzení stejné rezervace nezaloží
-> duplicitní řádek (kolize na `booking_ref`). Sloupec `children` je `int[]` – posílej pole čísel.
-
-### 5) Function – sestav uvítací zprávu
-
-Podle `lang` vyber šablonu, doplň `{NAME}` a `{LINK}`, výstup předej do Gmail draft node.
-
-```js
-const d = $json;
-const name = [d.firstName, d.lastName].filter(Boolean).join(' ') || (d.lastName || '');
-
-const T = {
-  de: { subject: 'Willkommen in der Villa Rudolf', body: DE },
-  cs: { subject: 'Vítejte ve Ville Rudolf',        body: CS },
-  en: { subject: 'Welcome to Villa Rudolf',        body: EN }
-}; // DE/CS/EN viz šablony níže
-
-const t = T[d.lang] || T.de;
-const message = t.body.replaceAll('{NAME}', name).replaceAll('{LINK}', d.link);
-
-return [{ json: { subject: t.subject, message, to: '' } }];
-```
-
-### 6) Gmail – create draft
-
-- Operace **Create Draft** (ne Send – Booking blokuje odkazy od botů).
-- `Subject` = `{{ $json.subject }}`, `Message` = `{{ $json.message }}`.
-- Draft zůstane v Gmailu; majitel text zkopíruje do zprávy hostovi v rozhraní Booking.com.
+`id` se získá z textové odpovědi Supabase (`$json.data`) – ořízne se obalující uvozovky.
 
 ---
 
 ## Šablony uvítací zprávy
 
-Placeholdery: `{NAME}` (jméno hosta), `{LINK}` (odkaz s RAW tokenem). Krátké a srdečné; zmiňují,
-že stránka funguje i offline a ukazuje počasí živě.
+Placeholder `{LINK}` (odkaz s RAW tokenem) se dosazuje v Code nodu; jméno se dosazuje přímo
+(příjmení hosta, jinak fallback „Gäste" / „hosté" / „guests"). Krátké a srdečné; zmiňují, že
+stránka ukazuje počasí živě a funguje i offline.
 
 ### DE
 
@@ -165,7 +138,8 @@ Alter der Kinder und Gruppengröße:
 {LINK}
 
 Die Seite zeigt das Wetter live und funktioniert auch offline – einfach zum Startbildschirm
-hinzufügen. Bis bald in den Krkonoše/Riesengebirge!
+hinzufügen. Wir wünschen Ihnen einen wunderschönen Aufenthalt und sehen uns bald im
+Riesengebirge!
 
 Herzliche Grüße
 Villa Rudolf
@@ -182,7 +156,7 @@ tipy na výlety řazené podle počasí, věku dětí i velikosti vaší skupiny
 {LINK}
 
 Stránka ukazuje počasí živě a funguje i offline – stačí si ji přidat na plochu. Ať se vám u nás
-v Krkonoších líbí!
+v Krkonoších líbí a užijete si krásný pobyt!
 
 Srdečně
 Villa Rudolf
@@ -198,8 +172,8 @@ area for you – trip ideas ranked by weather, kids' ages and your group size:
 
 {LINK}
 
-The page shows live weather and works offline too – just add it to your home screen. See you soon
-in the Krkonoše/Giant Mountains!
+The page shows live weather and works offline too – just add it to your home screen. We wish you
+a wonderful stay and see you soon in the Giant Mountains!
 
 Warm regards,
 Villa Rudolf
@@ -207,29 +181,40 @@ Villa Rudolf
 
 ---
 
+## Test webhooku (ze serveru, přes SSH tunel)
+
+```bash
+curl -s -X POST http://localhost:5678/webhook/vr-new-guest \
+  -H "Content-Type: application/json" \
+  -d '{"first_name":"Max","last_name":"Mustermann","lang":"de",
+       "arrival":"2026-07-10","departure":"2026-07-15",
+       "adults":2,"children":"8, 10","booking_ref":"BK-12345"}'
+```
+
+Ověření, že host vznikl (RAW token z vráceného `link`, anon klíč je veřejný):
+
+```bash
+curl -s -X POST https://fpknbrzbqpalguajskut.supabase.co/rest/v1/rpc/vr_verify_token \
+  -H "apikey: <anon>" -H "Authorization: Bearer <anon>" \
+  -H "Content-Type: application/json" \
+  -d '{"p_token":"<rawToken>"}'
+```
+
+Vrátí jméno, jazyk, termín, počet dospělých a pole dětí.
+
+---
+
 ## Denní úklid expirovaných rezervací
 
-Samostatný workflow (n8n **Schedule** node, např. jednou denně) smaže rezervace starší 30 dní po
-odjezdu. Používá stejný `SERVICE_ROLE` klíč přes Supabase REST.
+Úklid se dělá přes RPC **`vr_purge_expired`** (odstraní rezervace po expiraci / dávno po odjezdu).
+Volej ho jednou denně (n8n Schedule node, cron, nebo externí scheduler) přes Supabase REST
+s anon klíčem + ingest secretem – stejně jako zakládání, žádný `SERVICE_ROLE`:
 
-- **Method:** `DELETE`
-- **URL:** `https://fpknbrzbqpalguajskut.supabase.co/rest/v1/vr_bookings?departure=lt.{{ CUTOFF }}`
-  kde `CUTOFF` = dnešní datum − 30 dní (`YYYY-MM-DD`).
-- **Headers:** `apikey` + `Authorization: Bearer` = SERVICE_ROLE, `Prefer: return=minimal`.
-
-Výpočet `CUTOFF` v předřazeném Function node:
-
-```js
-const cut = new Date();
-cut.setUTCDate(cut.getUTCDate() - 30);
-return [{ json: { cutoff: cut.toISOString().slice(0, 10) } }];
+```bash
+curl -s -X POST https://fpknbrzbqpalguajskut.supabase.co/rest/v1/rpc/vr_purge_expired \
+  -H "apikey: <anon>" -H "Authorization: Bearer <anon>" \
+  -H "Content-Type: application/json" \
+  -d '{"p_secret":"<ingest secret uložený ve workflow>"}'
 ```
 
-Odpovídá SQL:
-
-```sql
-DELETE FROM vr_bookings WHERE departure < now() - interval '30 days';
-```
-
-> PostgREST filtr `departure=lt.<datum>` je ekvivalent `WHERE departure < <datum>`. Ochrání DB před
-> hromaděním starých rezervací a je bezpečný – dotýká se jen dávno odjetých hostů.
+RPC smaže expirované řádky serverově, takže se DB nehromadí a nedotýká se aktivních hostů.
