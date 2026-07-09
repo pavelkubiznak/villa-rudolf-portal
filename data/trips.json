@@ -182,6 +182,26 @@
         { "icon": "globe", "label": "leto.skiresort.cz", "url": "https://leto.skiresort.cz/letni-aktivity/elektrokola/" },
         { "icon": "pin", "label": { "cs": "Mapy.cz – půjčovna", "de": "Mapy.cz – Verleih" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic" }
       ]
+    },
+    {
+      "id": "hricky-buky",
+      "icon": "play",
+      "accent": "#c96a4a",
+      "coords": { "lat": 50.6090, "lon": 15.8390, "alt": 490 },
+      "travelMin": 8, "byFoot": false,
+      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": true,
+      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": null,
+      "minAge": 0, "bestFor": ["toddler", "child", "adult"],
+      "group": { "groupTariffMin": null, "reservation": false, "capacity": false },
+      "name": { "cs": "Hříčky Buky (Baldův svět)", "de": "Hříčky Buky (Kinder-Erlebnispark)", "en": "Hříčky Buky adventure park" },
+      "tagline": { "cs": "Zábavní park pro děti ve svahu", "de": "Erlebnispark für Kinder am Hang", "en": "Kids' adventure park on the slope" },
+      "desc": { "cs": "Obří outdoorový areál v Mladých Bukách (skoro 4 ha) plný zábavy: trampolíny (i nafukovací a bungee), prolézačky se skluzavkami, vodní kanály s koly a bazénky, vyhřívaný bazének, letní tubing (od 6 let), lanové atrakce s vyhlídkou, 3D bludiště i mini zoo s kůzlaty. Klidně na celý den – jako dělané pro mladší školáky. Za deště zavřeno.", "de": "Riesiges Outdoor-Areal in Mladé Buky (fast 4 ha) voller Spaß: Trampoline (auch Luft- und Bungee), Klettergerüste mit Rutschen, Wasserkanäle mit Rädern und Becken, beheiztes Planschbecken, Sommer-Tubing (ab 6 J.), Seilattraktionen mit Aussicht, 3D-Labyrinth und ein Mini-Zoo mit Ziegen. Locker ein ganzer Tag – wie gemacht für jüngere Schulkinder. Bei Regen geschlossen.", "en": "Huge outdoor park in Mladé Buky (nearly 4 ha) packed with fun: trampolines (air & bungee), climbing frames with slides, water channels with wheels and pools, a heated paddling pool, summer tubing (age 6+), rope attractions with a viewpoint, a 3D maze and a mini-zoo with goats. Easily a full day – made for younger school kids. Closed in rain." },
+      "openNote": { "cs": "Hlavní sezóna (červenec–srpen) denně 9:00–18:00; provoz podle počasí.", "de": "Hauptsaison (Juli–August) täglich 9:00–18:00; wetterabhängig.", "en": "High season (July–August) daily 9:00–18:00; weather-dependent." },
+      "price": { "cs": "Děti (nar. 2011–2022) 320 Kč online / 390 Kč na místě, od 13:00 levněji 220 Kč; starší a dospělí 190 Kč online; do ~3 let zdarma. Online výhodněji.", "de": "Kinder (Jg. 2011–2022) 320 CZK online / 390 CZK vor Ort, ab 13:00 günstiger 220 CZK; Ältere und Erwachsene 190 CZK online; bis ~3 J. gratis. Online günstiger.", "en": "Children (born 2011–2022) 320 CZK online / 390 CZK on site, from 1 pm cheaper 220 CZK; older & adults 190 CZK online; under ~3 free. Cheaper online." },
+      "links": [
+        { "icon": "globe", "label": { "cs": "mladebuky.cz", "de": "mladebuky.cz", "en": "mladebuky.cz" }, "url": "https://mladebuky.cz/en/hricky-buky" },
+        { "icon": "pin", "label": { "cs": "Mapy.cz – Areál Mladé Buky", "de": "Mapy.cz – Areál Mladé Buky", "en": "Mapy.cz – Areál Mladé Buky" }, "url": "https://mapy.cz/turisticka?q=H%C5%99%C3%AD%C4%8Dky%20Buky%20Mlad%C3%A9%20Buky" }
+      ]
     }
   ]
 }
