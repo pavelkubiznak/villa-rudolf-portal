@@ -99,6 +99,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-si
 
 .mapwrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:14px;margin-bottom:14px;}
 .map{display:block;width:100%;height:auto;border-radius:10px;}
+.m-land{fill:#ebe5d6;} .m-foreign{fill:#e4e1d5;} .m-border{fill:none;stroke:#b3a98c;stroke-width:1.4;stroke-dasharray:5 4;} .m-ridge{fill:#c4cab8;opacity:.55;} .m-river{fill:none;stroke:#93b1c2;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;} .m-lbl{fill:#a29c8b;font-size:8.5px;letter-spacing:.12em;font-family:"Instrument Sans",system-ui,sans-serif;}
 .mapcap{font-size:.78rem;color:var(--muted);text-align:center;margin-top:9px;text-wrap:pretty;}
 .mapkey{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
 .mapkey a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:3px 11px 3px 3px;font-size:.78rem;line-height:1.3;}
@@ -326,6 +327,18 @@ function mapLum(hex){ // relativní jas 0..1 pro volbu čitelné barvy čísla
   const n=parseInt(String(hex).replace('#',''),16);
   return (0.2126*((n>>16)&255)+0.7152*((n>>8)&255)+0.0722*(n&255))/255;
 }
+function mapSmooth(pts){ // Catmull-Rom → kubické Bézier: hladká cesta skrz všechny body
+  if(!pts.length) return '';
+  if(pts.length<2) return `M${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+  let d=`M${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||pts[i+1];
+    const c1x=p1.x+(p2.x-p0.x)/6,c1y=p1.y+(p2.y-p0.y)/6;
+    const c2x=p2.x-(p3.x-p1.x)/6,c2y=p2.y-(p3.y-p1.y)/6;
+    d+=`C${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+  }
+  return d;
+}
 function buildMapSection(trips,plan,lang,L){
   const W=360,padX=28,padTop=26,padBot=28;
   const kx=Math.cos(VILLA_COORDS.lat*Math.PI/180);
@@ -333,11 +346,16 @@ function buildMapSection(trips,plan,lang,L){
   // body: [vila, ...výlety] – isotropní projekce, sever nahoře
   const raw=[{...proj(VILLA_COORDS.lat,VILLA_COORDS.lon),villa:true}]
     .concat(trips.map(t=>({...proj(t.coords.lat,t.coords.lon),villa:false})));
+  // kontextové kotvy: rozšíří bbox, aby se vešel pás hranice (nahoře) a koridor řeky (dole)
+  const contextAnchors=[[50.795,15.44],[50.795,15.90],[50.600,15.82],[50.700,15.41],[50.700,15.92]].map(([la,lo])=>proj(la,lo));
   let minRx=Infinity,maxRx=-Infinity,minRy=Infinity,maxRy=-Infinity;
-  for(const p of raw){minRx=Math.min(minRx,p.rx);maxRx=Math.max(maxRx,p.rx);minRy=Math.min(minRy,p.ry);maxRy=Math.max(maxRy,p.ry);}
+  for(const p of raw.concat(contextAnchors)){minRx=Math.min(minRx,p.rx);maxRx=Math.max(maxRx,p.rx);minRy=Math.min(minRy,p.ry);maxRy=Math.max(maxRy,p.ry);}
   const rxRange=maxRx-minRx,ryRange=maxRy-minRy;
   const scale=(W-2*padX)/Math.max(rxRange,1e-6);
   const H=Math.round(ryRange*scale+padTop+padBot);
+  // projekční pomocníky pro VŠECHNY prvky podkladu (mapují stejně jako piny níže)
+  const X=lon=>padX+(lon*kx-minRx)*scale;
+  const Y=lat=>padTop+(-lat-minRy)*scale;
   const pts=raw.map(p=>({x:padX+(p.rx-minRx)*scale,y:padTop+(p.ry-minRy)*scale,villa:p.villa}));
   // declutter: piny u Janských Lázní jsou nahusto → párová repulze, vila je pevná kotva
   const MIN=23;
@@ -367,9 +385,47 @@ function buildMapSection(trips,plan,lang,L){
   const northLetter=lang==='cs'?'S':'N',nx=W-20;
 
   let svg=`<svg class="map" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(L.mapTitle)}">`
-    // (a) pole
-    +`<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="#f3efe5"/>`;
-  // (b) spojnice vila → naplánované piny
+    // (a) země (teplý podklad, zaoblené rohy)
+    +`<rect class="m-land" x="0" y="0" width="${W}" height="${H}" rx="12"/>`;
+
+  // ===== SUGESTIVNÍ geografický podklad (za piny) =====
+  const XY=(la,lo)=>({x:X(lo),y:Y(la)});
+  // hranice CZ–PL: řídicí body (lat,lon) západ→východ
+  const bcp=[[50.792,15.42],[50.780,15.58],[50.762,15.71],[50.750,15.80],[50.747,15.92]];
+  const borderLatAt=lon=>{ if(lon<=bcp[0][1])return bcp[0][0];
+    for(let k=0;k<bcp.length-1;k++){const[la0,lo0]=bcp[k],[la1,lo1]=bcp[k+1];
+      if(lon>=lo0&&lon<=lo1)return la0+(la1-la0)*(lon-lo0)/(lo1-lo0);}
+    return bcp[bcp.length-1][0]; };
+  const borderPts=bcp.map(([la,lo])=>XY(la,lo));
+  // rozšíření k okrajům viewBoxu (hranice pokračuje mimo mapu)
+  const bEnds=[{x:0,y:borderPts[0].y},...borderPts,{x:W,y:borderPts[borderPts.length-1].y}];
+  const borderPath=mapSmooth(bEnds);
+  // (b) POLSKO: výplň severně od hranice až k hornímu okraji
+  svg+=`<path class="m-foreign" d="${borderPath} L ${W} 0 L 0 0 Z"/>`;
+  // (c) HŘEBEN Krkonoš: měkká, nízká, jemně zvlněná silueta těsně jižně od hranice (bump u Sněžky),
+  //     na okrajích se zužuje do ztracena, ať nepůsobí jako obdélník
+  const rN=30,ridgeTop=[],ridgeBase=[];
+  for(let i=0;i<=rN;i++){
+    const t=i/rN,lon=15.42+(15.92-15.42)*t,by=Y(borderLatAt(lon)),base=by+15;
+    const win=Math.max(0,Math.min(1,t/0.12,(1-t)/0.12)); // 0 na krajích → 1 uprostřed
+    const bump=3.5+2.2*Math.sin(t*Math.PI*6)+1.3*Math.sin(t*Math.PI*9+0.6)+4.5*Math.exp(-Math.pow((lon-15.74)/0.03,2));
+    ridgeBase.push({x:X(lon),y:base});
+    ridgeTop.push({x:X(lon),y:base-(10+bump)*win});
+  }
+  const ridgeBot=ridgeBase.slice().reverse().map(p=>`L${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join('');
+  svg+=`<path class="m-ridge" d="${mapSmooth(ridgeTop)} ${ridgeBot} Z"/>`;
+  // hranice CZ–PL: čárkovaná linka navrch výplně
+  svg+=`<path class="m-border" d="${borderPath}"/>`;
+  // (d) řeka Úpa: tenká modrá linka N→S (prochází vilou)
+  const riverPts=[[50.690,15.735],[50.668,15.775],[50.645,15.800],[50.6255,15.8136],[50.612,15.836],[50.598,15.858]].map(([la,lo])=>XY(la,lo));
+  svg+=`<path class="m-river" d="${mapSmooth(riverPts)}"/>`;
+  // (e) řídké popisky jen do prázdných okrajů (destinace pojmenovává legenda, ne mapa)
+  svg+=`<text class="m-lbl" x="${X(15.46).toFixed(1)}" y="16" text-anchor="middle">POLSKO</text>`
+    +`<text class="m-lbl" x="175" y="62" text-anchor="middle">KRKONOŠE</text>`
+    +`<text class="m-lbl" x="304" y="215" text-anchor="middle">Úpa</text>`
+    +`<text class="m-lbl" x="205" y="230" text-anchor="middle">Trutnov</text>`;
+
+  // (f) spojnice vila → naplánované piny
   trips.forEach((t,i)=>{ if(!pickIds.has(t.id))return; const p=pts[i+1];
     svg+=`<line x1="${vx}" y1="${vy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke="#92703c" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="2 3"/>`;
   });
@@ -384,7 +440,7 @@ function buildMapSection(trips,plan,lang,L){
   // (d) vila navrchu: kolečko + domeček + jediný textový popisek na mapě
   svg+=`<circle cx="${vx}" cy="${vy}" r="12" fill="#33493a"/>`
     +`<path d="M${vx-4} ${vy+4.5} L${vx-4} ${vy-0.5} L${vx} ${vy-4.5} L${vx+4} ${vy-0.5} L${vx+4} ${vy+4.5} Z" fill="none" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>`
-    +`<text x="${vx}" y="${vy+22}" text-anchor="middle" font-size="9" font-weight="700" font-family="${F}" fill="#33493a">Villa Rudolf</text>`;
+    +`<text x="${vx}" y="${vy+22}" text-anchor="middle" font-size="9" font-weight="700" font-family="${F}" fill="#33493a" paint-order="stroke" stroke="#ebe5d6" stroke-width="3" stroke-linejoin="round">Villa Rudolf</text>`;
   // (e) severka vpravo nahoře (S = sever pro cs, N pro de/en)
   svg+=`<g stroke="#33493a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M${nx} 22 L${nx} 8"/><path d="M${nx-3.5} 12 L${nx} 8 L${nx+3.5} 12"/></g>`
     +`<text x="${nx}" y="34" text-anchor="middle" font-size="9" font-weight="700" font-family="${F}" fill="#33493a">${northLetter}</text>`;
