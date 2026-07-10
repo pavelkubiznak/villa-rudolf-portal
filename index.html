@@ -247,6 +247,7 @@ function partyFlags(p){
   const kids = p.children||[];
   return {
     size:(p.adults||0)+kids.length,
+    minKidAge:kids.length?Math.min.apply(null,kids):null,
     hasToddler:kids.some(a=>a<=4),
     hasYoungKid:kids.some(a=>a>=5&&a<=9),
     hasKid:kids.some(a=>a<=11),
@@ -258,6 +259,8 @@ function partyFlags(p){
 function eligible(trip,day,fl){
   if(trip.needsClearLowWind){ if(day && (isWet(day.cat)||day.cat==='fog'||(day.windKmh&&day.windKmh>=45))) return false; }
   if(fl.hasToddler && trip.effort==='hard') return false;
+  // do plánu nedoporučuj výlety s věkovým limitem nad nejmladší dítě (v katalogu zůstávají)
+  if(trip.minAge&&fl.minKidAge!=null&&fl.minKidAge<trip.minAge) return false;
   return true;
 }
 function scoreTrip(trip,day,fl){
