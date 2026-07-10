@@ -7,27 +7,31 @@
 //
 // Node 18+ (global fetch). Bez závislostí.
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const UA = 'villarudolf.com guest-portal (pavel.kubiznak@gmail.com)';
-const OUT = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'forecast.json');
+const HERE = dirname(fileURLToPath(import.meta.url));
+const OUT = resolve(HERE, '..', 'data', 'forecast.json');
+const TRIPS = resolve(HERE, '..', 'data', 'trips.json');
 const DAYS_AHEAD = 9;
 
-// Souřadnice na 4 desetinná místa (požadavek met.no). Klíče = 'villa' + id výletů z trips.json.
-const LOCS = {
-  villa:              { lat: 50.6255, lon: 15.8136, alt: 516 },
-  'snezka-cablecar':  { lat: 50.7359, lon: 15.7400, alt: 1603 }, // vrchol (Bergwetter)
-  'stachelberg':      { lat: 50.6340, lon: 15.9060, alt: 615 },
-  'baumwipfelpfad':   { lat: 50.6300, lon: 15.7830, alt: 650 },
-  'janske-hallenbad': { lat: 50.6315, lon: 15.7805, alt: 640 },
-  'aqua-vrchlabi':    { lat: 50.6264, lon: 15.6094, alt: 480 },
-  'aquapark-karpacz': { lat: 50.7766, lon: 15.7546, alt: 720 },
-  'harrachov-glass':  { lat: 50.7710, lon: 15.4296, alt: 665 },
-  'bobsled-pec':      { lat: 50.6985, lon: 15.7346, alt: 769 },
-  'ebikes':           { lat: 50.6388, lon: 15.7621, alt: 640 },
-};
+// Souřadnice na 4 desetinná místa (požadavek met.no).
+const round4 = n => Math.round(Number(n) * 1e4) / 1e4;
+
+// Lokality = 'villa' + jeden záznam per výlet z trips.json (souřadnice z coords, alt z coords.alt || 500).
+// Výstup zůstává stejný: byLocation klíčované 'villa' + id výletů.
+function buildLocations() {
+  const data = JSON.parse(readFileSync(TRIPS, 'utf8'));
+  const locs = { villa: { lat: 50.6255, lon: 15.8136, alt: 516 } };
+  for (const t of data.trips || []) {
+    if (!t || !t.id || !t.coords) continue;
+    locs[t.id] = { lat: round4(t.coords.lat), lon: round4(t.coords.lon), alt: t.coords.alt || 500 };
+  }
+  return locs;
+}
+const LOCS = buildLocations();
 
 function addDay(d) { const t = new Date(d + 'T00:00:00Z'); t.setUTCDate(t.getUTCDate() + 1); return t.toISOString().slice(0, 10); }
 function dominant(syms) { const n = {}; let b = '', bc = 0; for (const s of syms) { const k = (s || '').replace(/_(day|night|polartwilight)$/, ''); n[k] = (n[k] || 0) + 1; if (n[k] > bc) { bc = n[k]; b = k; } } return b; }

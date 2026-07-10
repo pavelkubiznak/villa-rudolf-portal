@@ -107,6 +107,29 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-si
 .mapkey a .t{font-weight:600;color:var(--heading);}
 .mapkey a .d{color:var(--muted);}
 .mapkey a.pick{border-color:var(--acc,var(--accent));box-shadow:inset 0 0 0 1px var(--acc,var(--accent));background:var(--paper);}
+.m-ring-villa{fill:none;stroke:#7f7663;stroke-width:1.3;stroke-dasharray:4 3;opacity:.85;}
+
+/* Filtrační chipy */
+.chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:2px 0 16px;}
+.chip{font-family:var(--font-b);font-size:.8rem;font-weight:600;line-height:1.2;padding:5px 13px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--heading);cursor:pointer;transition:background .12s,border-color .12s;}
+.chip:hover{border-color:var(--accent-2);}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fbf9f3;}
+.chip-count{margin-left:auto;font-size:.78rem;font-weight:600;color:var(--muted);white-space:nowrap;}
+.trip[hidden]{display:none;}
+
+/* Legenda mapy – tři skupiny */
+.mapkey-group{margin-top:12px;}
+.mapkey-group:first-child{margin-top:14px;}
+.mapkey-h{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin:0 0 6px;}
+.mapkey-group .mapkey{margin-top:0;}
+
+/* Sekce jídlo */
+.food h3{font-family:var(--font-d);font-weight:600;font-size:1.08rem;color:var(--heading);margin:0 0 3px;line-height:1.25;}
+.food .ftag{font-size:.8rem;font-weight:600;color:var(--accent-2);margin-bottom:9px;}
+.food p{font-size:.9rem;text-wrap:pretty;}
+.food .fmeta{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;color:var(--ok);background:var(--ok-soft);border-radius:99px;padding:3px 11px;margin-top:11px;}
+.food .fmeta .icon{width:1em;height:1em;color:var(--accent-2);}
+.food .fopen{font-size:.78rem;color:var(--muted);margin-top:10px;text-wrap:pretty;}
 @media(min-width:520px){.facts{grid-template-columns:1fr 1fr;gap:10px 22px;}}
 </style>
 </head>
@@ -135,6 +158,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-si
 <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/><circle cx="18" cy="5" r="2"/></symbol>
 <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
 <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3ZM9 3v15M15 6v15"/></symbol>
+<symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
 </svg>
 
 <div class="wrap"><div id="app"><div class="loading">…</div></div></div>
@@ -165,7 +189,10 @@ const I18N = {
     wxLive:'Počasí živě z yr.no',updated:'aktualizováno',planNote:'Plán se řídí předpovědí a je jen doporučení – ráno mrkněte na aktuální počasí a dny klidně prohoďte (outdoor za hezka, indoor za deště).',
     editParty:'upravit',editTitle:'Upřesnit skupinu',editAdults:'Dospělí',editKids:'Věk dětí (např. 8, 12)',editSave:'Uložit',editClose:'Zavřít',
     footer:'Připraveno ve Ville Rudolf · ceny a otevírací doby ověřte před cestou · počasí: yr.no.',thanks:'Děkujeme za návštěvu a přejeme šťastnou cestu domů!',
-    mapTitle:'Mapa okolí',mapCaption:'Zvýrazněné = výlety z vašeho plánu',mapFoot:'pěšky',
+    mapTitle:'Mapa okolí',mapCaption:'Zvýrazněné = výlety z vašeho plánu',mapCapRing:'v kroužku = pěšky od vily',mapFoot:'pěšky',ringLabel:'pěšky od vily',
+    legVilla:'Pěšky od vily',legNear:'V okolí',legFar:'Na celý den',foodTitle:'Kam na dobré jídlo',
+    filters:{vse:'Vše',pesky:'Bez auta',dest:'Za deště',deti:'Pro děti',zviratka:'Zvířátka',vyhledy:'Výhledy',koupani:'Koupání',nenarocne:'Nenáročné'},
+    tripWord:n=>n===1?'výlet':(n>=2&&n<=4?'výlety':'výletů'),
     why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu'}},
   de:{greet:'Liebe Familie',welcome:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter, Alter der Kinder und Größe Ihrer Gruppe.',
     arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
@@ -177,7 +204,10 @@ const I18N = {
     wxLive:'Wetter live von yr.no',updated:'aktualisiert',planNote:'Der Plan folgt der Vorhersage und ist nur eine Empfehlung – schauen Sie morgens aufs aktuelle Wetter und tauschen Sie die Tage ruhig (Outdoor bei Sonne, Indoor bei Regen).',
     editParty:'anpassen',editTitle:'Gruppe anpassen',editAdults:'Erwachsene',editKids:'Alter der Kinder (z. B. 8, 12)',editSave:'Speichern',editClose:'Schließen',
     footer:'Zusammengestellt in der Villa Rudolf · Preise und Öffnungszeiten vorab prüfen · Wetter: yr.no.',thanks:'Danke für Ihren Besuch und eine gute Heimreise!',
-    mapTitle:'Übersichtskarte',mapCaption:'Hervorgehoben = Ausflüge aus Ihrem Plan',mapFoot:'zu Fuß',
+    mapTitle:'Übersichtskarte',mapCaption:'Hervorgehoben = Ausflüge aus Ihrem Plan',mapCapRing:'im Kreis = zu Fuß erreichbar',mapFoot:'zu Fuß',ringLabel:'zu Fuß erreichbar',
+    legVilla:'Zu Fuß',legNear:'In der Umgebung',legFar:'Tagesausflüge',foodTitle:'Gut essen gehen',
+    filters:{vse:'Alle',pesky:'Ohne Auto',dest:'Bei Regen',deti:'Für Kinder',zviratka:'Tiere',vyhledy:'Aussichten',koupani:'Baden',nenarocne:'Gemütlich'},
+    tripWord:n=>n===1?'Ausflug':'Ausflüge',
     why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht'}},
   en:{greet:'Dear guests',welcome:'we put together trip ideas nearby – ranked by weather, kids’ ages and your group size.',
     arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
@@ -189,7 +219,10 @@ const I18N = {
     wxLive:'Live weather from yr.no',updated:'updated',planNote:'The plan follows the forecast and is only a suggestion – check today’s weather in the morning and swap days freely (outdoor when sunny, indoor when wet).',
     editParty:'edit',editTitle:'Adjust your group',editAdults:'Adults',editKids:'Children’s ages (e.g. 8, 12)',editSave:'Save',editClose:'Close',
     footer:'Prepared at Villa Rudolf · verify prices and hours before you go · weather: yr.no.',thanks:'Thank you for visiting and safe travels home!',
-    mapTitle:'Area map',mapCaption:'Highlighted = trips from your plan',mapFoot:'on foot',
+    mapTitle:'Area map',mapCaption:'Highlighted = trips from your plan',mapCapRing:'in the ring = walkable',mapFoot:'on foot',ringLabel:'walkable',
+    legVilla:'Walkable',legNear:'Nearby',legFar:'Day trips',foodTitle:'Where to eat well',
+    filters:{vse:'All',pesky:'No car',dest:'Rainy day',deti:'For kids',zviratka:'Animals',vyhledy:'Views',koupani:'Swimming',nenarocne:'Easy'},
+    tripWord:n=>n===1?'trip':'trips',
     why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}}
 };
 
@@ -339,45 +372,70 @@ function mapSmooth(pts){ // Catmull-Rom → kubické Bézier: hladká cesta skrz
   }
   return d;
 }
+/* ===== Filtrační logika (sdílená mapou i kartami) ===== */
+function matchFilter(t,f){
+  switch(f){
+    case 'pesky':     return t.byFoot===true;
+    case 'dest':      return !!(t.indoorOrCovered||t.rainOk);
+    case 'deti':      return t.category==='kids'||t.category==='animals'||(t.minAge<=4&&t.effort==='easy');
+    case 'zviratka':  return t.category==='animals';
+    case 'vyhledy':   return t.category==='viewpoint';
+    case 'koupani':   return t.category==='water';
+    case 'nenarocne': return t.effort==='easy';
+    default:          return true; // 'vse'
+  }
+}
+const FILTER_IDS=['vse','pesky','dest','deti','zviratka','vyhledy','koupani','nenarocne'];
+
 function buildMapSection(trips,plan,lang,L){
-  const W=360,padX=28,padTop=26,padBot=28;
+  return `<div class="sec-h"><svg class="icon"><use href="#i-map"></use></svg><h2>${esc(L.mapTitle)}</h2></div>`
+    +`<div class="mapwrap"><div id="map-inner">${renderMapInner(trips,plan,lang,L,'vse')}</div></div>`;
+}
+
+// Vnitřek mapy (SVG + popis + legenda) – přerenderovává se při změně filtru.
+function renderMapInner(trips,plan,lang,L,filterId){
+  const W=460,padX=30,padTop=34,padBot=34;
+  const F='Instrument Sans,system-ui,sans-serif';
+  const showPlan=filterId==='vse';
+  const pickIds=new Set(plan.map(p=>p.pick&&p.pick.id).filter(Boolean));
+  // rozdělení: „pěšky od vily" (schematický kroužek) vs. projektované (okolí + celý den)
+  const villaZ=[],proj=[];
+  trips.forEach((t,i)=>{ (t.zone==='villa'?villaZ:proj).push({t,num:i+1}); });
+  const vis=o=>matchFilter(o.t,filterId);
+
   const kx=Math.cos(VILLA_COORDS.lat*Math.PI/180);
-  const proj=(lat,lon)=>({rx:lon*kx,ry:-lat});
-  // body: [vila, ...výlety] – isotropní projekce, sever nahoře
-  const raw=[{...proj(VILLA_COORDS.lat,VILLA_COORDS.lon),villa:true}]
-    .concat(trips.map(t=>({...proj(t.coords.lat,t.coords.lon),villa:false})));
-  // kontextové kotvy: rozšíří bbox, aby se vešel pás hranice (nahoře) a koridor řeky (dole)
-  const contextAnchors=[[50.795,15.44],[50.795,15.90],[50.600,15.82],[50.700,15.41],[50.700,15.92]].map(([la,lo])=>proj(la,lo));
+  const projPoint=(lat,lon)=>({rx:lon*kx,ry:-lat});
+  // projektujeme jen NE-vila zóny + vilu; bbox drží kontextové kotvy (hranice/řeka)
+  const raw=[{...projPoint(VILLA_COORDS.lat,VILLA_COORDS.lon),villa:true}]
+    .concat(proj.map(o=>({...projPoint(o.t.coords.lat,o.t.coords.lon),villa:false})));
+  const contextAnchors=[[50.795,15.44],[50.795,15.90],[50.600,15.82],[50.700,15.41],[50.700,15.92]].map(([la,lo])=>projPoint(la,lo));
   let minRx=Infinity,maxRx=-Infinity,minRy=Infinity,maxRy=-Infinity;
   for(const p of raw.concat(contextAnchors)){minRx=Math.min(minRx,p.rx);maxRx=Math.max(maxRx,p.rx);minRy=Math.min(minRy,p.ry);maxRy=Math.max(maxRy,p.ry);}
   const rxRange=maxRx-minRx,ryRange=maxRy-minRy;
   const scale=(W-2*padX)/Math.max(rxRange,1e-6);
   const H=Math.round(ryRange*scale+padTop+padBot);
-  // projekční pomocníky pro VŠECHNY prvky podkladu (mapují stejně jako piny níže)
   const X=lon=>padX+(lon*kx-minRx)*scale;
   const Y=lat=>padTop+(-lat-minRy)*scale;
   const pts=raw.map(p=>({x:padX+(p.rx-minRx)*scale,y:padTop+(p.ry-minRy)*scale,villa:p.villa}));
-  // declutter: piny u Janských Lázní jsou nahusto → párová repulze, vila je pevná kotva
-  const MIN=23;
-  for(let it=0;it<120;it++){
-    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+  // declutter projektovaných pinů: párová repulze 18px + TVRDÝ „moat" kolem vily
+  // (VILLA_CLEAR) – drží piny mimo kroužek i mimo popisky vily; směr (azimut) se zachová.
+  const vx0=pts[0].x,vy0=pts[0].y;
+  const MIN=18,VILLA_CLEAR=52;
+  for(let it=0;it<170;it++){
+    for(let i=1;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const a=pts[i],b=pts[j];
       const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||0.001;
-      if(d<MIN){
-        const push=(MIN-d)/2,ux=dx/d,uy=dy/d;
-        if(a.villa){b.x+=ux*push*2;b.y+=uy*push*2;}
-        else if(b.villa){a.x-=ux*push*2;a.y-=uy*push*2;}
-        else{a.x-=ux*push;a.y-=uy*push;b.x+=ux*push;b.y+=uy*push;}
-      }
+      if(d<MIN){ const push=(MIN-d)/2,ux=dx/d,uy=dy/d; a.x-=ux*push;a.y-=uy*push;b.x+=ux*push;b.y+=uy*push; }
     }
-    for(const p of pts){if(p.villa)continue;
+    for(let i=1;i<pts.length;i++){ const p=pts[i];
+      let dx=p.x-vx0,dy=p.y-vy0,d=Math.hypot(dx,dy)||0.001;
+      if(d<VILLA_CLEAR){ p.x=vx0+dx/d*VILLA_CLEAR; p.y=vy0+dy/d*VILLA_CLEAR; }
       p.x=Math.max(padX,Math.min(W-padX,p.x));
-      p.y=Math.max(padTop,Math.min(H-padBot,p.y));}
+      p.y=Math.max(padTop,Math.min(H-padBot,p.y));
+    }
   }
   const vx=+pts[0].x.toFixed(1),vy=+pts[0].y.toFixed(1);
-  const pickIds=new Set(plan.map(p=>p.pick&&p.pick.id).filter(Boolean));
-  const F='Instrument Sans,system-ui,sans-serif';
-  // měřítko
+  // měřítko + severka
   const kmPerPx=110.574/scale;
   const target=0.3*(W-2*padX)*kmPerPx;
   const barKm=[2,5,10,15].reduce((a,b)=>Math.abs(b-target)<Math.abs(a-target)?b:a);
@@ -385,86 +443,119 @@ function buildMapSection(trips,plan,lang,L){
   const northLetter=lang==='cs'?'S':'N',nx=W-20;
 
   let svg=`<svg class="map" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(L.mapTitle)}">`
-    // (a) země (teplý podklad, zaoblené rohy)
     +`<rect class="m-land" x="0" y="0" width="${W}" height="${H}" rx="12"/>`;
 
-  // ===== SUGESTIVNÍ geografický podklad (za piny) =====
+  // ===== geografický podklad (za piny) =====
   const XY=(la,lo)=>({x:X(lo),y:Y(la)});
-  // hranice CZ–PL: řídicí body (lat,lon) západ→východ
   const bcp=[[50.792,15.42],[50.780,15.58],[50.762,15.71],[50.750,15.80],[50.747,15.92]];
   const borderLatAt=lon=>{ if(lon<=bcp[0][1])return bcp[0][0];
     for(let k=0;k<bcp.length-1;k++){const[la0,lo0]=bcp[k],[la1,lo1]=bcp[k+1];
       if(lon>=lo0&&lon<=lo1)return la0+(la1-la0)*(lon-lo0)/(lo1-lo0);}
     return bcp[bcp.length-1][0]; };
   const borderPts=bcp.map(([la,lo])=>XY(la,lo));
-  // rozšíření k okrajům viewBoxu (hranice pokračuje mimo mapu)
-  const bEnds=[{x:0,y:borderPts[0].y},...borderPts,{x:W,y:borderPts[borderPts.length-1].y}];
+  // extrapolace hranice k oběma okrajům viewBoxu ve směru krajních segmentů
+  // (širší bbox kvůli Adršpachu vpravo – žádná mezera, hranice plyne dál)
+  const nB=borderPts.length;
+  const slopeR=(borderPts[nB-1].x-borderPts[nB-2].x)?(borderPts[nB-1].y-borderPts[nB-2].y)/(borderPts[nB-1].x-borderPts[nB-2].x):0;
+  const slopeL=(borderPts[1].x-borderPts[0].x)?(borderPts[1].y-borderPts[0].y)/(borderPts[1].x-borderPts[0].x):0;
+  const rightY=borderPts[nB-1].y+slopeR*(W-borderPts[nB-1].x);
+  const leftY=borderPts[0].y+slopeL*(0-borderPts[0].x);
+  const bEnds=[{x:0,y:leftY},...borderPts,{x:W,y:rightY}];
   const borderPath=mapSmooth(bEnds);
-  // (b) POLSKO: výplň severně od hranice až k hornímu okraji
   svg+=`<path class="m-foreign" d="${borderPath} L ${W} 0 L 0 0 Z"/>`;
-  // (c) HŘEBEN Krkonoš: měkká, nízká, jemně zvlněná silueta těsně jižně od hranice (bump u Sněžky),
-  //     na okrajích se zužuje do ztracena, ať nepůsobí jako obdélník
   const rN=30,ridgeTop=[],ridgeBase=[];
   for(let i=0;i<=rN;i++){
     const t=i/rN,lon=15.42+(15.92-15.42)*t,by=Y(borderLatAt(lon)),base=by+15;
-    const win=Math.max(0,Math.min(1,t/0.12,(1-t)/0.12)); // 0 na krajích → 1 uprostřed
+    const win=Math.max(0,Math.min(1,t/0.12,(1-t)/0.12));
     const bump=3.5+2.2*Math.sin(t*Math.PI*6)+1.3*Math.sin(t*Math.PI*9+0.6)+4.5*Math.exp(-Math.pow((lon-15.74)/0.03,2));
     ridgeBase.push({x:X(lon),y:base});
     ridgeTop.push({x:X(lon),y:base-(10+bump)*win});
   }
   const ridgeBot=ridgeBase.slice().reverse().map(p=>`L${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join('');
   svg+=`<path class="m-ridge" d="${mapSmooth(ridgeTop)} ${ridgeBot} Z"/>`;
-  // hranice CZ–PL: čárkovaná linka navrch výplně
   svg+=`<path class="m-border" d="${borderPath}"/>`;
-  // (d) řeka Úpa: tenká modrá linka N→S (prochází vilou)
   const riverPts=[[50.690,15.735],[50.668,15.775],[50.645,15.800],[50.6255,15.8136],[50.612,15.836],[50.598,15.858]].map(([la,lo])=>XY(la,lo));
   svg+=`<path class="m-river" d="${mapSmooth(riverPts)}"/>`;
-  // (e) řídké popisky jen do prázdných okrajů (destinace pojmenovává legenda, ne mapa)
-  svg+=`<text class="m-lbl" x="${X(15.46).toFixed(1)}" y="16" text-anchor="middle">POLSKO</text>`
-    +`<text class="m-lbl" x="175" y="62" text-anchor="middle">KRKONOŠE</text>`
-    +`<text class="m-lbl" x="304" y="215" text-anchor="middle">Úpa</text>`
-    +`<text class="m-lbl" x="205" y="230" text-anchor="middle">Trutnov</text>`;
+  // řídké popisky do prázdných míst (destinace pojmenovává legenda, ne mapa)
+  svg+=`<text class="m-lbl" x="${X(15.5).toFixed(1)}" y="${Math.max(15,Y(50.8)-2).toFixed(1)}" text-anchor="middle">POLSKO</text>`
+    +`<text class="m-lbl" x="${X(15.63).toFixed(1)}" y="${(Y(borderLatAt(15.63))+12).toFixed(1)}" text-anchor="middle">KRKONOŠE</text>`
+    +`<text class="m-lbl" x="${X(15.96).toFixed(1)}" y="${Y(50.53).toFixed(1)}" text-anchor="middle">Trutnov</text>`;
 
-  // (f) spojnice vila → naplánované piny
-  trips.forEach((t,i)=>{ if(!pickIds.has(t.id))return; const p=pts[i+1];
+  // ===== schematický kroužek „pěšky od vily" =====
+  // piny na SPODNÍM půlkruhu (na severu je hustý pás projektovaných pinů → dole je volno),
+  // popisky vily jdou do čistého vnitřku kroužku nad značku.
+  const R_RING=32,ringR=8;
+  const vz=villaZ.filter(vis);
+  const ringN=vz.length;
+  const ringPos=vz.map((o,i)=>{
+    const a=(ringN<=1?90:180*i/(ringN-1))*Math.PI/180; // 0°→180° = pravá→dole→levá
+    return {o,x:vx+R_RING*Math.cos(a),y:vy+R_RING*Math.sin(a)};
+  });
+  if(ringN>0) svg+=`<circle class="m-ring-villa" cx="${vx}" cy="${vy}" r="${R_RING}"/>`;
+
+  // spojnice vila → naplánované projektované piny (jen v režimu „Vše")
+  if(showPlan) proj.forEach((o,i)=>{ if(!pickIds.has(o.t.id))return; const p=pts[i+1];
     svg+=`<line x1="${vx}" y1="${vy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}" stroke="#92703c" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="2 3"/>`;
   });
-  // (c) piny výletů 1..9
-  trips.forEach((t,i)=>{ const p=pts[i+1],x=p.x.toFixed(1),y=p.y.toFixed(1);
+
+  // projektované piny (okolí + celý den)
+  proj.forEach((o,i)=>{ if(!vis(o))return; const p=pts[i+1],x=p.x.toFixed(1),y=p.y.toFixed(1),t=o.t;
     const numFill=mapLum(t.accent)>0.62?'#2c302b':'#fff';
     svg+=`<a href="#${t.id}">`;
-    if(pickIds.has(t.id)) svg+=`<circle cx="${x}" cy="${y}" r="12.5" fill="none" stroke="${t.accent}" stroke-opacity="0.35" stroke-width="3"/>`;
-    svg+=`<circle cx="${x}" cy="${y}" r="9.5" fill="${t.accent}" stroke="#fff" stroke-width="1.5"/>`
-      +`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="700" font-family="${F}" fill="${numFill}">${i+1}</text></a>`;
+    if(showPlan&&pickIds.has(t.id)) svg+=`<circle cx="${x}" cy="${y}" r="11.5" fill="none" stroke="${t.accent}" stroke-opacity="0.35" stroke-width="3"/>`;
+    svg+=`<circle cx="${x}" cy="${y}" r="8.5" fill="${t.accent}" stroke="#fff" stroke-width="1.5"/>`
+      +`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="700" font-family="${F}" fill="${numFill}">${o.num}</text></a>`;
   });
-  // (d) vila navrchu: kolečko + domeček + jediný textový popisek na mapě
-  svg+=`<circle cx="${vx}" cy="${vy}" r="12" fill="#33493a"/>`
-    +`<path d="M${vx-4} ${vy+4.5} L${vx-4} ${vy-0.5} L${vx} ${vy-4.5} L${vx+4} ${vy-0.5} L${vx+4} ${vy+4.5} Z" fill="none" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>`
-    +`<text x="${vx}" y="${vy+22}" text-anchor="middle" font-size="9" font-weight="700" font-family="${F}" fill="#33493a" paint-order="stroke" stroke="#ebe5d6" stroke-width="3" stroke-linejoin="round">Villa Rudolf</text>`;
-  // (e) severka vpravo nahoře (S = sever pro cs, N pro de/en)
+
+  // piny na kroužku (pěšky od vily)
+  ringPos.forEach(rp=>{ const t=rp.o.t,x=rp.x.toFixed(1),y=rp.y.toFixed(1);
+    const numFill=mapLum(t.accent)>0.62?'#2c302b':'#fff';
+    svg+=`<a href="#${t.id}">`;
+    if(showPlan&&pickIds.has(t.id)) svg+=`<circle cx="${x}" cy="${y}" r="10.5" fill="none" stroke="${t.accent}" stroke-opacity="0.35" stroke-width="3"/>`;
+    svg+=`<circle cx="${x}" cy="${y}" r="${ringR}" fill="${t.accent}" stroke="#fff" stroke-width="1.5"/>`
+      +`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="700" font-family="${F}" fill="${numFill}">${rp.o.num}</text></a>`;
+  });
+
+  // vila navrchu + popisky (v čistém vnitřku kroužku, nad značkou)
+  svg+=`<circle cx="${vx}" cy="${vy}" r="11" fill="#33493a"/>`
+    +`<path d="M${vx-4} ${vy+4.5} L${vx-4} ${vy-0.5} L${vx} ${vy-4.5} L${vx+4} ${vy-0.5} L${vx+4} ${vy+4.5} Z" fill="none" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>`;
+  if(ringN>0) svg+=`<text x="${vx}" y="${(vy-27).toFixed(1)}" text-anchor="middle" font-size="7.5" font-weight="600" font-family="${F}" fill="#8a8272" letter-spacing="0.03em" paint-order="stroke" stroke="#ebe5d6" stroke-width="2.6" stroke-linejoin="round">${esc(L.ringLabel)}</text>`;
+  svg+=`<text x="${vx}" y="${(vy-15).toFixed(1)}" text-anchor="middle" font-size="8.5" font-weight="700" font-family="${F}" fill="#33493a" paint-order="stroke" stroke="#ebe5d6" stroke-width="3" stroke-linejoin="round">Villa Rudolf</text>`;
+  // severka + měřítko
   svg+=`<g stroke="#33493a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M${nx} 22 L${nx} 8"/><path d="M${nx-3.5} 12 L${nx} 8 L${nx+3.5} 12"/></g>`
     +`<text x="${nx}" y="34" text-anchor="middle" font-size="9" font-weight="700" font-family="${F}" fill="#33493a">${northLetter}</text>`;
-  // (f) měřítko vlevo dole
   svg+=`<g stroke="#73786d" stroke-width="1" stroke-linecap="round"><path d="M${sx} ${sy} H${(sx+barPx).toFixed(1)}"/><path d="M${sx} ${sy-3} V${sy+3}"/><path d="M${(sx+barPx).toFixed(1)} ${sy-3} V${sy+3}"/></g>`
     +`<text x="${sx}" y="${sy-6}" font-size="8" font-family="${F}" fill="#73786d">${barKm} km</text>`;
   svg+=`</svg>`;
 
-  // legenda pod mapou – stejné pořadí 1..9
-  let key='<div class="mapkey">';
-  trips.forEach((t,i)=>{
-    const pick=pickIds.has(t.id);
-    const short=esc(tt(t.name,lang).split('–')[0].split('(')[0].trim());
-    const dist=t.byFoot?esc(L.mapFoot):esc(t.travelMin+' min');
-    key+=`<a href="#${t.id}" class="mk${pick?' pick':''}" style="--acc:${t.accent}"><span class="n">${i+1}</span><span class="t">${short}</span><span class="d">${dist}</span></a>`;
-  });
-  key+='</div>';
+  // ===== legenda: tři skupiny (pěšky / v okolí / na celý den) =====
+  const groups=[['villa',L.legVilla],['near',L.legNear],['far',L.legFar]];
+  let key='';
+  for(const [zone,head] of groups){
+    const items=trips.map((t,i)=>({t,num:i+1})).filter(o=>o.t.zone===zone&&matchFilter(o.t,filterId));
+    if(!items.length)continue;
+    key+=`<div class="mapkey-group"><div class="mapkey-h">${esc(head)}</div><div class="mapkey">`;
+    for(const o of items){ const t=o.t,pick=showPlan&&pickIds.has(t.id);
+      const short=esc(tt(t.name,lang).split('–')[0].split('(')[0].trim());
+      const dist=t.byFoot?esc(L.mapFoot):esc(t.travelMin+' min');
+      key+=`<a href="#${t.id}" class="mk${pick?' pick':''}" style="--acc:${t.accent}"><span class="n">${o.num}</span><span class="t">${short}</span><span class="d">${dist}</span></a>`;
+    }
+    key+=`</div></div>`;
+  }
 
-  return `<div class="sec-h"><svg class="icon"><use href="#i-map"></use></svg><h2>${esc(L.mapTitle)}</h2></div>`
-    +`<div class="mapwrap">${svg}<div class="mapcap">${esc(L.mapCaption)}</div>${key}</div>`;
+  // popis pod mapou
+  let cap='';
+  if(showPlan) cap=esc(L.mapCaption);
+  if(ringN>0) cap+=(cap?' · ':'')+esc(L.mapCapRing);
+  const shown=proj.filter(vis).length+ringN;
+  if(!cap) cap=shown+' '+esc(L.tripWord(shown));
+
+  return `${svg}<div class="mapcap">${cap}</div>${key}`;
 }
 
 function render(data,token){
   const {guest,trips,forecast}=data;
+  const food=data.food||[];
   const lang=(guest.lang in I18N)?guest.lang:'de';
   const L=I18N[lang];
   document.documentElement.lang=lang;
@@ -530,6 +621,9 @@ function render(data,token){
 
   // VŠECHNY VÝLETY
   html+=`<div class="sec-h"><svg class="icon"><use href="#i-pin"></use></svg><h2>${esc(L.allTrips)}</h2></div>`;
+  html+=`<div class="chips">`
+    +FILTER_IDS.map(f=>`<button type="button" class="chip${f==='vse'?' on':''}" data-f="${f}">${esc(L.filters[f])}</button>`).join('')
+    +`<span class="chip-count" id="chip-count">${trips.length} ${esc(L.tripWord(trips.length))}</span></div>`;
   for(const t of trips){
     const open=tt(t.openNote,lang),price=tt(t.price,lang);
     html+=`<div class="card trip" id="${t.id}" style="--acc:${t.accent}">
@@ -547,6 +641,22 @@ function render(data,token){
     if(t.group&&t.group.capacity)warns.push(L.capacity);
     for(const wn of warns)html+=`<div class="note"><svg class="icon"><use href="#i-alert"></use></svg><span>${esc(wn)}</span></div>`;
     html+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div></div>`;
+  }
+
+  // KAM NA DOBRÉ JÍDLO (nefiltruje se, není na mapě)
+  if(food.length){
+    html+=`<div class="sec-h"><svg class="icon"><use href="#i-utensils"></use></svg><h2>${esc(L.foodTitle)}</h2></div>`;
+    for(const f of food){
+      const meta=f.byFoot?esc(L.mapFoot):esc(f.travelMin+' '+L.min);
+      html+=`<div class="card food" id="${esc(f.id)}">
+        <h3>${esc(tt(f.name,lang))}</h3>
+        <div class="ftag">${esc(tt(f.tagline,lang))}</div>
+        <p>${esc(tt(f.desc,lang))}</p>
+        <span class="fmeta"><svg class="icon"><use href="#i-${f.byFoot?'route':'clock'}"></use></svg>${meta}</span>
+        <div class="fopen">${esc(tt(f.openNote,lang))}</div>
+        <div class="links">${(f.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div>
+      </div>`;
+    }
   }
 
   html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(lang==='cs'?'cs-CZ':'de-DE',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
@@ -571,6 +681,20 @@ function render(data,token){
       render(data,token); // přerenderuj celé UI s novým party (plán se přepočítá)
     });
   }
+
+  // ===== Filtrační chipy: skrytí karet + přerenderování mapy + počet =====
+  const chips=document.querySelectorAll('.chip');
+  const mapInner=document.getElementById('map-inner');
+  const countEl=document.getElementById('chip-count');
+  function applyFilter(fid){
+    chips.forEach(c=>c.classList.toggle('on',c.dataset.f===fid));
+    let n=0;
+    for(const t of trips){ const el=document.getElementById(t.id); if(!el)continue;
+      const show=matchFilter(t,fid); el.hidden=!show; if(show)n++; }
+    if(mapInner) mapInner.innerHTML=renderMapInner(trips,plan,lang,L,fid);
+    if(countEl) countEl.textContent=n+' '+L.tripWord(n);
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
 }
 
 /* ===== Start ===== */
@@ -585,7 +709,7 @@ function render(data,token){
     // lokální override skupiny (host si upravil partu; funguje i v demu)
     const ov=loadPartyOverride(token);
     if(ov)guest.party=ov;
-    render({guest,trips:tripsRaw.trips,forecast},token);
+    render({guest,trips:tripsRaw.trips,food:tripsRaw.food,forecast},token);
   }catch(e){
     document.getElementById('app').innerHTML='<div class="loading">Průvodce se nepodařilo načíst. / Guide konnte nicht geladen werden.</div>';
     console.error(e);
