@@ -1,206 +1,2529 @@
 {
-  "_comment": "Katalog výletů Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de). Tagy pohánějí doporučovací jádro.",
+  "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en). Tagy pohánějí doporučovací jádro. Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
   "trips": [
     {
       "id": "snezka-cablecar",
       "icon": "mountain",
       "accent": "#4f6d7a",
-      "coords": { "lat": 50.7359, "lon": 15.7400, "alt": 1603 },
-      "travelMin": 20, "byFoot": false,
-      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
-      "needsClearLowWind": true, "effort": "moderate", "stairs": false, "crossBorderId": false,
-      "minAge": 0, "bestFor": ["teen", "adult", "child"],
-      "group": { "groupTariffMin": 20, "reservation": false, "capacity": null },
-      "name": { "cs": "Sněžka (1603 m) lanovkou nebo pěšky", "de": "Sněžka (1603 m) – Seilbahn oder zu Fuß" },
-      "tagline": { "cs": "nejvyšší hora · autem 20 min do Pece", "de": "höchster Berg · 20 Min. nach Pec" },
-      "desc": { "cs": "Kabinová lanovka z Pece pod Sněžkou na vrchol za ~15 min; sportovci mohou pěšky. Vrchol je na hranici s Polskem.", "de": "Kabinenseilbahn von Pec pod Sněžkou in ~15 Min. auf den Gipfel; sportlich auch zu Fuß. Der Gipfel liegt an der Grenze zu Polen." },
-      "openNote": { "cs": "hlavní sezóna denně 8:00–19:00; nahoru jen za příznivého počasí (vítr <60 km/h)", "de": "Hauptsaison täglich 8:00–19:00; nur bei gutem Wetter bis zum Gipfel (Wind <60 km/h)" },
-      "price": { "cs": "dospělí tam a zpět 750 Kč · 12–17 let 680 Kč · skupina od 20 os. 680 Kč/os.", "de": "Erwachsene hin & zurück 750 Kč · 12–17 J. 680 Kč · Gruppe ab 20 Pers. 680 Kč/Pers." },
+      "coords": {
+        "lat": 50.7359,
+        "lon": 15.74,
+        "alt": 1603
+      },
+      "travelMin": 20,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": true,
+      "effort": "moderate",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "teen",
+        "adult",
+        "child"
+      ],
+      "group": {
+        "groupTariffMin": 20,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Sněžka (1603 m) lanovkou nebo pěšky",
+        "de": "Sněžka (1603 m) – Seilbahn oder zu Fuß",
+        "en": "Sněžka (1603 m) by cable car or on foot"
+      },
+      "tagline": {
+        "cs": "nejvyšší hora · autem 20 min do Pece",
+        "de": "höchster Berg · 20 Min. nach Pec",
+        "en": "highest mountain · 20 min drive to Pec"
+      },
+      "desc": {
+        "cs": "Kabinová lanovka z Pece pod Sněžkou na vrchol za ~15 min; sportovci mohou pěšky. Vrchol je na hranici s Polskem.",
+        "de": "Kabinenseilbahn von Pec pod Sněžkou in ~15 Min. auf den Gipfel; sportlich auch zu Fuß. Der Gipfel liegt an der Grenze zu Polen.",
+        "en": "Cabin cable car from Pec pod Sněžkou to the summit in ~15 min; the fit can walk up. The summit sits right on the Polish border."
+      },
+      "openNote": {
+        "cs": "hlavní sezóna denně 8:00–19:00; nahoru jen za příznivého počasí (vítr <60 km/h)",
+        "de": "Hauptsaison täglich 8:00–19:00; nur bei gutem Wetter bis zum Gipfel (Wind <60 km/h)",
+        "en": "high season daily 8:00–19:00; to the summit only in good weather (wind <60 km/h)"
+      },
+      "price": {
+        "cs": "dospělí tam a zpět 750 Kč · 12–17 let 680 Kč · skupina od 20 os. 680 Kč/os.",
+        "de": "Erwachsene hin & zurück 750 Kč · 12–17 J. 680 Kč · Gruppe ab 20 Pers. 680 Kč/Pers.",
+        "en": "adults return 750 Kč · ages 12–17 680 Kč · groups of 20+ 680 Kč/person"
+      },
       "links": [
-        { "icon": "globe", "label": "snezkalanovka.cz", "url": "https://www.snezkalanovka.cz/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem do Pece", "de": "Mapy.cz – Route nach Pec" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "snezkalanovka.cz",
+          "url": "https://www.snezkalanovka.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem do Pece",
+            "de": "Mapy.cz – Route nach Pec"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "viewpoint",
+      "zone": "near"
     },
     {
       "id": "stachelberg",
       "icon": "fort",
       "accent": "#7a6840",
-      "coords": { "lat": 50.6340, "lon": 15.9060, "alt": 615 },
-      "travelMin": 15, "byFoot": false,
-      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": false,
-      "needsClearLowWind": false, "effort": "moderate", "stairs": true, "crossBorderId": false,
-      "minAge": 5, "bestFor": ["child", "teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
-      "name": { "cs": "Pevnost Stachelberg – výprava do podzemí", "de": "Festung Stachelberg – Expedition in den Untergrund" },
-      "tagline": { "cs": "historie a podzemí · autem 15 min", "de": "Geschichte & Untertage · 15 Min." },
-      "desc": { "cs": "Největší moderní pevnost v Čechách: sestup 52 m hluboko do 3,5 km chodeb (186 schodů). V podzemí stálých ~8 °C.", "de": "Größte moderne Festung Tschechiens: 52 m hinab in 3,5 km Gänge (186 Stufen). Unter Tage konstant ~8 °C." },
-      "openNote": { "cs": "v červnu čt–ne 10:00–17:00", "de": "im Juni Do–So 10:00–17:00" },
-      "price": { "cs": "dospělí 200 Kč · děti 6–15 let 100 Kč · rodina 2+2 500 Kč", "de": "Erwachsene 200 Kč · Kinder 6–15 J. 100 Kč · Familie 2+2 500 Kč" },
+      "coords": {
+        "lat": 50.634,
+        "lon": 15.906,
+        "alt": 615
+      },
+      "travelMin": 15,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "moderate",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 5,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Pevnost Stachelberg – výprava do podzemí",
+        "de": "Festung Stachelberg – Expedition in den Untergrund",
+        "en": "Stachelberg Fortress – an expedition underground"
+      },
+      "tagline": {
+        "cs": "historie a podzemí · autem 15 min",
+        "de": "Geschichte & Untertage · 15 Min.",
+        "en": "history & tunnels · 15 min drive"
+      },
+      "desc": {
+        "cs": "Největší moderní pevnost v Čechách: sestup 52 m hluboko do 3,5 km chodeb (186 schodů). V podzemí stálých ~8 °C. V areálu navíc stojí volně přístupná rozhledna Eliška (otevřená duben–listopad) a pod ní pěkné dětské hřiště.",
+        "de": "Größte moderne Festung Tschechiens: 52 m hinab in 3,5 km Gänge (186 Stufen). Unter Tage konstant ~8 °C. Auf dem Gelände steht zudem der frei zugängliche Aussichtsturm Eliška (geöffnet April–November) mit einem schönen Kinderspielplatz darunter.",
+        "en": "The largest modern fortress in Bohemia: 52 m down into 3.5 km of tunnels (186 steps), a constant ~8 °C underground. The site also has the free Eliška lookout tower (open April–November) with a nice children's playground beneath it."
+      },
+      "openNote": {
+        "cs": "v červnu čt–ne 10:00–17:00",
+        "de": "im Juni Do–So 10:00–17:00",
+        "en": "in June Thu–Sun 10:00–17:00"
+      },
+      "price": {
+        "cs": "dospělí 200 Kč · děti 6–15 let 100 Kč · rodina 2+2 500 Kč",
+        "de": "Erwachsene 200 Kč · Kinder 6–15 J. 100 Kč · Familie 2+2 500 Kč",
+        "en": "adults 200 Kč · children 6–15 100 Kč · family 2+2 500 Kč"
+      },
       "links": [
-        { "icon": "globe", "label": "stachelberg.cz", "url": "https://www.stachelberg.cz/" },
-        { "icon": "ticket", "label": { "cs": "Vstupenky online", "de": "Tickets online" }, "url": "https://portal.colosseum.eu/Tours?mrsid=382" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "stachelberg.cz",
+          "url": "https://www.stachelberg.cz/"
+        },
+        {
+          "icon": "ticket",
+          "label": {
+            "cs": "Vstupenky online",
+            "de": "Tickets online"
+          },
+          "url": "https://portal.colosseum.eu/Tours?mrsid=382"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem",
+            "de": "Mapy.cz – Route"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "culture",
+      "zone": "near"
     },
     {
       "id": "baumwipfelpfad",
       "icon": "tree",
       "accent": "#4a7257",
-      "coords": { "lat": 50.6300, "lon": 15.7830, "alt": 650 },
-      "travelMin": 0, "byFoot": true,
-      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
-      "needsClearLowWind": false, "effort": "moderate", "stairs": false, "crossBorderId": false,
-      "minAge": 0, "bestFor": ["child", "teen", "adult", "toddler"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
-      "name": { "cs": "Pěšky do Janských Lázní a na Stezku korunami stromů", "de": "Zu Fuß nach Janské Lázně und auf den Baumwipfelpfad" },
-      "tagline": { "cs": "příroda a výhledy · pěšky od vily · nově s medvědy", "de": "Natur & Aussicht · zu Fuß · neu mit Bären" },
-      "desc": { "cs": "Klasika od vily (~4 km lesem): kolonáda, pak Stezka korunami stromů s 43m věží, tobogánem a Medvědí stezkou.", "de": "Klassiker ab der Villa (~4 km Wald): Kolonnade, dann Baumwipfelpfad mit 43-m-Turm, Tunnelrutsche und Bärenpfad." },
-      "openNote": { "cs": "v červnu denně 9:30–19:00", "de": "im Juni täglich 9:30–19:00" },
-      "price": { "cs": "dospělí (od 15 let) 450 Kč · děti 3–14 let 350 Kč · tobogán 50 Kč", "de": "Erwachsene (ab 15) 450 Kč · Kinder 3–14 J. 350 Kč · Tunnelrutsche 50 Kč" },
+      "coords": {
+        "lat": 50.63,
+        "lon": 15.783,
+        "alt": 650
+      },
+      "travelMin": 0,
+      "byFoot": true,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "moderate",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult",
+        "toddler"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Pěšky do Janských Lázní a na Stezku korunami stromů",
+        "de": "Zu Fuß nach Janské Lázně und auf den Baumwipfelpfad",
+        "en": "On foot to Janské Lázně and the Treetop Walk"
+      },
+      "tagline": {
+        "cs": "příroda a výhledy · pěšky od vily · nově s medvědy",
+        "de": "Natur & Aussicht · zu Fuß · neu mit Bären",
+        "en": "nature & views · on foot from the villa · now with bears"
+      },
+      "desc": {
+        "cs": "Klasika od vily (~4 km lesem): kolonáda, pak Stezka korunami stromů s 43m věží, tobogánem a Medvědí stezkou. U paty stezky je herní svět Emilův lesní svět (11 prolézaček a minifarma), který je v ceně vstupenky na Stezku.",
+        "de": "Klassiker ab der Villa (~4 km Wald): Kolonnade, dann Baumwipfelpfad mit 43-m-Turm, Tunnelrutsche und Bärenpfad. Am Fuß des Pfads liegt die Spielwelt Emilův lesní svět (11 Klettergeräte und ein Mini-Bauernhof), im Stezka-Ticket enthalten.",
+        "en": "A classic from the villa (~4 km through forest): the colonnade, then the Treetop Walk with its 43-m tower, tunnel slide and Bear Trail. At the base is the Emil's Forest World playground (11 climbing frames and a mini-farm), included in the Treetop Walk ticket."
+      },
+      "openNote": {
+        "cs": "v červnu denně 9:30–19:00",
+        "de": "im Juni täglich 9:30–19:00",
+        "en": "in June daily 9:30–19:00"
+      },
+      "price": {
+        "cs": "dospělí (od 15 let) 450 Kč · děti 3–14 let 350 Kč · tobogán 50 Kč",
+        "de": "Erwachsene (ab 15) 450 Kč · Kinder 3–14 J. 350 Kč · Tunnelrutsche 50 Kč",
+        "en": "adults (15+) 450 Kč · children 3–14 350 Kč · slide 50 Kč"
+      },
       "links": [
-        { "icon": "globe", "label": "treetop-walks.com/krkonose", "url": "https://treetop-walks.com/krkonose/" },
-        { "icon": "ticket", "label": { "cs": "E-shop vstupenek", "de": "Ticket-Shop" }, "url": "https://eshop.stezkakrkonose.cz/cz/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – pěšky od vily", "de": "Mapy.cz – zu Fuß" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking" }
-      ]
+        {
+          "icon": "globe",
+          "label": "treetop-walks.com/krkonose",
+          "url": "https://treetop-walks.com/krkonose/"
+        },
+        {
+          "icon": "ticket",
+          "label": {
+            "cs": "E-shop vstupenek",
+            "de": "Ticket-Shop"
+          },
+          "url": "https://eshop.stezkakrkonose.cz/cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – pěšky od vily",
+            "de": "Mapy.cz – zu Fuß"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking"
+        }
+      ],
+      "category": "viewpoint",
+      "zone": "villa"
     },
     {
       "id": "janske-hallenbad",
       "icon": "waves",
       "accent": "#44786d",
-      "coords": { "lat": 50.6315, "lon": 15.7805, "alt": 640 },
-      "travelMin": 0, "byFoot": true,
-      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
-      "minAge": 0, "bestFor": ["toddler", "child", "adult"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
-      "name": { "cs": "Krytý bazén v Janských Lázních (Aquacentrum)", "de": "Hallenbad in Janské Lázně (Aquacentrum)" },
-      "tagline": { "cs": "lázeňská relaxace · pěšky od vily", "de": "Wellness im Kurort · zu Fuß" },
-      "desc": { "cs": "Bazén z minerálních pramenů (27 °C), vířivky, protiproud a saunový svět – hned za kolonádou.", "de": "Becken mit Mineralquellwasser (27 °C), Whirlpools, Gegenstrom und Saunawelt – direkt an der Kolonnade." },
-      "openNote": { "cs": "pro veřejnost po–pá 16–21, so–ne 13–21", "de": "öffentlich Mo–Fr 16–21, Sa–So 13–21" },
-      "price": { "cs": "bazén 240 Kč · bazén+sauny dospělí 400 Kč", "de": "Bad 240 Kč · Bad+Sauna Erwachsene 400 Kč" },
+      "coords": {
+        "lat": 50.6315,
+        "lon": 15.7805,
+        "alt": 640
+      },
+      "travelMin": 0,
+      "byFoot": true,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Krytý bazén v Janských Lázních (Aquacentrum)",
+        "de": "Hallenbad in Janské Lázně (Aquacentrum)",
+        "en": "Indoor pool in Janské Lázně (Aquacentrum)"
+      },
+      "tagline": {
+        "cs": "lázeňská relaxace · pěšky od vily",
+        "de": "Wellness im Kurort · zu Fuß",
+        "en": "spa-town relaxation · on foot from the villa"
+      },
+      "desc": {
+        "cs": "Bazén z minerálních pramenů (27 °C), vířivky, protiproud a saunový svět – hned za kolonádou.",
+        "de": "Becken mit Mineralquellwasser (27 °C), Whirlpools, Gegenstrom und Saunawelt – direkt an der Kolonnade.",
+        "en": "Pool fed by mineral springs (27 °C), whirlpools, counter-current and a sauna world – right behind the colonnade."
+      },
+      "openNote": {
+        "cs": "pro veřejnost po–pá 16–21, so–ne 13–21",
+        "de": "öffentlich Mo–Fr 16–21, Sa–So 13–21",
+        "en": "public Mon–Fri 16–21, Sat–Sun 13–21"
+      },
+      "price": {
+        "cs": "bazén 240 Kč · bazén+sauny dospělí 400 Kč",
+        "de": "Bad 240 Kč · Bad+Sauna Erwachsene 400 Kč",
+        "en": "pool 240 Kč · pool+sauna adults 400 Kč"
+      },
       "links": [
-        { "icon": "globe", "label": "janskelazne.com", "url": "https://www.janskelazne.com/aquacentrum/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – pěšky", "de": "Mapy.cz – zu Fuß" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking" }
-      ]
+        {
+          "icon": "globe",
+          "label": "janskelazne.com",
+          "url": "https://www.janskelazne.com/aquacentrum/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – pěšky",
+            "de": "Mapy.cz – zu Fuß"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking"
+        }
+      ],
+      "category": "water",
+      "zone": "villa"
     },
     {
       "id": "aqua-vrchlabi",
       "icon": "waves",
       "accent": "#4a708e",
-      "coords": { "lat": 50.6264, "lon": 15.6094, "alt": 480 },
-      "travelMin": 25, "byFoot": false,
-      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
-      "minAge": 0, "bestFor": ["toddler", "child", "teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": 141 },
-      "name": { "cs": "Aquacentrum Vrchlabí", "de": "Aquacentrum Vrchlabí" },
-      "tagline": { "cs": "plavání a tobogány · autem 25 min", "de": "Schwimmen & Rutschen · 25 Min." },
-      "desc": { "cs": "Moderní bazény (2022): 25m bazén, divoká řeka, 60m tobogán s jízdou ve tmě, vířivky. Web ukazuje obsazenost živě.", "de": "Moderne Bäder (2022): 25-m-Becken, Wildwasser, 60-m-Tunnelrutsche, Whirlpools. Website zeigt Live-Auslastung." },
-      "openNote": { "cs": "před cestou zkontrolujte obsazenost online (kapacita 141)", "de": "vor der Fahrt Auslastung online prüfen (Kapazität 141)" },
-      "price": { "cs": "prvních 75 min 165 Kč, denní max 290 Kč", "de": "erste 75 Min. 165 Kč, Tagesmax. 290 Kč" },
+      "coords": {
+        "lat": 50.6264,
+        "lon": 15.6094,
+        "alt": 480
+      },
+      "travelMin": 25,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": 141
+      },
+      "name": {
+        "cs": "Aquacentrum Vrchlabí",
+        "de": "Aquacentrum Vrchlabí",
+        "en": "Aquacentrum Vrchlabí"
+      },
+      "tagline": {
+        "cs": "plavání a tobogány · autem 25 min",
+        "de": "Schwimmen & Rutschen · 25 Min.",
+        "en": "swimming & slides · 25 min drive"
+      },
+      "desc": {
+        "cs": "Moderní bazény (2022): 25m bazén, divoká řeka, 60m tobogán s jízdou ve tmě, vířivky. Web ukazuje obsazenost živě.",
+        "de": "Moderne Bäder (2022): 25-m-Becken, Wildwasser, 60-m-Tunnelrutsche, Whirlpools. Website zeigt Live-Auslastung.",
+        "en": "Modern pools (2022): 25-m pool, wild river, 60-m tunnel slide with a ride in the dark, whirlpools. The website shows live occupancy."
+      },
+      "openNote": {
+        "cs": "před cestou zkontrolujte obsazenost online (kapacita 141)",
+        "de": "vor der Fahrt Auslastung online prüfen (Kapazität 141)",
+        "en": "check occupancy online before you go (capacity 141)"
+      },
+      "price": {
+        "cs": "prvních 75 min 165 Kč, denní max 290 Kč",
+        "de": "erste 75 Min. 165 Kč, Tagesmax. 290 Kč",
+        "en": "first 75 min 165 Kč, daily max 290 Kč"
+      },
       "links": [
-        { "icon": "globe", "label": { "cs": "obsazenost živě", "de": "Auslastung live" }, "url": "https://www.aquacentrum-vrchlabi.cz/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "obsazenost živě",
+            "de": "Auslastung live"
+          },
+          "url": "https://www.aquacentrum-vrchlabi.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem",
+            "de": "Mapy.cz – Route"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "water",
+      "zone": "near"
     },
     {
       "id": "aquapark-karpacz",
       "icon": "waves",
       "accent": "#5d6890",
-      "coords": { "lat": 50.7766, "lon": 15.7546, "alt": 720 },
-      "travelMin": 45, "byFoot": false,
-      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": true,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": true,
-      "minAge": 0, "bestFor": ["toddler", "child", "teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
-      "name": { "cs": "Aquapark Tropikana – Karpacz (PL)", "de": "Aquapark Tropikana – Karpacz (PL)" },
-      "tagline": { "cs": "aquapark za hranicemi · autem 45 min", "de": "Aquapark im Ausland · 45 Min." },
-      "desc": { "cs": "Velký hotelový aquapark hned za hranicí: vlny, skluzavky, 8 vířivek, solná i ledová jeskyně. Pozor na doklady i pro děti.", "de": "Großer Hotel-Aquapark hinter der Grenze: Wellen, Rutschen, 8 Whirlpools, Salz- und Eisgrotte. Ausweise auch für Kinder mitnehmen." },
-      "openNote": { "cs": "po–pá 11–21, so–ne 9–21", "de": "Mo–Fr 11–21, Sa–So 9–21" },
-      "price": { "cs": "dospělí 80 zł / 1,5 h · děti do 14 let −50 %", "de": "Erwachsene 80 zł / 1,5 Std. · Kinder bis 14 J. −50 %" },
+      "coords": {
+        "lat": 50.7766,
+        "lon": 15.7546,
+        "alt": 720
+      },
+      "travelMin": 45,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": true,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Aquapark Tropikana – Karpacz (PL)",
+        "de": "Aquapark Tropikana – Karpacz (PL)",
+        "en": "Tropikana Aquapark – Karpacz (PL)"
+      },
+      "tagline": {
+        "cs": "aquapark za hranicemi · autem 45 min",
+        "de": "Aquapark im Ausland · 45 Min.",
+        "en": "aquapark across the border · 45 min drive"
+      },
+      "desc": {
+        "cs": "Velký hotelový aquapark hned za hranicí: vlny, skluzavky, 8 vířivek, solná i ledová jeskyně. Pozor na doklady i pro děti.",
+        "de": "Großer Hotel-Aquapark hinter der Grenze: Wellen, Rutschen, 8 Whirlpools, Salz- und Eisgrotte. Ausweise auch für Kinder mitnehmen.",
+        "en": "A large hotel aquapark just over the border: waves, slides, 8 whirlpools, salt and ice caves. Bring ID for the children too."
+      },
+      "openNote": {
+        "cs": "po–pá 11–21, so–ne 9–21",
+        "de": "Mo–Fr 11–21, Sa–So 9–21",
+        "en": "Mon–Fri 11–21, Sat–Sun 9–21"
+      },
+      "price": {
+        "cs": "dospělí 80 zł / 1,5 h · děti do 14 let −50 %",
+        "de": "Erwachsene 80 zł / 1,5 Std. · Kinder bis 14 J. −50 %",
+        "en": "adults 80 zł / 1.5 h · children under 14 −50 %"
+      },
       "links": [
-        { "icon": "globe", "label": "golebiewski.pl", "url": "https://www.golebiewski.pl/cz/karpacz/aquapark-cz" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "golebiewski.pl",
+          "url": "https://www.golebiewski.pl/cz/karpacz/aquapark-cz"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem",
+            "de": "Mapy.cz – Route"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "water",
+      "zone": "far"
     },
     {
       "id": "harrachov-glass",
       "icon": "flame",
       "accent": "#a05c30",
-      "coords": { "lat": 50.7710, "lon": 15.4296, "alt": 665 },
-      "travelMin": 50, "byFoot": false,
-      "outdoor": false, "indoorOrCovered": true, "rainOk": true, "lovesHeat": false,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
-      "minAge": 0, "bestFor": ["child", "teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
-      "name": { "cs": "Sklárna Harrachov & Mumlavské vodopády", "de": "Glashütte Harrachov & Mumlava-Wasserfälle" },
-      "tagline": { "cs": "řemeslo a vodopády · autem 50 min", "de": "Handwerk & Wasserfälle · 50 Min." },
-      "desc": { "cs": "Nejstarší fungující sklárna v Čechách: 45min prohlídka tavení a foukání skla. Kousek dál zdarma Mumlavské vodopády (lehká procházka).", "de": "Älteste arbeitende Glashütte Tschechiens: 45-Min.-Führung am Ofen. Nebenan kostenlos die Mumlava-Wasserfälle (leichter Weg)." },
-      "openNote": { "cs": "prohlídky denně 8–15; skupiny předem rezervovat", "de": "Führungen täglich 8–15; Gruppen vorab anmelden" },
-      "price": { "cs": "dospělí 250 Kč · děti 6–17 let 100 Kč · vodopády zdarma", "de": "Erwachsene 250 Kč · Kinder 6–17 J. 100 Kč · Wasserfälle gratis" },
+      "coords": {
+        "lat": 50.771,
+        "lon": 15.4296,
+        "alt": 665
+      },
+      "travelMin": 50,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Sklárna Harrachov & Mumlavské vodopády",
+        "de": "Glashütte Harrachov & Mumlava-Wasserfälle",
+        "en": "Harrachov Glassworks & Mumlava Waterfalls"
+      },
+      "tagline": {
+        "cs": "řemeslo a vodopády · autem 50 min",
+        "de": "Handwerk & Wasserfälle · 50 Min.",
+        "en": "craft & waterfalls · 50 min drive"
+      },
+      "desc": {
+        "cs": "Nejstarší fungující sklárna v Čechách: 45min prohlídka tavení a foukání skla. Kousek dál zdarma Mumlavské vodopády (lehká procházka).",
+        "de": "Älteste arbeitende Glashütte Tschechiens: 45-Min.-Führung am Ofen. Nebenan kostenlos die Mumlava-Wasserfälle (leichter Weg).",
+        "en": "The oldest working glassworks in Bohemia: a 45-min tour of glass melting and blowing. A little further on, the free Mumlava Waterfalls (an easy walk)."
+      },
+      "openNote": {
+        "cs": "prohlídky denně 8–15; skupiny předem rezervovat",
+        "de": "Führungen täglich 8–15; Gruppen vorab anmelden",
+        "en": "tours daily 8–15; groups book ahead"
+      },
+      "price": {
+        "cs": "dospělí 250 Kč · děti 6–17 let 100 Kč · vodopády zdarma",
+        "de": "Erwachsene 250 Kč · Kinder 6–17 J. 100 Kč · Wasserfälle gratis",
+        "en": "adults 250 Kč · children 6–17 100 Kč · waterfalls free"
+      },
       "links": [
-        { "icon": "globe", "label": "sklarnaharrachov.cz", "url": "https://sklarnaharrachov.cz/sklarna/exkurze" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "sklarnaharrachov.cz",
+          "url": "https://sklarnaharrachov.cz/sklarna/exkurze"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem",
+            "de": "Mapy.cz – Route"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "culture",
+      "zone": "far"
     },
     {
       "id": "bobsled-pec",
       "icon": "zap",
       "accent": "#9e5242",
-      "coords": { "lat": 50.6985, "lon": 15.7346, "alt": 769 },
-      "travelMin": 20, "byFoot": false,
-      "outdoor": true, "indoorOrCovered": false, "rainOk": true, "lovesHeat": false,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": false,
-      "minAge": 8, "bestFor": ["child", "teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": null },
-      "name": { "cs": "Bobová dráha Relaxpark Pec pod Sněžkou", "de": "Sommerrodelbahn Relaxpark Pec pod Sněžkou" },
-      "tagline": { "cs": "adrenalin · autem 20 min · jezdí za každého počasí", "de": "Adrenalin · 20 Min. · bei jedem Wetter" },
-      "desc": { "cs": "900 m nerezová dráha, dvojsedačky až 40 km/h, jezdí i v dešti. Od 8 let lze jet samostatně.", "de": "900 m Edelstahlbahn, Zweisitzer bis 40 km/h, fährt auch bei Regen. Ab 8 Jahren allein." },
-      "openNote": { "cs": "červen denně 9–18, červenec/srpen 9–20", "de": "Juni täglich 9–18, Juli/Aug. 9–20" },
-      "price": { "cs": "jízda ~160–210 Kč; 10 jízd ~1 300 Kč", "de": "Fahrt ~160–210 Kč; 10 Fahrten ~1 300 Kč" },
+      "coords": {
+        "lat": 50.6985,
+        "lon": 15.7346,
+        "alt": 769
+      },
+      "travelMin": 20,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 8,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Bobová dráha Relaxpark Pec pod Sněžkou",
+        "de": "Sommerrodelbahn Relaxpark Pec pod Sněžkou",
+        "en": "Bobsled track Relaxpark Pec pod Sněžkou"
+      },
+      "tagline": {
+        "cs": "adrenalin · autem 20 min · jezdí za každého počasí",
+        "de": "Adrenalin · 20 Min. · bei jedem Wetter",
+        "en": "adrenaline · 20 min drive · runs in any weather"
+      },
+      "desc": {
+        "cs": "900 m nerezová dráha, dvojsedačky až 40 km/h, jezdí i v dešti. Od 8 let lze jet samostatně.",
+        "de": "900 m Edelstahlbahn, Zweisitzer bis 40 km/h, fährt auch bei Regen. Ab 8 Jahren allein.",
+        "en": "900 m stainless track, two-seater sleds up to 40 km/h, runs even in rain. From age 8 you can ride solo."
+      },
+      "openNote": {
+        "cs": "červen denně 9–18, červenec/srpen 9–20",
+        "de": "Juni täglich 9–18, Juli/Aug. 9–20",
+        "en": "June daily 9–18, July/Aug 9–20"
+      },
+      "price": {
+        "cs": "jízda ~160–210 Kč; 10 jízd ~1 300 Kč",
+        "de": "Fahrt ~160–210 Kč; 10 Fahrten ~1 300 Kč",
+        "en": "one ride ~160–210 Kč; 10 rides ~1,300 Kč"
+      },
       "links": [
-        { "icon": "globe", "label": "relaxpark.cz", "url": "https://www.relaxpark.cz/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – autem", "de": "Mapy.cz – Route" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "relaxpark.cz",
+          "url": "https://www.relaxpark.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – autem",
+            "de": "Mapy.cz – Route"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "adrenalin",
+      "zone": "near"
     },
     {
       "id": "ebikes",
       "icon": "bike",
       "accent": "#5e7a40",
-      "coords": { "lat": 50.6388, "lon": 15.7621, "alt": 640 },
-      "travelMin": 12, "byFoot": false,
-      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": false,
-      "needsClearLowWind": false, "effort": "moderate", "stairs": false, "crossBorderId": false,
-      "minAge": 12, "bestFor": ["teen", "adult"],
-      "group": { "groupTariffMin": null, "reservation": true, "capacity": null },
-      "name": { "cs": "E-kola & cyklovýlety v Krkonoších", "de": "E-Bikes & Radfahren im Riesengebirge" },
-      "tagline": { "cs": "aktivně · půjčovna v Janských Lázních", "de": "aktiv · Verleih in Janské Lázně" },
-      "desc": { "cs": "Přes 900 km značených tras. S e-koly zvládne dlouhé výlety i mládež a parta drží pohromadě. Půjčovna SkiResort Live.", "de": "Über 900 km Radwege. Mit E-Bikes schaffen auch Jugendliche lange Touren. Verleih SkiResort Live." },
-      "openNote": { "cs": "červen 9–17, červenec/srpen 9–18; rezervovat předem", "de": "Juni 9–17, Juli/Aug. 9–18; vorab reservieren" },
-      "price": { "cs": "junior e-kolo 590 Kč/den · dospělí od 1 250 Kč/den", "de": "Junior-E-Bike 590 Kč/Tag · Erwachsene ab 1 250 Kč/Tag" },
+      "coords": {
+        "lat": 50.6388,
+        "lon": 15.7621,
+        "alt": 640
+      },
+      "travelMin": 12,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "moderate",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 12,
+      "bestFor": [
+        "teen",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "E-kola & cyklovýlety v Krkonoších",
+        "de": "E-Bikes & Radfahren im Riesengebirge",
+        "en": "E-bikes & cycling tours in the Krkonoše"
+      },
+      "tagline": {
+        "cs": "aktivně · půjčovna v Janských Lázních",
+        "de": "aktiv · Verleih in Janské Lázně",
+        "en": "active · rental in Janské Lázně"
+      },
+      "desc": {
+        "cs": "Přes 900 km značených tras. S e-koly zvládne dlouhé výlety i mládež a parta drží pohromadě. Půjčovna SkiResort Live.",
+        "de": "Über 900 km Radwege. Mit E-Bikes schaffen auch Jugendliche lange Touren. Verleih SkiResort Live.",
+        "en": "Over 900 km of marked trails. With e-bikes even teens can manage long tours and the group stays together. Rental from SkiResort Live."
+      },
+      "openNote": {
+        "cs": "červen 9–17, červenec/srpen 9–18; rezervovat předem",
+        "de": "Juni 9–17, Juli/Aug. 9–18; vorab reservieren",
+        "en": "June 9–17, July/Aug 9–18; reserve ahead"
+      },
+      "price": {
+        "cs": "junior e-kolo 590 Kč/den · dospělí od 1 250 Kč/den",
+        "de": "Junior-E-Bike 590 Kč/Tag · Erwachsene ab 1 250 Kč/Tag",
+        "en": "junior e-bike 590 Kč/day · adults from 1,250 Kč/day"
+      },
       "links": [
-        { "icon": "globe", "label": "leto.skiresort.cz", "url": "https://leto.skiresort.cz/letni-aktivity/elektrokola/" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – půjčovna", "de": "Mapy.cz – Verleih" }, "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic" }
-      ]
+        {
+          "icon": "globe",
+          "label": "leto.skiresort.cz",
+          "url": "https://leto.skiresort.cz/letni-aktivity/elektrokola/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – půjčovna",
+            "de": "Mapy.cz – Verleih"
+          },
+          "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic"
+        }
+      ],
+      "category": "adrenalin",
+      "zone": "near"
     },
     {
       "id": "hricky-buky",
       "icon": "play",
       "accent": "#c96a4a",
-      "coords": { "lat": 50.6090, "lon": 15.8390, "alt": 490 },
-      "travelMin": 8, "byFoot": false,
-      "outdoor": true, "indoorOrCovered": false, "rainOk": false, "lovesHeat": true,
-      "needsClearLowWind": false, "effort": "easy", "stairs": false, "crossBorderId": null,
-      "minAge": 0, "bestFor": ["toddler", "child", "adult"],
-      "group": { "groupTariffMin": null, "reservation": false, "capacity": false },
-      "name": { "cs": "Hříčky Buky (Baldův svět)", "de": "Hříčky Buky (Kinder-Erlebnispark)", "en": "Hříčky Buky adventure park" },
-      "tagline": { "cs": "Zábavní park pro děti ve svahu", "de": "Erlebnispark für Kinder am Hang", "en": "Kids' adventure park on the slope" },
-      "desc": { "cs": "Obří outdoorový areál v Mladých Bukách (skoro 4 ha) plný zábavy: trampolíny (i nafukovací a bungee), prolézačky se skluzavkami, vodní kanály s koly a bazénky, vyhřívaný bazének, letní tubing (od 6 let), lanové atrakce s vyhlídkou, 3D bludiště i mini zoo s kůzlaty. Klidně na celý den – jako dělané pro mladší školáky. Za deště zavřeno.", "de": "Riesiges Outdoor-Areal in Mladé Buky (fast 4 ha) voller Spaß: Trampoline (auch Luft- und Bungee), Klettergerüste mit Rutschen, Wasserkanäle mit Rädern und Becken, beheiztes Planschbecken, Sommer-Tubing (ab 6 J.), Seilattraktionen mit Aussicht, 3D-Labyrinth und ein Mini-Zoo mit Ziegen. Locker ein ganzer Tag – wie gemacht für jüngere Schulkinder. Bei Regen geschlossen.", "en": "Huge outdoor park in Mladé Buky (nearly 4 ha) packed with fun: trampolines (air & bungee), climbing frames with slides, water channels with wheels and pools, a heated paddling pool, summer tubing (age 6+), rope attractions with a viewpoint, a 3D maze and a mini-zoo with goats. Easily a full day – made for younger school kids. Closed in rain." },
-      "openNote": { "cs": "Hlavní sezóna (červenec–srpen) denně 9:00–18:00; provoz podle počasí.", "de": "Hauptsaison (Juli–August) täglich 9:00–18:00; wetterabhängig.", "en": "High season (July–August) daily 9:00–18:00; weather-dependent." },
-      "price": { "cs": "Děti (nar. 2011–2022) 320 Kč online / 390 Kč na místě, od 13:00 levněji 220 Kč; starší a dospělí 190 Kč online; do ~3 let zdarma. Online výhodněji.", "de": "Kinder (Jg. 2011–2022) 320 CZK online / 390 CZK vor Ort, ab 13:00 günstiger 220 CZK; Ältere und Erwachsene 190 CZK online; bis ~3 J. gratis. Online günstiger.", "en": "Children (born 2011–2022) 320 CZK online / 390 CZK on site, from 1 pm cheaper 220 CZK; older & adults 190 CZK online; under ~3 free. Cheaper online." },
+      "coords": {
+        "lat": 50.609,
+        "lon": 15.839,
+        "alt": 490
+      },
+      "travelMin": 8,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": null,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "adult"
+      ],
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": false
+      },
+      "name": {
+        "cs": "Hříčky Buky (Baldův svět)",
+        "de": "Hříčky Buky (Kinder-Erlebnispark)",
+        "en": "Hříčky Buky adventure park"
+      },
+      "tagline": {
+        "cs": "Zábavní park pro děti ve svahu",
+        "de": "Erlebnispark für Kinder am Hang",
+        "en": "Kids' adventure park on the slope"
+      },
+      "desc": {
+        "cs": "Obří outdoorový areál v Mladých Bukách (skoro 4 ha) plný zábavy: trampolíny (i nafukovací a bungee), prolézačky se skluzavkami, vodní kanály s koly a bazénky, vyhřívaný bazének, letní tubing (od 6 let), lanové atrakce s vyhlídkou, 3D bludiště i mini zoo s kůzlaty. Klidně na celý den – jako dělané pro mladší školáky. Za deště zavřeno.",
+        "de": "Riesiges Outdoor-Areal in Mladé Buky (fast 4 ha) voller Spaß: Trampoline (auch Luft- und Bungee), Klettergerüste mit Rutschen, Wasserkanäle mit Rädern und Becken, beheiztes Planschbecken, Sommer-Tubing (ab 6 J.), Seilattraktionen mit Aussicht, 3D-Labyrinth und ein Mini-Zoo mit Ziegen. Locker ein ganzer Tag – wie gemacht für jüngere Schulkinder. Bei Regen geschlossen.",
+        "en": "Huge outdoor park in Mladé Buky (nearly 4 ha) packed with fun: trampolines (air & bungee), climbing frames with slides, water channels with wheels and pools, a heated paddling pool, summer tubing (age 6+), rope attractions with a viewpoint, a 3D maze and a mini-zoo with goats. Easily a full day – made for younger school kids. Closed in rain."
+      },
+      "openNote": {
+        "cs": "Hlavní sezóna (červenec–srpen) denně 9:00–18:00; provoz podle počasí.",
+        "de": "Hauptsaison (Juli–August) täglich 9:00–18:00; wetterabhängig.",
+        "en": "High season (July–August) daily 9:00–18:00; weather-dependent."
+      },
+      "price": {
+        "cs": "Děti (nar. 2011–2022) 320 Kč online / 390 Kč na místě, od 13:00 levněji 220 Kč; starší a dospělí 190 Kč online; do ~3 let zdarma. Online výhodněji.",
+        "de": "Kinder (Jg. 2011–2022) 320 CZK online / 390 CZK vor Ort, ab 13:00 günstiger 220 CZK; Ältere und Erwachsene 190 CZK online; bis ~3 J. gratis. Online günstiger.",
+        "en": "Children (born 2011–2022) 320 CZK online / 390 CZK on site, from 1 pm cheaper 220 CZK; older & adults 190 CZK online; under ~3 free. Cheaper online."
+      },
       "links": [
-        { "icon": "globe", "label": { "cs": "mladebuky.cz", "de": "mladebuky.cz", "en": "mladebuky.cz" }, "url": "https://mladebuky.cz/en/hricky-buky" },
-        { "icon": "pin", "label": { "cs": "Mapy.cz – Areál Mladé Buky", "de": "Mapy.cz – Areál Mladé Buky", "en": "Mapy.cz – Areál Mladé Buky" }, "url": "https://mapy.cz/turisticka?q=H%C5%99%C3%AD%C4%8Dky%20Buky%20Mlad%C3%A9%20Buky" }
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "mladebuky.cz",
+            "de": "mladebuky.cz",
+            "en": "mladebuky.cz"
+          },
+          "url": "https://mladebuky.cz/en/hricky-buky"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – Areál Mladé Buky",
+            "de": "Mapy.cz – Areál Mladé Buky",
+            "en": "Mapy.cz – Areál Mladé Buky"
+          },
+          "url": "https://mapy.cz/turisticka?q=H%C5%99%C3%AD%C4%8Dky%20Buky%20Mlad%C3%A9%20Buky"
+        }
+      ],
+      "category": "kids",
+      "zone": "near"
+    },
+    {
+      "id": "lamatreking",
+      "icon": "route",
+      "accent": "#8a6f2f",
+      "coords": {
+        "lat": 50.6326,
+        "lon": 15.8094,
+        "alt": 560
+      },
+      "travelMin": 3,
+      "byFoot": true,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "animals",
+      "zone": "villa",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Lamatreking na Rodinné farmě Vlček",
+        "de": "Lamatrekking auf der Familienfarm Vlček",
+        "en": "Llama trekking at the Vlček family farm"
+      },
+      "tagline": {
+        "cs": "procházka s lamou · pěšky od vily",
+        "de": "Spaziergang mit dem Lama · zu Fuß von der Villa",
+        "en": "a walk with a llama · on foot from the villa"
+      },
+      "desc": {
+        "cs": "Na okraji Svobody nad Úpou si půjčíte lamu (nebo dokonce velblouda či oslíka) na vodítko a vyrazíte na okruh 1,5 nebo 3,5 km lesem a poli k Janským Lázním. Po návratu děti krmí lamy, kozy i telátka ve výběhu. Lamu smí samostatně vést dítě od 10 let, mladší jdou s dospělým. Termín je nutné předem rezervovat přes Reservio nebo telefonicky – bez objednávky se nechodí. Sezóna trvá zhruba duben–listopad, parkování stojí 100 Kč.",
+        "de": "Am Rand von Svoboda nad Úpou nehmen Sie ein Lama (oder sogar ein Kamel oder einen Esel) an die Leine und gehen eine Runde von 1,5 oder 3,5 km durch Wald und Felder Richtung Janské Lázně. Nach der Rückkehr füttern die Kinder Lamas, Ziegen und Kälbchen im Gehege. Ein Kind darf das Lama ab 10 Jahren allein führen, jüngere gehen mit einem Erwachsenen. Der Termin muss vorab über Reservio oder telefonisch reserviert werden – ohne Buchung geht es nicht. Saison etwa April–November, Parken 100 Kč.",
+        "en": "On the edge of Svoboda nad Úpou you take a llama (or even a camel or a donkey) on a lead and set off on a 1.5 or 3.5 km loop through forest and fields towards Janské Lázně. Back at the farm children feed the llamas, goats and calves in the paddock. A child may lead the llama alone from age 10; younger ones walk with an adult. You must book a slot in advance via Reservio or by phone – no drop-ins. The season runs roughly April–November, parking is 100 Kč."
+      },
+      "openNote": {
+        "cs": "sezóna zahájena 3. 4. 2026; pevná otevírací doba není, termín se rezervuje předem přes Reservio nebo telefonicky",
+        "de": "Saison ab 3. 4. 2026; keine festen Öffnungszeiten, Termin vorab über Reservio oder telefonisch",
+        "en": "season from 3 Apr 2026; no fixed hours, book a slot ahead via Reservio or by phone"
+      },
+      "price": {
+        "cs": "okruh 1,5 km 800 Kč / lama pro 2 os., 3,5 km 1 200 Kč; každá další osoba +200 Kč, děti do 3 let zdarma; parkování 100 Kč (ceny 2026)",
+        "de": "Runde 1,5 km 800 Kč / Lama für 2 Pers., 3,5 km 1 200 Kč; jede weitere Person +200 Kč, Kinder bis 3 J. gratis; Parken 100 Kč (Preise 2026)",
+        "en": "1.5 km loop 800 Kč / llama for 2 people, 3.5 km 1,200 Kč; each extra person +200 Kč, under 3 free; parking 100 Kč (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "rodinna-farma-vlcek.webnode.cz",
+            "de": "rodinna-farma-vlcek.webnode.cz",
+            "en": "rodinna-farma-vlcek.webnode.cz"
+          },
+          "url": "https://rodinna-farma-vlcek.webnode.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Rodinn%C3%A1%20farma%20Vl%C4%8Dek%20Svoboda%20nad%20%C3%9Apou"
+        }
+      ]
+    },
+    {
+      "id": "farmapark-muchomurka",
+      "icon": "tree",
+      "accent": "#7d8a2f",
+      "coords": {
+        "lat": 50.6303,
+        "lon": 15.8052,
+        "alt": 600
+      },
+      "travelMin": 5,
+      "byFoot": true,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "adult"
+      ],
+      "category": "animals",
+      "zone": "villa",
+      "group": {
+        "groupTariffMin": 10,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Farmapark Muchomůrka",
+        "de": "Farmapark Muchomůrka",
+        "en": "Muchomůrka farm park"
+      },
+      "tagline": {
+        "cs": "zvířátka a hrátky · pěšky od vily",
+        "de": "Tiere & Spiel · zu Fuß von der Villa",
+        "en": "animals & play · on foot from the villa"
+      },
+      "desc": {
+        "cs": "Přírodní farmapark na louce mezi Svobodou a Janskými Lázněmi, kde se děti volně potkávají s ovcemi, kozami, slepicemi a poníky a řádí na hradu ze slaměných balíků, houpačkách a kuličkodráze mezi stromy. Součástí je pohádková stezka Krakonošova Muchomůrka s obřími dřevěnými sochami. Autem se sem nedá dojet – parkuje se ve Svobodě nebo v Janských Lázních a jde se pěšky alejí (15–25 min). Za deště, silného větru nebo mrazu je zavřeno, takže to není záložní tip na ošklivé počasí. Aktuální stav si ověřte přes Facebook farmy.",
+        "de": "Naturfarmpark auf einer Wiese zwischen Svoboda und Janské Lázně, wo Kinder frei auf Schafe, Ziegen, Hühner und Ponys treffen und auf einer Strohballenburg, Schaukeln und einer Kugelbahn zwischen den Bäumen toben. Dazu gehört der Märchenpfad Krakonošova Muchomůrka mit riesigen Holzskulpturen. Mit dem Auto kommt man nicht her – geparkt wird in Svoboda oder Janské Lázně, dann geht es zu Fuß durch die Allee (15–25 Min.). Bei Regen, starkem Wind oder Frost ist geschlossen, als Schlechtwetter-Tipp taugt es also nicht. Den aktuellen Stand über den Facebook der Farm prüfen.",
+        "en": "A natural farm park on a meadow between Svoboda and Janské Lázně, where children mingle freely with sheep, goats, hens and ponies and romp on a straw-bale castle, swings and a marble run among the trees. It includes the Krakonošova Muchomůrka fairy-tale trail with giant wooden sculptures. You can't drive here – park in Svoboda or Janské Lázně and walk in along the avenue (15–25 min). It closes in rain, strong wind or frost, so it's no rainy-day backup. Check the current status on the farm's Facebook."
+      },
+      "openNote": {
+        "cs": "květen–září denně 10:00–18:00 (v říjnu po telefonické domluvě); při dešti, větru nebo mrazu zavřeno",
+        "de": "Mai–September täglich 10:00–18:00 (im Oktober nach telefonischer Absprache); bei Regen, Wind oder Frost geschlossen",
+        "en": "May–Sept daily 10:00–18:00 (October by phone arrangement); closed in rain, wind or frost"
+      },
+      "price": {
+        "cs": "hlavní sezóna (červenec–srpen) 140 Kč/os., mimosezóna 120 Kč; skupiny nad 10 os. 80 Kč (ceny 2026)",
+        "de": "Hauptsaison (Juli–August) 140 Kč/Pers., Nebensaison 120 Kč; Gruppen ab 10 Pers. 80 Kč (Preise 2026)",
+        "en": "high season (July–Aug) 140 Kč/person, off-season 120 Kč; groups of 10+ 80 Kč (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "farmapark-muchomurka.cz",
+            "de": "farmapark-muchomurka.cz",
+            "en": "farmapark-muchomurka.cz"
+          },
+          "url": "http://www.farmapark-muchomurka.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Farmapark%20Muchom%C5%AFrka%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+        }
+      ]
+    },
+    {
+      "id": "do-krakonosova",
+      "icon": "cloud-rain",
+      "accent": "#7a4a6b",
+      "coords": {
+        "lat": 50.633707,
+        "lon": 15.811656,
+        "alt": 530
+      },
+      "travelMin": 4,
+      "byFoot": true,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "rain",
+      "zone": "villa",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Do Krakonošova – pohádková expozice",
+        "de": "Do Krakonošova – Märchenausstellung",
+        "en": "Do Krakonošova – a fairy-tale exhibition"
+      },
+      "tagline": {
+        "cs": "krkonošské pověsti · pěšky od vily",
+        "de": "Riesengebirgssagen · zu Fuß von der Villa",
+        "en": "Krkonoše legends · on foot from the villa"
+      },
+      "desc": {
+        "cs": "Interaktivní pohádková expozice přímo ve Svobodě nad Úpou, kde ožívají krkonošské pověsti – Krakonoš, vodníci, permoníci i trutnovský drak. Prohlídka vede horním okruhem s figurínami a scénami a podzemním okruhem s dračím doupětem. Je to ideální tip na deštivé dopoledne s dětmi; v téže budově je i dětská herna a minigolf s restaurací. Otevřeno po celý rok, děti do 2 let zdarma. Skupinám se doporučuje předem zavolat.",
+        "de": "Interaktive Märchenausstellung direkt in Svoboda nad Úpou, in der die Sagen des Riesengebirges lebendig werden – Krakonoš (Rübezahl), Wassermänner, Berggeister und der Drache von Trutnov. Der Rundgang führt über einen oberen Weg mit Figuren und Szenen und einen unterirdischen Weg mit Drachenhöhle. Ein idealer Tipp für einen regnerischen Vormittag mit Kindern; im selben Gebäude gibt es auch einen Spielraum und Minigolf mit Restaurant. Ganzjährig geöffnet, Kinder bis 2 J. gratis. Gruppen sollten vorher anrufen.",
+        "en": "An interactive fairy-tale exhibition right in Svoboda nad Úpou, where the legends of the Krkonoše come alive – Krakonoš (the mountain spirit), water sprites, gnomes and the Trutnov dragon. The tour runs along an upper route with figures and scenes and an underground route with a dragon's lair. It's an ideal tip for a rainy morning with children; the same building also has a playroom and minigolf with a restaurant. Open all year, under 2s free. Groups should call ahead."
+      },
+      "openNote": {
+        "cs": "po–so 9:00–17:00, ne 9:00–13:00 (celoročně); doporučeno telefonicky ověřit",
+        "de": "Mo–Sa 9:00–17:00, So 9:00–13:00 (ganzjährig); telefonisch prüfen empfohlen",
+        "en": "Mon–Sat 9:00–17:00, Sun 9:00–13:00 (year-round); calling ahead advised"
+      },
+      "price": {
+        "cs": "dospělý 100 Kč, dítě 2–15 let 100 Kč, senior 80 Kč, do 2 let zdarma (ceny 2026)",
+        "de": "Erwachsene 100 Kč, Kind 2–15 J. 100 Kč, Senioren 80 Kč, bis 2 J. gratis (Preise 2026)",
+        "en": "adults 100 Kč, children 2–15 100 Kč, seniors 80 Kč, under 2 free (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "pohadkovekrkonose.cz",
+            "de": "pohadkovekrkonose.cz",
+            "en": "pohadkovekrkonose.cz"
+          },
+          "url": "https://www.pohadkovekrkonose.cz/pohadkove-krkonose-expozice-do-krakonosova/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Do%20Krakono%C5%A1ova%20Svoboda%20nad%20%C3%9Apou"
+        }
+      ]
+    },
+    {
+      "id": "rburger-minigolf",
+      "icon": "cloud-rain",
+      "accent": "#5a4e8c",
+      "coords": {
+        "lat": 50.63349,
+        "lon": 15.811605,
+        "alt": 530
+      },
+      "travelMin": 4,
+      "byFoot": true,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "rain",
+      "zone": "villa",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Adventure minigolf v R Burger",
+        "de": "Adventure-Minigolf im R Burger",
+        "en": "Adventure minigolf at R Burger"
+      },
+      "tagline": {
+        "cs": "krytý minigolf · pěšky od vily",
+        "de": "Indoor-Minigolf · zu Fuß von der Villa",
+        "en": "indoor minigolf · on foot from the villa"
+      },
+      "desc": {
+        "cs": "V budově burgerové restaurace R Burger ve Svobodě nad Úpou je osmijamkové kryté adventure minigolfové hřiště laděné do krkonošské přírody. Skvělá volba na deštivé odpoledne – zahrajete si a rovnou zůstanete na oběd nebo večeři. Otevřeno denně od 11:00, platí se hodinová sazba. Rezervovat lze telefonicky (rezervace se drží 15 minut), skupiny nad 10 osob platí zálohu.",
+        "de": "Im Gebäude des Burger-Restaurants R Burger in Svoboda nad Úpou gibt es einen überdachten Adventure-Minigolf mit acht Bahnen im Stil der Riesengebirgsnatur. Eine tolle Wahl für einen regnerischen Nachmittag – spielen und gleich zum Mittag- oder Abendessen bleiben. Täglich ab 11:00 geöffnet, es gilt ein Stundentarif. Reservierung telefonisch möglich (wird 15 Minuten gehalten), Gruppen ab 10 Personen zahlen eine Anzahlung.",
+        "en": "Inside the R Burger restaurant in Svoboda nad Úpou there's a covered eight-hole adventure minigolf course themed on Krkonoše nature. A great choice for a rainy afternoon – play a round and stay on for lunch or dinner. Open daily from 11:00, charged at an hourly rate. You can book by phone (the slot is held for 15 minutes); groups of 10+ pay a deposit."
+      },
+      "openNote": {
+        "cs": "ne–čt 11:00–21:30, pá–so 11:00–22:30; minigolf v rámci otevírací doby podniku",
+        "de": "So–Do 11:00–21:30, Fr–Sa 11:00–22:30; Minigolf innerhalb der Öffnungszeiten des Lokals",
+        "en": "Sun–Thu 11:00–21:30, Fri–Sat 11:00–22:30; minigolf within the venue's opening hours"
+      },
+      "price": {
+        "cs": "děti do 13 let 95 Kč/hod, 13+ 110 Kč/hod; rodinné 280 Kč (2+1) nebo 370 Kč (2+2–3) (ceny 2026)",
+        "de": "Kinder bis 13 J. 95 Kč/Std., 13+ 110 Kč/Std.; Familie 280 Kč (2+1) oder 370 Kč (2+2–3) (Preise 2026)",
+        "en": "children under 13 95 Kč/hr, 13+ 110 Kč/hr; family 280 Kč (2+1) or 370 Kč (2+2–3) (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "rburger.cz",
+            "de": "rburger.cz",
+            "en": "rburger.cz"
+          },
+          "url": "https://rburger.cz/en/adventure-indoor-mini-golf/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=R%20Burger%20Svoboda%20nad%20%C3%9Apou"
+        }
+      ]
+    },
+    {
+      "id": "strelnice-svoboda",
+      "icon": "zap",
+      "accent": "#55606a",
+      "coords": {
+        "lat": 50.628414,
+        "lon": 15.805395,
+        "alt": 525
+      },
+      "travelMin": 3,
+      "byFoot": true,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 10,
+      "bestFor": [
+        "teen",
+        "adult"
+      ],
+      "category": "adrenalin",
+      "zone": "villa",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Střelnice Svoboda nad Úpou",
+        "de": "Schießstand Svoboda nad Úpou",
+        "en": "Shooting range Svoboda nad Úpou"
+      },
+      "tagline": {
+        "cs": "krytá střelnice · jen na objednávku",
+        "de": "Indoor-Schießstand · nur nach Vereinbarung",
+        "en": "indoor range · by arrangement only"
+      },
+      "desc": {
+        "cs": "Krytá tunelová pistolová střelnice České lesnické akademie Trutnov, jen kousek od vily, funguje i za deště. Střílet mohou i lidé bez zbrojního průkazu – zbraň i střelivo si půjčíte na místě. Nejsou pevné otevírací hodiny: termín je nutné předem telefonicky domluvit s panem Stárkem. Vhodné pro dospělé a starší mládež pod dohledem; věkové limity ani pravidla dozoru nejsou zveřejněné, takže se na ně při objednávce výslovně zeptejte.",
+        "de": "Der überdachte Tunnel-Pistolenschießstand der Forstakademie Trutnov, nur ein Stück von der Villa entfernt, funktioniert auch bei Regen. Schießen dürfen auch Personen ohne Waffenschein – Waffe und Munition leihen Sie vor Ort. Es gibt keine festen Öffnungszeiten: Der Termin muss vorab telefonisch mit Herrn Stárek vereinbart werden. Geeignet für Erwachsene und ältere Jugendliche unter Aufsicht; Altersgrenzen und Aufsichtsregeln sind nicht veröffentlicht, fragen Sie also bei der Buchung ausdrücklich danach.",
+        "en": "The covered tunnel pistol range of the Trutnov Forestry Academy, just a short way from the villa, works even in rain. People without a firearms licence can shoot too – you borrow the gun and ammunition on site. There are no fixed opening hours: you must arrange a time in advance by phone with Mr Stárek. Suitable for adults and older teens under supervision; age limits and supervision rules aren't published, so ask about them explicitly when you book."
+      },
+      "openNote": {
+        "cs": "po–ne jen dle telefonické domluvy (žádné pevné hodiny); rezervace nutná předem",
+        "de": "Mo–So nur nach telefonischer Absprache (keine festen Zeiten); Reservierung vorab erforderlich",
+        "en": "Mon–Sun by phone arrangement only (no fixed hours); booking required in advance"
+      },
+      "price": {
+        "cs": "střeliště 120 Kč/¼h (bez zbrojního průkazu) nebo 70 Kč/¼h (se ZP), zapůjčení zbraně 70 Kč/¼h, terče 5–10 Kč, střelivo od 3 Kč/ks (ceník od 1. 6. 2026)",
+        "de": "Stand 120 Kč/¼Std. (ohne Waffenschein) oder 70 Kč/¼Std. (mit), Waffenleihe 70 Kč/¼Std., Scheiben 5–10 Kč, Munition ab 3 Kč/Stk. (Preise ab 1. 6. 2026)",
+        "en": "range 120 Kč/¼h (no licence) or 70 Kč/¼h (with licence), gun hire 70 Kč/¼h, targets 5–10 Kč, ammo from 3 Kč/round (price list from 1 Jun 2026)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "strelnice.clatrutnov.cz",
+            "de": "strelnice.clatrutnov.cz",
+            "en": "strelnice.clatrutnov.cz"
+          },
+          "url": "https://strelnice.clatrutnov.cz/strelnice-svoboda-nad-upou"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=St%C5%99elnice%20Svoboda%20nad%20%C3%9Apou"
+        }
+      ]
+    },
+    {
+      "id": "cerna-hora-kabinka",
+      "icon": "map",
+      "accent": "#356ea6",
+      "coords": {
+        "lat": 50.649,
+        "lon": 15.7524,
+        "alt": 1260
+      },
+      "travelMin": 15,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "kids",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Lanovkou na Černou horu – Park Kabinka a rozhledna",
+        "de": "Mit der Seilbahn auf die Černá hora – Park Kabinka & Aussichtsturm",
+        "en": "Cable car up Černá hora – Park Kabinka & lookout"
+      },
+      "tagline": {
+        "cs": "kabinková lanovka · zábavní park nahoře",
+        "de": "Kabinenbahn · Freizeitpark oben",
+        "en": "cabin cable car · fun park at the top"
+      },
+      "desc": {
+        "cs": "Osmimístná kabinková lanovka Černohorský Express vyveze rodinu z Janských Lázní na vrchol Černé hory (1260 m) i s kočárkem. Nahoře je Park Kabinka se sedmi atrakcemi (lezecká stěna, šlapací káry, bungee trampolína, letní tubing) – vstup je zdarma s platnou jízdenkou na lanovku. Hned vedle stojí rozhledna Panorama (106 schodů, otevřená jen za pěkného počasí). Zdatnější mohou z hřebene sejít až 10 km dolů do Pece kolem Kolínské boudy, kde děti krmí kozy – počítejte ale s náročným sestupem, ne procházkou. Park se za deště zavírá.",
+        "de": "Die achtsitzige Kabinenbahn Černohorský Express bringt die Familie von Janské Lázně auf den Gipfel der Černá hora (1260 m) – auch mit Kinderwagen. Oben liegt der Park Kabinka mit sieben Attraktionen (Kletterwand, Tretkarts, Bungee-Trampolin, Sommer-Tubing) – Eintritt frei mit gültigem Seilbahnticket. Gleich daneben steht der Aussichtsturm Panorama (106 Stufen, nur bei schönem Wetter geöffnet). Fitte können vom Kamm rund 10 km hinunter nach Pec an der Kolínská bouda vorbei wandern, wo Kinder Ziegen füttern – rechnen Sie aber mit einem anspruchsvollen Abstieg, keinem Spaziergang. Der Park schließt bei Regen.",
+        "en": "The eight-seat Černohorský Express cabin cable car carries the family from Janské Lázně to the top of Černá hora (1260 m), pushchair included. At the top is Park Kabinka with seven activities (climbing wall, pedal karts, bungee trampoline, summer tubing) – free with a valid cable-car ticket. Right beside it stands the Panorama lookout tower (106 steps, open only in fine weather). The fit can walk about 10 km down the ridge to Pec past Kolínská bouda, where children feed goats – but expect a demanding descent, not a stroll. The park closes in rain."
+      },
+      "openNote": {
+        "cs": "lanovka červenec–srpen denně 9:00–18:00; Park Kabinka denně 9:30–17:00; rozhledna jen za pěkného počasí",
+        "de": "Seilbahn Juli–August täglich 9:00–18:00; Park Kabinka täglich 9:30–17:00; Turm nur bei schönem Wetter",
+        "en": "cable car July–Aug daily 9:00–18:00; Park Kabinka daily 9:30–17:00; tower only in fine weather"
+      },
+      "price": {
+        "cs": "lanovka zpáteční dospělý 380 Kč online / 440 na pokladně, dítě 240/280; Park Kabinka 300 Kč nebo zdarma s jízdenkou; rozhledna 40/20 Kč (ceny 2026)",
+        "de": "Seilbahn Hin&zurück Erwachsene 380 Kč online / 440 Kasse, Kind 240/280; Park Kabinka 300 Kč oder gratis mit Ticket; Turm 40/20 Kč (Preise 2026)",
+        "en": "cable car return adult 380 Kč online / 440 at the desk, child 240/280; Park Kabinka 300 Kč or free with the ticket; tower 40/20 Kč (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "leto.skiresort.cz",
+            "de": "leto.skiresort.cz",
+            "en": "leto.skiresort.cz"
+          },
+          "url": "https://leto.skiresort.cz/letni-aktivity/detsky-park-kabinka/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Park%20Kabinka%20%C4%8Cern%C3%A1%20hora%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+        }
+      ]
+    },
+    {
+      "id": "rozhledna-hnedy-vrch",
+      "icon": "mountain",
+      "accent": "#2f7385",
+      "coords": {
+        "lat": 50.6883,
+        "lon": 15.7071,
+        "alt": 1207
+      },
+      "travelMin": 20,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": true,
+      "effort": "easy",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "viewpoint",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Rozhledna Hnědý vrch (lanovkou z Pece)",
+        "de": "Aussichtsturm Hnědý vrch (Seilbahn ab Pec)",
+        "en": "Hnědý vrch lookout tower (chairlift from Pec)"
+      },
+      "tagline": {
+        "cs": "nejvyšší rozhledna Krkonoš · výhled zdarma",
+        "de": "höchster Aussichtsturm des Riesengebirges · Aussicht gratis",
+        "en": "highest tower in the Krkonoše · view for free"
+      },
+      "desc": {
+        "cs": "Nejvýše položená rozhledna v Krkonoších (1207 m) stojí hned u horní stanice sedačkové lanovky z Pece pod Sněžkou a vstup na ni je zdarma. Nahoru vede 138 schodů a odměnou je kruhový výhled na Sněžku a hlavní hřeben. Výstup vyřeší lanovka, takže je to fajn i pro méně zdatné – ale jde o otevřenou sedačku, u dětí je nutný dohled. Za silného větru nebo bouřky se lanovka odstavuje, tak si nechte záložní plán. U horní stanice není pokladna – jízdenku koupíte jen kartou v automatu nebo předem online.",
+        "de": "Der höchstgelegene Aussichtsturm im Riesengebirge (1207 m) steht direkt an der Bergstation des Sessellifts von Pec pod Sněžkou, der Zutritt ist kostenlos. Hinauf führen 138 Stufen, belohnt mit einem Rundblick auf die Sněžka und den Hauptkamm. Den Aufstieg übernimmt der Lift, das ist auch für weniger Fitte angenehm – es ist aber ein offener Sessel, Kinder brauchen Aufsicht. Bei starkem Wind oder Gewitter wird der Lift stillgelegt, halten Sie also einen Plan B bereit. An der Bergstation gibt es keine Kasse – das Ticket gibt es nur per Karte am Automaten oder vorab online.",
+        "en": "The highest lookout tower in the Krkonoše (1207 m) stands right by the top station of the chairlift from Pec pod Sněžkou, and climbing it is free. 138 steps lead up to a panoramic view of Sněžka and the main ridge. The chairlift does the climbing, which is nice for the less fit – but it's an open chair, so children need supervision. In strong wind or storms the lift is shut down, so keep a plan B. There's no ticket desk at the top station – you can only buy a ticket by card at the machine or online in advance."
+      },
+      "openNote": {
+        "cs": "lanovka červenec–srpen denně 9:00–18:00 (červen a září/říjen jen víkendy); rozhledna zdarma v době provozu lanovky",
+        "de": "Seilbahn Juli–August täglich 9:00–18:00 (Juni und September/Oktober nur am Wochenende); Turm gratis während des Seilbahnbetriebs",
+        "en": "chairlift July–Aug daily 9:00–18:00 (June and Sept/Oct weekends only); tower free during chairlift hours"
+      },
+      "price": {
+        "cs": "rozhledna zdarma; lanovka nahoru dospělý 250 Kč online / 290 automat, dítě 160/190, malé děti zdarma; jen platba kartou (ceny 2026)",
+        "de": "Turm gratis; Lift bergauf Erwachsene 250 Kč online / 290 Automat, Kind 160/190, Kleinkinder gratis; nur Kartenzahlung (Preise 2026)",
+        "en": "tower free; chairlift up adult 250 Kč online / 290 at the machine, child 160/190, small children free; card payment only (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "leto.skiresort.cz",
+            "de": "leto.skiresort.cz",
+            "en": "leto.skiresort.cz"
+          },
+          "url": "https://leto.skiresort.cz/lanovky/hnedy-vrch/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Rozhledna%20Hn%C4%9Bd%C3%BD%20vrch%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+        }
+      ]
+    },
+    {
+      "id": "herni-krajina-pecka",
+      "icon": "play",
+      "accent": "#8a5a34",
+      "coords": {
+        "lat": 50.702,
+        "lon": 15.7689,
+        "alt": 1062
+      },
+      "travelMin": 25,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "kids",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Herní krajina Pecka na Portáškách",
+        "de": "Spiellandschaft Pecka auf den Portášky",
+        "en": "Pecka play landscape on Portášky"
+      },
+      "tagline": {
+        "cs": "obří dřevěné sochy · vstup zdarma",
+        "de": "riesige Holzskulpturen · gratis",
+        "en": "giant wooden sculptures · free"
+      },
+      "desc": {
+        "cs": "Volně přístupná herní stezka s obřími dřevěnými sochami krkonošských zvířat vysoko nad Velkou Úpou (1062 m). Přes deset interaktivních stanovišť ve třech částech (vodní svět, koruny stromů, loučka) baví děti všech věků; vstup je zdarma, jen dřevěná koule na hraní stojí 50 Kč. Nahoru se dostanete sedačkovou lanovkou Portášky, autem po asfaltce nebo pěšky. Nechybí Horská chata Portášky s obědem a pro větší děti půjčovna koloběžek na sjezd zpět do Velké Úpy. Za bouřky nebo silného deště bývá zavřeno.",
+        "de": "Frei zugänglicher Spielpfad mit riesigen Holzskulpturen von Tieren des Riesengebirges hoch über Velká Úpa (1062 m). Über zehn interaktive Stationen in drei Bereichen (Wasserwelt, Baumkronen, Wiese) begeistern Kinder jeden Alters; der Eintritt ist frei, nur die Holzkugel zum Spielen kostet 50 Kč. Nach oben gelangt man mit dem Sessellift Portášky, mit dem Auto über die Asphaltstraße oder zu Fuß. Es gibt die Berghütte Portášky mit Mittagessen und für größere Kinder einen Rollerverleih für die Abfahrt zurück nach Velká Úpa. Bei Gewitter oder starkem Regen ist meist geschlossen.",
+        "en": "A freely accessible play trail with giant wooden sculptures of Krkonoše animals high above Velká Úpa (1062 m). More than ten interactive stations in three parts (water world, treetops, meadow) entertain children of all ages; entry is free, only the wooden ball to play with costs 50 Kč. You reach the top by the Portášky chairlift, by car on the asphalt road, or on foot. There's the Portášky mountain chalet for lunch and, for bigger kids, a scooter rental for the ride back down to Velká Úpa. It usually closes in storms or heavy rain."
+      },
+      "openNote": {
+        "cs": "denně květen–říjen (dle počasí); lanovka Portášky červenec–srpen denně 9:00–18:00",
+        "de": "täglich Mai–Oktober (wetterabhängig); Seilbahn Portášky Juli–August täglich 9:00–18:00",
+        "en": "daily May–Oct (weather-dependent); Portášky chairlift July–Aug daily 9:00–18:00"
+      },
+      "price": {
+        "cs": "herní krajina zdarma (koule 50 Kč); lanovka Portášky nahoru dospělý 250 Kč online / 290 automat, dítě 160/190; koloběžka 300 Kč/hod (ceny 2026)",
+        "de": "Spiellandschaft gratis (Kugel 50 Kč); Lift Portášky bergauf Erwachsene 250 Kč online / 290 Automat, Kind 160/190; Roller 300 Kč/Std. (Preise 2026)",
+        "en": "play landscape free (ball 50 Kč); Portášky chairlift up adult 250 Kč online / 290 machine, child 160/190; scooter 300 Kč/hr (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "hernikrajina.cz",
+            "de": "hernikrajina.cz",
+            "en": "hernikrajina.cz"
+          },
+          "url": "https://www.hernikrajina.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Hern%C3%AD%20krajina%20Pecka%20Velk%C3%A1%20%C3%9Apa"
+        }
+      ]
+    },
+    {
+      "id": "obri-dul",
+      "icon": "route",
+      "accent": "#2f7a5f",
+      "coords": {
+        "lat": 50.6936,
+        "lon": 15.7336,
+        "alt": 830
+      },
+      "travelMin": 20,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "walk",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Obří důl – procházka s kočárkem k Boudě pod Sněžkou",
+        "de": "Obří důl – Kinderwagenwanderung zur Bouda pod Sněžkou",
+        "en": "Obří důl – a stroller walk to Bouda pod Sněžkou"
+      },
+      "tagline": {
+        "cs": "rovná asfaltka · vhodné i s kočárkem",
+        "de": "flacher Asphaltweg · auch mit Kinderwagen",
+        "en": "flat asphalt · fine with a pushchair"
+      },
+      "desc": {
+        "cs": "Nenáročná asfaltová procházka z Pece pod Sněžkou proti proudu Úpy do Obřího dolu ke kapličce z roku 1873 (asi 3 km jedním směrem). Rovný povrch je jedna z mála krkonošských tras opravdu sjízdných kočárkem i vozíkem. Cestou se dá vyhlížet pstruhy pod mostem přes Úpu a zastavit u Boudy pod Sněžkou, kde děti krmí lamy a ovce. V zimě tu bývají ledopády. I když je cesta zpevněná, jde o horské údolí bez přístřešku – za deště raději jindy.",
+        "de": "Eine gemütliche Asphaltwanderung von Pec pod Sněžkou flussaufwärts der Úpa in den Obří důl bis zur Kapelle von 1873 (etwa 3 km eine Richtung). Der ebene Belag macht sie zu einer der wenigen Riesengebirgsrouten, die wirklich mit Kinderwagen und Rollstuhl befahrbar sind. Unterwegs kann man unter der Úpa-Brücke nach Forellen Ausschau halten und an der Bouda pod Sněžkou Halt machen, wo Kinder Lamas und Schafe füttern. Im Winter gibt es hier Eisfälle. Der Weg ist zwar befestigt, aber es ist ein Bergtal ohne Unterstand – bei Regen lieber ein andermal.",
+        "en": "An easy asphalt walk from Pec pod Sněžkou upstream along the Úpa into Obří důl to a chapel from 1873 (about 3 km one way). The flat surface makes it one of the few Krkonoše routes genuinely passable with a pushchair or wheelchair. Along the way you can watch for trout under the Úpa bridge and stop at Bouda pod Sněžkou, where children feed llamas and sheep. In winter there are ice falls here. The path is surfaced, but it's a mountain valley with no shelter – save it for a dry day."
+      },
+      "openNote": {
+        "cs": "cesta přístupná celoročně a zdarma; Bouda pod Sněžkou funguje jako restaurace, letní otevírací dobu ověřte telefonicky",
+        "de": "Weg ganzjährig frei zugänglich; Bouda pod Sněžkou ist eine Gaststätte, Sommeröffnungszeiten telefonisch prüfen",
+        "en": "the path is open year-round and free; Bouda pod Sněžkou is a restaurant, check summer hours by phone"
+      },
+      "price": {
+        "cs": "trasa zdarma; parkování v Peci u Kapličky dle parkoviště (ceny 2026)",
+        "de": "Route gratis; Parken in Pec an der Kaplička je nach Parkplatz (Preise 2026)",
+        "en": "route free; parking in Pec by the chapel depending on the car park (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "krkonose.eu",
+            "de": "krkonose.eu",
+            "en": "krkonose.eu"
+          },
+          "url": "https://www.krkonose.eu/z-pece-pod-snezkou-do-obriho-dolu"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Ob%C5%99%C3%AD%20d%C5%AFl%20kapli%C4%8Dka%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+        }
+      ]
+    },
+    {
+      "id": "rychory",
+      "icon": "tree",
+      "accent": "#4a6f38",
+      "coords": {
+        "lat": 50.6608,
+        "lon": 15.8201,
+        "alt": 800
+      },
+      "travelMin": 8,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "walk",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Rýchory – bukový prales a Rýchorská bouda",
+        "de": "Rýchory – Buchenurwald und Rýchorská bouda",
+        "en": "Rýchory – beech primeval forest and Rýchorská bouda"
+      },
+      "tagline": {
+        "cs": "tichý prales · bez davů",
+        "de": "stiller Urwald · ohne Menschenmassen",
+        "en": "quiet primeval forest · no crowds"
+      },
+      "desc": {
+        "cs": "Krátký, ale strmý výstup žlutou značkou z Horního Maršova na hřeben Rýchor k Rýchorské boudě, obklopené přírodní rezervací s bukovým pralesem a vzácnou květenou. Je to nejbližší z klidných hřebenových tras a naprostý opak přeplněné Sněžky – potkáte tu spíš srnky než davy. Bouda dnes slouží jako ekocentrum KRNAP s občerstvením a v létě (červen–říjen) bývá otevřená denně. Trasa je strmá a nezpevněná, není sjízdná kočárkem – pro nejmenší je lepší nosítko.",
+        "de": "Ein kurzer, aber steiler Aufstieg auf dem gelben Weg von Horní Maršov auf den Kamm der Rýchory zur Rýchorská bouda, umgeben von einem Naturschutzgebiet mit Buchenurwald und seltener Flora. Es ist die nächstgelegene der ruhigen Kammrouten und das genaue Gegenteil der überfüllten Sněžka – hier begegnen einem eher Rehe als Menschenmassen. Die Baude dient heute als KRNAP-Ökozentrum mit Imbiss und ist im Sommer (Juni–Oktober) meist täglich geöffnet. Der Weg ist steil und unbefestigt, nicht mit dem Kinderwagen befahrbar – für die Kleinsten besser eine Trage.",
+        "en": "A short but steep climb on the yellow trail from Horní Maršov onto the Rýchory ridge to Rýchorská bouda, surrounded by a nature reserve of beech primeval forest and rare flora. It's the nearest of the quiet ridge routes and the exact opposite of crowded Sněžka – you'll meet deer more often than crowds. The chalet now serves as a KRNAP eco-centre with refreshments and is usually open daily in summer (June–October). The trail is steep and unpaved, not passable with a pushchair – a carrier is better for the youngest."
+      },
+      "openNote": {
+        "cs": "trasa přístupná celoročně a zdarma; Rýchorská bouda červen–říjen denně (ověřte telefonicky)",
+        "de": "Route ganzjährig frei; Rýchorská bouda Juni–Oktober täglich (telefonisch prüfen)",
+        "en": "route open year-round and free; Rýchorská bouda June–Oct daily (check by phone)"
+      },
+      "price": {
+        "cs": "trasa zdarma; ceník občerstvení na boudě nezveřejněn (ceny 2026)",
+        "de": "Route gratis; Preisliste des Imbisses nicht veröffentlicht (Preise 2026)",
+        "en": "route free; the chalet's refreshment prices are not published (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "rychorska-bouda.cz",
+            "de": "rychorska-bouda.cz",
+            "en": "rychorska-bouda.cz"
+          },
+          "url": "https://rychorska-bouda.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=R%C3%BDchorsk%C3%A1%20bouda%20R%C3%BDchory"
+        }
+      ]
+    },
+    {
+      "id": "spaleny-mlyn",
+      "icon": "route",
+      "accent": "#5f4e2c",
+      "coords": {
+        "lat": 50.7447,
+        "lon": 15.8206,
+        "alt": 1000
+      },
+      "travelMin": 27,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "walk",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Horní Malá Úpa → Spálený mlýn a Čertův mlýn",
+        "de": "Horní Malá Úpa → Spálený mlýn und die Teufelsmühle",
+        "en": "Horní Malá Úpa → Spálený mlýn and the Devil's Mill"
+      },
+      "tagline": {
+        "cs": "z kopce lesem · zpět autobusem",
+        "de": "bergab durch den Wald · zurück mit dem Bus",
+        "en": "downhill through forest · bus back up"
+      },
+      "desc": {
+        "cs": "Snadná procházka z kopce lesem z Horní Malé Úpy dolů ke Spálenému mlýnu, oficiálně popisovaná jako 5 km nenáročné trasy vhodné i pro seniory a děti. Cestou minete kostel svatého Petra a Pavla a zvířata u hospodářství, u Chaty Krakonoš je pak Čertův mlýn – dřevěný vodní mlýnek s pohyblivými figurkami čerta a Káči. Zpět nahoru se dá svézt pravidelným autobusem, který ale jezdí zhruba jednou za dvě hodiny – přesný jízdní řád si ověřte den předem (skibus v létě nejede). V zimě je to klasická trasa na sáňky.",
+        "de": "Ein leichter Waldspaziergang bergab von Horní Malá Úpa hinunter zum Spálený mlýn, offiziell als 5 km leichte Route beschrieben, auch für Senioren und Kinder geeignet. Unterwegs kommen Sie an der Kirche St. Peter und Paul und Tieren am Hof vorbei, bei der Chata Krakonoš steht dann die Teufelsmühle – ein hölzernes Wassermühlchen mit beweglichen Figuren von Teufel und Katharina. Zurück nach oben fährt ein Linienbus, allerdings nur etwa alle zwei Stunden – den genauen Fahrplan am Vortag prüfen (der Skibus fährt im Sommer nicht). Im Winter ist es eine klassische Rodelstrecke.",
+        "en": "An easy downhill forest walk from Horní Malá Úpa down to Spálený mlýn, officially described as a 5 km easy route suitable for seniors and children too. Along the way you pass the church of St Peter and Paul and farm animals, and by Chata Krakonoš stands the Devil's Mill – a little wooden water mill with moving figures of the devil and Káča. A regular bus takes you back up, but it runs only about once every two hours – check the exact timetable the day before (the ski bus doesn't run in summer). In winter it's a classic sledging route."
+      },
+      "openNote": {
+        "cs": "trasa i Čertův mlýn přístupné celoročně a zdarma; autobus zpět cca po 2 hodinách – ověřte jízdní řád (idos.cz)",
+        "de": "Route und Teufelsmühle ganzjährig frei; Bus zurück ca. alle 2 Stunden – Fahrplan prüfen (idos.cz)",
+        "en": "route and Devil's Mill open year-round and free; bus back roughly every 2 hours – check the timetable (idos.cz)"
+      },
+      "price": {
+        "cs": "trasa i mlýn zdarma; jízdenka autobusu dle tarifu kraje (obvykle do 30 Kč) (ceny 2026)",
+        "de": "Route und Mühle gratis; Busticket nach Kreistarif (meist bis 30 Kč) (Preise 2026)",
+        "en": "route and mill free; bus ticket at the regional tariff (usually up to 30 Kč) (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "malaupa.cz",
+            "de": "malaupa.cz",
+            "en": "malaupa.cz"
+          },
+          "url": "https://malaupa.cz/blog/2016/02/02/certuv-mlyn/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Sp%C3%A1len%C3%BD%20Ml%C3%BDn%20Mal%C3%A1%20%C3%9Apa"
+        }
+      ]
+    },
+    {
+      "id": "vapenka-alberice",
+      "icon": "info",
+      "accent": "#8a6a55",
+      "coords": {
+        "lat": 50.696,
+        "lon": 15.845,
+        "alt": 700
+      },
+      "travelMin": 20,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "culture",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Muzeum Vápenka v Horních Albeřicích",
+        "de": "Museum Vápenka in Horní Albeřice",
+        "en": "Vápenka museum in Horní Albeřice"
+      },
+      "tagline": {
+        "cs": "kamenná věž vápenky · vstup zdarma",
+        "de": "steinerner Kalkofen-Turm · Eintritt frei",
+        "en": "stone lime-kiln tower · free entry"
+      },
+      "desc": {
+        "cs": "Malá expozice v osmiboké kamenné věži bývalé vápenky z roku 1836 ukazuje na dobových fotografiích sedm století života v albeřickém údolí. Vstup je zdarma, ale muzeum se otvírá zapůjčeným klíčem – ten si denně vyzvednete v infocentru Veselý výlet v Temném Dole proti záloze 200 Kč a dokladu totožnosti dospělé osoby. Věž stojí kousek od parkoviště u Bischofova lomu a hezky se spojí s okruhem přes Lysečinskou boudu. Je to tichý kout Krkonoš stranou davů. Uvnitř věže jsou schody, dovnitř kočárek nevezmete.",
+        "de": "Eine kleine Ausstellung im achteckigen Steinturm eines ehemaligen Kalkofens von 1836 zeigt auf historischen Fotos sieben Jahrhunderte Leben im Albeřice-Tal. Der Eintritt ist frei, doch das Museum wird mit einem geliehenen Schlüssel geöffnet – den holen Sie täglich im Infozentrum Veselý výlet in Temný Důl gegen 200 Kč Kaution und Ausweis einer erwachsenen Person. Der Turm steht nahe dem Parkplatz beim Bischof-Steinbruch und lässt sich schön mit einer Runde über die Lysečinská bouda verbinden. Es ist eine stille Ecke des Riesengebirges abseits der Massen. Im Turm gibt es Treppen, mit dem Kinderwagen kommt man nicht hinein.",
+        "en": "A small exhibition in the octagonal stone tower of a former lime kiln from 1836 shows seven centuries of life in the Albeřice valley through period photographs. Entry is free, but the museum opens with a borrowed key – you collect it daily at the Veselý výlet information centre in Temný Důl against a 200 Kč deposit and an adult's ID. The tower stands near the car park by the Bischof quarry and pairs nicely with a loop via Lysečinská bouda. It's a quiet corner of the Krkonoše away from the crowds. There are stairs inside the tower, so no pushchairs indoors."
+      },
+      "openNote": {
+        "cs": "expozice zdarma; klíč se půjčuje denně v infocentru Veselý výlet Temný Důl (léto 8:30–18:00) proti záloze 200 Kč a dokladu; ověřte telefonicky",
+        "de": "Ausstellung gratis; Schlüssel täglich im Infozentrum Veselý výlet Temný Důl (Sommer 8:30–18:00) gegen 200 Kč Kaution und Ausweis; telefonisch prüfen",
+        "en": "exhibition free; key lent daily at the Veselý výlet centre in Temný Důl (summer 8:30–18:00) against a 200 Kč deposit and ID; check by phone"
+      },
+      "price": {
+        "cs": "vstup zdarma; vratná záloha za klíč 200 Kč v hotovosti (ceny 2026)",
+        "de": "Eintritt frei; rückzahlbare Schlüsselkaution 200 Kč in bar (Preise 2026)",
+        "en": "entry free; refundable key deposit 200 Kč in cash (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "veselyvylet.cz",
+            "de": "veselyvylet.cz",
+            "en": "veselyvylet.cz"
+          },
+          "url": "https://veselyvylet.cz/cz/vv9.php"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Muzeum%20V%C3%A1penka%20Horn%C3%AD%20Albe%C5%99ice"
+        }
+      ]
+    },
+    {
+      "id": "aichelburg",
+      "icon": "fort",
+      "accent": "#6e4a3e",
+      "coords": {
+        "lat": 50.6686,
+        "lon": 15.7914,
+        "alt": 700
+      },
+      "travelMin": 10,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "culture",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Lesní hrádek Aichelburg nad Temným Dolem",
+        "de": "Waldschlösschen Aichelburg über Temný Důl",
+        "en": "Aichelburg forest folly above Temný Důl"
+      },
+      "tagline": {
+        "cs": "romantická rozhledna-památník · krátká lesní cesta",
+        "de": "romantisches Aussichtsdenkmal · kurzer Waldweg",
+        "en": "a romantic memorial tower · short forest walk"
+      },
+      "desc": {
+        "cs": "Romantická kamenná rozhledna-památník z let 1862–1863 stojí vysoko nad údolím Úpy nad Temným Dolem; po zchátrání ji spolek v letech 1996–1999 zrestauroval a od roku 2000 je opět přístupná. K hrádku vede krátká lesní procházka po zvýšené dřevěné stezce (asi 15–20 minut). Klíč k interiéru si půjčíte v infocentru Veselý výlet proti dokladu totožnosti. Dřevěná stezka je za deště kluzká a není vhodná pro kočárek, uvnitř věže jsou schody.",
+        "de": "Ein romantisches steinernes Aussichtsdenkmal von 1862–1863 steht hoch über dem Úpa-Tal bei Temný Důl; nach dem Verfall wurde es von einem Verein 1996–1999 restauriert und ist seit 2000 wieder zugänglich. Zum Schlösschen führt ein kurzer Waldspaziergang über einen erhöhten Holzsteg (etwa 15–20 Minuten). Den Schlüssel zum Inneren leihen Sie im Infozentrum Veselý výlet gegen Ausweis. Der Holzsteg ist bei Regen rutschig und nicht für Kinderwagen geeignet, im Turm gibt es Treppen.",
+        "en": "A romantic stone memorial tower from 1862–1863 stands high above the Úpa valley near Temný Důl; after falling derelict it was restored by a society in 1996–1999 and has been open again since 2000. A short forest walk on a raised wooden path (about 15–20 minutes) leads to the folly. You borrow the key to the interior at the Veselý výlet information centre against ID. The wooden path is slippery in rain and not suitable for pushchairs, and there are stairs inside the tower."
+      },
+      "openNote": {
+        "cs": "venku přístupné denně 8:30–18:00 (8. 5.–2. 11.); klíč k interiéru v infocentru Veselý výlet proti dokladu; ověřte telefonicky",
+        "de": "außen täglich 8:30–18:00 zugänglich (8. 5.–2. 11.); Schlüssel im Infozentrum Veselý výlet gegen Ausweis; telefonisch prüfen",
+        "en": "grounds open daily 8:30–18:00 (8 May–2 Nov); interior key at the Veselý výlet centre against ID; check by phone"
+      },
+      "price": {
+        "cs": "jen mírné vstupné za zapůjčení klíče (konkrétní částku sdělí infocentrum); výtěžek jde na údržbu (ceny 2026)",
+        "de": "nur ein geringer Beitrag für die Schlüsselleihe (Betrag nennt das Infozentrum); Erlös für den Unterhalt (Preise 2026)",
+        "en": "only a small charge for the key loan (the centre tells you the amount); proceeds go to upkeep (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "veselyvylet.cz",
+            "de": "veselyvylet.cz",
+            "en": "veselyvylet.cz"
+          },
+          "url": "https://veselyvylet.cz/cz/vv8.php"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Aichelburg%20Temn%C3%BD%20D%C5%AFl"
+        }
+      ]
+    },
+    {
+      "id": "dotek",
+      "icon": "info",
+      "accent": "#4f9068",
+      "coords": {
+        "lat": 50.6545,
+        "lon": 15.8192,
+        "alt": 560
+      },
+      "travelMin": 7,
+      "byFoot": false,
+      "outdoor": false,
+      "indoorOrCovered": true,
+      "rainOk": true,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "rain",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Ekocentrum DOTEK v Horním Maršově",
+        "de": "Ökozentrum DOTEK in Horní Maršov",
+        "en": "DOTEK eco-centre in Horní Maršov"
+      },
+      "tagline": {
+        "cs": "barokní fara se zvířaty · i za deště",
+        "de": "barocke Pfarrei mit Tieren · auch bei Regen",
+        "en": "a baroque parsonage with animals · even in rain"
+      },
+      "desc": {
+        "cs": "Zrekonstruovaná barokní fara v Horním Maršově, kterou provozuje středisko ekologické výchovy SEVER, ukrývá interaktivní expozici o přírodě a tradicích Krkonoš, na dvoře zvířata a hřiště s dřevěnou stavebnicí. Prohlídka domu je zdarma a díky krytým prostorám je to dobrý tip i na deštivý den. V létě je každý čtvrtek program Prázdniny na DOTEKu. Nádavkem: farská kuchyně vaří obědy a rozváží je i do Svobody nad Úpou (objednávka den předem, cca 130 Kč) – šikovný tip přímo pro vilu.",
+        "de": "Die restaurierte barocke Pfarrei in Horní Maršov, betrieben vom Umweltbildungszentrum SEVER, birgt eine interaktive Ausstellung über Natur und Traditionen des Riesengebirges, Tiere im Hof und einen Spielplatz mit Holzbaukasten. Die Hausbesichtigung ist gratis und dank überdachter Räume auch ein guter Regentag-Tipp. Im Sommer gibt es donnerstags das Programm Ferien im DOTEK. Obendrein: Die Pfarrküche kocht Mittagessen und liefert es sogar nach Svoboda nad Úpou (Bestellung einen Tag vorher, ca. 130 Kč) – ein praktischer Tipp direkt für die Villa.",
+        "en": "The restored baroque parsonage in Horní Maršov, run by the SEVER environmental education centre, holds an interactive exhibition on Krkonoše nature and traditions, animals in the yard and a playground with a wooden construction set. The house tour is free and, thanks to the covered rooms, a good rainy-day tip too. In summer there's a Holidays at DOTEK programme every Thursday. As a bonus: the parsonage kitchen cooks lunches and even delivers them to Svoboda nad Úpou (order a day ahead, about 130 Kč) – a handy tip for the villa itself."
+      },
+      "openNote": {
+        "cs": "objekt/infocentrum červen–srpen denně 9:00–18:00; prohlídka domu zdarma; obědy s rozvozem po objednávce 24 h předem",
+        "de": "Gebäude/Infozentrum Juni–August täglich 9:00–18:00; Hausbesichtigung gratis; Mittagessen mit Lieferung nach Bestellung 24 h vorher",
+        "en": "building/info centre June–Aug daily 9:00–18:00; house tour free; lunches with delivery when ordered 24 h ahead"
+      },
+      "price": {
+        "cs": "prohlídka domu zdarma; oběd polévka 30 Kč + hlavní jídlo 150 Kč, rozvoz +10 Kč (ceny 2026)",
+        "de": "Hausbesichtigung gratis; Mittagessen Suppe 30 Kč + Hauptgericht 150 Kč, Lieferung +10 Kč (Preise 2026)",
+        "en": "house tour free; lunch soup 30 Kč + main 150 Kč, delivery +10 Kč (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "dotek.eu",
+            "de": "dotek.eu",
+            "en": "dotek.eu"
+          },
+          "url": "https://www.dotek.eu/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Ekocentrum%20DOTEK%20Horn%C3%AD%20Mar%C5%A1ov"
+        }
+      ]
+    },
+    {
+      "id": "svc-trutnov",
+      "icon": "play",
+      "accent": "#b0673c",
+      "coords": {
+        "lat": 50.5658288,
+        "lon": 15.9121688,
+        "alt": 410
+      },
+      "travelMin": 15,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 6,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "kids",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Lanový park a hřiště SVČ Trutnov",
+        "de": "Seilpark und Spielplatz SVČ Trutnov",
+        "en": "Rope park and playground SVČ Trutnov"
+      },
+      "tagline": {
+        "cs": "lanový park a šlapací káry · v Trutnově",
+        "de": "Seilpark und Tretkarts · in Trutnov",
+        "en": "rope park and pedal karts · in Trutnov"
+      },
+      "desc": {
+        "cs": "Areál Střediska volného času v Trutnově spojuje hned několik atrakcí: lanový park v korunách stromů pro starší děti a dospělé (od 12 let a 150 cm), dvoupatrové dobrodružné hřiště se sítěmi a tunely (od 6 let) a dopravní hřiště se šlapacími kárami. Je to fajn doplňkový výlet, když zajedete do města. Platí se na místě na recepci a za nepříznivého počasí se lanový park i hřiště zavírají. Na kárách musí mít děti do 18 let cyklistickou helmu.",
+        "de": "Das Areal des Freizeitzentrums in Trutnov vereint gleich mehrere Attraktionen: einen Seilpark in den Baumkronen für ältere Kinder und Erwachsene (ab 12 Jahren und 150 cm), einen zweistöckigen Abenteuerspielplatz mit Netzen und Tunneln (ab 6 Jahren) und einen Verkehrsspielplatz mit Tretkarts. Ein netter Zusatzausflug, wenn Sie in die Stadt fahren. Bezahlt wird vor Ort an der Rezeption, bei schlechtem Wetter schließen Seilpark und Spielplatz. Auf den Karts brauchen Kinder bis 18 Jahre einen Fahrradhelm.",
+        "en": "The Trutnov leisure centre grounds combine several attractions: a rope park up in the treetops for older children and adults (from age 12 and 150 cm), a two-storey adventure playground with nets and tunnels (from age 6) and a traffic playground with pedal karts. It's a nice add-on trip when you head into town. You pay on site at reception, and the rope park and playground close in bad weather. On the karts, children under 18 must wear a cycling helmet."
+      },
+      "openNote": {
+        "cs": "lanový park červenec–srpen po–ne 13:00–19:00; dobrodružné hřiště po–ne 10:00–19:00; za špatného počasí zavřeno",
+        "de": "Seilpark Juli–August Mo–So 13:00–19:00; Abenteuerspielplatz Mo–So 10:00–19:00; bei schlechtem Wetter geschlossen",
+        "en": "rope park July–Aug Mon–Sun 13:00–19:00; adventure playground Mon–Sun 10:00–19:00; closed in bad weather"
+      },
+      "price": {
+        "cs": "lanový park 220 Kč/okruh; dobrodružné hřiště 40 Kč/30 min; šlapací káry 50 Kč/30 min (ceny 2026)",
+        "de": "Seilpark 220 Kč/Runde; Abenteuerspielplatz 40 Kč/30 Min.; Tretkarts 50 Kč/30 Min. (Preise 2026)",
+        "en": "rope park 220 Kč/circuit; adventure playground 40 Kč/30 min; pedal karts 50 Kč/30 min (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "svctrutnov.cz",
+            "de": "svctrutnov.cz",
+            "en": "svctrutnov.cz"
+          },
+          "url": "https://www.svctrutnov.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Lanov%C3%BD%20park%20SV%C4%8C%20Trutnov"
+        }
+      ]
+    },
+    {
+      "id": "koupaliste-trutnov",
+      "icon": "waves",
+      "accent": "#1f7f96",
+      "coords": {
+        "lat": 50.56518,
+        "lon": 15.92825,
+        "alt": 410
+      },
+      "travelMin": 17,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "water",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Letní koupaliště Trutnov",
+        "de": "Sommerbad Trutnov",
+        "en": "Trutnov summer lido"
+      },
+      "tagline": {
+        "cs": "bazény a tobogán · na horký den",
+        "de": "Becken und Rutsche · für heiße Tage",
+        "en": "pools and a slide · for a hot day"
+      },
+      "desc": {
+        "cs": "Městské letní koupaliště v Trutnově s plaveckým i rekreačním bazénem, vyhřívanou vodou (22–25 °C), tobogánem a dětským brouzdalištěm, asi 17 minut autem od vily. V červenci a srpnu je otevřeno denně 9:00–20:00. Pro sezónu 2026 je tobogán i skluzavka po opravě a přibyly bezplatné trezory na cennosti. Provoz závisí na počasí – dává smysl jen za slunečného dne. S Kartou Krkonoš je vstupné výrazně levnější.",
+        "de": "Das städtische Sommerbad in Trutnov mit Schwimmer- und Freizeitbecken, beheiztem Wasser (22–25 °C), einer Rutsche und einem Kinderplanschbecken, etwa 17 Minuten mit dem Auto von der Villa. Im Juli und August täglich 9:00–20:00 geöffnet. Für die Saison 2026 sind Rutsche und Wasserrutsche saniert und es gibt neue kostenlose Wertsachen-Safes. Der Betrieb hängt vom Wetter ab – sinnvoll nur bei Sonne. Mit der Karta Krkonoš ist der Eintritt deutlich günstiger.",
+        "en": "The town summer lido in Trutnov with a swimming pool and a leisure pool, heated water (22–25 °C), a slide and a paddling pool, about 17 minutes' drive from the villa. In July and August it's open daily 9:00–20:00. For the 2026 season the slide and chute have been refurbished and free valuables lockers added. It depends on the weather – worth it only on a sunny day. With the Karta Krkonoš the entry is much cheaper."
+      },
+      "openNote": {
+        "cs": "sezóna cca 12. 6.–13. 9. 2026 (dle počasí); červenec/srpen denně 9:00–20:00",
+        "de": "Saison ca. 12. 6.–13. 9. 2026 (wetterabhängig); Juli/August täglich 9:00–20:00",
+        "en": "season approx. 12 Jun–13 Sep 2026 (weather-dependent); July/Aug daily 9:00–20:00"
+      },
+      "price": {
+        "cs": "dospělí 140 Kč (100 Kč s Kartou Krkonoš), děti 3–15 a senioři 90 Kč (70 Kč s kartou), do 3 let zdarma (ceny 2026)",
+        "de": "Erwachsene 140 Kč (100 Kč mit Karta Krkonoš), Kinder 3–15 und Senioren 90 Kč (70 Kč mit Karte), bis 3 J. gratis (Preise 2026)",
+        "en": "adults 140 Kč (100 Kč with Karta Krkonoš), children 3–15 and seniors 90 Kč (70 Kč with the card), under 3 free (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "sportoviste-trutnov.cz",
+            "de": "sportoviste-trutnov.cz",
+            "en": "sportoviste-trutnov.cz"
+          },
+          "url": "https://sportoviste-trutnov.cz/category/letni-koupaliste/provozni-doba-cenik/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Letn%C3%AD%20koupali%C5%A1t%C4%9B%20Trutnov"
+        }
+      ]
+    },
+    {
+      "id": "adrspach",
+      "icon": "mountain",
+      "accent": "#7c6a90",
+      "coords": {
+        "lat": 50.6142,
+        "lon": 16.1209,
+        "alt": 520
+      },
+      "travelMin": 45,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": true,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "viewpoint",
+      "zone": "far",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": true
+      },
+      "name": {
+        "cs": "Adršpašské skály – skalní město",
+        "de": "Adersbacher Felsen – Felsenstadt",
+        "en": "Adršpach Rocks – a rock town"
+      },
+      "tagline": {
+        "cs": "pískovcové bludiště · nutná online rezervace",
+        "de": "Sandstein-Labyrinth · Online-Reservierung nötig",
+        "en": "sandstone labyrinth · online booking required"
+      },
+      "desc": {
+        "cs": "Největší pískovcové skalní město ve střední Evropě, asi 45 minut autem – věže, soutěsky, dva vodopády a skalní jezírko s vyhlídkovými pramicemi. V hlavní sezóně je online rezervace vstupu i parkování prakticky povinná: vyprodané online vstupenky nelze dokoupit na místě, takže bez ní se do skal nemusíte vůbec dostat. Hlavní 3,5km okruh má skoro 2000 schodů; kočárek projede jen prvních 1,3 km k Malému vodopádu. Po dešti je mokrý pískovec kluzký, tak opatrně. Přijeďte raději hned na otevření.",
+        "de": "Die größte Sandstein-Felsenstadt Mitteleuropas, etwa 45 Autominuten entfernt – Türme, Schluchten, zwei Wasserfälle und ein Felsensee mit Ausflugskähnen. In der Hauptsaison ist die Online-Reservierung von Eintritt und Parkplatz praktisch Pflicht: ausverkaufte Online-Tickets kann man vor Ort nicht nachkaufen, ohne sie kommt man womöglich gar nicht hinein. Die 3,5-km-Hauptrunde hat fast 2000 Stufen; der Kinderwagen kommt nur die ersten 1,3 km zum Kleinen Wasserfall durch. Nach Regen ist der nasse Sandstein rutschig, also Vorsicht. Kommen Sie am besten gleich zur Öffnung.",
+        "en": "The largest sandstone rock town in central Europe, about 45 minutes' drive – towers, gorges, two waterfalls and a rock lake with sightseeing boats. In peak season, booking entry and parking online is essentially mandatory: sold-out online tickets can't be bought on site, so without one you may not get in at all. The main 3.5 km circuit has almost 2000 steps; a pushchair only gets through the first 1.3 km to the Small Waterfall. After rain the wet sandstone is slippery, so take care. It's best to arrive right at opening."
+      },
+      "openNote": {
+        "cs": "hlavní sezóna denně cca 8:00–20:00; vstup i parkování nutno rezervovat online předem (adrspasskeskaly.cz), kapacita omezená",
+        "de": "Hauptsaison täglich ca. 8:00–20:00; Eintritt und Parken vorab online reservieren (adrspasskeskaly.cz), Kapazität begrenzt",
+        "en": "peak season daily approx. 8:00–20:00; book entry and parking online in advance (adrspasskeskaly.cz), capacity limited"
+      },
+      "price": {
+        "cs": "dospělí 200 Kč online / 250 na místě, děti 3–15 let 140/190, rodinné 550/700 Kč; parkování zvlášť; plavba pramicí 100 Kč dosp./50 dítě (hotově) (ceny 2026)",
+        "de": "Erwachsene 200 Kč online / 250 vor Ort, Kinder 3–15 J. 140/190, Familie 550/700 Kč; Parken separat; Kahnfahrt 100 Kč Erw./50 Kind (bar) (Preise 2026)",
+        "en": "adults 200 Kč online / 250 on site, children 3–15 140/190, family 550/700 Kč; parking separate; boat ride 100 Kč adult/50 child (cash) (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "adrspasskeskaly.cz",
+            "de": "adrspasskeskaly.cz",
+            "en": "adrspasskeskaly.cz"
+          },
+          "url": "https://www.adrspasskeskaly.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Adr%C5%A1pa%C5%A1sk%C3%A9%20sk%C3%A1ly"
+        }
+      ]
+    },
+    {
+      "id": "safari-dvur-kralove",
+      "icon": "route",
+      "accent": "#a87a35",
+      "coords": {
+        "lat": 50.4323,
+        "lon": 15.8079,
+        "alt": 290
+      },
+      "travelMin": 29,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": false,
+      "needsClearLowWind": false,
+      "effort": "medium",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "animals",
+      "zone": "far",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": true,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Safari Park Dvůr Králové",
+        "de": "Safari-Park Dvůr Králové",
+        "en": "Safari Park Dvůr Králové"
+      },
+      "tagline": {
+        "cs": "projížďka mezi zvířaty · na celý den",
+        "de": "Fahrt mitten unter Tieren · für einen ganzen Tag",
+        "en": "a drive among the animals · a full-day trip"
+      },
+      "desc": {
+        "cs": "Africky laděná zoo asi 30 minut autem, proslulá tím, že projedete safari přímo mezi volně žijícími zvířaty – Safaribusem, Afrika truckem nebo vlastním autem. Je to výlet na celý den, areál je rozlehlý, tak vyrazte hned na otevření v 9:00. V létě láká oblíbené večerní safari za soumraku (denně 27. 6.–31. 8.), na které je nutná online rezervace; stejně tak na vjezd vlastním autem. Většina areálu je venku, takže za deště to není ideální. Děti do 3 let mají vstup zdarma.",
+        "de": "Ein afrikanisch geprägter Zoo etwa 30 Autominuten entfernt, berühmt dafür, dass man die Safari mitten unter frei lebenden Tieren durchfährt – mit dem Safaribus, dem Afrika-Truck oder dem eigenen Auto. Es ist ein Ganztagesausflug, das Gelände ist weitläufig, also gleich zur Öffnung um 9:00 kommen. Im Sommer lockt die beliebte Abendsafari in der Dämmerung (täglich 27. 6.–31. 8.), für die eine Online-Reservierung nötig ist; ebenso für die Einfahrt mit dem eigenen Auto. Der Großteil ist im Freien, bei Regen also nicht ideal. Kinder bis 3 Jahre haben freien Eintritt.",
+        "en": "An Africa-themed zoo about 30 minutes' drive away, famous for letting you drive the safari right among free-roaming animals – by Safari bus, Africa truck or your own car. It's a full-day trip and the grounds are vast, so arrive right at the 9:00 opening. In summer the popular evening safari at dusk (daily 27 Jun–31 Aug) is a draw, and it needs an online booking; so does driving in with your own car. Most of it is outdoors, so it's not ideal in rain. Children under 3 enter free."
+      },
+      "openNote": {
+        "cs": "denně od 9:00 (v létě areál/pavilony do 22:00); večerní safari a vjezd vlastním autem nutno rezervovat online",
+        "de": "täglich ab 9:00 (im Sommer Gelände/Pavillons bis 22:00); Abendsafari und Einfahrt mit eigenem Auto online reservieren",
+        "en": "daily from 9:00 (in summer grounds/pavilions until 22:00); evening safari and driving in by own car require online booking"
+      },
+      "price": {
+        "cs": "dospělí 325 Kč, děti 3–15 let 265 Kč, do 3 let zdarma; Safaribus 70 Kč, vlastní auto do safari 490 Kč (ceny 2026)",
+        "de": "Erwachsene 325 Kč, Kinder 3–15 J. 265 Kč, bis 3 J. gratis; Safaribus 70 Kč, eigenes Auto ins Safari 490 Kč (Preise 2026)",
+        "en": "adults 325 Kč, children 3–15 265 Kč, under 3 free; Safari bus 70 Kč, own car into the safari 490 Kč (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "safaripark.cz",
+            "de": "safaripark.cz",
+            "en": "safaripark.cz"
+          },
+          "url": "https://safaripark.cz/cz/naplanuj-si-navstevu/vstupne-a-oteviraci-doba"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Safari%20Park%20Dv%C5%AFr%20Kr%C3%A1lov%C3%A9"
+        }
+      ]
+    },
+    {
+      "id": "lesni-plovarna-mlade-buky",
+      "icon": "waves",
+      "accent": "#3f8f88",
+      "coords": {
+        "lat": 50.61743,
+        "lon": 15.84043,
+        "alt": 500
+      },
+      "travelMin": 6,
+      "byFoot": false,
+      "outdoor": true,
+      "indoorOrCovered": false,
+      "rainOk": false,
+      "lovesHeat": true,
+      "needsClearLowWind": false,
+      "effort": "easy",
+      "stairs": false,
+      "crossBorderId": false,
+      "minAge": 0,
+      "bestFor": [
+        "toddler",
+        "child",
+        "teen",
+        "adult"
+      ],
+      "category": "water",
+      "zone": "near",
+      "group": {
+        "groupTariffMin": null,
+        "reservation": false,
+        "capacity": null
+      },
+      "name": {
+        "cs": "Lesní plovárna Sejfy (Mladé Buky)",
+        "de": "Waldbad Sejfy (Mladé Buky)",
+        "en": "Sejfy forest lido (Mladé Buky)"
+      },
+      "tagline": {
+        "cs": "přírodní bazén v lese · POZOR: otevírá až 1. 8. 2026",
+        "de": "Naturbecken im Wald · ACHTUNG: erst ab 1. 8. 2026 offen",
+        "en": "a natural forest pool · NOTE: opens only 1 Aug 2026"
+      },
+      "desc": {
+        "cs": "Přírodní 50metrový bazén napájený horským pramenem v lesním areálu Retropark Sejfy, jen asi 2 km od vily. Pozvolna klesající dno (0–4 m) je fajn i pro menší děti, k dispozici jsou travnaté pláže, plážový volejbal a bistro. DŮLEŽITÉ pro léto 2026: kvůli rozsáhlé rekonstrukci se veřejné otevření bazénu posunulo na 1. srpna 2026 – celý červenec je bazén zavřený, i když zbytek resortu funguje. Než vyrazíte, raději zavolejte a ověřte, že rekonstrukce opravdu skončila. Venkovní bazén dává smysl jen za hezkého počasí.",
+        "de": "Ein natürliches 50-Meter-Becken, gespeist von einer Bergquelle, im Waldareal Retropark Sejfy, nur etwa 2 km von der Villa. Der flach abfallende Boden (0–4 m) ist auch für kleinere Kinder gut, dazu gibt es Liegewiesen, Beachvolleyball und ein Bistro. WICHTIG für den Sommer 2026: Wegen einer umfangreichen Sanierung verschiebt sich die öffentliche Öffnung des Beckens auf den 1. August 2026 – den ganzen Juli ist das Becken geschlossen, auch wenn der Rest des Resorts läuft. Rufen Sie vor dem Besuch lieber an und prüfen Sie, ob die Sanierung wirklich fertig ist. Ein Freibad lohnt sich nur bei schönem Wetter.",
+        "en": "A natural 50-metre pool fed by a mountain spring in the Retropark Sejfy forest grounds, just about 2 km from the villa. The gently sloping bottom (0–4 m) is fine for smaller children too, and there are grassy lawns, beach volleyball and a bistro. IMPORTANT for summer 2026: because of a major renovation the pool's public opening is pushed to 1 August 2026 – it's closed all July, even though the rest of the resort runs. Before you set off, it's best to call and check the renovation has really finished. An outdoor pool is only worth it in nice weather."
+      },
+      "openNote": {
+        "cs": "POZOR: bazén kvůli rekonstrukci otevírá až 1. 8. 2026, pak denně 10:00–18:00; celý červenec 2026 zavřeno; před cestou zavolejte",
+        "de": "ACHTUNG: Becken wegen Sanierung erst ab 1. 8. 2026, dann täglich 10:00–18:00; ganzer Juli 2026 geschlossen; vorher anrufen",
+        "en": "NOTE: due to renovation the pool opens only on 1 Aug 2026, then daily 10:00–18:00; closed all July 2026; call before you go"
+      },
+      "price": {
+        "cs": "pro ubytované hosty resortu zdarma; vstupné pro veřejnost není zveřejněno – ověřte telefonicky (ceny 2026)",
+        "de": "für Resortgäste gratis; Eintritt für die Öffentlichkeit nicht veröffentlicht – telefonisch prüfen (Preise 2026)",
+        "en": "free for resort guests; public admission not published – check by phone (2026 prices)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "lesniplovarna.cz",
+            "de": "lesniplovarna.cz",
+            "en": "lesniplovarna.cz"
+          },
+          "url": "https://www.lesniplovarna.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20plov%C3%A1rna%20Sejfy%20Mlad%C3%A9%20Buky"
+        }
+      ]
+    }
+  ],
+  "food": [
+    {
+      "id": "na-kopecku",
+      "coords": {
+        "lat": 50.65099,
+        "lon": 15.81829
+      },
+      "travelMin": 7,
+      "byFoot": true,
+      "name": {
+        "cs": "Hostinec Na Kopečku",
+        "de": "Gasthaus Na Kopečku",
+        "en": "Na Kopečku inn"
+      },
+      "tagline": {
+        "cs": "česká klasika · 7 min autem",
+        "de": "tschechische Klassiker · 7 Min. mit dem Auto",
+        "en": "Czech classics · 7 min drive"
+      },
+      "desc": {
+        "cs": "Rodinný hostinec při hlavní silnici v Horním Maršově s krkonošskou a českou kuchyní, velkou letní terasou s grilem a dětským koutkem přímo v areálu. Je to spolehlivá volba na oběd nebo večeři s dětmi bez dlouhé jízdy. O víkendech a v sezóně se hodí rezervovat předem. Pěšky je to sice jen asi 3 km, ale podél frekventované silnice bez chodníku – s dětmi je lepší jet autem.",
+        "de": "Ein Familiengasthaus an der Hauptstraße in Horní Maršov mit Riesengebirgs- und tschechischer Küche, großer Sommerterrasse mit Grill und Kinderecke direkt auf dem Gelände. Eine verlässliche Wahl für Mittag- oder Abendessen mit Kindern ohne lange Fahrt. Am Wochenende und in der Saison empfiehlt sich eine Reservierung. Zu Fuß sind es zwar nur etwa 3 km, aber entlang der stark befahrenen Straße ohne Gehweg – mit Kindern fährt man besser mit dem Auto.",
+        "en": "A family inn on the main road in Horní Maršov with Krkonoše and Czech cuisine, a large summer terrace with a grill and a children's corner right on site. A reliable choice for lunch or dinner with children without a long drive. At weekends and in season it's worth booking ahead. On foot it's only about 3 km, but along a busy road with no pavement – with children it's better to drive."
+      },
+      "openNote": {
+        "cs": "denně cca 11:00–22:00 (neděle spíše do 21:00); přesná letní doba nepublikována, ověřte telefonicky; víkendy rezervace doporučena",
+        "de": "täglich ca. 11:00–22:00 (Sonntag eher bis 21:00); genaue Sommerzeit nicht veröffentlicht, telefonisch prüfen; am Wochenende Reservierung empfohlen",
+        "en": "daily approx. 11:00–22:00 (Sundays rather until 21:00); exact summer hours not published, check by phone; booking advised at weekends"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "hostinecnakopecku.cz",
+            "de": "hostinecnakopecku.cz",
+            "en": "hostinecnakopecku.cz"
+          },
+          "url": "https://www.hostinecnakopecku.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Hostinec%20Na%20Kope%C4%8Dku%20Horn%C3%AD%20Mar%C5%A1ov"
+        }
+      ]
+    },
+    {
+      "id": "moravanka",
+      "coords": {
+        "lat": 50.731229,
+        "lon": 15.818945
+      },
+      "travelMin": 25,
+      "byFoot": false,
+      "name": {
+        "cs": "Chata Moravanka",
+        "de": "Chata Moravanka",
+        "en": "Chata Moravanka"
+      },
+      "tagline": {
+        "cs": "oběd s výhledem na Sněžku · 25 min autem",
+        "de": "Mittagessen mit Blick auf die Sněžka · 25 Min. mit dem Auto",
+        "en": "lunch with a Sněžka view · 25 min drive"
+      },
+      "desc": {
+        "cs": "Horská chata s restaurací a vyhlídkovou terasou v Dolní Malé Úpě, odkud je jeden z nejhezčích výhledů na Sněžku a údolí s nejvýše položeným kostelem v ČR. Má venkovní hřiště i dětský koutek, takže je to příjemná zastávka na kávu nebo oběd při výletu do Malé Úpy. Funguje spíš jako jídelna pro ubytované – letní otevírací dobu pro kolemjdoucí web neuvádí, proto raději zavolejte předem. Cesta vede klikatou horskou silnicí.",
+        "de": "Eine Berghütte mit Restaurant und Aussichtsterrasse in Dolní Malá Úpa, von der aus sich einer der schönsten Blicke auf die Sněžka und das Tal mit der höchstgelegenen Kirche Tschechiens bietet. Es gibt einen Außenspielplatz und eine Kinderecke, eine angenehme Rast für Kaffee oder Mittagessen bei einem Ausflug nach Malá Úpa. Es funktioniert eher als Speiseraum für Übernachtungsgäste – die Sommeröffnungszeiten für Passanten nennt die Website nicht, rufen Sie daher lieber vorher an. Die Anfahrt führt über eine kurvige Bergstraße.",
+        "en": "A mountain chalet with a restaurant and a viewing terrace in Dolní Malá Úpa, offering one of the finest views of Sněžka and the valley with the highest-set church in the Czech Republic. It has an outdoor playground and a children's corner, so it's a pleasant stop for coffee or lunch on a trip to Malá Úpa. It works mainly as a dining room for overnight guests – the website doesn't list summer hours for passers-by, so it's best to call ahead. The drive is along a winding mountain road."
+      },
+      "openNote": {
+        "cs": "letní otevírací doba restaurace pro veřejnost nepublikována – doporučeno zavolat předem (+420 727 875 081)",
+        "de": "Sommeröffnungszeiten des Restaurants für die Öffentlichkeit nicht veröffentlicht – vorher anrufen (+420 727 875 081)",
+        "en": "summer restaurant hours for the public not published – best to call ahead (+420 727 875 081)"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "moravanka.cz",
+            "de": "moravanka.cz",
+            "en": "moravanka.cz"
+          },
+          "url": "https://www.moravanka.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Chata%20Moravanka%20Mal%C3%A1%20%C3%9Apa"
+        }
+      ]
+    },
+    {
+      "id": "trautenberk",
+      "coords": {
+        "lat": 50.74553,
+        "lon": 15.82182
+      },
+      "travelMin": 28,
+      "byFoot": false,
+      "name": {
+        "cs": "Pivovar Trautenberk",
+        "de": "Brauerei Trautenberk",
+        "en": "Trautenberk brewery"
+      },
+      "tagline": {
+        "cs": "horský minipivovar · 28 min autem",
+        "de": "Bergbrauerei · 28 Min. mit dem Auto",
+        "en": "a mountain brewery · 28 min drive"
+      },
+      "desc": {
+        "cs": "Nejvýše položený krkonošský minipivovar (1045 m) sídlí ve sklepích bývalé Tippeltovy boudy v Horní Malé Úpě. Vaří nefiltrované a nepasterizované pivo a k němu tradiční horskou kuchyni, třeba pivovarský guláš. Je to zajímavá zastávka hlavně pro rodiče, kteří chtějí ochutnat místní pivo; s dětmi se dá spojit s prohlídkou pivovaru. O víkendech bývá plněji, rezervace se vyplatí.",
+        "de": "Die höchstgelegene Bergbrauerei des Riesengebirges (1045 m) liegt in den Kellern der ehemaligen Tippelt-Baude in Horní Malá Úpa. Gebraut wird unfiltriertes und unpasteurisiertes Bier, dazu traditionelle Bergküche wie Brauerei-Gulasch. Eine interessante Rast vor allem für Eltern, die das lokale Bier probieren möchten; mit Kindern lässt sie sich mit einer Brauereiführung verbinden. Am Wochenende ist es voller, eine Reservierung lohnt sich.",
+        "en": "The highest-set mini-brewery in the Krkonoše (1045 m) sits in the cellars of the former Tippelt chalet in Horní Malá Úpa. It brews unfiltered, unpasteurised beer alongside traditional mountain cuisine such as brewer's goulash. It's an interesting stop above all for parents who want to taste the local beer; with children you can pair it with a brewery tour. It gets busier at weekends, so a booking is worth it."
+      },
+      "openNote": {
+        "cs": "po–čt 11:00–21:00 (kuchyně do 20:00), pá–so 10:00–23:00 (kuchyně do 22:00), ne 10:00–20:00; ceník neověřen",
+        "de": "Mo–Do 11:00–21:00 (Küche bis 20:00), Fr–Sa 10:00–23:00 (Küche bis 22:00), So 10:00–20:00; Preisliste unbestätigt",
+        "en": "Mon–Thu 11:00–21:00 (kitchen to 20:00), Fri–Sat 10:00–23:00 (kitchen to 22:00), Sun 10:00–20:00; price list unverified"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "pivovartrautenberk.cz",
+            "de": "pivovartrautenberk.cz",
+            "en": "pivovartrautenberk.cz"
+          },
+          "url": "https://www.pivovartrautenberk.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Pivovar%20Trautenberk%20Horn%C3%AD%20Mal%C3%A1%20%C3%9Apa"
+        }
+      ]
+    },
+    {
+      "id": "hradecanka",
+      "coords": {
+        "lat": 50.74556,
+        "lon": 15.82141
+      },
+      "travelMin": 23,
+      "byFoot": false,
+      "name": {
+        "cs": "Chata Hradečanka",
+        "de": "Chata Hradečanka",
+        "en": "Chata Hradečanka"
+      },
+      "tagline": {
+        "cs": "nejvýše položená pizza v ČR · 23 min autem",
+        "de": "höchstgelegene Pizza Tschechiens · 23 Min. mit dem Auto",
+        "en": "the highest pizza in Czechia · 23 min drive"
+      },
+      "desc": {
+        "cs": "Horská chata v Horní Malé Úpě (1050 m) s italskou restaurací, kterou provozovatel prezentuje jako nejvýše položenou italskou restauraci v ČR a na Slovensku – pravá pizza z pece, čerstvé těstoviny a rozsáhlý vinný sklep. Pro rodiny je tu dětský koutek a samostatné dětské menu. Je to spíš cíl celodenního výletu než rychlá zastávka, protože je dál od vily. V sezóně a o víkendech se hodí rezervovat stůl předem.",
+        "de": "Eine Berghütte in Horní Malá Úpa (1050 m) mit italienischem Restaurant, das der Betreiber als höchstgelegenes italienisches Restaurant Tschechiens und der Slowakei bewirbt – echte Pizza aus dem Ofen, frische Pasta und ein großer Weinkeller. Für Familien gibt es eine Kinderecke und ein eigenes Kindermenü. Es ist eher das Ziel eines Tagesausflugs als eine schnelle Rast, da es weiter von der Villa entfernt liegt. In der Saison und am Wochenende empfiehlt sich eine Tischreservierung.",
+        "en": "A mountain chalet in Horní Malá Úpa (1050 m) with an Italian restaurant that its owner bills as the highest-set Italian restaurant in Czechia and Slovakia – real wood-oven pizza, fresh pasta and a large wine cellar. For families there's a children's corner and a separate kids' menu. It's more the goal of a full-day trip than a quick stop, as it's further from the villa. In season and at weekends it's worth booking a table ahead."
+      },
+      "openNote": {
+        "cs": "dle Firmy.cz denně cca 11:00–22:00; web otevírací dobu neuvádí, raději ověřte telefonicky; menu jaro/léto 2026 pizza 259–329 Kč",
+        "de": "laut Firmy.cz täglich ca. 11:00–22:00; Website nennt keine Öffnungszeiten, lieber telefonisch prüfen; Menü Frühjahr/Sommer 2026 Pizza 259–329 Kč",
+        "en": "per Firmy.cz daily approx. 11:00–22:00; the website lists no hours, better to check by phone; spring/summer 2026 menu pizza 259–329 Kč"
+      },
+      "links": [
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Chata%20Hrade%C4%8Danka%20Horn%C3%AD%20Mal%C3%A1%20%C3%9Apa"
+        }
+      ]
+    },
+    {
+      "id": "bouda-pod-snezkou",
+      "coords": {
+        "lat": 50.72078,
+        "lon": 15.72604
+      },
+      "travelMin": 17,
+      "byFoot": false,
+      "name": {
+        "cs": "Bouda pod Sněžkou (Obří důl)",
+        "de": "Bouda pod Sněžkou (Obří důl)",
+        "en": "Bouda pod Sněžkou (Obří důl)"
+      },
+      "tagline": {
+        "cs": "pstruzi z vlastní sádky · jen pěšky",
+        "de": "Forellen aus eigener Zucht · nur zu Fuß",
+        "en": "trout from their own ponds · on foot only"
+      },
+      "desc": {
+        "cs": "Odlehlá horská bouda na konci Obřího dolu pod Sněžkou, kam se nedá dojet autem – parkuje se v Peci a poslední 2 km se jde pěšky proti proudu Úpy. Podává domácí českou kuchyni, pstruhy z vlastní sádky a topí kachlovými kamny; pro děti je tu výběh s lamami a ovcemi ke krmení. Skvěle se spojí s procházkou Obřím dolem. Přesnou otevírací dobu web neuvádí, zvlášť mimo špičku raději zavolejte.",
+        "de": "Eine abgelegene Berghütte am Ende des Obří důl unter der Sněžka, zu der man nicht mit dem Auto fahren kann – geparkt wird in Pec, die letzten 2 km geht man zu Fuß flussaufwärts der Úpa. Serviert werden hausgemachte tschechische Küche und Forellen aus eigener Zucht, geheizt wird mit Kachelofen; für Kinder gibt es ein Gehege mit Lamas und Schafen zum Füttern. Lässt sich bestens mit einer Wanderung durch den Obří důl verbinden. Genaue Öffnungszeiten nennt die Website nicht, gerade außerhalb der Stoßzeiten lieber anrufen.",
+        "en": "A remote mountain chalet at the end of Obří důl below Sněžka, with no car access – you park in Pec and walk the last 2 km upstream along the Úpa. It serves homemade Czech cuisine and trout from its own ponds, heated by a tiled stove; for children there's a paddock with llamas and sheep to feed. It pairs perfectly with a walk through Obří důl. The website doesn't give exact hours, so call ahead, especially off-peak."
+      },
+      "openNote": {
+        "cs": "bez přístupu autem (2 km pěšky z Pece); přesná otevírací doba nepublikována, rezervace/ověření telefonicky doporučeno",
+        "de": "kein Autozugang (2 km zu Fuß von Pec); genaue Öffnungszeiten nicht veröffentlicht, Reservierung/telefonische Prüfung empfohlen",
+        "en": "no car access (2 km on foot from Pec); exact hours not published, booking/checking by phone advised"
+      },
+      "links": [
+        {
+          "icon": "globe",
+          "label": {
+            "cs": "boudapodsnezkou.cz",
+            "de": "boudapodsnezkou.cz",
+            "en": "boudapodsnezkou.cz"
+          },
+          "url": "https://www.boudapodsnezkou.cz/"
+        },
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Bouda%20pod%20Sn%C4%9B%C5%BEkou%20Ob%C5%99%C3%AD%20d%C5%AFl"
+        }
+      ]
+    },
+    {
+      "id": "promenada-trutnov",
+      "coords": {
+        "lat": 50.563131,
+        "lon": 15.912729
+      },
+      "travelMin": 15,
+      "byFoot": false,
+      "name": {
+        "cs": "Cukrárna a kavárna Promenáda",
+        "de": "Konditorei und Café Promenáda",
+        "en": "Promenáda café and patisserie"
+      },
+      "tagline": {
+        "cs": "velký dětský koutek · 15 min autem",
+        "de": "große Kinderecke · 15 Min. mit dem Auto",
+        "en": "a big kids' play area · 15 min drive"
+      },
+      "desc": {
+        "cs": "Rodinná cukrárna a kavárna na promenádě u řeky Úpy v Trutnově, proslulá velkým pohádkově vyzdobeným dětským koutkem se skluzavkou a teráriem s leguány i venkovní zahradou s houpačkami a pískovištěm. Má vlastní pekárnu a cukrářskou výrobu, dorty, točenou zmrzlinu i domácí vafle. Je to příjemná zastávka s malými dětmi cestou z hor do města. Otevírací dobu se nepodařilo ověřit – před cestou zavolejte na 775 996 323.",
+        "de": "Eine familiäre Konditorei und Café an der Promenade am Fluss Úpa in Trutnov, bekannt für die große, märchenhaft geschmückte Kinderecke mit Rutsche und Leguan-Terrarium sowie einen Außengarten mit Schaukeln und Sandkasten. Sie hat eine eigene Bäckerei und Konditorei, Torten, Softeis und hausgemachte Waffeln. Eine angenehme Rast mit kleinen Kindern auf dem Weg von den Bergen in die Stadt. Die Öffnungszeiten ließen sich nicht bestätigen – rufen Sie vor der Fahrt unter 775 996 323 an.",
+        "en": "A family café and patisserie on the promenade by the Úpa river in Trutnov, famous for its large, fairy-tale-decorated children's corner with a slide and an iguana terrarium, plus an outdoor garden with swings and a sandpit. It has its own bakery and patisserie, cakes, soft-serve ice cream and homemade waffles. It's a pleasant stop with small children on the way from the mountains into town. Opening hours couldn't be verified – call 775 996 323 before you go."
+      },
+      "openNote": {
+        "cs": "dle katalogů po–pá 8:00–18:00, so 9:00–18:00, ne 10:00–18:00 (neověřeno); doporučeno zavolat 775 996 323",
+        "de": "laut Katalogen Mo–Fr 8:00–18:00, Sa 9:00–18:00, So 10:00–18:00 (unbestätigt); Anruf 775 996 323 empfohlen",
+        "en": "per directories Mon–Fri 8:00–18:00, Sat 9:00–18:00, Sun 10:00–18:00 (unverified); calling 775 996 323 advised"
+      },
+      "links": [
+        {
+          "icon": "pin",
+          "label": {
+            "cs": "Mapy.cz – ukázat na mapě",
+            "de": "Mapy.cz – auf der Karte",
+            "en": "Mapy.cz – show on map"
+          },
+          "url": "https://mapy.cz/turisticka?q=Cukr%C3%A1rna%20a%20kav%C3%A1rna%20Promen%C3%A1da%20Trutnov"
+        }
       ]
     }
   ]
