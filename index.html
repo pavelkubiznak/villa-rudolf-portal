@@ -170,6 +170,8 @@ const CFG = {
   FORECAST_URL: 'data/forecast.json',
   DEMO_GUEST_URL: 'data/demo-guest.json',
   VILLA: 'villa',
+  // Sekce „Kam na dobré jídlo" – zatím skrytá. Data zůstávají v trips.json; přepni na true pro znovuzobrazení.
+  SHOW_FOOD: false,
   // Ostrý provoz: doplň po vytvoření Supabase projektu. Prázdné = demo režim (čte demo-guest.json).
   SUPABASE_URL: 'https://fpknbrzbqpalguajskut.supabase.co',
   SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwa25icnpicXBhbGd1YWpza3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDEyMTAsImV4cCI6MjA5Mjg3NzIxMH0.goat1c7Y1YnpTq7_XyMD3LROElkVI6E27f0B3EG8btA',
@@ -646,8 +648,8 @@ function render(data,token){
     html+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div></div>`;
   }
 
-  // KAM NA DOBRÉ JÍDLO (nefiltruje se, není na mapě)
-  if(food.length){
+  // KAM NA DOBRÉ JÍDLO (nefiltruje se, není na mapě) – skryto přes CFG.SHOW_FOOD, data zůstávají v trips.json
+  if(CFG.SHOW_FOOD && food.length){
     html+=`<div class="sec-h"><svg class="icon"><use href="#i-utensils"></use></svg><h2>${esc(L.foodTitle)}</h2></div>`;
     for(const f of food){
       const meta=f.byFoot?esc(L.mapFoot):esc(f.travelMin+' '+L.min);

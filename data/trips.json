@@ -958,9 +958,9 @@
     "en": "Krkonoše legends · on foot from the villa"
    },
    "desc": {
-    "cs": "Interaktivní pohádková expozice přímo ve Svobodě nad Úpou, kde ožívají krkonošské pověsti – Krakonoš, vodníci, permoníci i trutnovský drak. Prohlídka vede horním okruhem s figurínami a scénami a podzemním okruhem s dračím doupětem. Je to ideální tip na deštivé dopoledne s dětmi; v téže budově je i dětská herna a minigolf s restaurací. Otevřeno po celý rok, děti do 2 let zdarma. Skupinám se doporučuje předem zavolat.",
-    "de": "Interaktive Märchenausstellung direkt in Svoboda nad Úpou, in der die Sagen des Riesengebirges lebendig werden – Krakonoš (Rübezahl), Wassermänner, Berggeister und der Drache von Trutnov. Der Rundgang führt über einen oberen Weg mit Figuren und Szenen und einen unterirdischen Weg mit Drachenhöhle. Ein idealer Tipp für einen regnerischen Vormittag mit Kindern; im selben Gebäude gibt es auch einen Spielraum und Minigolf mit Restaurant. Ganzjährig geöffnet, Kinder bis 2 J. gratis. Gruppen sollten vorher anrufen.",
-    "en": "An interactive fairy-tale exhibition right in Svoboda nad Úpou, where the legends of the Krkonoše come alive – Krakonoš (the mountain spirit), water sprites, gnomes and the Trutnov dragon. The tour runs along an upper route with figures and scenes and an underground route with a dragon's lair. It's an ideal tip for a rainy morning with children; the same building also has a playroom and minigolf with a restaurant. Open all year, under 2s free. Groups should call ahead."
+    "cs": "Interaktivní pohádková expozice přímo ve Svobodě nad Úpou, kde ožívají krkonošské pověsti – Krakonoš, vodníci, permoníci i trutnovský drak. Prohlídka vede horním okruhem s figurínami a scénami a podzemním okruhem s dračím doupětem. Je to ideální tip na deštivé dopoledne s dětmi; v téže budově je i dětská herna a minigolf s restaurací. Otevřeno po celý rok, děti do 2 let zdarma. Skupinám se doporučuje předem zavolat. V infocentrech si navíc můžete pořídit brožuru razítkovací hry Pohádkové Krkonoše (asi 70 Kč) – děti sbírají razítka na 30 místech po celých Krkonoších a za 3, 5 a 10 razítek dostanou odměnu.",
+    "de": "Interaktive Märchenausstellung direkt in Svoboda nad Úpou, in der die Sagen des Riesengebirges lebendig werden – Krakonoš (Rübezahl), Wassermänner, Berggeister und der Drache von Trutnov. Der Rundgang führt über einen oberen Weg mit Figuren und Szenen und einen unterirdischen Weg mit Drachenhöhle. Ein idealer Tipp für einen regnerischen Vormittag mit Kindern; im selben Gebäude gibt es auch einen Spielraum und Minigolf mit Restaurant. Ganzjährig geöffnet, Kinder bis 2 J. gratis. Gruppen sollten vorher anrufen. In den Infozentren erhalten Sie zudem die Broschüre des Stempelspiels Pohádkové Krkonoše / Märchenhaftes Riesengebirge (rund 70 Kč) – Kinder sammeln Stempel an 30 Orten im ganzen Riesengebirge und bekommen für 3, 5 und 10 Stempel eine Belohnung.",
+    "en": "An interactive fairy-tale exhibition right in Svoboda nad Úpou, where the legends of the Krkonoše come alive – Krakonoš (the mountain spirit), water sprites, gnomes and the Trutnov dragon. The tour runs along an upper route with figures and scenes and an underground route with a dragon's lair. It's an ideal tip for a rainy morning with children; the same building also has a playroom and minigolf with a restaurant. Open all year, under 2s free. Groups should call ahead. At the info centres you can also pick up the booklet for the Pohádkové Krkonoše (Fairy-tale Krkonoše) stamp game (about 70 Kč) – children collect stamps at 30 places across the Krkonoše and earn a reward for 3, 5 and 10 stamps."
    },
    "openNote": {
     "cs": "po–so 9:00–17:00, ne 9:00–13:00 (celoročně); doporučeno telefonicky ověřit",
@@ -2247,6 +2247,694 @@
      "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20plov%C3%A1rna%20Sejfy%20Mlad%C3%A9%20Buky"
     }
    ]
+  },
+  {
+   "id": "cernohorske-raseliniste",
+   "icon": "route",
+   "accent": "#30554d",
+   "coords": {
+    "lat": 50.6462,
+    "lon": 15.746,
+    "alt": 1250
+   },
+   "travelMin": 15,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Naučná stezka Černohorské rašeliniště",
+    "de": "Lehrpfad Hochmoor Černá hora",
+    "en": "Černohorské peat-bog nature trail"
+   },
+   "tagline": {
+    "cs": "šestitisícileté rašeliniště · od horní stanice lanovky",
+    "de": "6000 Jahre altes Hochmoor · ab der Bergstation der Seilbahn",
+    "en": "a 6,000-year-old peat bog · from the top cable-car station"
+   },
+   "desc": {
+    "cs": "Od horní stanice kabinkové lanovky Černohorský Express vede po dřevěných chodníčcích okruh zhruba 3,5 km (asi 1–1,5 hodiny) přes jedno z nejstarších krkonošských rašelinišť – vzniká už asi 6000 let. Cestou je vyhlídková věž nad mokřady a informační tabule o zdejší přírodě. Území leží v I. a II. zóně KRNAP, proto se pohybujte jen po vyznačených chodníčcích a nevstupujte do porostu. Lanovka se platí zvlášť (viz výlet na Černou horu).",
+    "de": "Von der Bergstation der Kabinenbahn Černohorský Express führt auf Holzstegen eine Runde von etwa 3,5 km (rund 1–1,5 Stunden) durch eines der ältesten Hochmoore des Riesengebirges – es entsteht schon seit rund 6000 Jahren. Unterwegs gibt es einen Aussichtsturm über dem Moor und Infotafeln zur Natur. Das Gebiet liegt in der I. und II. Zone des KRNAP, bleiben Sie daher nur auf den markierten Stegen und betreten Sie die Vegetation nicht. Die Seilbahn wird gesondert bezahlt (siehe Ausflug auf die Černá hora).",
+    "en": "From the top station of the Černohorský Express cabin cable car, a boardwalk loop of about 3.5 km (roughly 1–1.5 hours) leads through one of the oldest peat bogs in the Krkonoše – it has been forming for some 6,000 years. Along the way there is a lookout tower over the wetland and information panels about the local nature. The area lies in KRNAP zones I and II, so stay only on the marked boardwalks and do not step into the vegetation. The cable car is paid for separately (see the Černá hora trip)."
+   },
+   "openNote": {
+    "cs": "stezka přístupná zhruba červen–polovina října a zdarma; dřevěné chodníčky bývají po dešti kluzké; provoz a jízdné lanovky ověřte předem",
+    "de": "Pfad etwa Juni–Mitte Oktober frei zugänglich; die Holzstege sind nach Regen rutschig; Betrieb und Fahrpreis der Seilbahn vorab prüfen",
+    "en": "trail open roughly June–mid-October and free; the boardwalks get slippery after rain; check cable-car operation and fares in advance"
+   },
+   "price": {
+    "cs": "stezka zdarma; lanovka na Černou horu se platí zvlášť (ceny viz samostatný výlet)",
+    "de": "Pfad gratis; die Seilbahn auf die Černá hora wird gesondert bezahlt (Preise siehe eigener Ausflug)",
+    "en": "trail free; the Černá hora cable car is paid separately (fares in the dedicated trip)"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "krkonose.eu",
+      "de": "krkonose.eu",
+      "en": "krkonose.eu"
+     },
+     "url": "https://www.krkonose.eu/naucna-stezka-cernohorske-raseliniste"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Nau%C4%8Dn%C3%A1%20stezka%20%C4%8Cernohorsk%C3%A9%20ra%C5%A1elini%C5%A1t%C4%9B"
+    }
+   ],
+   "category": "walk",
+   "zone": "near"
+  },
+  {
+   "id": "ruzova-hora-pec",
+   "icon": "route",
+   "accent": "#8f5563",
+   "coords": {
+    "lat": 50.7235,
+    "lon": 15.7365,
+    "alt": 1390
+   },
+   "travelMin": 20,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lanovkou na Růžovou horu a pěšky do Pece",
+    "de": "Mit der Seilbahn auf die Růžová hora und zu Fuß nach Pec",
+    "en": "Cable car to Růžová hora, then a walk down to Pec"
+   },
+   "tagline": {
+    "cs": "první úsek lanovky · svezení nahoru, procházka dolů",
+    "de": "erster Seilbahnabschnitt · hinauf fahren, hinunter wandern",
+    "en": "first cable-car section · ride up, walk down"
+   },
+   "desc": {
+    "cs": "Prvním úsekem sněžkové lanovky z Pece pod Sněžkou vyjedete na Růžovou horu a dál pokračujete pěšky přes Růžohorky s posezením a výhledem, kolem Herní krajiny Pecka na Portášky a odtud dolů do Velké Úpy nebo Pece. Je to pohodová varianta, jak si užít hřeben bez celodenního stoupání. Na Portáškách si větší děti mohou půjčit koloběžky na sjezd do údolí. Trasa vede odkrytým terénem, proto ji plánujte spíš za hezkého počasí.",
+    "de": "Mit dem ersten Abschnitt der Sněžka-Seilbahn fahren Sie von Pec pod Sněžkou auf die Růžová hora und wandern dann zu Fuß weiter über die Růžohorky mit Sitzplatz und Aussicht, vorbei an der Spiellandschaft Pecka zu den Portášky und von dort hinunter nach Velká Úpa oder Pec. Eine entspannte Variante, den Kamm ohne ganztägigen Aufstieg zu genießen. An den Portášky können sich größere Kinder Tretroller für die Abfahrt ins Tal leihen. Die Route verläuft im offenen Gelände, planen Sie sie daher eher bei schönem Wetter.",
+    "en": "The first section of the Sněžka cable car takes you from Pec pod Sněžkou up to Růžová hora, and from there you continue on foot over the Růžohorky meadows with a bench and a view, past the Pecka play landscape to Portášky, and down to Velká Úpa or Pec. It's an easygoing way to enjoy the ridge without an all-day climb. At Portášky older children can rent scooters for the ride down into the valley. The route runs across open terrain, so plan it for fair weather."
+   },
+   "openNote": {
+    "cs": "lanovka denně 8:00–19:00; jízdné a provoz ověřte na snezkalanovka.cz; půjčení koloběžek a herní prvky provozovány sezónně",
+    "de": "Seilbahn täglich 8:00–19:00; Fahrpreis und Betrieb auf snezkalanovka.cz prüfen; Tretroller-Verleih und Spielelemente saisonal",
+    "en": "cable car daily 8:00–19:00; check fares and operation at snezkalanovka.cz; scooter rental and play features run seasonally"
+   },
+   "price": {
+    "cs": "1. úsek lanovky (2026): dospělý 270 Kč nahoru / 530 zpáteční, dítě 5–12 let 140/270, do 5 let zdarma; koloběžky za příplatek",
+    "de": "1. Abschnitt der Seilbahn (2026): Erwachsene 270 Kč hinauf / 530 hin & zurück, Kind 5–12 J. 140/270, bis 5 J. gratis; Tretroller gegen Aufpreis",
+    "en": "1st cable-car section (2026): adult 270 Kč up / 530 return, child 5–12 140/270, under 5 free; scooters for an extra charge"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "snezkalanovka.cz",
+      "de": "snezkalanovka.cz",
+      "en": "snezkalanovka.cz"
+     },
+     "url": "https://www.snezkalanovka.cz/cenik/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=R%C5%AF%C5%BEov%C3%A1%20hora%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+    }
+   ],
+   "category": "walk",
+   "zone": "near"
+  },
+  {
+   "id": "snezka-pec-kocarkem",
+   "icon": "route",
+   "accent": "#395f80",
+   "coords": {
+    "lat": 50.7256,
+    "lon": 15.692,
+    "alt": 1410
+   },
+   "travelMin": 20,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": true,
+   "effort": "hard",
+   "stairs": true,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Sněžka → Pec hřebenem i s kočárkem",
+    "de": "Sněžka → Pec über den Kamm – auch mit Kinderwagen",
+    "en": "Sněžka → Pec along the ridge, even with a pushchair"
+   },
+   "tagline": {
+    "cs": "celodenní hřebenovka · jen pro zdatné rodiny",
+    "de": "ganztägige Kammwanderung · nur für fitte Familien",
+    "en": "an all-day ridge walk · for fit families only"
+   },
+   "desc": {
+    "cs": "Náročná celodenní hřebenová trasa pro zdatné rodiny: lanovkou vyjedete na Sněžku (kočárek se přepravuje za příplatek, u vrcholu ale počítejte s asi 50 metry schodů), pak přejdete kolem Slezského domu k Luční boudě, přes Výrovku a Richterovy boudy a sejdete dolů do Pece. Dohromady je to zhruba 14 km s dlouhým a náročným klesáním, proto je nutný odpružený sportovní kočárek – běžný golfky to nezvládnou. Vydejte se sem jen za stálého a jasného počasí s malým větrem; hřeben je otevřený a počasí se tu rychle mění.",
+    "de": "Eine anspruchsvolle Ganztagestour über den Kamm für fitte Familien: Mit der Seilbahn fahren Sie auf die Sněžka (der Kinderwagen wird gegen Aufpreis befördert, am Gipfel sind es jedoch rund 50 Meter Treppen), dann geht es am Slezský dům vorbei zur Luční bouda, über die Výrovka und die Richter-Bauden hinunter nach Pec. Insgesamt sind es etwa 14 km mit langem, anspruchsvollem Abstieg, daher ist ein gefederter Sportkinderwagen nötig – ein normaler Buggy schafft das nicht. Machen Sie sich nur bei stabilem, klarem und windarmem Wetter auf den Weg; der Kamm ist offen und das Wetter schlägt hier schnell um.",
+    "en": "A demanding all-day ridge route for fit families: the cable car takes you up Sněžka (the pushchair is carried for an extra charge, but expect about 50 metres of steps near the summit), then you cross past the Slezský dům to Luční bouda, over Výrovka and the Richter chalets, and down into Pec. Altogether it is about 14 km with a long, demanding descent, so a suspension sports pushchair is essential – an ordinary buggy won't manage it. Set out only in settled, clear, low-wind weather; the ridge is exposed and the weather changes fast up here."
+   },
+   "openNote": {
+    "cs": "jen za stálého jasného počasí a malého větru; lanovka na Sněžku denně 8:00–19:00, kočárek příplatek 150 Kč – provoz a jízdné ověřte předem",
+    "de": "nur bei stabilem, klarem Wetter und wenig Wind; Seilbahn auf die Sněžka täglich 8:00–19:00, Kinderwagen Aufpreis 150 Kč – Betrieb und Fahrpreis vorab prüfen",
+    "en": "only in settled, clear, low-wind weather; Sněžka cable car daily 8:00–19:00, pushchair surcharge 150 Kč – check operation and fares in advance"
+   },
+   "price": {
+    "cs": "trasa zdarma; lanovka na Sněžku dle ceníku, kočárek příplatek 150 Kč (ceny 2026)",
+    "de": "Route gratis; Seilbahn auf die Sněžka laut Preisliste, Kinderwagen Aufpreis 150 Kč (Preise 2026)",
+    "en": "route free; Sněžka cable car per the price list, pushchair surcharge 150 Kč (2026 prices)"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "snezkalanovka.cz",
+      "de": "snezkalanovka.cz",
+      "en": "snezkalanovka.cz"
+     },
+     "url": "https://www.snezkalanovka.cz/cenik/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Lu%C4%8Dn%C3%AD%20bouda%20Sn%C4%9B%C5%BEka"
+    }
+   ],
+   "category": "walk",
+   "zone": "near"
+  },
+  {
+   "id": "jelenka-hrebenovka",
+   "icon": "route",
+   "accent": "#5d4568",
+   "coords": {
+    "lat": 50.748,
+    "lon": 15.806,
+    "alt": 1180
+   },
+   "travelMin": 28,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Hřebenovka k chatě Jelenka a hraniční kameny",
+    "de": "Kammweg zur Jelenka-Baude und die Grenzsteine",
+    "en": "Ridge walk to the Jelenka chalet and the border stones"
+   },
+   "tagline": {
+    "cs": "hraniční kameny · na jedné straně Česko, na druhé Polsko",
+    "de": "Grenzsteine · auf einer Seite Tschechien, auf der anderen Polen",
+    "en": "border stones · Czechia on one side, Poland on the other"
+   },
+   "desc": {
+    "cs": "Z Horní Malé Úpy vede cesta k horské chatě Jelenka a dál po hřebeni podél starých hraničních kamenů – děti baví, že na jedné straně kamene je Česko a na druhé Polsko. U Sovího sedla přechází stezka na prkenný chodníček s výhledy do Polska. Část trasy je asfaltová, část kamenitá horská cesta, takže sportovní kočárek tudy projede jen s obtížemi. Je to pěkný výlet za výhledy a hraniční atmosférou pro rodiny se staršími dětmi.",
+    "de": "Von Horní Malá Úpa führt der Weg zur Berghütte Jelenka und weiter über den Kamm entlang alter Grenzsteine – Kinder finden es spannend, dass auf einer Seite des Steins Tschechien und auf der anderen Polen liegt. Am Soví sedlo (Eulensattel) geht der Pfad in einen Bohlenweg mit Blick nach Polen über. Ein Teil der Strecke ist asphaltiert, ein Teil ein steiniger Bergweg, ein Sportkinderwagen kommt hier nur mit Mühe durch. Ein schöner Ausflug für Aussichten und Grenzatmosphäre für Familien mit älteren Kindern.",
+    "en": "From Horní Malá Úpa a path leads to the Jelenka mountain chalet and on along the ridge past old border stones – children love that one side of the stone is Czechia and the other Poland. At Soví sedlo (Owl saddle) the trail turns into a plank boardwalk with views into Poland. Part of the route is asphalt and part a stony mountain track, so a sports pushchair only just gets through. It's a lovely trip for the views and the border atmosphere, best for families with older children."
+   },
+   "openNote": {
+    "cs": "cesta přístupná celoročně a zdarma; horní úseky jsou kamenité a bez přístřešku, jděte za dobré viditelnosti; otevírací dobu chaty Jelenka ověřte na místě",
+    "de": "Weg ganzjährig frei zugänglich; die oberen Abschnitte sind steinig und ohne Unterstand, gehen Sie bei guter Sicht; Öffnungszeiten der Jelenka-Baude vor Ort prüfen",
+    "en": "path open year-round and free; the upper sections are stony and without shelter, go in good visibility; check the Jelenka chalet's hours on site"
+   },
+   "price": {
+    "cs": "trasa zdarma; případné parkování v Horní Malé Úpě dle parkoviště (ceny 2026)",
+    "de": "Route gratis; eventuelles Parken in Horní Malá Úpa je nach Parkplatz (Preise 2026)",
+    "en": "route free; any parking in Horní Malá Úpa depends on the car park (2026 prices)"
+   },
+   "links": [
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Chata%20Jelenka%20Horn%C3%AD%20Mal%C3%A1%20%C3%9Apa"
+    }
+   ],
+   "category": "walk",
+   "zone": "near"
+  },
+  {
+   "id": "lesni-dum-marsov",
+   "icon": "tree",
+   "accent": "#464a86",
+   "coords": {
+    "lat": 50.638,
+    "lon": 15.79,
+    "alt": 720
+   },
+   "travelMin": 8,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lesem od Lesního domu do Horního Maršova",
+    "de": "Durch den Wald vom Lesní dům nach Horní Maršov",
+    "en": "Through the forest from the Lesní dům to Horní Maršov"
+   },
+   "tagline": {
+    "cs": "nenáročná lesní cesta · i pro odrážedla",
+    "de": "gemütlicher Waldweg · auch für Laufräder",
+    "en": "an easy forest path · fine for balance bikes"
+   },
+   "desc": {
+    "cs": "Pohodová lesní trasa začíná u Lesního domu v Janských Lázních a míří kolem Modrokamenné boudy do Horního Maršova. Cesta je nenáročná a vhodná i pro nejmenší na odrážedlech, cestou se otevírají výhledy na Janské Lázně a Svobodu nad Úpou. V sezóně roste podél stezky borůvčí a lesní jahody – v KRNAP je ale sbírejte a pohybujte se jen po cestách. Příjemný tip na dopoledne bez auta i za teplého dne, kdy potěší lesní stín.",
+    "de": "Eine gemütliche Waldroute beginnt am Lesní dům in Janské Lázně und führt an der Modrokamenná bouda vorbei nach Horní Maršov. Der Weg ist einfach und auch für die Kleinsten auf Laufrädern geeignet, unterwegs öffnen sich Blicke auf Janské Lázně und Svoboda nad Úpou. In der Saison wachsen entlang des Pfades Heidelbeeren und Walderdbeeren – im KRNAP pflücken Sie sie und bleiben Sie nur auf den Wegen. Ein angenehmer Tipp für einen autofreien Vormittag, auch an warmen Tagen mit erfrischendem Waldschatten.",
+    "en": "An easy forest route starts at the Lesní dům in Janské Lázně and runs past the Modrokamenná bouda to Horní Maršov. The path is undemanding and fine even for the youngest on balance bikes, and along the way it opens up views of Janské Lázně and Svoboda nad Úpou. In season blueberries and wild strawberries grow beside the trail – but in KRNAP pick them and stay only on the paths. A pleasant tip for a car-free morning, and welcome on warm days for its forest shade."
+   },
+   "openNote": {
+    "cs": "lesní cesta přístupná celoročně a zdarma; po dešti bývá měkká a blátivá; v KRNAP zůstávejte na značených cestách",
+    "de": "Waldweg ganzjährig frei zugänglich; nach Regen weich und matschig; im KRNAP auf den markierten Wegen bleiben",
+    "en": "forest path open year-round and free; soft and muddy after rain; in KRNAP stay on the marked paths"
+   },
+   "price": {
+    "cs": "zdarma",
+    "de": "gratis",
+    "en": "free"
+   },
+   "links": [
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20d%C5%AFm%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+    }
+   ],
+   "category": "walk",
+   "zone": "near"
+  },
+  {
+   "id": "hriste-horni-marsov",
+   "icon": "play",
+   "accent": "#b5503f",
+   "coords": {
+    "lat": 50.6497,
+    "lon": 15.8302,
+    "alt": 560
+   },
+   "travelMin": 8,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Dětské hřiště u školy v Horním Maršově",
+    "de": "Spielplatz an der Schule in Horní Maršov",
+    "en": "Playground by the school in Horní Maršov"
+   },
+   "tagline": {
+    "cs": "veřejné hřiště zdarma · krátká zastávka po túře",
+    "de": "kostenloser Spielplatz · kurzer Halt nach der Wanderung",
+    "en": "a free public playground · a short stop after a hike"
+   },
+   "desc": {
+    "cs": "Veřejné dětské hřiště u školy v Horním Maršově (Malá ulička 89) je zdarma přístupné a hodí se jako krátká zastávka na vybití energie po túře nebo cestou domů. Najdete tu prolézačky, stín a travnatou plochu, kam se dá rozložit deka. Není to celodenní cíl, spíš příjemná pauza pro nejmenší. Vhodné pro batolata a menší děti.",
+    "de": "Der öffentliche Spielplatz an der Schule in Horní Maršov (Malá ulička 89) ist gratis zugänglich und eignet sich als kurzer Halt zum Auspowern nach einer Wanderung oder auf dem Heimweg. Es gibt Klettergerüste, Schatten und eine Wiese, auf der man eine Decke ausbreiten kann. Kein Ganztagesziel, eher eine angenehme Pause für die Kleinsten. Geeignet für Kleinkinder und jüngere Kinder.",
+    "en": "The public playground by the school in Horní Maršov (Malá ulička 89) is free to use and makes a handy short stop to burn off energy after a hike or on the way home. You'll find climbing frames, shade and a lawn where you can spread out a blanket. It's not an all-day destination, more a pleasant break for the youngest. Suitable for toddlers and younger children."
+   },
+   "openNote": {
+    "cs": "duben–září, přibližně 8:00–20:00; venkovní hřiště, za deště méně vhodné",
+    "de": "April–September, etwa 8:00–20:00; Außenspielplatz, bei Regen weniger geeignet",
+    "en": "April–September, approximately 8:00–20:00; an outdoor playground, less suitable in rain"
+   },
+   "price": {
+    "cs": "zdarma",
+    "de": "gratis",
+    "en": "free"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "hornimarsov.cz",
+      "de": "hornimarsov.cz",
+      "en": "hornimarsov.cz"
+     },
+     "url": "https://www.hornimarsov.cz"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=D%C4%9Btsk%C3%A9%20h%C5%99i%C5%A1t%C4%9B%20Horn%C3%AD%20Mar%C5%A1ov%20Mal%C3%A1%20uli%C4%8Dka"
+    }
+   ],
+   "category": "kids",
+   "zone": "near"
+  },
+  {
+   "id": "lezecka-stena-trutnov",
+   "icon": "zap",
+   "accent": "#74459a",
+   "coords": {
+    "lat": 50.5659,
+    "lon": 15.9124,
+    "alt": 410
+   },
+   "travelMin": 15,
+   "byFoot": false,
+   "outdoor": false,
+   "indoorOrCovered": true,
+   "rainOk": true,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 5,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lezecká stěna SVČ Trutnov",
+    "de": "Kletterwand SVČ Trutnov",
+    "en": "Climbing wall SVČ Trutnov"
+   },
+   "tagline": {
+    "cs": "vnitřní stěna a boulder · funguje i za deště",
+    "de": "Kletterhalle und Boulder · auch bei Regen",
+    "en": "an indoor wall and boulder · works even in rain"
+   },
+   "desc": {
+    "cs": "Krytá lezecká stěna Střediska volného času v Trutnově (Na Nivách 568) nabízí přes 300 m² lezeckých stěn a čtyřmetrový boulder. Protože je celá uvnitř, je to skvělý tip i na deštivý den. Lézt se dá od 5 let, na místě si půjčíte kompletní vybavení (lano, úvazek i jistítko). Areál patří ke stejnému Středisku volného času jako lanový park a hřiště SVČ, takže se návštěvy dají spojit.",
+    "de": "Die überdachte Kletterwand des Freizeitzentrums in Trutnov (Na Nivách 568) bietet über 300 m² Kletterfläche und einen vier Meter hohen Boulder. Da alles drinnen ist, ist es auch ein toller Tipp für einen Regentag. Geklettert wird ab 5 Jahren, vor Ort leihen Sie die komplette Ausrüstung (Seil, Gurt und Sicherungsgerät). Das Areal gehört zum selben Freizeitzentrum wie der Seilpark und der Spielplatz SVČ, die Besuche lassen sich also verbinden.",
+    "en": "The indoor climbing wall at the Trutnov leisure centre (Na Nivách 568) offers over 300 m² of climbing walls and a four-metre boulder. As it's all under cover, it's a great tip for a rainy day too. Climbing is from age 5, and you can rent the full kit on site (rope, harness and belay device). The grounds belong to the same leisure centre as the SVČ rope park and playground, so the visits can be combined."
+   },
+   "openNote": {
+    "cs": "v létě denně 13:00–18:00; od 5 let; kapacitu a případnou rezervaci ověřte na svctrutnov.cz",
+    "de": "im Sommer täglich 13:00–18:00; ab 5 Jahren; Kapazität und mögliche Reservierung auf svctrutnov.cz prüfen",
+    "en": "in summer daily 13:00–18:00; from age 5; check capacity and any booking at svctrutnov.cz"
+   },
+   "price": {
+    "cs": "dospělý 160 Kč, dítě 5–15 let 120 Kč; půjčení kompletu (lano, úvazek, jistítko) 50 Kč (ceny 2026)",
+    "de": "Erwachsene 160 Kč, Kind 5–15 J. 120 Kč; Verleih des Komplettsets (Seil, Gurt, Sicherungsgerät) 50 Kč (Preise 2026)",
+    "en": "adult 160 Kč, child 5–15 120 Kč; full-kit rental (rope, harness, belay device) 50 Kč (2026 prices)"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "svctrutnov.cz",
+      "de": "svctrutnov.cz",
+      "en": "svctrutnov.cz"
+     },
+     "url": "https://www.svctrutnov.cz/lezecka-stena-p111/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Lezeck%C3%A1%20st%C4%9Bna%20SV%C4%8C%20Trutnov%20Na%20Niv%C3%A1ch"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near"
+  },
+  {
+   "id": "lesni-bouda",
+   "icon": "route",
+   "accent": "#7c5a24",
+   "coords": {
+    "lat": 50.677,
+    "lon": 15.709,
+    "alt": 1102
+   },
+   "travelMin": 25,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lesní bouda – horská ekofarma s ovcemi a kozami",
+    "de": "Lesní bouda – Bergökofarm mit Schafen und Ziegen",
+    "en": "Lesní bouda – a mountain eco-farm with sheep and goats"
+   },
+   "tagline": {
+    "cs": "restaurace a ekofarma · sýry z vlastní produkce",
+    "de": "Gaststätte und Ökofarm · Käse aus eigener Herstellung",
+    "en": "a restaurant and eco-farm · cheese of their own making"
+   },
+   "desc": {
+    "cs": "Lesní bouda stojí v sedle mezi Liščí a Černou horou (1102 m) a spojuje horskou restauraci s ekofarmou, kde chovají ovce a kozy a vyrábějí vlastní sýry. Pěšky sem dojdete zhruba 3 km po žluté z Pece, nebo jen asi 300 m od horní stanice vleku Zahrádky. Autem se sem smí jen s povolením KRNAP, takže bez auta to vyjde lépe. Pro děti jsou lákadlem zvířata ve výbězích a domácí dobroty z farmy.",
+    "de": "Die Lesní bouda liegt im Sattel zwischen Liščí hora und Černá hora (1102 m) und verbindet eine Bergwirtschaft mit einem Ökohof, auf dem Schafe und Ziegen gehalten und eigene Käse hergestellt werden. Zu Fuß erreichen Sie sie über rund 3 km auf der gelben Route ab Pec oder nur etwa 300 m von der Bergstation des Schlepplifts Zahrádky. Mit dem Auto ist die Zufahrt nur mit KRNAP-Genehmigung erlaubt, ohne Auto geht es also besser. Für Kinder sind die Tiere in den Gehegen und die hausgemachten Köstlichkeiten vom Hof der Reiz.",
+    "en": "The Lesní bouda sits in the saddle between Liščí hora and Černá hora (1,102 m) and combines a mountain restaurant with an eco-farm that keeps sheep and goats and makes its own cheese. You can walk there in about 3 km on the yellow trail from Pec, or just 300 m from the top station of the Zahrádky ski lift. Cars are allowed only with a KRNAP permit, so it works better without one. For children the draw is the animals in the paddocks and the homemade treats from the farm."
+   },
+   "openNote": {
+    "cs": "kuchyně přibližně 10:30–17:00, provoz se mění podle počasí – PŘED CESTOU OVĚŘTE TELEFONICKY +420 736 678 302; poloha na mapě je orientační; autem jen s povolením KRNAP",
+    "de": "Küche etwa 10:30–17:00, der Betrieb ändert sich je nach Wetter – VOR DER FAHRT TELEFONISCH PRÜFEN +420 736 678 302; die Lage auf der Karte ist ungefähr; mit dem Auto nur mit KRNAP-Genehmigung",
+    "en": "kitchen roughly 10:30–17:00, operation varies with the weather – CALL AHEAD BEFORE YOU GO +420 736 678 302; the map location is approximate; cars only with a KRNAP permit"
+   },
+   "price": {
+    "cs": "vstup na farmu zdarma, útrata v restauraci dle konzumace; přesný ceník neuveden – ověřte na místě",
+    "de": "Eintritt auf den Hof gratis, Verzehr im Restaurant nach Konsum; genaue Preisliste nicht angegeben – vor Ort prüfen",
+    "en": "farm entry free, restaurant spend as you order; exact price list not given – check on site"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "lesnibouda.cz",
+      "de": "lesnibouda.cz",
+      "en": "lesnibouda.cz"
+     },
+     "url": "https://lesnibouda.cz/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20bouda%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+    }
+   ],
+   "category": "animals",
+   "zone": "near"
+  },
+  {
+   "id": "bazen-horizont",
+   "icon": "waves",
+   "accent": "#2b8fa0",
+   "coords": {
+    "lat": 50.689,
+    "lon": 15.7285,
+    "alt": 890
+   },
+   "travelMin": 20,
+   "byFoot": false,
+   "outdoor": false,
+   "indoorOrCovered": true,
+   "rainOk": true,
+   "lovesHeat": true,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": true,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Krytý bazén a wellness hotelu Horizont v Peci",
+    "de": "Hallenbad und Wellness im Hotel Horizont in Pec",
+    "en": "Indoor pool and wellness at Hotel Horizont in Pec"
+   },
+   "tagline": {
+    "cs": "bazén a sauny v Peci · záloha na deštivý den",
+    "de": "Pool und Saunen in Pec · Reserve für den Regentag",
+    "en": "pool and saunas in Pec · a rainy-day backup"
+   },
+   "desc": {
+    "cs": "Hotel Horizont v Peci pod Sněžkou (Velká Pláň 141) provozuje sportovní a wellness centrum s krytým bazénem a saunami. Je to dobrá záloha na deštivý den v Peci, kdy jsou horské atrakce zavřené. Přednost mají ubytovaní hosté, takže veřejnost si musí volnou kapacitu a ceny předem telefonicky ověřit – ceník pro veřejnost není zveřejněn. Zavolejte proto ještě před cestou.",
+    "de": "Das Hotel Horizont in Pec pod Sněžkou (Velká Pláň 141) betreibt ein Sport- und Wellnesszentrum mit Hallenbad und Saunen. Eine gute Reserve für einen Regentag in Pec, wenn die Bergattraktionen geschlossen sind. Vorrang haben Übernachtungsgäste, daher muss die Öffentlichkeit freie Kapazität und Preise vorab telefonisch abklären – eine Preisliste für die Öffentlichkeit ist nicht veröffentlicht. Rufen Sie deshalb schon vor der Anfahrt an.",
+    "en": "Hotel Horizont in Pec pod Sněžkou (Velká Pláň 141) runs a sports and wellness centre with an indoor pool and saunas. It's a good backup for a rainy day in Pec, when the mountain attractions are closed. Overnight guests have priority, so the public must check free capacity and prices ahead by phone – no public price list is published. Call before you set off."
+   },
+   "openNote": {
+    "cs": "sportovní a wellness centrum denně 8:00–21:00, sauny 16:00–20:30; přednost mají ubytovaní – veřejnost předem ověří kapacitu telefonicky (+420 499 861 536)",
+    "de": "Sport- und Wellnesszentrum täglich 8:00–21:00, Saunen 16:00–20:30; Übernachtungsgäste haben Vorrang – die Öffentlichkeit klärt die Kapazität vorab telefonisch ab (+420 499 861 536)",
+    "en": "sports and wellness centre daily 8:00–21:00, saunas 16:00–20:30; overnight guests have priority – the public checks capacity ahead by phone (+420 499 861 536)"
+   },
+   "price": {
+    "cs": "ceník pro veřejnost není zveřejněn – ceny i volnou kapacitu ověřte telefonicky předem (+420 499 861 536)",
+    "de": "keine Preisliste für die Öffentlichkeit veröffentlicht – Preise und freie Kapazität vorab telefonisch prüfen (+420 499 861 536)",
+    "en": "no public price list published – check prices and free capacity ahead by phone (+420 499 861 536)"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "hotelhorizont.cz",
+      "de": "hotelhorizont.cz",
+      "en": "hotelhorizont.cz"
+     },
+     "url": "https://www.hotelhorizont.cz/wellness"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map"
+     },
+     "url": "https://mapy.cz/turisticka?q=Hotel%20Horizont%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+    }
+   ],
+   "category": "water",
+   "zone": "near"
   }
  ],
  "food": [
