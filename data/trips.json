@@ -3233,6 +3233,979 @@
    ],
    "category": "water",
    "zone": "near"
+  },
+  {
+   "id": "ski-svoboda",
+   "icon": "mountain",
+   "accent": "#3f7cae",
+   "coords": {
+    "lat": 50.6349,
+    "lon": 15.8007,
+    "alt": 571
+   },
+   "travelMin": 5,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Skiareál Svoboda nad Úpou (Duncan)",
+    "de": "Skigebiet Svoboda nad Úpou (Duncan)",
+    "en": "Svoboda nad Úpou ski area (Duncan)",
+    "pl": "Ośrodek narciarski Svoboda nad Úpou (Duncan)"
+   },
+   "tagline": {
+    "cs": "nejbližší svah od vily · tři modré sjezdovky",
+    "de": "der nächste Hang zur Villa · drei blaue Pisten",
+    "en": "the closest slope to the villa · three blue runs",
+    "pl": "najbliższy stok od willi · trzy niebieskie trasy"
+   },
+   "desc": {
+    "cs": "Nejbližší lyžování od vily: nejmenší areál SkiResortu ČERNÁ HORA – PEC leží v severozápadní části Svobody nad Úpou, necelé 2 km po silnici (autem zhruba 5 minut, pěšky do půl hodiny). Tři modré sjezdovky Duncan 1, Duncan 2 a U lesa, každá kolem 350 m a dohromady asi kilometr, obsluhují tři vleky; lanovka tu není. Ideální pro začátečníky, děti a první oblouky – kdo chce víc, přejede na Černou horu nebo do Pece. Je to nejníže položený areál resortu (zhruba 530–600 m), provoz proto silně závisí na sněhu a zasněžování a sezóna tu bývá kratší než výš v horách. Sjezdovkami není propojený s ostatními areály, mezi nimi se přejíždí.",
+    "de": "Das nächstgelegene Skifahren von der Villa: Das kleinste Gebiet des SkiResorts ČERNÁ HORA – PEC liegt im nordwestlichen Teil von Svoboda nad Úpou, knapp 2 km auf der Straße (mit dem Auto etwa 5 Minuten, zu Fuß bis zu einer halben Stunde). Drei blaue Pisten – Duncan 1, Duncan 2 und U lesa – von je rund 350 m, zusammen etwa ein Kilometer, werden von drei Schleppliften bedient; eine Seilbahn gibt es hier nicht. Ideal für Anfänger, Kinder und die ersten Schwünge – wer mehr will, fährt auf die Černá hora oder nach Pec. Es ist das am tiefsten gelegene Gebiet des Resorts (rund 530–600 m), der Betrieb hängt daher stark von Schnee und Beschneiung ab und die Saison fällt kürzer aus als weiter oben. Mit den übrigen Gebieten ist es nicht über Pisten verbunden, dazwischen wird umgesetzt.",
+    "en": "The closest skiing to the villa: the smallest area of SkiResort ČERNÁ HORA – PEC lies in the north-western part of Svoboda nad Úpou, just under 2 km by road (about 5 minutes by car, up to half an hour on foot). Three blue runs – Duncan 1, Duncan 2 and U lesa – of roughly 350 m each, about a kilometre in total, are served by three surface lifts; there is no cable car here. Ideal for beginners, children and first turns – anyone who wants more moves on to Černá hora or Pec. It is the lowest-lying area of the resort (roughly 530–600 m), so operation depends heavily on snow and snowmaking and the season here tends to be shorter than higher up. It is not linked by pistes to the other areas; you transfer between them.",
+    "pl": "Najbliższe narty od willi: najmniejszy ośrodek SkiResortu ČERNÁ HORA – PEC leży w północno-zachodniej części Svobody nad Úpou, niecałe 2 km drogą (samochodem około 5 minut, pieszo do pół godziny). Trzy niebieskie trasy – Duncan 1, Duncan 2 i U lesa – każda po około 350 m, razem mniej więcej kilometr, obsługują trzy wyciągi orczykowe; kolei linowej tu nie ma. Idealne dla początkujących, dzieci i pierwszych łuków – kto chce więcej, przenosi się na Černą horę albo do Pecu. To najniżej położony ośrodek resortu (około 530–600 m), praca mocno zależy więc od śniegu i naśnieżania, a sezon bywa krótszy niż wyżej w górach. Z pozostałymi ośrodkami nie łączą go trasy zjazdowe, między nimi trzeba się przemieścić."
+   },
+   "openNote": {
+    "cs": "nejníže položený areál resortu – provoz podle sněhových podmínek a zasněžování, sezóna bývá kratší; aktuální stav ověřte na skiresort.cz",
+    "de": "das am tiefsten gelegene Gebiet des Resorts – Betrieb je nach Schneelage und Beschneiung, kürzere Saison; aktuellen Stand auf skiresort.cz prüfen",
+    "en": "the lowest-lying area of the resort – operation depends on snow and snowmaking, the season is usually shorter; check the current status at skiresort.cz",
+    "pl": "najniżej położony ośrodek resortu – praca zależy od śniegu i naśnieżania, sezon bywa krótszy; aktualny stan sprawdźcie na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC, na pokladně v areálu bývá i lokální skipas jen pro Svobodu; aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC, an der Kasse im Gebiet gibt es meist auch einen lokalen Skipass nur für Svoboda; aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; the ticket desk in the area usually also sells a local pass valid in Svoboda only; current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC, w kasie ośrodka bywa też lokalny skipass ważny tylko w Svobodzie; aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/svoboda-nad-upou/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Svoboda%20nad%20%C3%9Apou"
+    }
+   ],
+   "category": "kids",
+   "zone": "villa",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-skola-svoboda",
+   "icon": "play",
+   "accent": "#6b93b8",
+   "coords": {
+    "lat": 50.6347,
+    "lon": 15.8012,
+    "alt": 572
+   },
+   "travelMin": 5,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": true,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lyžařská škola a půjčovna ve Svobodě nad Úpou",
+    "de": "Skischule und Verleih in Svoboda nad Úpou",
+    "en": "Ski school and rental in Svoboda nad Úpou",
+    "pl": "Szkoła narciarska i wypożyczalnia w Svobodzie nad Úpou"
+   },
+   "tagline": {
+    "cs": "první oblouky · škola, půjčovna, pojízdný koberec",
+    "de": "die ersten Schwünge · Schule, Verleih, Zauberteppich",
+    "en": "first turns · school, rental, magic carpet",
+    "pl": "pierwsze łuki · szkoła, wypożyczalnia, taśmociąg"
+   },
+   "desc": {
+    "cs": "První lyžování bez dlouhého cestování: přímo v areálu ve Svobodě nad Úpou funguje lyžařská škola, půjčovna vybavení a pojízdný koberec pro nejmenší. Mírné modré svahy a krátké vleky jsou přesně to, na čem se dá začít – rodiče můžou zůstat u dětí a zbytek party si mezitím odskočí do velkého areálu. Vybavení se dá půjčit na místě, takže do auta nemusíte skládat lyže pro celou skupinu. U větší party se vyplatí domluvit termíny lekcí i vybavení dopředu.",
+    "de": "Der erste Skitag ohne lange Anfahrt: Direkt im Gebiet in Svoboda nad Úpou gibt es eine Skischule, einen Ausrüstungsverleih und einen Zauberteppich für die Kleinsten. Sanfte blaue Hänge und kurze Lifte sind genau das Richtige zum Anfangen – die Eltern bleiben bei den Kindern, der Rest der Gruppe fährt derweil in ein großes Gebiet. Die Ausrüstung lässt sich vor Ort leihen, Sie müssen also keine Skier für die ganze Gruppe einladen. Bei einer größeren Gruppe lohnt es sich, Kurstermine und Ausrüstung vorab abzusprechen.",
+    "en": "A first day on skis without a long drive: the ski area in Svoboda nad Úpou has a ski school, an equipment rental and a magic carpet for the youngest. Gentle blue slopes and short lifts are exactly what you want to start on – parents can stay with the children while the rest of the party heads to one of the big areas. Gear can be hired on site, so you don't have to load skis for everyone into the car. With a larger group it pays to arrange lesson times and equipment in advance.",
+    "pl": "Pierwsze narty bez dalekiej podróży: bezpośrednio w ośrodku w Svobodzie nad Úpou działa szkoła narciarska, wypożyczalnia sprzętu i taśmociąg dla najmłodszych. Łagodne niebieskie stoki i krótkie wyciągi to dokładnie to, na czym warto zacząć – rodzice mogą zostać z dziećmi, a reszta ekipy w tym czasie wybiera się do dużego ośrodka. Sprzęt wypożyczycie na miejscu, więc nie musicie pakować nart dla całej grupy. Przy większej ekipie warto ustalić terminy lekcji i sprzęt z wyprzedzeniem."
+   },
+   "openNote": {
+    "cs": "škola i půjčovna fungují v zimní sezóně podle provozu areálu a sněhových podmínek; termíny lekcí ověřte na skiresort.cz",
+    "de": "Schule und Verleih arbeiten in der Wintersaison nach Betrieb des Gebiets und Schneelage; Kurstermine auf skiresort.cz prüfen",
+    "en": "school and rental run during the winter season, subject to the area's operation and snow conditions; check lesson times at skiresort.cz",
+    "pl": "szkoła i wypożyczalnia działają w sezonie zimowym zależnie od pracy ośrodka i warunków śniegowych; terminy lekcji sprawdźcie na skiresort.cz"
+   },
+   "price": {
+    "cs": "kurzy i půjčovné podle aktuálního ceníku provozovatele – ověřte na skiresort.cz",
+    "de": "Kurse und Verleih nach der aktuellen Preisliste des Betreibers – prüfen auf skiresort.cz",
+    "en": "lessons and rental according to the operator's current price list – check at skiresort.cz",
+    "pl": "kursy i wypożyczenie według aktualnego cennika operatora – sprawdźcie na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/svoboda-nad-upou/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Svoboda%20nad%20%C3%9Apou"
+    }
+   ],
+   "category": "kids",
+   "zone": "villa",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-cerna-hora",
+   "icon": "mountain",
+   "accent": "#2f5f8f",
+   "coords": {
+    "lat": 50.63078,
+    "lon": 15.77087,
+    "alt": 684
+   },
+   "travelMin": 10,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lyžování na Černé hoře – Janské Lázně",
+    "de": "Skifahren auf der Černá hora – Janské Lázně",
+    "en": "Skiing on Černá hora – Janské Lázně",
+    "pl": "Narty na Černej horze – Janské Lázně"
+   },
+   "tagline": {
+    "cs": "největší areál resortu · 10 minut autem",
+    "de": "größtes Gebiet des Resorts · 10 Minuten mit dem Auto",
+    "en": "the resort's largest area · a 10-minute drive",
+    "pl": "największy ośrodek resortu · 10 minut samochodem"
+   },
+   "desc": {
+    "cs": "Největší areál SkiResortu ČERNÁ HORA – PEC je od vily necelé 4 km po silnici II/297 – přibližně 17,5 km sjezdovek a nejdelší tratě až tři kilometry. Nahoru vede osmimístná kabinová lanovka Černohorský Express, na svazích pak vyhřívaná šestisedačka Hofmanky Express a sedačková lanovka Protěž. Je tu dost místa pro celou partu, od pohodových tratí po prudší svahy, a právě odsud startuje přejezd SkiTour do Pece pod Sněžkou. V anketě World Ski Awards 2025 získal resort titul Czech Republic's Best Ski Resort. K dolní stanici se jede přes Janské Lázně, poslední kus už po místní komunikaci k parkovišti.",
+    "de": "Das größte Gebiet des SkiResorts ČERNÁ HORA – PEC liegt knapp 4 km von der Villa entfernt an der Straße II/297 – rund 17,5 km Pisten, die längsten Abfahrten bis zu drei Kilometer. Nach oben führt die achtsitzige Kabinenbahn Černohorský Express, an den Hängen fahren die beheizte Sechsersesselbahn Hofmanky Express und die Sesselbahn Protěž. Für die ganze Gruppe ist Platz, von gemütlichen Pisten bis zu steileren Hängen, und genau hier startet die SkiTour hinüber nach Pec pod Sněžkou. Bei den World Ski Awards 2025 erhielt das Resort den Titel Czech Republic's Best Ski Resort. Zur Talstation fährt man über Janské Lázně, das letzte Stück auf einer Gemeindestraße zum Parkplatz.",
+    "en": "The largest area of SkiResort ČERNÁ HORA – PEC is just under 4 km from the villa along road II/297 – roughly 17.5 km of pistes with the longest runs up to three kilometres. The eight-seat Černohorský Express cabin cable car takes you up, and the heated six-seater Hofmanky Express and the Protěž chairlift serve the slopes. There is room for the whole party, from cruising runs to steeper terrain, and this is also where the SkiTour crossing to Pec pod Sněžkou starts. At the World Ski Awards 2025 the resort was named Czech Republic's Best Ski Resort. You drive to the valley station via Janské Lázně, the last stretch on a local road to the car park.",
+    "pl": "Największy ośrodek SkiResortu ČERNÁ HORA – PEC leży niecałe 4 km od willi przy drodze II/297 – około 17,5 km tras, najdłuższe zjazdy do trzech kilometrów. W górę wiezie ośmioosobowa kolej gondolowa Černohorský Express, na stokach pracują podgrzewana sześcioosobowa kanapa Hofmanky Express i kolej krzesełkowa Protěž. Miejsca starczy dla całej ekipy, od spokojnych tras po ostrzejsze stoki, i właśnie stąd startuje przejazd SkiTour do Pecu pod Sněžkou. W plebiscycie World Ski Awards 2025 resort zdobył tytuł Czech Republic's Best Ski Resort. Do dolnej stacji jedzie się przez Janské Lázně, ostatni odcinek drogą lokalną do parkingu."
+   },
+   "openNote": {
+    "cs": "zimní provoz podle sněhových podmínek; aktuální stav lanovek, vleků a sjezdovek na skiresort.cz",
+    "de": "Winterbetrieb je nach Schneelage; aktueller Stand von Bahnen, Liften und Pisten auf skiresort.cz",
+    "en": "winter operation depends on snow conditions; current status of lifts and runs at skiresort.cz",
+    "pl": "praca zimą zależy od warunków śniegowych; aktualny stan kolei, wyciągów i tras na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC; parkování u dolní stanice v Janských Lázních je zpoplatněné – aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC; das Parken an der Talstation in Janské Lázně ist kostenpflichtig – aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; parking at the valley station in Janské Lázně is charged – current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC; parking przy dolnej stacji w Janských Lázních jest płatny – aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/cerna-hora/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=%C4%8Cernohorsk%C3%BD%20Express%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-pec",
+   "icon": "mountain",
+   "accent": "#4a6b96",
+   "coords": {
+    "lat": 50.691,
+    "lon": 15.7305,
+    "alt": 813
+   },
+   "travelMin": 20,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Lyžování v Peci pod Sněžkou",
+    "de": "Skifahren in Pec pod Sněžkou",
+    "en": "Skiing in Pec pod Sněžkou",
+    "pl": "Narty w Pecu pod Sněžkou"
+   },
+   "tagline": {
+    "cs": "14 km tratí všech obtížností · Funline a obří slalom",
+    "de": "14 km Pisten aller Schwierigkeiten · Funline und Riesenslalom",
+    "en": "14 km of runs for every level · Funline and giant slalom",
+    "pl": "14 km tras o każdej trudności · Funline i slalom gigant"
+   },
+   "desc": {
+    "cs": "Druhý největší areál resortu nabízí zhruba 14 km sjezdovek všech obtížností obsluhovaných sedačkovými lanovkami a vleky – dost velký na to, aby si ve skupině vybral začátečník i ten, kdo chce prudší svah. Součástí je zábavná trať Funline s klopenými zatáčkami, terénními vlnami a osmimetrovým tunelem a hned vedle trať obřího slalomu s časomírou. Ze Svobody sem vede silnice II/296 údolím Úpy přes Horní Maršov a Velkou Úpu, běžně zhruba 20 minut; v hlavní sezóně a při dopravních omezeních počítejte s rezervou. V Peci se parkuje na záchytných parkovištích, hlavní je dopravní terminál P1.",
+    "de": "Das zweitgrößte Gebiet des Resorts bietet rund 14 km Pisten aller Schwierigkeitsgrade, bedient von Sesselbahnen und Schleppliften – groß genug, dass in der Gruppe sowohl Anfänger als auch Fans steilerer Hänge etwas finden. Dazu gehören die Funline mit Steilkurven, Geländewellen und einem acht Meter langen Tunnel und gleich daneben eine Riesenslalomstrecke mit Zeitmessung. Von Svoboda führt die Straße II/296 durch das Úpa-Tal über Horní Maršov und Velká Úpa hierher, normalerweise etwa 20 Minuten; in der Hauptsaison und bei Verkehrsbeschränkungen mehr Zeit einplanen. In Pec wird auf Auffangparkplätzen geparkt, der wichtigste ist das Verkehrsterminal P1.",
+    "en": "The resort's second-largest area offers roughly 14 km of runs of every difficulty served by chairlifts and surface lifts – big enough for beginners and for those after a steeper pitch. It includes the Funline fun run with banked turns, rollers and an eight-metre tunnel, and next to it a giant slalom course with timing. From Svoboda you take road II/296 along the Úpa valley through Horní Maršov and Velká Úpa, normally about 20 minutes; allow extra time in high season and during roadworks. Pec uses park-and-ride car parks, the main one being the P1 transport terminal.",
+    "pl": "Drugi co do wielkości ośrodek resortu oferuje około 14 km tras o każdej trudności obsługiwanych przez koleje krzesełkowe i wyciągi – wystarczająco dużo, by w grupie znalazł coś dla siebie i początkujący, i ten, kto chce ostrzejszego stoku. Częścią ośrodka jest trasa rozrywkowa Funline z bandami, muldami i ośmiometrowym tunelem, a tuż obok trasa slalomu giganta z pomiarem czasu. Ze Svobody prowadzi tu droga II/296 doliną Úpy przez Horní Maršov i Velką Úpę, zwykle około 20 minut; w szczycie sezonu i przy utrudnieniach doliczcie zapas. W Pecu parkuje się na parkingach buforowych, głównym jest terminal P1."
+   },
+   "openNote": {
+    "cs": "zimní provoz podle sněhových podmínek; aktuální stav lanovek, vleků a sjezdovek na skiresort.cz",
+    "de": "Winterbetrieb je nach Schneelage; aktueller Stand von Bahnen, Liften und Pisten auf skiresort.cz",
+    "en": "winter operation depends on snow conditions; current status of lifts and runs at skiresort.cz",
+    "pl": "praca zimą zależy od warunków śniegowych; aktualny stan kolei, wyciągów i tras na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC; aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC; aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC; aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/pec-pod-snezkou/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-velka-upa",
+   "icon": "mountain",
+   "accent": "#5a7fa0",
+   "coords": {
+    "lat": 50.69,
+    "lon": 15.7679,
+    "alt": 716
+   },
+   "travelMin": 15,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Velká Úpa – lanovka Portášky a dětský LIVE park",
+    "de": "Velká Úpa – Sesselbahn Portášky und Kinder-LIVE-Park",
+    "en": "Velká Úpa – the Portášky chairlift and children's LIVE park",
+    "pl": "Velká Úpa – kolej Portášky i dziecięcy LIVE park"
+   },
+   "tagline": {
+    "cs": "lyžování bez front · dětský park u dolní stanice",
+    "de": "Skifahren ohne Schlangen · Kinderpark an der Talstation",
+    "en": "skiing without queues · kids' park at the valley station",
+    "pl": "narty bez kolejek · park dla dzieci przy dolnej stacji"
+   },
+   "desc": {
+    "cs": "Menší areál na cestě do Pece, který provozovatel popisuje jako lyžování bez front i ve špičce; uvádí zhruba 2,4 km sjezdovek. Hlavní dopravu obstarává sedačková lanovka Portášky s převýšením kolem 350 metrů, horní stanice stojí v 1062 m n. m. Pro rodiny je dobré vědět, kde co je: dětský LIVE park s pojízdným kobercem je hned u dolní stanice, zatímco dětská sjezdovka Sagasserky je až nahoře u horní stanice. V budově dolní stanice najdete lyžařskou školu, půjčovnu i servis. Nejbližší parkoviště je P5 Velká Úpa – Náměstí, doplňkově P6 Za řekou; P1 je až dopravní terminál v Peci, tři kilometry dál.",
+    "de": "Ein kleineres Gebiet auf dem Weg nach Pec, das der Betreiber als Skifahren ohne Schlangen auch zu Stoßzeiten beschreibt; er gibt rund 2,4 km Pisten an. Die Hauptbeförderung übernimmt die Sesselbahn Portášky mit etwa 350 m Höhenunterschied, die Bergstation liegt auf 1062 m. Für Familien wichtig zu wissen, wo was liegt: Der Kinder-LIVE-Park mit Zauberteppich befindet sich direkt an der Talstation, die Kinderpiste Sagasserky dagegen oben an der Bergstation. Im Gebäude der Talstation gibt es Skischule, Verleih und Service. Der nächste Parkplatz ist P5 Velká Úpa – Náměstí, ergänzend P6 Za řekou; P1 ist erst das Verkehrsterminal in Pec, drei Kilometer weiter.",
+    "en": "A smaller area on the way to Pec, which the operator describes as skiing without queues even at peak times; it lists roughly 2.4 km of pistes. The main lift is the Portášky chairlift with about 350 m of vertical, its top station at 1,062 m. Families should know the layout: the children's LIVE park with a magic carpet is right by the valley station, while the Sagasserky children's slope is up at the top station. The valley station building houses a ski school, rental and service shop. The nearest car park is P5 Velká Úpa – Náměstí, with P6 Za řekou as a backup; P1 is the transport terminal in Pec, three kilometres further on.",
+    "pl": "Mniejszy ośrodek po drodze do Pecu, który operator opisuje jako narty bez kolejek nawet w szczycie; podaje około 2,4 km tras. Główny transport zapewnia kolej krzesełkowa Portášky o przewyższeniu około 350 m, górna stacja stoi na 1062 m n.p.m. Rodziny powinny wiedzieć, co gdzie jest: dziecięcy LIVE park z taśmociągiem znajduje się tuż przy dolnej stacji, a dziecięcy stok Sagasserky dopiero na górze przy stacji górnej. W budynku dolnej stacji są szkoła narciarska, wypożyczalnia i serwis. Najbliższy parking to P5 Velká Úpa – Náměstí, dodatkowo P6 Za řekou; P1 to dopiero terminal w Pecu, trzy kilometry dalej."
+   },
+   "openNote": {
+    "cs": "zimní provoz podle sněhových podmínek; u lanovky Portášky se plánuje obnova – aktuální provoz si ověřte na skiresort.cz",
+    "de": "Winterbetrieb je nach Schneelage; für die Sesselbahn Portášky ist ein Ersatz geplant – aktuellen Betrieb auf skiresort.cz prüfen",
+    "en": "winter operation depends on snow conditions; a replacement of the Portášky chairlift is planned – check current operation at skiresort.cz",
+    "pl": "praca zimą zależy od warunków śniegowych; planowana jest wymiana kolei Portášky – aktualną pracę sprawdźcie na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC; aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC; aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC; aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/velka-upa/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Lanovka%20Port%C3%A1%C5%A1ky%20Velk%C3%A1%20%C3%9Apa"
+    }
+   ],
+   "category": "kids",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-cerny-dul",
+   "icon": "mountain",
+   "accent": "#4d84a3",
+   "coords": {
+    "lat": 50.64106,
+    "lon": 15.70571,
+    "alt": 711
+   },
+   "travelMin": 15,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Černý Důl – rodinný skiareál",
+    "de": "Černý Důl – Familienskigebiet",
+    "en": "Černý Důl – family ski area",
+    "pl": "Černý Důl – rodzinny ośrodek narciarski"
+   },
+   "tagline": {
+    "cs": "široké mírné sjezdovky · dětský LIVE park",
+    "de": "breite, sanfte Pisten · Kinder-LIVE-Park",
+    "en": "wide, gentle runs · children's LIVE park",
+    "pl": "szerokie łagodne trasy · dziecięcy LIVE park"
+   },
+   "desc": {
+    "cs": "Rodinný areál s přibližně 8,5 km širokých a spíše mírných sjezdovek, které sedí rodinám s dětmi i milovníkům carvingu. Provozovatel tu má sedm přepravních zařízení – dvě sedačkové lanovky, vleky a dva pojízdné koberce v dětském LIVE parku, kde v sezóně bývá lyžařská škola i půjčovna; vypisuje se tu také Funline a obří slalom s časomírou. Ze Svobody vede nejkratší cesta po silnici II/297 přes Janské Lázně a sedlo u Hoffmanových bud – je to horský přejezd, klikatý a v zimě vyžaduje zimní výbavu a trochu rezervy v čase. Kvůli etapovým opravám silnice se na trase mohou objevit uzavírky – před cestou je dobré je zkontrolovat stejně jako aktuální provoz lanovek.",
+    "de": "Ein Familiengebiet mit rund 8,5 km breiten, eher sanften Pisten, die Familien mit Kindern ebenso liegen wie Carving-Fans. Der Betreiber hat hier sieben Beförderungsanlagen – zwei Sesselbahnen, Schlepplifte und zwei Zauberteppiche im Kinder-LIVE-Park, wo in der Saison auch Skischule und Verleih arbeiten; ausgeschrieben werden zudem eine Funline und ein Riesenslalom mit Zeitmessung. Von Svoboda führt der kürzeste Weg über die Straße II/297 durch Janské Lázně und den Sattel bei den Hoffmannbauden – eine kurvige Bergüberquerung, die im Winter Winterausrüstung und etwas Zeitreserve verlangt. Wegen der etappenweisen Straßensanierung kann es auf der Strecke zu Sperrungen kommen – prüfen Sie diese vor der Fahrt ebenso wie den aktuellen Betrieb der Bahnen.",
+    "en": "A family area with roughly 8.5 km of wide, mostly gentle runs that suit families with children as well as carving fans. The operator runs seven lifts here – two chairlifts, surface lifts and two magic carpets in the children's LIVE park, where a ski school and rental usually operate in season; a Funline and a timed giant slalom are also set up. From Svoboda the shortest way is road II/297 through Janské Lázně and the saddle by the Hoffmann huts – a winding mountain crossing that calls for winter tyres and a little time in hand. Staged roadworks can bring closures along this route, so check for them – and for the current lift operation – before you set off.",
+    "pl": "Rodzinny ośrodek z około 8,5 km szerokich i raczej łagodnych tras, które pasują rodzinom z dziećmi i miłośnikom carvingu. Operator ma tu siedem urządzeń transportowych – dwie koleje krzesełkowe, wyciągi i dwa taśmociągi w dziecięcym LIVE parku, gdzie w sezonie działają szkoła narciarska i wypożyczalnia; przygotowywane są też Funline i slalom gigant z pomiarem czasu. Ze Svobody najkrótsza droga wiedzie drogą II/297 przez Janské Lázně i przełęcz przy Hoffmanowych Budach – to górski przejazd, kręty, zimą wymagający opon zimowych i zapasu czasu. Z powodu etapowego remontu drogi na trasie mogą pojawić się zamknięcia – przed wyjazdem warto je sprawdzić, podobnie jak aktualną pracę kolei."
+   },
+   "openNote": {
+    "cs": "zimní provoz podle sněhových podmínek; horský přejezd přes sedlo vyžaduje zimní výbavu, možné jsou uzavírky – aktuální stav na skiresort.cz",
+    "de": "Winterbetrieb je nach Schneelage; die Bergüberquerung erfordert Winterausrüstung, Sperrungen sind möglich – aktueller Stand auf skiresort.cz",
+    "en": "winter operation depends on snow conditions; the mountain crossing needs winter tyres and closures are possible – current status at skiresort.cz",
+    "pl": "praca zimą zależy od warunków śniegowych; górski przejazd wymaga wyposażenia zimowego, możliwe są zamknięcia – aktualny stan na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC; aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC; aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC; aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/cerny-dul/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20%C4%8Cern%C3%BD%20D%C5%AFl"
+    }
+   ],
+   "category": "kids",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "ski-mala-upa",
+   "icon": "mountain",
+   "accent": "#3d6b7a",
+   "coords": {
+    "lat": 50.7459,
+    "lon": 15.8226,
+    "alt": 1050
+   },
+   "travelMin": 30,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "toddler",
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Ski areál Malá Úpa (SKiMU) – Pomezní Boudy",
+    "de": "Skigebiet Malá Úpa (SKiMU) – Pomezní Boudy",
+    "en": "Malá Úpa ski area (SKiMU) – Pomezní Boudy",
+    "pl": "Ośrodek narciarski Malá Úpa (SKiMU) – Pomezní Boudy"
+   },
+   "tagline": {
+    "cs": "vysoko položený sníh · vlastní provozovatel SKiMU",
+    "de": "hoch gelegener Schnee · eigener Betreiber SKiMU",
+    "en": "high-altitude snow · run by SKiMU",
+    "pl": "wysoko położony śnieg · własny operator SKiMU"
+   },
+   "desc": {
+    "cs": "Vysoko položený areál v Horní Malé Úpě, druhé nejvýše položené obci v Česku, má dvě části – Pomezky u Pomezních Bud a U kostela. Nástupní stanice vleků leží zhruba mezi 990 a 1050 metry, takže sníh tu obvykle vydrží déle než v údolí; provozovatel uvádí devět vleků včetně dvou dětských. Jednu věc je dobré vědět předem: areál provozuje samostatná společnost SKiMU a.s., ne SkiResort. Celoresortový skipas SkiResortu tu podle provozovatele platí, ale lokální skipas koupený přímo v Malé Úpě platí pouze tady – ať vás to na svahu nepřekvapí. Cesta vede údolím Úpy přes Horní Maršov a Temný Důl a pak serpentinami po silnici II/252 nahoru, zhruba 25–30 minut.",
+    "de": "Das hoch gelegene Gebiet in Horní Malá Úpa, der zweithöchstgelegenen Gemeinde Tschechiens, besteht aus zwei Teilen – Pomezky bei den Pomezní Boudy und U kostela. Die Talstationen der Lifte liegen etwa zwischen 990 und 1050 m, der Schnee hält hier daher meist länger als im Tal; der Betreiber nennt neun Lifte, darunter zwei Kinderlifte. Eines sollte man vorher wissen: Das Gebiet betreibt die eigenständige Gesellschaft SKiMU a.s., nicht das SkiResort. Der Gesamtskipass des SkiResorts gilt hier laut Betreiber, ein lokal in Malá Úpa gekaufter Skipass gilt dagegen nur hier – damit es am Hang keine Überraschung gibt. Die Fahrt führt durch das Úpa-Tal über Horní Maršov und Temný Důl und dann in Serpentinen über die Straße II/252 hinauf, etwa 25–30 Minuten.",
+    "en": "This high-lying area in Horní Malá Úpa, the second-highest municipality in Czechia, has two parts – Pomezky by the Pomezní Boudy huts and U kostela. The lift base stations sit roughly between 990 and 1,050 m, so snow usually lasts longer here than down in the valley; the operator lists nine lifts including two for children. One thing to know in advance: the area is run by a separate company, SKiMU a.s., not by SkiResort. According to the operator the full SkiResort pass is valid here, but a local pass bought in Malá Úpa is valid only here – so nobody is caught out on the slope. The drive goes along the Úpa valley through Horní Maršov and Temný Důl, then up the hairpins of road II/252, about 25–30 minutes.",
+    "pl": "Wysoko położony ośrodek w Horní Malej Úpie, drugiej najwyżej położonej gminie w Czechach, ma dwie części – Pomezky przy Pomezních Boudach i U kostela. Stacje dolne wyciągów leżą mniej więcej między 990 a 1050 m, śnieg trzyma się tu zwykle dłużej niż w dolinie; operator podaje dziewięć wyciągów, w tym dwa dziecięce. Jedną rzecz warto wiedzieć wcześniej: ośrodek prowadzi samodzielna spółka SKiMU a.s., a nie SkiResort. Skipass całego SkiResortu jest tu według operatora ważny, ale lokalny skipass kupiony w Malej Úpie obowiązuje wyłącznie tutaj – żeby nie było niespodzianki na stoku. Droga wiedzie doliną Úpy przez Horní Maršov i Temný Důl, a potem serpentynami drogą II/252 w górę, około 25–30 minut."
+   },
+   "openNote": {
+    "cs": "areál provozuje SKiMU a.s.; zimní provoz podle sněhových podmínek – aktuální informace na skimu.cz",
+    "de": "das Gebiet betreibt SKiMU a.s.; Winterbetrieb je nach Schneelage – aktuelle Infos auf skimu.cz",
+    "en": "the area is operated by SKiMU a.s.; winter operation depends on snow conditions – current information at skimu.cz",
+    "pl": "ośrodek prowadzi SKiMU a.s.; praca zimą zależy od warunków śniegowych – aktualne informacje na skimu.cz"
+   },
+   "price": {
+    "cs": "celoresortový skipas SkiResortu tu podle provozovatele platí, lokální skipas z Malé Úpy platí jen zde; aktuální ceník na skimu.cz",
+    "de": "der Gesamtskipass des SkiResorts gilt hier laut Betreiber, ein lokaler Skipass aus Malá Úpa gilt nur hier; aktuelle Preise auf skimu.cz",
+    "en": "according to the operator the full SkiResort pass is valid here, while a local Malá Úpa pass is valid only here; current prices at skimu.cz",
+    "pl": "skipass całego SkiResortu jest tu według operatora ważny, lokalny skipass z Malej Úpy obowiązuje tylko tutaj; aktualny cennik na skimu.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skimu.cz",
+      "de": "skimu.cz",
+      "en": "skimu.cz",
+      "pl": "skimu.cz"
+     },
+     "url": "https://www.skimu.cz/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Ski%20are%C3%A1l%20SKiMU%20Pomezn%C3%AD%20Boudy"
+    }
+   ],
+   "category": "kids",
+   "zone": "far",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "skitour-cerna-hora-pec",
+   "icon": "route",
+   "accent": "#7a6a9e",
+   "coords": {
+    "lat": 50.649,
+    "lon": 15.7524,
+    "alt": 1260
+   },
+   "travelMin": 10,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "SkiTour: přejezd z Černé hory do Pece",
+    "de": "SkiTour: Übergang von der Černá hora nach Pec",
+    "en": "SkiTour: the crossing from Černá hora to Pec",
+    "pl": "SkiTour: przejazd z Černej hory do Pecu"
+   },
+   "tagline": {
+    "cs": "jediné lyžařské propojení v resortu · jen jedním směrem",
+    "de": "die einzige Skiverbindung im Resort · nur in eine Richtung",
+    "en": "the resort's only ski link · one direction only",
+    "pl": "jedyne narciarskie połączenie w resorcie · tylko w jedną stronę"
+   },
+   "desc": {
+    "cs": "Jediné lyžařské propojení v resortu: z Černé hory nad Janskými Lázněmi se dá přejet až do Pece pod Sněžkou. Trasa má čtyři úseky – dva sjedete na lyžích a na dvou krátkých pasážích vás potáhne rolba. Nastupuje se u horní stanice kabinové lanovky na Černé hoře a provozovatel uvádí přejezd asi za 25 minut. Funguje jen jedním směrem, zpátky se jede skibusem – na lyžích se vrátit nedá. Pro partu je to zážitkový den: dopoledne Černá hora, odpoledne Pec. Provoz a podmínky přepravy rolbou si ověřte předem.",
+    "de": "Die einzige Skiverbindung im Resort: Von der Černá hora über Janské Lázně kann man bis nach Pec pod Sněžkou hinüberfahren. Die Route hat vier Abschnitte – zwei fährt man auf Skiern, auf zwei kurzen Passagen zieht eine Pistenraupe. Eingestiegen wird an der Bergstation der Kabinenbahn auf der Černá hora, der Betreiber gibt für den Übergang etwa 25 Minuten an. Es funktioniert nur in eine Richtung, zurück geht es mit dem Skibus – auf Skiern kommt man nicht zurück. Für die Gruppe ist das ein Erlebnistag: vormittags Černá hora, nachmittags Pec. Betrieb und Bedingungen der Raupenbeförderung vorab prüfen.",
+    "en": "The resort's only ski link: from Černá hora above Janské Lázně you can cross all the way to Pec pod Sněžkou. The route has four sections – you ski two of them, and on two short stretches a snowcat tows you. You start at the top station of the Černá hora cabin cable car and the operator gives the crossing as about 25 minutes. It works in one direction only; you return by skibus – skiing back is not possible. For a group it makes a proper day out: Černá hora in the morning, Pec in the afternoon. Check operation and the terms of the snowcat transport in advance.",
+    "pl": "Jedyne narciarskie połączenie w resorcie: z Černej hory nad Janskými Lázněmi można przejechać aż do Pecu pod Sněžkou. Trasa ma cztery odcinki – dwa zjeżdża się na nartach, a na dwóch krótkich fragmentach ciągnie ratrak. Wsiada się przy górnej stacji kolei gondolowej na Černej horze, operator podaje przejazd na około 25 minut. Działa tylko w jedną stronę, z powrotem jedzie się skibusem – na nartach nie da się wrócić. Dla ekipy to dzień z historią: przed południem Černá hora, po południu Pec. Pracę i warunki przewozu ratrakiem sprawdźcie wcześniej."
+   },
+   "openNote": {
+    "cs": "provozuje se jen v zimní sezóně a podle sněhových podmínek, jen ve směru Černá hora → Pec; termíny a provozní dobu ověřte na skiresort.cz",
+    "de": "nur in der Wintersaison und je nach Schneelage, ausschließlich in Richtung Černá hora → Pec; Termine und Betriebszeiten auf skiresort.cz prüfen",
+    "en": "runs only in the winter season and subject to snow conditions, in the Černá hora → Pec direction only; check dates and hours at skiresort.cz",
+    "pl": "kursuje tylko w sezonie zimowym i zależnie od warunków śniegowych, wyłącznie w kierunku Černá hora → Pec; terminy i godziny sprawdźcie na skiresort.cz"
+   },
+   "price": {
+    "cs": "podmínky přepravy rolbou a platnost skipasu ověřte na skiresort.cz; zpáteční cesta skibusem",
+    "de": "Bedingungen der Raupenbeförderung und Gültigkeit des Skipasses auf skiresort.cz prüfen; Rückweg mit dem Skibus",
+    "en": "check the terms of the snowcat transport and ski-pass validity at skiresort.cz; the return leg is by skibus",
+    "pl": "warunki przewozu ratrakiem i ważność skipassu sprawdźcie na skiresort.cz; powrót skibusem"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/aktivity/skitour/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=%C4%8Cern%C3%A1%20hora%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "vecerni-lyzovani",
+   "icon": "zap",
+   "accent": "#4b4f86",
+   "coords": {
+    "lat": 50.6306,
+    "lon": 15.7807,
+    "alt": 670
+   },
+   "travelMin": 10,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Večerní lyžování na osvětlených sjezdovkách",
+    "de": "Abendskifahren auf beleuchteten Pisten",
+    "en": "Evening skiing on floodlit slopes",
+    "pl": "Wieczorne narty na oświetlonych trasach"
+   },
+   "tagline": {
+    "cs": "lyžování po setmění · vybrané dny sezóny",
+    "de": "Skifahren nach Einbruch der Dunkelheit · an ausgewählten Tagen",
+    "en": "skiing after dark · on selected days",
+    "pl": "narty po zmroku · w wybrane dni sezonu"
+   },
+   "desc": {
+    "cs": "V hlavní sezóně se v okolí vypisuje večerní lyžování na uměle osvětlených sjezdovkách – v Janských Lázních na Černé hoře (Protěž, podle provozovatele 1,6 km, nejdelší osvětlená sjezdovka resortu), ve Velké Úpě (Modřín) a v Peci pod Sněžkou (Javor). Je to způsob, jak den ještě protáhnout, nebo naopak vyrazit až odpoledne, když dopoledne prošlo na výletě. Nejblíž je to do Janských Lázní, necelé 4 km. Večerní lyžování se vypisuje jen ve vybraných dnech a závisí na sněhových podmínkách – konkrétní termíny i jízdné si najděte před cestou u provozovatele.",
+    "de": "In der Hauptsaison wird in der Umgebung Abendskifahren auf beleuchteten Pisten ausgeschrieben – in Janské Lázně auf der Černá hora (Protěž, laut Betreiber 1,6 km, die längste beleuchtete Piste des Resorts), in Velká Úpa (Modřín) und in Pec pod Sněžkou (Javor). So lässt sich der Tag verlängern oder erst am Nachmittag starten, wenn der Vormittag für einen Ausflug draufgegangen ist. Am nächsten liegt Janské Lázně, knapp 4 km. Abendskifahren wird nur an ausgewählten Tagen angeboten und hängt von der Schneelage ab – konkrete Termine und Preise vor der Fahrt beim Betreiber nachsehen.",
+    "en": "In high season the area offers evening skiing on floodlit runs – in Janské Lázně on Černá hora (Protěž, 1.6 km according to the operator, the resort's longest floodlit run), in Velká Úpa (Modřín) and in Pec pod Sněžkou (Javor). It's a way to stretch the day, or to head out only in the afternoon when the morning went on a trip. The closest option is Janské Lázně, just under 4 km away. Evening skiing is scheduled on selected days only and depends on snow conditions – look up the dates and fares with the operator before you go.",
+    "pl": "W szczycie sezonu w okolicy organizowane są wieczorne narty na sztucznie oświetlonych trasach – w Janských Lázních na Černej horze (Protěž, według operatora 1,6 km, najdłuższa oświetlona trasa resortu), w Velkiej Úpie (Modřín) i w Pecu pod Sněžkou (Javor). To sposób, żeby wydłużyć dzień albo wyruszyć dopiero po południu, gdy przedpołudnie zajęła wycieczka. Najbliżej jest do Janských Lázní, niecałe 4 km. Wieczorne narty są ogłaszane tylko w wybrane dni i zależą od warunków śniegowych – konkretne terminy i ceny sprawdźcie przed wyjazdem u operatora."
+   },
+   "openNote": {
+    "cs": "vypisuje se jen ve vybraných dnech hlavní sezóny a podle sněhových podmínek; konkrétní termíny na skiresort.cz",
+    "de": "nur an ausgewählten Tagen der Hauptsaison und je nach Schneelage; konkrete Termine auf skiresort.cz",
+    "en": "scheduled on selected days of the high season and subject to snow conditions; exact dates at skiresort.cz",
+    "pl": "ogłaszane tylko w wybrane dni sezonu i zależnie od warunków śniegowych; konkretne terminy na skiresort.cz"
+   },
+   "price": {
+    "cs": "večerní lyžování má vlastní jízdné podle ceníku provozovatele – ověřte na skiresort.cz",
+    "de": "das Abendskifahren hat eigene Tarife nach der Preisliste des Betreibers – prüfen auf skiresort.cz",
+    "en": "evening skiing has its own fares according to the operator's price list – check at skiresort.cz",
+    "pl": "wieczorne narty mają własny cennik operatora – sprawdźcie na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/aktivity/vecerni-lyzovani/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "bezky-cerna-hora",
+   "icon": "route",
+   "accent": "#4f7a72",
+   "coords": {
+    "lat": 50.6425,
+    "lon": 15.7545,
+    "alt": 1230
+   },
+   "travelMin": 10,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Běžecké tratě kolem Janských Lázní a Černého Dolu",
+    "de": "Langlaufloipen rund um Janské Lázně und Černý Důl",
+    "en": "Cross-country trails around Janské Lázně and Černý Důl",
+    "pl": "Trasy biegowe wokół Janských Lázní i Černego Dolu"
+   },
+   "tagline": {
+    "cs": "upravované stopy · Krkonošská magistrála",
+    "de": "gespurte Loipen · Riesengebirgs-Magistrale",
+    "en": "groomed tracks · the Krkonoše ridge trail",
+    "pl": "przygotowane ślady · Karkonoska Magistrala"
+   },
+   "desc": {
+    "cs": "Kolem vily je hustá síť upravovaných běžeckých tratí – po hřebeni vede Krkonošská magistrála, kratší okruhy se točí kolem Černé a Světlé hory a kolem Černého Dolu. Nejblíž se nastupuje v Janských Lázních a na Černé hoře, tedy necelé 4 km od vily; nahoru se dá vyjet lanovkou a stopovat po náhorní plošině. Rozsah aktuálně upravených stop se mění den ode dne a zveřejňuje ho provozovatel – podle toho se vyplatí ráno vybrat trasu. Dobrá volba pro dny, kdy nikdo nemá chuť stát u vleku, i pro partu, kde se lyžaři a nelyžaři chtějí potkat u jedné boudy.",
+    "de": "Rund um die Villa liegt ein dichtes Netz gespurter Langlaufloipen – über den Kamm führt die Riesengebirgs-Magistrale, kürzere Runden ziehen um die Černá hora und die Světlá hora sowie um Černý Důl. Am nächsten steigt man in Janské Lázně und auf der Černá hora ein, knapp 4 km von der Villa; nach oben kann man mit der Seilbahn fahren und auf dem Hochplateau loslaufen. Der Umfang der aktuell gespurten Loipen ändert sich täglich und wird vom Betreiber veröffentlicht – danach wählt man morgens die Route. Eine gute Wahl für Tage, an denen niemand am Lift stehen mag, und für Gruppen, in denen sich Skifahrer und Nichtskifahrer an einer Baude treffen wollen.",
+    "en": "Around the villa runs a dense network of groomed cross-country trails – the Krkonoše ridge trail crosses the tops, while shorter loops circle Černá hora, Světlá hora and Černý Důl. The nearest access points are in Janské Lázně and on Černá hora, just under 4 km from the villa; you can ride the cable car up and set off across the plateau. How much track is groomed changes from day to day and is published by the operator – pick your route in the morning accordingly. A good call for days when nobody fancies a lift queue, and for groups where skiers and non-skiers want to meet at the same mountain hut.",
+    "pl": "Wokół willi rozciąga się gęsta sieć przygotowywanych tras biegowych – grzbietem prowadzi Karkonoska Magistrala, krótsze pętle krążą wokół Černej hory, Světlej hory i Černego Dolu. Najbliżej wchodzi się w Janských Lázních i na Černej horze, niecałe 4 km od willi; w górę można wyjechać koleją i ruszyć po płaskowyżu. Zakres aktualnie przygotowanych śladów zmienia się z dnia na dzień i publikuje go operator – według tego warto rano wybrać trasę. Dobry wybór na dni, gdy nikomu nie chce się stać przy wyciągu, i dla ekipy, w której narciarze i nienarciarze chcą się spotkać przy jednej boudzie."
+   },
+   "openNote": {
+    "cs": "stopy se upravují podle sněhových podmínek; aktuální rozsah upravených tratí zveřejňuje provozovatel na skiresort.cz",
+    "de": "die Loipen werden je nach Schneelage gespurt; den aktuellen Umfang veröffentlicht der Betreiber auf skiresort.cz",
+    "en": "tracks are groomed according to snow conditions; the operator publishes the current extent at skiresort.cz",
+    "pl": "ślady są przygotowywane zależnie od warunków śniegowych; aktualny zakres publikuje operator na skiresort.cz"
+   },
+   "price": {
+    "cs": "informace o službách, půjčovnách a stavu tratí na skiresort.cz",
+    "de": "Informationen zu Services, Verleih und Loipenzustand auf skiresort.cz",
+    "en": "information on services, rentals and trail conditions at skiresort.cz",
+    "pl": "informacje o usługach, wypożyczalniach i stanie tras na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/cerna-hora/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Krkono%C5%A1sk%C3%A1%20magistr%C3%A1la%20%C4%8Cern%C3%A1%20hora"
+    }
+   ],
+   "category": "walk",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
+  },
+  {
+   "id": "funline-pec",
+   "icon": "zap",
+   "accent": "#a85c4e",
+   "coords": {
+    "lat": 50.689,
+    "lon": 15.729,
+    "alt": 850
+   },
+   "travelMin": 20,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "medium",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": null
+   },
+   "name": {
+    "cs": "Funline a obří slalom s časomírou v Peci",
+    "de": "Funline und Riesenslalom mit Zeitmessung in Pec",
+    "en": "Funline and timed giant slalom in Pec",
+    "pl": "Funline i slalom gigant z pomiarem czasu w Pecu"
+   },
+   "tagline": {
+    "cs": "klopené zatáčky a tunel · kdo má lepší čas",
+    "de": "Steilkurven und Tunnel · wer hat die bessere Zeit",
+    "en": "banked turns and a tunnel · who's fastest",
+    "pl": "bandy i tunel · kto ma lepszy czas"
+   },
+   "desc": {
+    "cs": "Zábavná trať Funline v Peci pod Sněžkou měří přes 450 metrů a nabízí pět klopených zatáček, pět terénních vln a osmimetrový tunel – děti i teenageři ji chtějí projet pořád dokola. Hned vedle je trať obřího slalomu s časomírou, takže se dá celé odpoledne soutěžit, kdo z party má nejlepší čas. Skvělý způsob, jak dát dětem cíl a rodičům chvíli klidu; jezdí se v rámci areálu Pec pod Sněžkou, ze Svobody je to zhruba 20 minut autem.",
+    "de": "Die Funline in Pec pod Sněžkou ist über 450 Meter lang und bietet fünf Steilkurven, fünf Geländewellen und einen acht Meter langen Tunnel – Kinder und Teenager wollen sie immer wieder fahren. Gleich daneben liegt eine Riesenslalomstrecke mit Zeitmessung, sodass sich einen ganzen Nachmittag lang messen lässt, wer in der Gruppe die beste Zeit hat. Eine gute Art, den Kindern ein Ziel und den Eltern eine ruhige Minute zu geben; gefahren wird im Rahmen des Gebiets Pec pod Sněžkou, von Svoboda rund 20 Minuten mit dem Auto.",
+    "en": "The Funline fun run in Pec pod Sněžkou is over 450 metres long with five banked turns, five rollers and an eight-metre tunnel – children and teenagers will lap it all day. Right next to it is a giant slalom course with timing, so the group can spend an afternoon working out who is quickest. A great way to give the kids a goal and the parents a moment's peace; it is part of the Pec pod Sněžkou ski area, about 20 minutes' drive from Svoboda.",
+    "pl": "Trasa rozrywkowa Funline w Pecu pod Sněžkou mierzy ponad 450 metrów i oferuje pięć band, pięć muld i ośmiometrowy tunel – dzieci i nastolatki chcą ją pokonywać w kółko. Tuż obok jest trasa slalomu giganta z pomiarem czasu, więc całe popołudnie można sprawdzać, kto z ekipy ma najlepszy czas. Świetny sposób, by dać dzieciom cel, a rodzicom chwilę spokoju; jeździ się w ramach ośrodka Pec pod Sněžkou, ze Svobody około 20 minut samochodem."
+   },
+   "openNote": {
+    "cs": "zimní provoz podle sněhových podmínek; aktuální stav lanovek, vleků a sjezdovek na skiresort.cz",
+    "de": "Winterbetrieb je nach Schneelage; aktueller Stand von Bahnen, Liften und Pisten auf skiresort.cz",
+    "en": "winter operation depends on snow conditions; current status of lifts and runs at skiresort.cz",
+    "pl": "praca zimą zależy od warunków śniegowych; aktualny stan kolei, wyciągów i tras na skiresort.cz"
+   },
+   "price": {
+    "cs": "platí skipas SkiResortu ČERNÁ HORA – PEC; aktuální ceník na skiresort.cz",
+    "de": "es gilt der Skipass des SkiResorts ČERNÁ HORA – PEC; aktuelle Preise auf skiresort.cz",
+    "en": "the SkiResort ČERNÁ HORA – PEC ski pass applies; current prices at skiresort.cz",
+    "pl": "obowiązuje skipass SkiResortu ČERNÁ HORA – PEC; aktualny cennik na skiresort.cz"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": {
+      "cs": "skiresort.cz",
+      "de": "skiresort.cz",
+      "en": "skiresort.cz",
+      "pl": "skiresort.cz"
+     },
+     "url": "https://www.skiresort.cz/skiarealy/pec-pod-snezkou/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – ukázat na mapě",
+      "de": "Mapy.cz – auf der Karte",
+      "en": "Mapy.cz – show on map",
+      "pl": "Mapy.cz – pokaż na mapie"
+     },
+     "url": "https://mapy.cz/turisticka?q=Funline%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+    }
+   ],
+   "category": "adrenalin",
+   "zone": "near",
+   "seasons": [
+    "winter"
+   ]
   }
  ],
  "food": [
