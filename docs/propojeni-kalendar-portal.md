@@ -106,7 +106,9 @@ Seznam pobytů ať rovnou ukazuje stav, ne jen datum:
 - ⚠️ **stale** — v živém feedu chybí, ověřit v extranetu
 - ❗ **termín se rozešel** — kalendář má jiná data než `vr_bookings`
 
-## 6. Kudy modul zapisuje — ROZHODNI PŘED PROGRAMOVÁNÍM
+## 6. Kudy modul zapisuje — ROZHODNUTO: varianta A (5. 8. 2026)
+
+> **Rozpracované implementační zadání: [`modul-kontaktu.md`](modul-kontaktu.md).**
 
 **Překážka (ověřeno 4. 8. 2026):** n8n poslouchá jen na `127.0.0.1:5678` a nemá routu v Caddy.
 **Stránka běžící v prohlížeči se na dnešní webhook nedostane.** Bez vyřešení tohohle bodu
@@ -118,7 +120,7 @@ modul nemůže nic zapsat. Tři cesty:
 | **B** | Vystavit n8n webhook přes Caddy na HTTPS + auth | logika zůstane v n8n, jedno místo | otevírá n8n do internetu, nutná autentizace a údržba |
 | **C** | Modul jen na tailnetu (jako radar) | nic není veřejné | n8n je na `127.0.0.1`, i tailnet potřebuje proxy; nefunguje mimo tvá zařízení |
 
-**Doporučení: A.** Modul je statická stránka bez backendu — stejná situace jako `owner.html`,
+**Zvoleno: A.** Modul je statická stránka bez backendu — stejná situace jako `owner.html`,
 kde se tenhle vzor osvědčil. n8n zůstane pro jiné automatizace; zakládání hosta se přesune
 do modulu. Pokud A, je potřeba **`vr_create_booking` rozšířit o `p_ical_uidh`**.
 
@@ -157,7 +159,7 @@ obou projektů, ne kosmetika kalendáře.**
 
 ## 10. Co ověřit
 
-- [ ] Rozhodnout variantu zápisu z bodu 6 (doporučeno **A**).
+- [x] ~~Rozhodnout variantu zápisu z bodu 6~~ → **A**, rozpracováno v `modul-kontaktu.md`.
 - [ ] Doplnit `vr_create_booking` / `vr_purge_expired` do `schema.sql`.
 - [ ] Ověřit, že `vr_create_booking` jde rozšířit o `p_ical_uidh` bez rozbití n8n workflow
       (starý workflow parametr neposílá → musí mít default `null`).
