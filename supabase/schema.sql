@@ -1,9 +1,38 @@
--- Villa Rudolf guest portal — NASAZENÉ schéma (2026-07-05)
--- Projekt: fpknbrzbqpalguajskut (sdílený multi-app, EU London) — tabulky s vr_ prefixem.
--- Pozn.: pgcrypto je na Supabase ve schématu extensions -> extensions.digest(...).
--- Vzor insertu hosta (n8n): raw token = 32 hex znaků (128 bit, openssl rand -hex 16);
---   ukládá se jen sha256 hash. expires_at = departure + 30 dní.
--- Villa Rudolf guest portal — schéma s vr_ prefixem (sdílený projekt fpknbrzbqpalguajskut)
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- Villa Rudolf guest portal — schéma Supabase
+-- Projekt: fpknbrzbqpalguajskut (sdílený multi-app, EU London) — vše s prefixem vr_.
+-- Poslední ověření proti živé DB: 2026-07-05
+--
+-- ⚠️ TENTO SOUBOR NENÍ ÚPLNÝ. V živé databázi navíc existují funkce, jejichž definice
+--    tady chybí (byly vytvořené přímo ve Studiu, nikdy se nezapsaly do repa):
+--
+--      • vr_create_booking(p_secret, p_booking_ref, p_token_hash, p_first, p_last,
+--                          p_lang, p_arrival, p_departure, p_adults, p_children, p_expires)
+--        volá n8n workflow „VR – nový host"      → viz docs/n8n-booking-ingest.md
+--      • vr_purge_expired(p_secret)
+--        volá /opt/vr-portal/purge-expired.sh na Hetzneru (denní úklid, >30 dní po odjezdu)
+--
+--    Obě autorizují ingest secretem (p_secret). Secret v repu NENÍ a nikdy být nesmí.
+--
+--    DOPLNIT PŘED PSANÍM JAKÉKOLI MIGRACE — jinak se píše naslepo. Export z SQL editoru:
+--
+--      select p.proname || '(' || pg_get_function_identity_arguments(p.oid) || ')' as sig,
+--             pg_get_functiondef(p.oid) as def
+--        from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+--       where n.nspname = 'public' and p.proname like 'vr%'
+--       order by 1;
+--
+--    ⚠️ Pokud je secret v těle funkce natvrdo, PŘED commitem ho nahraď zástupným textem —
+--       tohle repo je veřejné.
+--
+-- Poznámky:
+--   • pgcrypto je na Supabase ve schématu extensions -> extensions.digest(...)
+--   • raw token hosta = 32 hex znaků (128 bit); v DB je jen sha256 hash
+--   • expires_at = departure + 30 dní
+--   • Plánované změny (ical_uidh, vr_list_stays) zatím NEJSOU nasazené —
+--     viz docs/modul-kontaktu.md, bod 3. Do tohoto souboru patří až po nasazení.
+-- ═══════════════════════════════════════════════════════════════════════════════
+
 create extension if not exists pgcrypto;
 
 create table if not exists public.vr_bookings (
@@ -65,3 +94,14 @@ revoke all on function public.vr_verify_token(text) from public;
 revoke all on function public.vr_update_party(text, int, int[]) from public;
 grant execute on function public.vr_verify_token(text) to anon;
 grant execute on function public.vr_update_party(text, int, int[]) to anon;
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- OBSAH TOHOTO SOUBORU
+--   tabulka   vr_bookings
+--   funkce    vr_verify_token(text)              [anon]
+--             vr_update_party(text, int, int[])  [anon]
+--
+-- CHYBÍ (existuje živě, definice nutno exportovat — viz hlavička)
+--   funkce    vr_create_booking(...)             [anon + ingest secret]
+--             vr_purge_expired(text)             [anon + ingest secret]
+-- ═══════════════════════════════════════════════════════════════════════════════

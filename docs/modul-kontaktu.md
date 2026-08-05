@@ -3,6 +3,21 @@
 Stav k 5. 8. 2026. Rozpracování **varianty A** z [`propojeni-kalendar-portal.md`](propojeni-kalendar-portal.md)
 (zápis přímo do Supabase RPC). Zadání pro implementaci; **kód zatím neexistuje**.
 
+## 0. Rozsah v1
+
+**v1 umí jediné: založit kontakt k pobytu, který kontakt ještě nemá.**
+
+Nezahrnuto (a je to záměr, ne opomenutí):
+
+| Mimo v1 | Proč | Kudy zatím |
+|---|---|---|
+| úprava / smazání existující rezervace | vyžádá si čtení a zápis PII přes secret v prohlížeči | Supabase Studio |
+| přepárování pobytu po změně UID | potřebuje `update` RPC | Supabase Studio |
+| zobrazení jmen a kontaktů hostů | modul PII zásadně nečte (bod 2) | Supabase Studio |
+| automatické rozesílání odkazu | Booking blokuje odkazy od botů | ručně, jako dnes |
+
+Modul tedy smí data **jen přidávat**. Nic, co už v databázi je, nemůže změnit ani přečíst.
+
 ## 1. Rozhodnutí a proč
 
 Modul je statická stránka bez backendu. n8n poslouchá jen na `127.0.0.1:5678` a nemá routu
@@ -189,7 +204,7 @@ Do té doby při změně textu měnit obě místa.
 |---|---|
 | Pobyt už kontakt má | Unikátní index to odmítne → hláška „tenhle pobyt už kontakt má", nabídnout zobrazení stavu |
 | Přímá rezervace mimo platformy | Tlačítko „pobyt není v kalendáři" → termín se zadá ručně, `ical_uidh = NULL` |
-| Platforma přegenerovala UID | Pobyt se objeví jako ⬜ nový a starý zmizí. Modul nabídne **spárovat s existující rezervací** podle shody `arrival`/`departure` (= `update` na `ical_uidh`; vyžádá si vlastní RPC — **v1 neřešit**, jen upozornit) |
+| Platforma přegenerovala UID | Pobyt se objeví jako ⬜ nový a starý zmizí. Modul nabídne **spárovat s existující rezervací** podle shody `arrival`/`departure` (= `update` na `ical_uidh`; vyžádá si vlastní RPC — **mimo v1**, viz bod 0; zatím ručně ve Studiu) |
 | Termín se v kalendáři změnil | Označit ❗, **nepřepisovat automaticky** — host už mohl dostat odkaz se starým datem |
 | Pobyt `stale` | Zobrazit s varováním, nezakazovat založení |
 | Překryv dvou rezervací | Dva různé `uidh` → **dva samostatné kontakty**, nespojovat |
@@ -225,7 +240,10 @@ Do té doby při změně textu měnit obě místa.
 
 ## 9. Otevřené body
 
-- [ ] Má modul umět i **opravu** existující rezervace? Vyžádá si RPC pro čtení a zápis PII,
-      což zvětší blast radius secretu (bod 2). Doporučení: **v1 jen zakládání.**
+- [x] ~~Má modul umět i opravu existující rezervace?~~ → **NE. v1 = jen zakládání** (rozhodnuto
+      5. 8. 2026). Editace by vyžadovala RPC pro čtení a zápis PII, čímž by secret v prohlížeči
+      získal přístup ke jménům a kontaktům hostů — to je přesně to, čemu se návrh vyhýbá (bod 2).
+      Oprava se zatím dělá přímo v Supabase Studiu. K editaci v modulu se vrátit až tehdy,
+      když bude na stole i silnější autentizace než sdílený secret.
 - [ ] Kde bude modul viditelně odkazovaný? (Nikde veřejně — majitel si uloží URL.)
 - [ ] Rotace secretu: jak a kde se mění, když se prozradí. Sepsat postup.
