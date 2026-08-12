@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audit cen Villa Rudolf — 12. 8. 2026</title>
+<style>
+  :root { --ink:#1c2733; --muted:#5b6b7b; --line:#dde4ea; --bad:#fdeaea; --bad-ink:#a02020;
+          --warn:#fff3dd; --warn-ink:#8a5a00; --ok:#eef7ee; --ok-ink:#256b2f; --chip:#eef2f6; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:24px; font:15px/1.55 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#fff; }
+  main { max-width:1020px; margin:0 auto; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  h2 { font-size:18px; margin:32px 0 8px; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  .banner { background:var(--warn); color:var(--warn-ink); border:1px solid #f0d9a8; border-radius:8px; padding:10px 14px; margin:16px 0; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; }
+  th, td { border:1px solid var(--line); padding:6px 10px; text-align:left; vertical-align:top; }
+  th { background:#f4f7fa; font-weight:600; white-space:nowrap; }
+  td.num { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  tr.bad td { background:var(--bad); } tr.bad td.gap { color:var(--bad-ink); font-weight:700; }
+  tr.warn td { background:var(--warn); } tr.warn td.gap { color:var(--warn-ink); font-weight:600; }
+  tr.ok td.gap { color:var(--ok-ink); }
+  ul { padding-left:22px; } li { margin:6px 0; }
+  .note { color:var(--muted); font-size:13.5px; }
+  .scroll { overflow-x:auto; }
+  code { background:var(--chip); border-radius:4px; padding:1px 5px; font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Audit cen Villa Rudolf</h1>
+<p class="sub">Snímek k 12. 8. 2026 · období srpen 2026 – březen 2028 · čteno přímo z extranetů Booking.com, Airbnb a FeWo-direkt (read-only)</p>
+
+<div class="banner"><strong>Dvě díry v Booking datech:</strong> extranet po sérii čtení začal rate-limitovat kalendářní API,
+takže chybí Booking 12. 3.–19. 6. 2027 (oba krajní dny = 529 €, jaro je nejspíš ploché) a
+1. 12. 2027–29. 2. 2028 (<strong>vč. Vánoc 2027</strong> — doměřit příště). e-chalupy neměřeny (rozhodnutí č. 4 v zadání).</div>
+
+<h2>Hlavní zjištění</h2>
+<ul>
+  <li><strong>Měny jsou obráceně, než jsme mysleli:</strong> Booking i FeWo jedou v <strong>EUR</strong> (Standard Rate 499–569 €, FeWo standard 529 €), zatímco <strong>Airbnb je v Kč</strong> (základ 12 900 Kč). Kurzová vazba: Airbnb ceny odpovídají eurovým ceníkům při ~24,4–25 Kč/€.</li>
+  <li><strong>Jádro léta 2027 (3. 7.–28. 8.) JE srovnané:</strong> Booking 569 € · FeWo 559 € · Airbnb 14 000 Kč — rozptyl ≤ 2 %. Skutečné rozjezdy léta jsou na <strong>okrajích sezóny</strong>: Booking drží 569 € už od <strong>26. 6.</strong> a ještě <strong>29.–31. 8.</strong>, kdy FeWo (529 €) i Airbnb (12 900 Kč) mají už/ještě standard — tam je Booking o ~7,6 % dražší. Navíc anomálie: Booking 17.–20. 7. 2027 za 529 € (dny jsou obsazené, ale ceník je nesladěný).</li>
+  <li><strong>Podzim a zima 2026/27: Booking systematicky podráží FeWo o 30 €</strong> (499 vs. 529 €, −5,7 %) v opakovaných blocích: 19.–25. 9., 10.–16. 10., 28. 10.–17. 12. 2026, 30. 1.–12. 2. a 20.–26. 2. 2027. Vypadá to jako pozůstatek ručních úprav po týdnech.</li>
+  <li><strong>Březen 2027 (+ 27.–28. 2.): jediný velký rozjezd Airbnb</strong> — 11 900 Kč vs. 529 € (~12 960 Kč) na Bookingu i FeWo, tedy −8 % na 31 volných dní.</li>
+  <li><strong>Vánoce 2026 sedí:</strong> Booking 539 € = FeWo 539 € (Airbnb blok 13 500 Kč, +2 %). Vánoce a Silvestr <strong>2027</strong>: FeWo 639 €, Airbnb 15 700 Kč (shoda) — Booking neověřen (díra v datech).</li>
+  <li><strong>Cenové anomálie na Bookingu:</strong> 11. 9. 2026 za <strong>319 €</strong> (jediný den, −40 %!) a 12. 9. za 499 €; pokud to není záměr, opravit.</li>
+  <li><strong>Slevové mechanismy se liší:</strong> Booking má Nevratnou = −8 % (automaticky odvozená, všude aktivní); Airbnb má aktivní last-minute slevu −15 % (0–10 dní před příjezdem); FeWo má měsíční slevu −10 % a 2 pozastavené promotions. Reálná cena pro hosta se tedy může lišit i při srovnaných cenících.</li>
+  <li><strong>Min. délka pobytu:</strong> Booking většinu roku jen 2 noci (srpen 2026 měl 6), Airbnb globálně 2 noci. Pro 16lůžkovou vilu zvážit sjednocení a zvednutí (rozhodnutí č. 5 v zadání).</li>
+  <li><strong>Dostupnost:</strong> podzim 2026 (celý listopad, prosinec do 18. 12.) je na Airbnb ručně blokovaný, zatímco Booking i FeWo prodávají. Silvestr 2027: FeWo drží tentativní rezervaci (Sandra B., 27. 12.–3. 1., 16 os.), Airbnb prodává za 15 700 Kč — hlídat dvojitý prodej.</li>
+</ul>
+
+<h2>Porovnání po obdobích</h2>
+<p class="note">EUR přepočteno plánovacím kurzem <strong>24,50 Kč/€</strong> (hodnoty v závorce). Rozdíl ±2 % může být jen kurz.
+Červeně = reálný cenový rozjezd v prodejném období; oranžově = rozdíl v blokovaném/okrajovém období. „blok" = na Airbnb nedostupné.</p>
+
+<div class="scroll">
+<table>
+<tr><th>Období</th><th>Booking (€)</th><th>FeWo (€)</th><th>Airbnb (Kč)</th><th>Verdikt</th></tr>
+<tr class="warn"><td>13.–29. 8. 2026</td><td class="num">499 / 529</td><td class="num">499</td><td class="num">9 300–11 200 blok</td><td class="gap">A výrazně levnější, ale blokované</td></tr>
+<tr class="bad"><td>30. 8. – 5. 9. 2026</td><td class="num">529 (12 961)</td><td class="num">399 (9 776)</td><td class="num">8 800–12 900 blok</td><td class="gap">FeWo −25 % pod Bookingem!</td></tr>
+<tr class="bad"><td>6.–18. 9. 2026 (volné dny)</td><td class="num">529</td><td class="num">529</td><td class="num">11 900</td><td class="gap">A −8 %</td></tr>
+<tr class="bad"><td><strong>11. 9. 2026</strong></td><td class="num">319 (7 816)</td><td class="num">529</td><td class="num">8 000 blok</td><td class="gap">anomálie B −40 %</td></tr>
+<tr class="warn"><td>19.–25. 9. 2026</td><td class="num">499</td><td class="num">529</td><td class="num">REZ Simon</td><td class="gap">B −6 % vs F</td></tr>
+<tr class="ok"><td>26. 9. – 9. 10. 2026</td><td class="num">529</td><td class="num">529</td><td class="num">11 200–11 900</td><td class="gap">B=F; A −8 %</td></tr>
+<tr class="warn"><td>10.–16. 10. 2026</td><td class="num">499</td><td class="num">529</td><td class="num">8 800 blok</td><td class="gap">B −6 % vs F</td></tr>
+<tr class="ok"><td>17.–27. 10. 2026</td><td class="num">529</td><td class="num">529</td><td class="num">11 200–11 900</td><td class="gap">B=F</td></tr>
+<tr class="bad"><td><strong>28. 10. – 17. 12. 2026</strong></td><td class="num">499 (12 226)</td><td class="num">529 (12 961)</td><td class="num">11 200 blok</td><td class="gap">B −6 % vs F, 7 týdnů</td></tr>
+<tr class="ok"><td>Vánoce: 19. 12. 2026 – 2. 1. 2027</td><td class="num">539</td><td class="num">539</td><td class="num">13 500 blok</td><td class="gap">B=F ✓; A +2 %</td></tr>
+<tr class="ok"><td>3.–29. 1. 2027</td><td class="num">529</td><td class="num">529</td><td class="num">12 900 (od 10. 1.)</td><td class="gap">shoda ✓</td></tr>
+<tr class="warn"><td>30. 1. – 12. 2. 2027</td><td class="num">499</td><td class="num">529</td><td class="num">blok/REZ 11 200</td><td class="gap">B −6 % vs F</td></tr>
+<tr class="ok"><td>13.–19. 2. 2027 (jarní prázdniny)</td><td class="num">529</td><td class="num">529</td><td class="num">12 900</td><td class="gap">shoda ✓</td></tr>
+<tr class="warn"><td>20.–26. 2. 2027</td><td class="num">499</td><td class="num">529</td><td class="num">11 200 blok</td><td class="gap">B −6 % vs F</td></tr>
+<tr class="bad"><td><strong>27. 2. – 31. 3. 2027</strong></td><td class="num">529 (do 11. 3.)</td><td class="num">529 (12 961)</td><td class="num">11 900</td><td class="gap">A −8 % (31 volných dní)</td></tr>
+<tr class="ok"><td>duben – 25. 6. 2027</td><td class="num">? (20.–25. 6.: 529)</td><td class="num">529</td><td class="num">12 900</td><td class="gap">F=A ✓; B díra v datech</td></tr>
+<tr class="bad"><td><strong>26. 6. – 2. 7. 2027</strong></td><td class="num">569 (13 941)</td><td class="num">529 (12 961)</td><td class="num">12 900</td><td class="gap">B +7,6 % — jiný začátek sezóny</td></tr>
+<tr class="ok"><td><strong>LÉTO: 3. 7. – 28. 8. 2027</strong></td><td class="num">569 (13 941)</td><td class="num">559 (13 696)</td><td class="num">14 000</td><td class="gap">rozptyl ≤ 2 % ✓</td></tr>
+<tr class="warn"><td>17.–20. 7. 2027</td><td class="num">529</td><td class="num">559</td><td class="num">14 000 blok</td><td class="gap">anomálie B (dny obsazené)</td></tr>
+<tr class="bad"><td><strong>29.–31. 8. 2027</strong></td><td class="num">569</td><td class="num">529</td><td class="num">12 900 (29. 8. za 14 000)</td><td class="gap">B +7,6 % — jiný konec sezóny</td></tr>
+<tr class="ok"><td>1. 9. – 30. 11. 2027</td><td class="num">529</td><td class="num">529</td><td class="num">12 900</td><td class="gap">shoda ✓</td></tr>
+<tr class="warn"><td>1.–17. 12. 2027</td><td class="num">?</td><td class="num">529</td><td class="num">12 900</td><td class="gap">B díra v datech</td></tr>
+<tr class="warn"><td>Vánoce/Silvestr: 18. 12. 2027 – 1. 1. 2028</td><td class="num">?</td><td class="num">639 (15 656)</td><td class="num">15 700</td><td class="gap">F=A ✓; B doměřit!</td></tr>
+<tr class="warn"><td>2. 1. – 29. 2. 2028</td><td class="num">?</td><td class="num">529 / od 16. 1.: 549</td><td class="num">12 900 / od 16. 1.: 13 200</td><td class="gap">F=A ✓; B díra v datech</td></tr>
+</table>
+</div>
+<p class="note">Booking rezervace jako kontext: Joachim Hellwig 3.–10. 7. 2027 (3 750 € / 7 nocí) a Lina Rocher 29. 10.–1. 11. 2027 (1 737 € / 3 noci = 579 €/noc, 20 osob).
+FeWo má už nastavené léto 2028 (589 €) a Vánoce 2028 (689 €); Airbnb od 16. 1. 2028 zdraženo na 13 200 Kč. Ceny Airbnb čteny ze zkráceného zobrazení („12,9 tis." = 12 900) — u ručních cen možná odchylka v desítkách Kč.</p>
+
+<h2>Nastavení kanálů</h2>
+<div class="scroll">
+<table>
+<tr><th></th><th>Booking.com</th><th>Airbnb</th><th>FeWo-direkt</th></tr>
+<tr><td>Měna ceníku</td><td>EUR</td><td>CZK</td><td>EUR</td></tr>
+<tr><td>Základ / plány</td><td>Standard Rate + Nevratná (−8 %, automaticky odvozená)</td><td class="num">12 900 Kč</td><td class="num">529 €</td></tr>
+<tr><td>Min. noci</td><td>2 (srpen 2026: 6; léto 2027 nezjištěno)</td><td>2 (globálně, bez sezónních pravidel)</td><td>nezjištěno</td></tr>
+<tr><td>Slevy</td><td>Nevratná −8 %; Genius NE; mobilní sazba NE</td><td>last-minute <strong>−15 %</strong> (0–10 dní); týdenní/měsíční 0 %</td><td>měsíční −10 %; 2 promotions pozastavené</td></tr>
+</table>
+</div>
+
+<h2>Co dál</h2>
+<ul>
+  <li>Doměřit Booking: 12. 3.–19. 6. 2027 a hlavně <strong>prosinec 2027 – únor 2028 (Vánoce!)</strong> + min. noci léta 2027. Příště číst pomaleji (extranet rate-limituje) a rozsahy zadávat přes výběr v kalendáříku.</li>
+  <li>Rozhodnout a srovnat: (a) okraje léta 2027 — má Booking jet 569 € už od 26. 6. a do 31. 8.? (b) březen 2027 na Airbnb (11 900 → 12 900?), (c) podzim/zima — Booking 499 vs. FeWo 529, (d) FeWo 399 € 30. 8.–5. 9. 2026 vs. Booking 529 €.</li>
+  <li>Opravit anomálie na Bookingu: 11. 9. 2026 (319 €), případně 17.–20. 7. 2027 (529 €).</li>
+  <li>Sjednotit slevové mechanismy (Airbnb last-minute −15 % podráží ostatní) a min. noci.</li>
+  <li>Vyplnit cílové ceny do <code>docs/cenik-2027.json</code> a spustit asistovaný zápis.</li>
+</ul>
+
+<p class="note">Zdrojová data: <code>docs/audit-cen/2026-08-12.json</code> · Runbook: <code>docs/cenova-parita-2027.md</code></p>
+</main>
+</body>
+</html>

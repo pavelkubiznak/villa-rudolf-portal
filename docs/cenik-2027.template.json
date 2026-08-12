@@ -1,0 +1,67 @@
+{
+  "_pozn": "Šablona ceníku — zdroj pravdy pro cenovou paritu. Zkopíruj na cenik-2027.json a vyplň hodnoty null. Viz docs/cenova-parita-2027.md.",
+
+  "mena_zaklad": "EUR",
+  "kurz": { "CZK_za_EUR": null, "_pozn": "fixní plánovací kurz na sezónu; při změně přepočítat a znovu zapsat" },
+  "tolerance_pct": 3,
+
+  "obdobi": [
+    {
+      "od": "2027-06-01",
+      "do": "2027-06-25",
+      "nazev": "předsezóna",
+      "noc_zaklad": null,
+      "min_noci": null,
+      "prijezdove_dny": null
+    },
+    {
+      "od": "2027-06-26",
+      "do": "2027-09-03",
+      "nazev": "hlavní sezóna",
+      "noc_zaklad": null,
+      "min_noci": null,
+      "prijezdove_dny": null,
+      "_pozn": "hranice úseků upravit podle reality — tohle jsou jen odhadnuté prázdniny"
+    },
+    {
+      "od": "2027-09-04",
+      "do": "2027-09-30",
+      "nazev": "posezóna",
+      "noc_zaklad": null,
+      "min_noci": null,
+      "prijezdove_dny": null
+    }
+  ],
+
+  "kanaly": {
+    "booking": {
+      "mena": "EUR",
+      "koeficient": 1.0,
+      "zaokrouhleni": 5,
+      "nevratna_sleva_pct": 8,
+      "_pozn": "hotel_id 12558473; ceník je v EUR (ověřeno auditem 12. 8. 2026); nevratný plán je odvozený slevou −8 %"
+    },
+    "airbnb": {
+      "mena": "CZK",
+      "koeficient": 1.0,
+      "zaokrouhleni": 100,
+      "last_minute_sleva_pct": 15,
+      "_pozn": "ceník je v CZK (ověřeno auditem 12. 8. 2026); Smart Pricing musí být vypnutý, jinak ceny přepisuje; aktivní last-minute sleva −15 % (0–10 dní)"
+    },
+    "fewo": {
+      "mena": "EUR",
+      "koeficient": 1.0,
+      "zaokrouhleni": 5,
+      "_pozn": "FeWo-direkt/Vrbo, propertyId 106405316 / FEWO 5510810"
+    },
+    "echalupy": {
+      "mena": "CZK",
+      "koeficient": 1.0,
+      "zaokrouhleni": 100,
+      "zahrnout": null,
+      "_pozn": "objekt 18852; rozhodnutí č. 4 — zahrnout do parity, nebo vlastní ceník?"
+    }
+  },
+
+  "_vypocet": "cílová cena na kanálu = noc_zaklad × koeficient × kurz (je-li měna kanálu jiná než mena_zaklad), zaokrouhleno na 'zaokrouhleni'; koeficienty 1.0 = stejná cena pro hosta všude, koeficienty podle provizí = stejný čistý výnos (rozhodnutí č. 1)"
+}
