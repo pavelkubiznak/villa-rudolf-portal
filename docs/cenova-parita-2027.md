@@ -7,7 +7,11 @@ opírá o **ceník jako zdroj pravdy + Chrome jako ruce**.
 
 ## 0. Přímá odpověď: co nejde a co jde
 
-**Vlastní nástroj, který by ceny nastavil všude přes API, postavit NEJDE.**
+> Varianty „jedno místo na správu cen i kalendářů" (channel manager, jeho API, migrace)
+> rozebírá [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md). Tenhle dokument popisuje
+> variantu bez dalšího předplatného, která běží teď.
+
+**Vlastní nástroj, který by ceny nastavil všude přes API napřímo, postavit NEJDE.**
 Booking.com Connectivity API je jen pro certifikované connectivity partnery,
 Airbnb API je pro nové partnery uzavřené, Vrbo/Expedia rovněž. Žádný oficiální
 programový přístup k cenám vlastního objektu jako jednotlivec nedostaneme.

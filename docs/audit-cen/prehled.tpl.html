@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Přehled cen napříč kanály — Villa Rudolf</title>
+<style>
+  :root { --ink:#1c2733; --muted:#5b6b7b; --line:#dde4ea; --chip:#eef2f6;
+          --hi1:#fdeee9; --hi2:#fbd6c9; --hi3:#f4b49f; --hi-ink:#9c3b16;
+          --lo1:#eaf1fb; --lo2:#d3e2f6; --lo3:#b2cef0; --lo-ink:#1d4e8f;
+          --warn:#fff3dd; --warn-ink:#8a5a00; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:20px; font:15px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:#fff; }
+  main { max-width:1180px; margin:0 auto; }
+  h1 { font-size:23px; margin:0 0 4px; }
+  h2 { font-size:17px; margin:34px 0 10px; padding-top:10px; border-top:1px solid var(--line); }
+  .sub { color:var(--muted); margin:0 0 18px; font-size:14px; }
+  .note { color:var(--muted); font-size:13px; margin:6px 0 12px; }
+
+  /* ovládání */
+  .ctl { position:sticky; top:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:10px;
+         padding:10px 14px; margin:0 0 18px; display:flex; flex-wrap:wrap; gap:16px; align-items:center;
+         box-shadow:0 2px 6px rgba(0,0,0,.05); }
+  .ctl label { font-size:13px; color:var(--muted); display:flex; gap:6px; align-items:center; white-space:nowrap; }
+  .ctl label[hidden] { display:none; }
+  .ctl input[type=number] { width:74px; font:inherit; font-size:14px; padding:3px 6px; border:1px solid var(--line); border-radius:6px; text-align:right; }
+  .ctl select { font:inherit; font-size:14px; padding:3px 6px; border:1px solid var(--line); border-radius:6px; }
+  .ctl .val { font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink); }
+
+  /* karty souhrnu */
+  .cards { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 6px; }
+  .card { border:1px solid var(--line); border-radius:10px; padding:10px 14px; min-width:150px; flex:1; }
+  .card b { display:block; font-size:22px; font-variant-numeric:tabular-nums; }
+  .card span { font-size:12.5px; color:var(--muted); }
+
+  table { border-collapse:collapse; }
+  .wide { width:100%; margin:10px 0; }
+  .wide th, .wide td { border:1px solid var(--line); padding:5px 9px; text-align:left; font-size:13.5px; }
+  .wide th { background:#f4f7fa; font-weight:600; white-space:nowrap; }
+  .wide td.num, .wide th.num { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .scroll { overflow-x:auto; }
+
+  /* denní mřížka */
+  .mon { margin:0 0 6px; }
+  .mon h3 { font-size:14.5px; margin:16px 0 4px; display:flex; gap:10px; align-items:baseline; }
+  .mon h3 .tag { font-size:12px; font-weight:400; color:var(--muted); }
+  .mon h3 .tag.bad { color:var(--hi-ink); font-weight:600; }
+  table.grid { font-size:11px; font-variant-numeric:tabular-nums; }
+  table.grid th, table.grid td { border:1px solid var(--line); padding:2px 1px; text-align:center; width:31px; height:20px; }
+  table.grid th.ch { position:sticky; left:0; z-index:2; background:#f4f7fa; text-align:left;
+                     padding:2px 8px; width:78px; min-width:78px; font-size:12px; font-weight:600; }
+  table.grid tr.days th { background:#f4f7fa; font-weight:600; color:var(--muted); line-height:1.1; }
+  table.grid tr.days th.we { background:#e9eef3; color:var(--ink); }
+  table.grid td.we { background:#fafbfc; }
+  td.hi1{background:var(--hi1)} td.hi2{background:var(--hi2)} td.hi3{background:var(--hi3); font-weight:600}
+  td.lo1{background:var(--lo1)} td.lo2{background:var(--lo2)} td.lo3{background:var(--lo3); font-weight:600}
+  td.miss { color:#b6c0c9; background:repeating-linear-gradient(45deg,#fff,#fff 3px,#f4f6f8 3px,#f4f6f8 6px); }
+  td.busy { color:var(--muted); }
+  td.busy::after { content:""; position:absolute; }
+  td.busy { position:relative; }
+  td.busy > span { opacity:.42; }
+  td.res > span { opacity:.42; text-decoration:line-through; }
+  tr.spread td { font-size:10.5px; color:var(--muted); border-top:2px solid var(--line); }
+  tr.spread td.over { color:var(--hi-ink); font-weight:700; background:var(--hi1); }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; font-size:12.5px; color:var(--muted); margin:10px 0 2px; align-items:center; }
+  .legend i { display:inline-block; width:14px; height:14px; border:1px solid var(--line); vertical-align:-2px; margin-right:5px; }
+  code { background:var(--chip); border-radius:4px; padding:1px 5px; font-size:12.5px; }
+  .banner { background:var(--warn); color:var(--warn-ink); border:1px solid #f0d9a8; border-radius:8px; padding:9px 13px; margin:14px 0; font-size:13.5px; }
+  @media print { .ctl { position:static; } body { padding:0; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Přehled cen napříč kanály</h1>
+<p class="sub" id="sub"></p>
+
+<div class="ctl">
+  <label>Kurz Kč/€ <input type="number" id="rate" step="0.1" min="15" max="35" value="24.5"></label>
+  <label>Tolerance % <input type="number" id="tol" step="0.5" min="0" max="20" value="3"></label>
+  <label>Zobrazit <select id="mode">
+    <option value="eur">vše v € (přepočteno)</option>
+    <option value="native">v původní měně</option>
+  </select></label>
+  <label>Provize <select id="net">
+    <option value="0">ceníkové ceny (hrubé)</option>
+    <option value="1">čistý výnos po provizi</option>
+  </select></label>
+  <label title="Ve výchozím stavu se srovnávají jen kanály, které ten den opravdu prodávají.">
+    <input type="checkbox" id="vse"> počítat i blokované a obsazené dny</label>
+  <label id="commWrap" hidden>B <input type="number" id="cB" step="0.5" value="15">%
+    · A <input type="number" id="cA" step="0.5" value="3">%
+    · F <input type="number" id="cF" step="0.5" value="8">%</label>
+  <span class="val" id="hdrStat"></span>
+</div>
+
+<div class="banner" id="gaps"></div>
+
+<div class="cards" id="cards"></div>
+
+<h2>Rozjezdy po úsecích — co řešit nejdřív</h2>
+<p class="note">Souvislé úseky se stejnou trojicí cen, kde rozptyl překročí toleranci. Řazeno podle
+<strong>dopadu</strong> = počet nocí, které jsou aspoň někde ještě v prodeji, × rozptyl. Úseky, kde je všude obsazeno,
+padají na konec — cena už se nedá změnit, ale říkají, kde vzniká vzorec.</p>
+<div class="scroll"><table class="wide" id="segs"></table></div>
+
+<h2>Souhrn po měsících</h2>
+<p class="note">„Nejčastější cena“ = modus (cena, která v měsíci platí nejvíc dní); v závorce rozsah, pokud se cena v měsíci mění.</p>
+<div class="scroll"><table class="wide" id="months"></table></div>
+
+<h2>Kalendář po dnech</h2>
+<p class="note">Řádky = kanály, sloupce = dny. Barva ukazuje odchylku od <strong>mediánu dne</strong> (prostřední ze tří cen):
+modrá = kanál je levnější, červená = dražší. Poslední řádek je rozptyl dne <code>(max−min)/min</code>.
+Šrafované = nedoměřeno. Bledé = na daném kanálu nejde prodat (blok), přeškrtnuté = obsazeno rezervací.</p>
+<div class="legend">
+  <span><i style="background:var(--lo3)"></i>−6 % a víc</span>
+  <span><i style="background:var(--lo2)"></i>−3 %</span>
+  <span><i style="background:var(--lo1)"></i>−1 %</span>
+  <span><i style="background:#fff"></i>shoda</span>
+  <span><i style="background:var(--hi1)"></i>+1 %</span>
+  <span><i style="background:var(--hi2)"></i>+3 %</span>
+  <span><i style="background:var(--hi3)"></i>+6 % a víc</span>
+</div>
+<div id="grid"></div>
+
+<p class="note" id="src"></p>
+</main>
+
+<script>
+const DATA = /*__DATA__*/ null;
+
+/* ---------- pomocné ---------- */
+const MS = 864e5;
+const den = s => new Date(s + "T12:00:00Z");
+const iso = d => d.toISOString().slice(0, 10);
+const MESICE = ["leden","únor","březen","duben","květen","červen","červenec","srpen","září","říjen","listopad","prosinec"];
+const DNY = ["ne","po","út","st","čt","pá","so"];
+const fmt = (n, des = 0) => n == null ? "" : n.toLocaleString("cs-CZ", { minimumFractionDigits: des, maximumFractionDigits: des });
+
+function proKazdyDen(od, doo, fn) {
+  for (let t = den(od).getTime(), k = den(doo).getTime(); t <= k; t += MS) fn(iso(new Date(t)));
+}
+/* rezervace se zapisují od–do jako příjezd–odjezd: poslední noc je den před odjezdem */
+function proKazdouNoc(od, odjezd, fn) {
+  for (let t = den(od).getTime(), k = den(odjezd).getTime() - MS; t <= k; t += MS) fn(iso(new Date(t)));
+}
+const median = a => { const s = [...a].sort((x, y) => x - y); return s[(s.length - 1) >> 1]; };
+
+/* ---------- dny → kanály ---------- */
+const B = {}, F = {}, A = {};
+DATA.booking.useky_standard_eur.forEach(u => proKazdyDen(u.od, u.do, k => B[k] = { cena: u.cena, pozn: u.pozn || null, stav: "volné" }));
+DATA.fewo.useky.forEach(u => proKazdyDen(u.od, u.do, k => F[k] = { cena: u.cena, stav: "volné" }));
+DATA.airbnb.useky.forEach(u => proKazdyDen(u.od, u.do, k => A[k] = {
+  cena: u.cena ?? null,
+  stav: /^rezervace/.test(u.stav || "") ? "rezervace" : /blok/.test(u.stav || "") ? "blok" : "volné",
+  popis: u.stav || ""
+}));
+(DATA.booking.rezervace_kontext || []).forEach(r => proKazdouNoc(r.od, r.do, k => { if (B[k]) { B[k].stav = "rezervace"; B[k].popis = "rezervace " + r.host; } }));
+(DATA.fewo.rezervace_primo_fewo || []).forEach(r => proKazdouNoc(r.od, r.do, k => { if (F[k]) { F[k].stav = "rezervace"; F[k].popis = "rezervace " + r.host; } }));
+
+/* Porovnávat má smysl jen tam, kde jsou aspoň dva kanály a co je ještě v budoucnu.
+   FeWo je změřená hlouběji (do konce 2028) — ty dny se v přehledu neztrácejí, jen se nesrovnávají. */
+const vse = [...new Set([...Object.keys(B), ...Object.keys(F), ...Object.keys(A)])].sort();
+const maDva = k => [B[k] && B[k].cena, F[k] && F[k].cena, A[k] && A[k].cena].filter(x => x != null).length >= 2;
+const dny = vse.filter(k => k >= DATA._meta.datum_auditu);
+while (dny.length && !maDva(dny[dny.length - 1])) dny.pop();
+const OD = dny[0], DO = dny[dny.length - 1];
+const mimoRozsah = vse.filter(k => k > DO && F[k] && F[k].cena != null);
+
+/* ---------- stav ovládání ---------- */
+const $ = id => document.getElementById(id);
+let S = { rate: 24.5, tol: 3, mode: "eur", net: 0, cB: 15, cA: 3, cF: 8 };
+
+function ceny(k) {
+  const b = B[k] && B[k].cena != null ? B[k].cena : null;
+  const f = F[k] && F[k].cena != null ? F[k].cena : null;
+  const a = A[k] && A[k].cena != null ? A[k].cena / S.rate : null;
+  const net = S.net ? x => x : null;
+  return {
+    b: b == null ? null : (S.net ? b * (1 - S.cB / 100) : b),
+    f: f == null ? null : (S.net ? f * (1 - S.cF / 100) : f),
+    a: a == null ? null : (S.net ? a * (1 - S.cA / 100) : a),
+    a_czk: A[k] && A[k].cena != null ? A[k].cena : null
+  };
+}
+const volny = { b: k => B[k] && B[k].stav === "volné" && B[k].cena != null, f: k => F[k] && F[k].stav === "volné" && F[k].cena != null, a: k => A[k] && A[k].stav === "volné" && A[k].cena != null };
+const prodejny = k => volny.b(k) || volny.f(k) || volny.a(k);
+
+/* Rozptyl se počítá jen z kanálů, které ten den opravdu prodávají — cena na blokovaném
+   nebo obsazeném dni se nedá „srovnat“ a jen by zaplevelila žebříček. Přepínač to zruší. */
+function rozptyl(k) {
+  const c = ceny(k);
+  const kl = ["b", "f", "a"].filter(x => c[x] != null && (S.vse || volny[x](k)));
+  const barvy = ["b", "f", "a"].filter(x => c[x] != null);
+  const medBarva = barvy.length ? median(barvy.map(x => c[x])) : null;
+  if (kl.length < 2) return { pct: null, med: kl.length ? c[kl[0]] : medBarva, n: kl.length };
+  const v = kl.map(x => c[x]), mn = Math.min(...v), mx = Math.max(...v);
+  return { pct: (mx - mn) / mn * 100, med: median(v), n: kl.length, kl };
+}
+
+function trida(x, med) {
+  if (x == null || med == null) return "";
+  const d = (x - med) / med * 100;
+  const ad = Math.abs(d);
+  if (ad < 1) return "";
+  const lvl = ad >= 6 ? 3 : ad >= 3 ? 2 : 1;
+  return (d > 0 ? "hi" : "lo") + lvl;
+}
+
+/* ---------- kalendář ---------- */
+function kreslitMrizku() {
+  const mesice = [...new Set(dny.map(k => k.slice(0, 7)))];
+  let html = "";
+  for (const m of mesice) {
+    const kdny = dny.filter(k => k.startsWith(m));
+    let maxSp = 0, nad = 0;
+    kdny.forEach(k => { const r = rozptyl(k); if (r.pct != null) { maxSp = Math.max(maxSp, r.pct); if (r.pct > S.tol) nad++; } });
+    const [y, mm] = m.split("-");
+    html += `<div class="mon"><h3>${MESICE[+mm - 1]} ${y}
+      <span class="tag ${nad ? "bad" : ""}">${nad ? nad + " dní nad tolerancí · max rozptyl " + fmt(maxSp, 1) + " %" : "srovnané"}</span></h3>
+      <div class="scroll"><table class="grid"><tr class="days"><th class="ch"></th>`;
+    for (const k of kdny) {
+      const d = den(k), we = d.getUTCDay() === 0 || d.getUTCDay() === 6;
+      html += `<th class="${we ? "we" : ""}">${+k.slice(8)}<br><span style="font-weight:400">${DNY[d.getUTCDay()]}</span></th>`;
+    }
+    html += "</tr>";
+
+    const radky = [
+      ["Booking", k => { const o = B[k]; if (!o || o.cena == null) return null; const c = ceny(k); return { v: c.b, nat: fmt(o.cena) + " €", stav: o.stav, popis: o.popis }; }],
+      ["FeWo", k => { const o = F[k]; if (!o || o.cena == null) return null; const c = ceny(k); return { v: c.f, nat: fmt(o.cena) + " €", stav: o.stav, popis: o.popis }; }],
+      ["Airbnb", k => { const o = A[k]; if (!o || o.cena == null) return null; const c = ceny(k); return { v: c.a, nat: fmt(o.cena / 1000, 1), stav: o.stav, popis: o.popis }; }]
+    ];
+    for (const [nazev, f] of radky) {
+      html += `<tr><th class="ch">${nazev}</th>`;
+      for (const k of kdny) {
+        const d = den(k), we = d.getUTCDay() === 0 || d.getUTCDay() === 6;
+        const o = f(k), r = rozptyl(k);
+        if (!o) {
+          const proc = nazev === "Airbnb" && A[k] && A[k].stav === "rezervace" ? A[k].popis
+            : nazev === "Booking" && B[k] && B[k].cena == null ? (B[k].pozn || "nedoměřeno") : "chybí data";
+          html += `<td class="miss ${we ? "we" : ""}" title="${k} · ${proc}">·</td>`;
+          continue;
+        }
+        const cls = [trida(o.v, r && r.med), we ? "we" : "", o.stav === "blok" ? "busy" : "", o.stav === "rezervace" ? "res" : ""].filter(Boolean).join(" ");
+        const txt = S.mode === "native" ? o.nat : fmt(o.v);
+        html += `<td class="${cls}" title="${k} · ${nazev} · ${o.nat}${o.stav !== "volné" ? " · " + (o.popis || o.stav) : ""}"><span>${txt}</span></td>`;
+      }
+      html += "</tr>";
+    }
+    html += `<tr class="spread"><th class="ch">rozptyl</th>`;
+    for (const k of kdny) {
+      const r = rozptyl(k);
+      html += `<td class="${r.pct > S.tol ? "over" : ""}">${r.pct >= 1 ? fmt(r.pct, 0) + "%" : ""}</td>`;
+    }
+    html += "</tr></table></div></div>";
+  }
+  $("grid").innerHTML = html;
+}
+
+/* ---------- úseky ---------- */
+function useky() {
+  const out = [];
+  let cur = null;
+  for (const k of dny) {
+    const c = ceny(k), r = rozptyl(k);
+    /* úsek se láme i tehdy, když se změní sada srovnávaných kanálů (někde se otevře/zavře prodej) */
+    const sig = [B[k] && B[k].cena, F[k] && F[k].cena, A[k] && A[k].cena, (r.kl || []).join("")].join("|");
+    if (cur && cur.sig === sig) { cur.do = k; cur.noci++; if (prodejny(k)) cur.prodejne++; }
+    else { if (cur) out.push(cur); cur = { sig, od: k, do: k, noci: 1, prodejne: prodejny(k) ? 1 : 0, c, r }; }
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+function kreslitUseky() {
+  const rows = useky().filter(u => u.r.pct != null && u.r.pct > S.tol)
+    .map(u => ({ ...u, dopad: u.prodejne * u.r.pct }))
+    .sort((x, y) => (y.dopad - x.dopad) || (y.r.pct - x.r.pct));
+  const jm = { b: "Booking", f: "FeWo", a: "Airbnb" };
+  let html = `<tr><th>Úsek</th><th class="num">nocí</th><th class="num">v prodeji</th>
+    <th class="num">Booking</th><th class="num">FeWo</th><th class="num">Airbnb</th>
+    <th class="num">rozptyl</th><th>kdo je mimo</th></tr>`;
+  for (const u of rows) {
+    const dost = u.r.kl.map(x => [x, u.c[x]]);
+    const mn = dost.reduce((p, x) => x[1] < p[1] ? x : p), mx = dost.reduce((p, x) => x[1] > p[1] ? x : p);
+    const kdo = `${jm[mx[0]]} nejdráž ${fmt(mx[1])} € · ${jm[mn[0]]} nejlevněji ${fmt(mn[1])} €`
+      + (u.r.kl.length < 3 ? ` <span style="color:var(--muted)">(${["b", "f", "a"].filter(x => !u.r.kl.includes(x)).map(x => jm[x]).join(", ")} mimo prodej)</span>` : "");
+    const de = (o) => `${+o.slice(8)}. ${+o.slice(5, 7)}. ${o.slice(0, 4)}`;
+    const bunka = (x, txt) => `<td class="num" ${u.r.kl.includes(x) ? "" : 'style="color:var(--muted);opacity:.55"'}>${txt}</td>`;
+    html += `<tr><td>${de(u.od)}${u.noci > 1 ? " – " + de(u.do) : ""}</td>
+      <td class="num">${u.noci}</td><td class="num">${u.prodejne}</td>
+      ${bunka("b", u.c.b == null ? "—" : fmt(u.c.b) + " €")}
+      ${bunka("f", u.c.f == null ? "—" : fmt(u.c.f) + " €")}
+      ${bunka("a", u.c.a == null ? "—" : fmt(u.c.a) + " € <span style=\"color:var(--muted)\">(" + fmt(u.c.a_czk) + " Kč)</span>")}
+      <td class="num" style="font-weight:700;color:var(--hi-ink)">${fmt(u.r.pct, 1)} %</td>
+      <td>${kdo}</td></tr>`;
+  }
+  if (!rows.length) html += `<tr><td colspan="8">Při této toleranci a kurzu není žádný rozjezd.</td></tr>`;
+  $("segs").innerHTML = html;
+}
+
+/* ---------- měsíce ---------- */
+function kreslitMesice() {
+  const mesice = [...new Set(dny.map(k => k.slice(0, 7)))];
+  let html = `<tr><th>Měsíc</th><th class="num">Booking</th><th class="num">FeWo</th><th class="num">Airbnb</th>
+    <th class="num">max rozptyl</th><th class="num">dní nad tolerancí</th><th class="num">volných nocí</th></tr>`;
+  const modus = (arr) => {
+    const c = {}; arr.filter(x => x != null).forEach(x => c[x] = (c[x] || 0) + 1);
+    const kl = Object.keys(c); if (!kl.length) return null;
+    const top = kl.sort((a, b) => c[b] - c[a])[0];
+    const nums = kl.map(Number).sort((a, b) => a - b);
+    return { top: +top, min: nums[0], max: nums[nums.length - 1], vic: kl.length > 1 };
+  };
+  for (const m of mesice) {
+    const kdny = dny.filter(k => k.startsWith(m));
+    const mb = modus(kdny.map(k => B[k] && B[k].cena)), mf = modus(kdny.map(k => F[k] && F[k].cena)), ma = modus(kdny.map(k => A[k] && A[k].cena));
+    let maxSp = 0, nad = 0, volno = 0;
+    kdny.forEach(k => { const r = rozptyl(k); if (r.pct != null) { maxSp = Math.max(maxSp, r.pct); if (r.pct > S.tol) nad++; } if (prodejny(k)) volno++; });
+    const cell = (m2, jed) => !m2 ? "—" : fmt(m2.top) + " " + jed + (m2.vic ? ` <span style="color:var(--muted)">(${fmt(m2.min)}–${fmt(m2.max)})</span>` : "");
+    const [y, mm] = m.split("-");
+    html += `<tr><td>${MESICE[+mm - 1]} ${y}</td>
+      <td class="num">${cell(mb, "€")}</td><td class="num">${cell(mf, "€")}</td><td class="num">${cell(ma, "Kč")}</td>
+      <td class="num" ${maxSp > S.tol ? 'style="color:var(--hi-ink);font-weight:600"' : ""}>${maxSp ? fmt(maxSp, 1) + " %" : "—"}</td>
+      <td class="num">${nad || ""}</td><td class="num">${volno}/${kdny.length}</td></tr>`;
+  }
+  $("months").innerHTML = html;
+}
+
+/* ---------- souhrn ---------- */
+function kreslitKarty() {
+  let nad = 0, mer = 0, volno = 0, tri = 0, sumB = 0, sumF = 0, sumA = 0, n3 = 0;
+  for (const k of dny) {
+    const c = ceny(k), r = rozptyl(k);
+    if (r.pct != null) { mer++; if (r.pct > S.tol) nad++; }
+    if (prodejny(k)) volno++;
+    if (volny.b(k) && volny.f(k) && volny.a(k)) tri++;
+    if (c.b != null && c.f != null && c.a != null) { sumB += c.b; sumF += c.f; sumA += c.a; n3++; }
+  }
+  const prum = (s) => n3 ? fmt(s / n3) + " €" : "—";
+  $("cards").innerHTML = `
+    <div class="card"><b>${nad}</b><span>nocí s rozptylem nad ${fmt(S.tol, 1)} % (z ${mer} srovnatelných)</span></div>
+    <div class="card"><b>${volno}</b><span>nocí ještě v prodeji · z toho ${tri} na všech třech kanálech</span></div>
+    <div class="card"><b>${prum(sumB)}</b><span>průměr Booking${S.net ? " (čistý)" : ""} — dny, kde je změřeno všude</span></div>
+    <div class="card"><b>${prum(sumF)}</b><span>průměr FeWo${S.net ? " (čistý)" : ""}</span></div>
+    <div class="card"><b>${prum(sumA)}</b><span>průměr Airbnb${S.net ? " (čistý)" : ""}</span></div>`;
+  $("hdrStat").textContent = nad + " nocí nad tolerancí";
+}
+
+/* ---------- start ---------- */
+function prekreslit() {
+  S.rate = +$("rate").value || 24.5; S.tol = +$("tol").value || 0;
+  S.mode = $("mode").value; S.net = +$("net").value; S.vse = $("vse").checked;
+  S.cB = +$("cB").value; S.cA = +$("cA").value; S.cF = +$("cF").value;
+  $("commWrap").hidden = !S.net;
+  kreslitKarty(); kreslitMrizku(); kreslitUseky(); kreslitMesice();
+}
+["rate", "tol", "mode", "net", "vse", "cB", "cA", "cF"].forEach(id => {
+  $(id).addEventListener("input", prekreslit);
+  $(id).addEventListener("change", prekreslit);
+});
+
+const de = o => `${+o.slice(8)}. ${+o.slice(5, 7)}. ${o.slice(0, 4)}`;
+$("sub").textContent = `Snímek z ${de(DATA._meta.datum_auditu)} · období ${de(OD)} – ${de(DO)} · Booking a FeWo v EUR, Airbnb v CZK`;
+const diry = DATA.booking.useky_standard_eur.filter(u => u.cena == null).map(u => de(u.od) + " – " + de(u.do));
+$("gaps").innerHTML = `<strong>Nedoměřeno na Bookingu:</strong> ${diry.join(" · ")}. Extranet po sérii rychlých čtení
+  rate-limituje kalendářní API.${mimoRozsah.length ? ` FeWo je navíc změřená až do ${de(mimoRozsah[mimoRozsah.length - 1])},
+  ale za ${de(DO)} už není s čím srovnávat, takže to sem nekreslím.` : ""}`;
+$("src").innerHTML = `Zdroj: <code>docs/audit-cen/${DATA._meta.datum_auditu}.json</code> ·
+  generuje <code>node docs/audit-cen/build-prehled.mjs ${DATA._meta.datum_auditu}</code> ·
+  runbook <code>docs/cenova-parita-2027.md</code>`;
+prekreslit();
+</script>
+</body>
+</html>
