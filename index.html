@@ -205,7 +205,7 @@ const I18N = {
     editInterests:'Jedete na motorkách?',intMoto:'Ano, jsme na motorkách',
     arrival:'Příjezd',departure:'Odjezd',adults:'dospělí',kids:'děti',today:'Dnešní tip',tomorrow:'Zítřek',
     arrivingIn:d=>`Přijíždíte za ${d} ${d===1?'den':(d<5?'dny':'dní')}`,plan:'Plán podle počasí',allTrips:'Všechny výlety',
-    recTitle:'Doporučujeme vám',moreTitle:'Další výlety',
+    detail:'Detail',recTitle:'Doporučujeme vám',moreTitle:'Další výlety',
     recommend:'Doporučeno',alt:'nebo',forParty:'Odhad pro vaši partu',openLabel:'Otevřeno',priceLabel:'Vstupné',
     transport:'Doprava',byFoot:'pěšky od vily',min:'min autem',foot:'Výlet přímo od vily',
     reservation:'Pro skupinu doporučujeme rezervovat předem.',idDocs:'Do Polska má mít vlastní doklad i každé dítě.',
@@ -223,7 +223,7 @@ const I18N = {
     editInterests:'Sind Sie mit dem Motorrad unterwegs?',intMoto:'Ja, wir sind mit dem Motorrad da',
     arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
     arrivingIn:d=>`Anreise in ${d} ${d===1?'Tag':'Tagen'}`,plan:'Plan nach Wetter',allTrips:'Alle Ausflüge',
-    recTitle:'Unsere Empfehlung für Sie',moreTitle:'Weitere Ausflüge',
+    detail:'Details',recTitle:'Unsere Empfehlung für Sie',moreTitle:'Weitere Ausflüge',
     recommend:'Empfohlen',alt:'oder',forParty:'Schätzung für Ihre Gruppe',openLabel:'Öffnungszeiten',priceLabel:'Eintritt',
     transport:'Anfahrt',byFoot:'zu Fuß von der Villa',min:'Min. mit dem Auto',foot:'Ausflug direkt von der Villa',
     reservation:'Für die Gruppe bitte vorab reservieren.',idDocs:'Nach Polen braucht auch jedes Kind einen eigenen Ausweis.',
@@ -241,7 +241,7 @@ const I18N = {
     editInterests:'Are you travelling by motorbike?',intMoto:'Yes, we are on motorbikes',
     arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
     arrivingIn:d=>`Arriving in ${d} day${d===1?'':'s'}`,plan:'Weather-based plan',allTrips:'All trips',
-    recTitle:'Recommended for you',moreTitle:'More trips',
+    detail:'Details',recTitle:'Recommended for you',moreTitle:'More trips',
     recommend:'Recommended',alt:'or',forParty:'Estimate for your group',openLabel:'Open',priceLabel:'Admission',
     transport:'Getting there',byFoot:'on foot from the villa',min:'min by car',foot:'Trip straight from the villa',
     reservation:'For a group, book ahead.',idDocs:'For Poland every child needs their own ID.',
@@ -253,21 +253,40 @@ const I18N = {
     legVilla:'Walkable',legNear:'Nearby',legFar:'Day trips',foodTitle:'Where to eat well',
     filters:{vse:'All',pesky:'No car',dest:'Rainy day',deti:'For kids',zviratka:'Animals',vyhledy:'Views',koupani:'Swimming',nenarocne:'Easy'},
     tripWord:n=>n===1?'trip':'trips',
-    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors',moto:'for riders'}}
+    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors',moto:'for riders'}},
+  pl:{greet:'Szanowna Rodzino',welcome:'przygotowaliśmy dla Państwa propozycje wycieczek w okolicy – uszeregowane według pogody, wieku dzieci i wielkości grupy.',
+    greetGroup:'Szanowni Goście',welcomeGroup:'przygotowaliśmy dla Państwa propozycje wycieczek w okolicy – uszeregowane według pogody i wielkości grupy.',
+    editInterests:'Podróżują Państwo motocyklami?',intMoto:'Tak, jesteśmy na motocyklach',
+    arrival:'Przyjazd',departure:'Wyjazd',adults:'dorośli',kids:'dzieci',today:'Propozycja na dziś',tomorrow:'Jutro',
+    arrivingIn:d=>`Przyjazd za ${d} ${d===1?'dzień':'dni'}`,plan:'Plan według pogody',allTrips:'Wszystkie wycieczki',
+    detail:'Szczegóły',recTitle:'Polecamy Państwu',moreTitle:'Więcej wycieczek',
+    recommend:'Polecane',alt:'lub',forParty:'Szacunek dla Państwa grupy',openLabel:'Otwarte',priceLabel:'Wstęp',
+    transport:'Dojazd',byFoot:'pieszo od willi',min:'min samochodem',foot:'Wycieczka prosto od willi',
+    reservation:'Dla grupy zalecamy wcześniejszą rezerwację.',idDocs:'Do Polski każde dziecko powinno mieć własny dokument.',
+    capacity:'Przed wyjazdem sprawdźcie dostępność miejsc online.',
+    wxLive:'Pogoda na żywo z yr.no',updated:'zaktualizowano',planNote:'Plan opiera się na prognozie i jest tylko sugestią – rano sprawdźcie aktualną pogodę i spokojnie zamieńcie dni (na dworze przy ładnej, pod dachem przy deszczu).',
+    editParty:'zmień',editTitle:'Uściślij grupę',editAdults:'Dorośli',editKids:'Wiek dzieci (np. 8, 12)',editSave:'Zapisz',editClose:'Zamknij',
+    footer:'Przygotowane w Villa Rudolf · ceny i godziny otwarcia sprawdźcie przed wyjazdem · pogoda: yr.no.',thanks:'Dziękujemy za wizytę i życzymy szczęśliwej drogi do domu!',
+    mapTitle:'Mapa okolicy',mapCaption:'Wyróżnione = wycieczki z Państwa planu',mapCapRing:'w kółku = pieszo od willi',mapFoot:'pieszo',ringLabel:'pieszo od willi',
+    legVilla:'Pieszo od willi',legNear:'W okolicy',legFar:'Na cały dzień',foodTitle:'Gdzie dobrze zjeść',
+    filters:{vse:'Wszystko',pesky:'Bez samochodu',dest:'Na deszcz',deti:'Dla dzieci',zviratka:'Zwierzęta',vyhledy:'Widoki',koupani:'Kąpiel',nenarocne:'Łatwe'},
+    // pl má tři formy: 1 wycieczka / 2–4 wycieczki / 5+ wycieczek, s výjimkou 12–14
+    tripWord:n=>{const j=n%10,d=n%100;return n===1?'wycieczka':(j>=2&&j<=4&&!(d>=12&&d<=14)?'wycieczki':'wycieczek');},
+    why:{rain:'idealne na deszcz',clear:'piękny dzień na dworze',heat:'ochłoda w upał',teen:'dla nastolatków',kids:'dla dzieci',foot:'bez samochodu',cold:'na chłodne dni',adrenalin:'adrenalina',indoor:'pod dachem',moto:'dla motocyklistów'}}
 };
 
 /* ===== Počasí: kategorie -> ikona + text ===== */
 const CAT = {
-  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',wet:1},
-  heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',wet:1},
-  rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',wet:1},
-  showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',wet:.5},
-  snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',wet:1},
-  fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',wet:0},
-  cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',wet:0},
-  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',wet:0},
-  fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',wet:0},
-  clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',wet:0}
+  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',pl:'burze',wet:1},
+  heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',pl:'silny deszcz',wet:1},
+  rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',pl:'deszcz',wet:1},
+  showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',pl:'przelotne opady',wet:.5},
+  snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',pl:'śnieg',wet:1},
+  fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',pl:'mgła',wet:0},
+  cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',pl:'pochmurno',wet:0},
+  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',pl:'częściowe zachmurzenie',wet:0},
+  fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',pl:'przeważnie słonecznie',wet:0},
+  clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',pl:'słonecznie',wet:0}
 };
 const isWet = c => CAT[c] ? CAT[c].wet : 0;
 const isNice = c => ['clear','fair','partly'].includes(c);
@@ -348,7 +367,11 @@ function buildPlan(trips,days,fl){
 /* ===== Pomocné ===== */
 const qs=new URLSearchParams(location.search);
 const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||''));
-function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(lang==='cs'?'cs-CZ':(lang==='de'?'de-DE':'en-GB'),{weekday:'short',day:'numeric',month:'numeric'});}
+// jedno místo pro mapování jazyka na locale – dřív se větvilo na třech místech
+// a angličtina kvůli tomu dostávala v patičce německý formát data
+const LOCALE={cs:'cs-CZ',de:'de-DE',en:'en-GB',pl:'pl-PL'};
+const locale=lang=>LOCALE[lang]||LOCALE.de;
+function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(locale(lang),{weekday:'short',day:'numeric',month:'numeric'});}
 function daysBetween(a,b){const out=[];let d=new Date(a+'T00:00:00Z');const e=new Date(b+'T00:00:00Z');while(d<=e){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
@@ -667,7 +690,7 @@ function render(data,token){
       <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
       <div class="meta">${heroDay.day.cat?(CAT[heroDay.day.cat][lang]+' · '+heroDay.day.max+'°C · '):''}${esc(tt(t.tagline,lang))}</div>
       <div class="badges">${bs.map(b=>`<span class="badge ${b.k}">${esc(b.t)}</span>`).join('')}</div>
-      <div class="alts"><a href="#${t.id}">${lang==='de'?'Details':(lang==='en'?'Details':'Detail')} →</a></div>
+      <div class="alts"><a href="#${t.id}">${esc(L.detail)} →</a></div>
     </div>`;}
   else if(today>guest.departure){html+=`<div class="today"><h3>${esc(L.thanks)}</h3></div>`;}
 
@@ -744,7 +767,7 @@ function render(data,token){
     }
   }
 
-  html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(lang==='cs'?'cs-CZ':'de-DE',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
+  html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(locale(lang),{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
   document.getElementById('app').innerHTML=html;
 
   // ===== Úprava skupiny: ovládání formuláře =====
