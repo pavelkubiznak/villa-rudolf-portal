@@ -53,18 +53,38 @@ V ceníku to znamená koeficient na kanál, ne jednu cenu pro všechny.
 
 ### Proč — a co je dnes špatně
 
-**Hvězda už existuje, jen má cizí střed.** Dnešní stav (upřesnil Pavel 13. 8. 2026):
-středem jsou **e-chalupy**, na ně je obousměrně napojený Booking, Airbnb i FeWo;
-mezi sebou ty tři propojené nejsou. Funguje to líp než síť každý-s-každým, ale
-zdaleka ne dost dobře. Důvody jsou konkrétní a žádný z nich nespraví lepší nastavení:
+**Zjištěno přímo v extranetech 13. 8. 2026 (čtení přes Chrome):**
+
+| Kanál | Importuje z | Poznámka |
+|---|---|---|
+| Airbnb | **e-chalupy** (jediný import) | čistá hvězda, jak Pavel předpokládal |
+| FeWo-direkt | **Airbnb, hledamchatu.cz, Booking.com, e-chalupy** (čtyři importy) | synchronizace min. á 30 min |
+
+**Hvězda tedy platí jen na Airbnb. FeWo bere obsazenost čtyřmi cestami zároveň** —
+přímo z Airbnb a Bookingu *a zároveň* přes e-chalupy. Každý airbnb pobyt tam proto
+dorazí dvakrát a vyrobí červený „Konflikt". Ověřeno na konkrétním případu 17.–20. 6. 2027:
+popup v FeWo vypisuje dvě importované položky se **shodnými daty** — jednu ze zdroje
+`Airbnb`, druhou ze zdroje `e-chalupy`. To není dvojitá rezervace, to je jeden pobyt
+dvěma trasami.
+
+Vypadl i **šestý kanál, o kterém se dosud nemluvilo: `hledamchatu.cz`** — FeWo z něj
+importuje. Ověřit, jestli je aktivní a čí je.
+
+Tohle nespraví lepší nastavení, protože smazat duplicitní trasy nejde jen tak:
+e-chalupy jsou zároveň jediná cesta, kudy do FeWo dorazí rezervace z e-chalup samotných.
+Buď se tedy FeWo nechá u čtyř importů (a konflikty zůstanou), nebo se e-chalupy stanou
+jediným relé (a spolehneme se na systém, který tiše zahazuje překryvy). Třetí možnost
+je hub, který sloučí všechno a pošle do FeWo **jeden** vyčištěný feed.
+
+Další důvody, proč e-chalupy v roli středu nestačí:
 
 1. **Střed tiše zahazuje.** e-chalupy odmítají překrývající se rezervace — když už tam
    blok z jednoho kanálu je, import z druhého se nepropíše a nikdo to neohlásí.
    Systém, který za určitých okolností událost nepřevezme, nemůže být zdrojem pravdy.
 2. **Střed neumí filtrovat na výstupu.** Vydává jeden feed pro všechny, takže Airbnb
    dostane zpátky vlastní rezervace jako cizí blok. Odsud ozvěny a červené „Konflikty".
-3. **Dvě pomalá přeskočení.** Obě vazby jedou portálovou rychlostí — hodiny tam,
-   hodiny zpátky.
+3. **Dvě přeskočení za sebou.** FeWo načítá min. á 30 minut (lepší, než jsem čekal),
+   megaubytko po ~2 hodinách; celková doba je součet obou skoků.
 4. **Do středu není vidět.** Výpis rezervací je omezený na 12 měsíců od data ve filtru,
    žádná historie, žádné upozornění na novou rezervaci, žádný audit.
 5. **Střed je cizí systém.** Když e-chalupy změní chování nebo formát exportu,
