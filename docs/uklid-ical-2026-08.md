@@ -159,7 +159,21 @@ takže odebrání přímého importu nic neodkrylo.
 | Booking „Decide what to export" → **Booked dates only** | ✅ uloženo |
 | FeWo: odebrat `hledamchatu.cz` (Pavel: nepoužívá se) | ✅ odebráno, FeWo teď importuje **jen e-chalupy** |
 | FeWo: „Auch Buchungen unter Vorbehalt erfassen" | ⚠️ **není to uložitelné nastavení** — zaškrtnutí se nikam neukládá, jen mění podobu odkazu, který vygeneruje tlačítko „Link kopieren". Aby tentativní rezervace tekly ven, musí se do e-chalup vložit **nová exportní adresa FeWo vygenerovaná se zaškrtnutou volbou**. |
-| e-chalupy: odebrat import `Api.hladamchatu.sk` | ⏳ čeká — session vypršela |
+| e-chalupy: odebrat import `Api.hladamchatu.sk` | ✅ smazáno |
+| e-chalupy: vyměnit adresu importu FeWo za variantu s tentativními rezervacemi | ✅ hotovo (`?nonTentative&includeTentative=true`), import proběhl 14:24:38 |
+
+**Konečný stav:** e-chalupy importují z Bookingu, Airbnb, megaubytka a FeWo;
+Booking, Airbnb, FeWo i megaubytko importují **jen z e-chalup**. Čistá hvězda.
+Ověřeno po zásahu: export e-chalup dál obsahuje všech 34 termínů včetně
+rezervace z FeWo (14.–18. 5. 2027) i z Bookingu (3.–10. 7. 2027).
+
+### Silvestr 2027: planý poplach
+
+Riziko neexistuje. Rezervace Sandry B. na 27. 12. 2027 – 3. 1. 2028 byla 12. 8.
+zachycená jako „Unter Vorbehalt", ale mezitím **propadla** („Buchungsanfrage
+abgelaufen") — prosinec 2027 je v kalendáři FeWo úplně volný. To, že Airbnb ty
+dny prodává, je tedy správně. Volba `includeTentative` je nastavená do budoucna,
+ne kvůli tomuhle termínu.
 
 ### Co zůstalo otevřené
 
@@ -170,8 +184,11 @@ takže odebrání přímého importu nic neodkrylo.
   Příčina nalezena: FeWo má vypnuté **„Auch Buchungen unter Vorbehalt erfassen"**
   (kalendář → ⚙ → Verfügbarkeit → Verknüpfen Sie Ihre Kalender → Schritt 1),
   takže tentativní rezervace do exportu nedává. Do rozhodnutí hlídat ručně.
-- **V e-chalupách zbývá:** vyměnit adresu importu `Fewo-direkt.de` za novou (s tentativními
-  rezervacemi) a smazat import `Api.hladamchatu.sk`.
+- **Export FeWo nese křestní jména hostů** („Reserved - Glen") a putují tak do e-chalup
+  a dál. Výstup budoucího hubu musí být anonymizovaný.
+- **„Auch Buchungen unter Vorbehalt erfassen" není ukládané nastavení** — je to jen
+  přepínač, který přidá do exportní adresy `&includeTentative=true`. Kdo by v FeWo
+  hledal zaškrtnuté políčko, nenajde ho; rozhoduje adresa uložená u protistrany.
 
 ### Zálohy
 
