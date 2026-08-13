@@ -41,7 +41,7 @@ create table if not exists public.vr_bookings (
   token_hash   text not null unique,
   first_name   text,
   last_name    text,
-  lang         text default 'de',
+  lang         text default 'de',   -- cs | de | en | pl; neznámá hodnota → portál padá zpět na 'de'
   arrival      date not null,
   departure    date not null,
   adults       int  default 2,

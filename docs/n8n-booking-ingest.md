@@ -39,7 +39,7 @@ Tělo požadavku (JSON) je v n8n dostupné pod `$json.body`:
 {
   "first_name": "Max",
   "last_name":  "Mustermann",
-  "lang":       "de",              // cs | de | en (default de)
+  "lang":       "de",              // cs | de | en | pl (default de)
   "arrival":    "2026-07-10",      // YYYY-MM-DD
   "departure":  "2026-07-15",      // YYYY-MM-DD
   "adults":     2,                  // int, clamp 1–30, default 2
@@ -68,11 +68,11 @@ Používá builtin `require('crypto')`. Dělá:
 - `tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex')` – ukládá se do DB.
 - **děti:** string → split podle čárek → čísla; pole → totéž. Clamp 0–17, nevalidní ignoruje,
   max 20. Prázdné = `[]`.
-- **adults:** clamp 1–30, default 2. **lang:** cs|de|en, default de.
+- **adults:** clamp 1–30, default 2. **lang:** cs|de|en|pl, default de.
 - **booking_ref:** když chybí → `VR-` + dnešní datum + `-` + prvních 6 znaků rawTokenu.
 - **link** = `https://pavelkubiznak.github.io/villa-rudolf-portal/?t=` + rawToken.
 - **welcome** = uvítací šablona v jazyce hosta, s dosazeným `{LINK}` a jménem (příjmení, jinak
-  fallback „Gäste" / „hosté" / „guests").
+  fallback „Gäste" / „hosté" / „guests" / „goście").
 - Sestaví `rpcBody` = `{ p_secret, p_booking_ref, p_token_hash, p_first, p_last, p_lang,
   p_arrival, p_departure, p_adults, p_children, p_expires: null }`. Ingest secret je inline
   v tomto nodu (viz Bezpečnost – neuvádí se v repu).
