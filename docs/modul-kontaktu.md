@@ -1,4 +1,17 @@
-# Modul vkládání kontaktů hostů — implementační zadání
+# Modul vkládání kontaktů hostů — implementační zadání — NEPLATNÉ
+
+> ## ⛔ NEPLATNÉ ZADÁNÍ (13. 8. 2026)
+>
+> **Tohle už existuje a běží.** Modul vkládání kontaktů je `/sprava/` v repu
+> [`villa-rudolf-site`](https://github.com/pavelkubiznak/villa-rudolf-site) (`sprava.js`, 1 600+ řádků);
+> spojka na kalendář je hotová jako `p_uidh` v `vr_admin_upsert_booking`, seznam pobytů jako
+> `vr_admin_list_bookings`, překryvy jako `vr_admin_conflicts`. Evidence hostů běží
+> v `/registrace/` nad `vr_persons_*`.
+>
+> Zadání vzniklo nad zastaralým obrazem v tomhle repu. **Neimplementuj podle něj.**
+> Ponecháno kvůli bezpečnostní úvaze (co smí klíč žijící v prohlížeči) a kvůli poučení,
+> proč vznikl zmatek — viz `MAPA-SYSTEMU.md`.
+
 
 Stav k 5. 8. 2026. Rozpracování **varianty A** z [`propojeni-kalendar-portal.md`](propojeni-kalendar-portal.md)
 (zápis přímo do Supabase RPC). Zadání pro implementaci; **kód zatím neexistuje**.

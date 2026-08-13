@@ -1,5 +1,13 @@
 # Villa Rudolf – guest portal
 
+> 🗺️ **Mapa celého systému Villa Rudolf:**
+> [`villa-rudolf-site/MAPA-SYSTEMU.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/MAPA-SYSTEMU.md)
+> — **přečti ji dřív, než začneš.**
+>
+> ⚠️ **Tohle repo NENÍ hlavní systém.** Provozní jádro (web, admin `/sprava/`, evidence hostů,
+> migrace databáze) žije v **`villa-rudolf-site`** na villarudolf.com. Role tohohle repa je dnes
+> hlavně **zdroj dat o výletech a počasí** (`data/trips.json`, `data/forecast.json`).
+
 Mobilní průvodce pro hosty vily. Statická PWA bez build kroku a bez frameworku:
 jeden HTML soubor + JSON data + Supabase pro tokeny hostů. Běží OSTRÝ provoz.
 
