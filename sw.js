@@ -1,7 +1,7 @@
 /* Villa Rudolf portal — service worker (PWA, offline-first) */
 // Verzi zvyš při každé změně sw.js – activate smaže staré cache,
 // takže hosté se starým katalogem dostanou data hned, ne až na druhé načtení.
-const CACHE = 'vr-v2';
+const CACHE = 'vr-v3';
 const PRECACHE = ['./', './data/trips.json', './data/demo-guest.json'];
 
 self.addEventListener('install', (event) => {
