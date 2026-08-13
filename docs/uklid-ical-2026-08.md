@@ -1,5 +1,8 @@
 # Úklid iCal vazeb — postup krok za krokem
 
+> **PROVEDENO 13. 8. 2026** (Claude přes Chrome, Pavel u toho). Výsledek dole
+> v kapitole „Co se skutečně stalo".
+
 Stav k 13. 8. 2026. Vychází z mapy v [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md).
 Cíl: **každý kanál bere obsazenost jednou cestou** — přes e-chalupy jako relé.
 Bez kódu, bez předplatného, jen klikání v extranetech.
@@ -132,3 +135,36 @@ Ať to nevyzní líp, než to je:
   může kdykoli změnit bez varování.
 
 Tyhle čtyři body jsou to, co po úklidu zbude jako zadání pro vlastní hub.
+
+---
+
+## Co se skutečně stalo (13. 8. 2026)
+
+| Krok | Výsledek |
+|---|---|
+| 1. Import FeWo → e-chalupy | ✅ spraveno jediným „ihned importovat", chyba zmizela (`importováno 12:49:46`) |
+| 2. Lodgify v Bookingu | ❌ **nejde smazat** — řádek nabízí jen „Complete setup", žádné Remove |
+| 3a. Booking: `airbnb.cz`, `fewo-direkt.de` | ✅ odebráno, zůstalo jen `e-chalupy.cz` |
+| 3b. FeWo: `Airbnb`, `Booking.com` | ✅ odebráno, zůstalo `e-chalupy` + `hledamchatu.cz` |
+
+**Ověření hned po zásahu:** v kalendáři FeWo na červnu 2027 **zmizely oba červené
+„Konflikt" pruhy** a nahradily je čisté šedé bloky z e-chalup (10.–12., 17.–19., 23.–26. 6.).
+Rezervace z Bookingu 3.–10. 7. 2027 zůstala korektně zablokovaná přes e-chalupy,
+takže odebrání přímého importu nic neodkrylo.
+
+### Co zůstalo otevřené
+
+- **Lodgify pořád tahá tvůj booking kalendář** („Last exported: před 2 hodinami"),
+  a z Bookingu ho odstranit nejde. Řešit na straně Lodgify (odpojit/zrušit účet),
+  případně přes podporu Booking.com.
+- **Silvestr 27. 12. 2027 – 3. 1. 2028** se do e-chalup nedostal ani po opravě.
+  Příčina nalezena: FeWo má vypnuté **„Auch Buchungen unter Vorbehalt erfassen"**
+  (kalendář → ⚙ → Verfügbarkeit → Verknüpfen Sie Ihre Kalender → Schritt 1),
+  takže tentativní rezervace do exportu nedává. Do rozhodnutí hlídat ručně.
+- **Booking „Decide what to export"** zůstal na „Booked and closed dates" — čeká na rozhodnutí.
+- **`hledamchatu.cz`** v FeWo ponechán, dokud se nepotvrdí, jestli je kanál aktivní.
+
+### Zálohy
+
+URL smazaných importů leží mimo repo (jsou to fakticky hesla) v poznámkách k session.
+Exportní adresa Airbnb, kterou FeWo používalo, se bude hodit i pro budoucí hub.
