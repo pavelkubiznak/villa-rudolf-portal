@@ -53,45 +53,62 @@ V ceníku to znamená koeficient na kanál, ne jednu cenu pro všechny.
 
 ### Proč — a co je dnes špatně
 
-**Zjištěno přímo v extranetech 13. 8. 2026 (čtení přes Chrome):**
+**Kompletní zmapování všech pěti extranetů, 13. 8. 2026 (čtení přes Chrome):**
 
-| Kanál | Importuje z | Poznámka |
+| Kanál | Importuje z | Interval |
 |---|---|---|
-| Airbnb | **e-chalupy** (jediný import) | čistá hvězda, jak Pavel předpokládal |
-| FeWo-direkt | **Airbnb, hledamchatu.cz, Booking.com, e-chalupy** (čtyři importy) | synchronizace min. á 30 min |
+| Booking.com | airbnb.cz ✅ · fewo-direkt.de ✅ · **Lodgify ⚠️ „Import needed"** · e-chalupy.cz ✅ | — |
+| FeWo-direkt | Airbnb · hledamchatu.cz · Booking.com · e-chalupy | min. á 30 min |
+| e-chalupy | hladamchatu.sk · booking.com · megaubytko.cz · **fewo-direkt.de ❌ „chyba při importu"** · airbnb.cz | á ~4 h |
+| Airbnb | **jen e-chalupy** | — |
+| megaubytko | **jen e-chalupy** | á 2 h |
 
-**Hvězda tedy platí jen na Airbnb. FeWo bere obsazenost čtyřmi cestami zároveň** —
-přímo z Airbnb a Bookingu *a zároveň* přes e-chalupy. Každý airbnb pobyt tam proto
-dorazí dvakrát a vyrobí červený „Konflikt". Ověřeno na konkrétním případu 17.–20. 6. 2027:
-popup v FeWo vypisuje dvě importované položky se **shodnými daty** — jednu ze zdroje
-`Airbnb`, druhou ze zdroje `e-chalupy`. To není dvojitá rezervace, to je jeden pobyt
-dvěma trasami.
+**Hvězda platí jen pro Airbnb a megaubytko.** Booking a FeWo mezi sebou i s e-chalupami
+sdílejí obsazenost napřímo, takže tam vede víc tras najednou. Proto ty konflikty —
+ověřeno na 17.–20. 6. 2027: popup v FeWo vypisuje tentýž pobyt dvakrát, jednou ze zdroje
+`Airbnb` a jednou z `e-chalupy`. V kalendáři e-chalup je ta rezervace vedená jako
+**importovaná z Airbnb**, ne jako vlastní.
 
-Vypadl i **šestý kanál, o kterém se dosud nemluvilo: `hledamchatu.cz`** — FeWo z něj
-importuje. Ověřit, jestli je aktivní a čí je.
+**Klíčové ověření: e-chalupy přeposílají i importované rezervace.** Jejich nápověda
+tvrdí, že export obsahuje „pouze rezervace vzniklé na e-chalupy.cz", ale stažení
+základního exportu ukazuje opak — jsou v něm i termíny 17.–20. 6. 2027 (z Airbnb)
+a 3.–10. 7. 2027 (z Bookingu). Relé tedy funguje, ale na nezdokumentovaném chování,
+které se může kdykoli změnit.
 
-Tohle nespraví lepší nastavení, protože smazat duplicitní trasy nejde jen tak:
-e-chalupy jsou zároveň jediná cesta, kudy do FeWo dorazí rezervace z e-chalup samotných.
-Buď se tedy FeWo nechá u čtyř importů (a konflikty zůstanou), nebo se e-chalupy stanou
-jediným relé (a spolehneme se na systém, který tiše zahazuje překryvy). Třetí možnost
-je hub, který sloučí všechno a pošle do FeWo **jeden** vyčištěný feed.
+**Dvě přerušené vazby právě teď:**
 
-Další důvody, proč e-chalupy v roli středu nestačí:
+1. e-chalupy **nedokážou načíst FeWo** („chyba při importu, bude ověřeno správcem").
+   Rezervace z FeWo se tedy nedostanou do e-chalup → ani na Airbnb a megaubytko,
+   které berou jen z e-chalup. Konkrétní důsledek: tentativní rezervace Sandry B.
+   na 27. 12. 2027 – 3. 1. 2028 **v exportu e-chalup není**, zatímco Airbnb ty dny prodává.
+2. V Bookingu visí **nedokončené propojení na Lodgify** — pozůstatek opuštěného nástroje.
+
+Objevil se i **šestý kanál `hledamchatu.cz` / `hladamchatu.sk`** — importuje z něj
+FeWo i e-chalupy. Ověřit, jestli je aktivní.
+
+### Levná náprava před stavbou hubu
+
+Protože e-chalupy relé opravdu dělají, jde velká část bolesti odstranit hned a bez kódu:
+spravit import FeWo do e-chalup, smazat zbytek po Lodgify a v Bookingu a FeWo zrušit
+duplicitní přímé importy tak, aby každý kanál bral obsazenost **jednou cestou**.
+Tím by měly konflikty zmizet. Teprve co zbude potom, je práce pro hub.
+
+Zbývající důvody pro vlastní hub:
 
 1. **Střed tiše zahazuje.** e-chalupy odmítají překrývající se rezervace — když už tam
    blok z jednoho kanálu je, import z druhého se nepropíše a nikdo to neohlásí.
    Systém, který za určitých okolností událost nepřevezme, nemůže být zdrojem pravdy.
 2. **Střed neumí filtrovat na výstupu.** Vydává jeden feed pro všechny, takže Airbnb
    dostane zpátky vlastní rezervace jako cizí blok. Odsud ozvěny a červené „Konflikty".
-3. **Dvě přeskočení za sebou.** FeWo načítá min. á 30 minut (lepší, než jsem čekal),
-   megaubytko po ~2 hodinách; celková doba je součet obou skoků.
+3. **Dvě přeskočení za sebou.** Nejpomalejší článek je samo relé — e-chalupy načítají
+   á ~4 hodiny, teprve pak si to berou ostatní (FeWo á 30 min, megaubytko á 2 h).
 4. **Do středu není vidět.** Výpis rezervací je omezený na 12 měsíců od data ve filtru,
    žádná historie, žádné upozornění na novou rezervaci, žádný audit.
-5. **Střed je cizí systém.** Když e-chalupy změní chování nebo formát exportu,
-   rozbije se ti celá distribuce a dozvíš se to až podle následků.
+5. **Střed je cizí systém — a právě selhal.** Import FeWo do e-chalup je v chybě
+   a nikdo tě neupozornil. Navíc relé stojí na nezdokumentovaném chování (viz výše).
 6. **Osobní údaje.** Detailní export nese jména hostů do všech ostatních portálů.
 
-Vlastní hub nemění topologii — ta je správná — ale mění vlastnosti středu:
+Vlastní hub nemění topologii — hvězda je správná — ale mění vlastnosti středu:
 filtr na výstupu, čtení á 10 minut, nic se tiše nezahazuje, výstup bez osobních údajů,
 historie a upozornění.
 
