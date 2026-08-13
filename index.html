@@ -83,6 +83,20 @@ a{color:var(--accent);}
 .note .icon{color:var(--amber);margin-top:.15em;}
 
 .trip{scroll-margin-top:14px;border-top:4px solid var(--acc,var(--accent));}
+/* karta, na kterou host doskočil z mapy / plánu / hero (odkazy #id).
+   Třída .cil je pro vstup přímo přes odkaz s #hash – tam :target nechytne,
+   protože karta v době navigace ještě není vykreslená. */
+.trip:target,.trip.cil{box-shadow:0 0 0 2px var(--acc,var(--accent));}
+/* sbalená karta v sekci „Další výlety" – <details>, rozbalí se jedním klepnutím */
+.trip>summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:12px;}
+.trip>summary::-webkit-details-marker{display:none;}
+.trip>summary .sum{flex:1;min-width:0;}
+.trip>summary h3{margin-bottom:4px;}
+.trip .smeta{font-size:.8rem;color:var(--muted);}
+.trip[open] .smeta{display:none;} /* po rozbalení je totéž v „Doprava“ mezi fakty */
+.trip .chev{color:var(--muted);flex:none;margin-top:.4em;transition:transform .15s;}
+.trip[open] .chev{transform:rotate(180deg);}
+.trip[open]>summary{margin-bottom:10px;}
 .trip .tg{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--acc,var(--accent-2));}
 .trip h3{font-family:var(--font-d);font-weight:600;font-size:1.18rem;color:var(--heading);margin:2px 0 8px;line-height:1.25;}
 .trip p{font-size:.92rem;text-wrap:pretty;}
@@ -147,6 +161,7 @@ footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-si
 <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
 <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></symbol>
 <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
 <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2ZM13 5v2M13 17v2M13 11v2"/></symbol>
@@ -184,6 +199,7 @@ const I18N = {
   cs:{greet:'Vážená rodino',welcome:'připravili jsme vám tipy na výlety v okolí – řazené podle počasí, věku dětí i velikosti vaší skupiny.',
     arrival:'Příjezd',departure:'Odjezd',adults:'dospělí',kids:'děti',today:'Dnešní tip',tomorrow:'Zítřek',
     arrivingIn:d=>`Přijíždíte za ${d} ${d===1?'den':(d<5?'dny':'dní')}`,plan:'Plán podle počasí',allTrips:'Všechny výlety',
+    recTitle:'Doporučujeme vám',moreTitle:'Další výlety',
     recommend:'Doporučeno',alt:'nebo',forParty:'Odhad pro vaši partu',openLabel:'Otevřeno',priceLabel:'Vstupné',
     transport:'Doprava',byFoot:'pěšky od vily',min:'min autem',foot:'Výlet přímo od vily',
     reservation:'Pro skupinu doporučujeme rezervovat předem.',idDocs:'Do Polska má mít vlastní doklad i každé dítě.',
@@ -199,6 +215,7 @@ const I18N = {
   de:{greet:'Liebe Familie',welcome:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter, Alter der Kinder und Größe Ihrer Gruppe.',
     arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
     arrivingIn:d=>`Anreise in ${d} ${d===1?'Tag':'Tagen'}`,plan:'Plan nach Wetter',allTrips:'Alle Ausflüge',
+    recTitle:'Unsere Empfehlung für Sie',moreTitle:'Weitere Ausflüge',
     recommend:'Empfohlen',alt:'oder',forParty:'Schätzung für Ihre Gruppe',openLabel:'Öffnungszeiten',priceLabel:'Eintritt',
     transport:'Anfahrt',byFoot:'zu Fuß von der Villa',min:'Min. mit dem Auto',foot:'Ausflug direkt von der Villa',
     reservation:'Für die Gruppe bitte vorab reservieren.',idDocs:'Nach Polen braucht auch jedes Kind einen eigenen Ausweis.',
@@ -214,6 +231,7 @@ const I18N = {
   en:{greet:'Dear guests',welcome:'we put together trip ideas nearby – ranked by weather, kids’ ages and your group size.',
     arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
     arrivingIn:d=>`Arriving in ${d} day${d===1?'':'s'}`,plan:'Weather-based plan',allTrips:'All trips',
+    recTitle:'Recommended for you',moreTitle:'More trips',
     recommend:'Recommended',alt:'or',forParty:'Estimate for your group',openLabel:'Open',priceLabel:'Admission',
     transport:'Getting there',byFoot:'on foot from the villa',min:'min by car',foot:'Trip straight from the villa',
     reservation:'For a group, book ahead.',idDocs:'For Poland every child needs their own ID.',
@@ -558,6 +576,9 @@ function renderMapInner(trips,plan,lang,L,filterId){
   return `${svg}<div class="mapcap">${cap}</div>${key}`;
 }
 
+// Na #hash se skáče jen při prvním vykreslení – po úpravě skupiny se překresluje
+// znovu a host by jinak odskočil od formuláře na starý cíl v URL.
+let prvniVykresleni=true;
 function render(data,token){
   const {guest,trips,forecast}=data;
   const food=data.food||[];
@@ -624,29 +645,46 @@ function render(data,token){
   // PŘEHLEDOVÁ MAPKA
   html+=buildMapSection(trips,plan,lang,L);
 
-  // VŠECHNY VÝLETY
-  html+=`<div class="sec-h"><svg class="icon"><use href="#i-pin"></use></svg><h2>${esc(L.allTrips)}</h2></div>`;
-  html+=`<div class="chips">`
-    +FILTER_IDS.map(f=>`<button type="button" class="chip${f==='vse'?' on':''}" data-f="${f}">${esc(L.filters[f])}</button>`).join('')
-    +`<span class="chip-count" id="chip-count">${trips.length} ${esc(L.tripWord(trips.length))}</span></div>`;
-  for(const t of trips){
-    const open=tt(t.openNote,lang),price=tt(t.price,lang);
-    html+=`<div class="card trip" id="${t.id}" style="--acc:${t.accent}">
-      <div class="tg">${esc(tt(t.tagline,lang))}</div>
-      <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
-      <p>${esc(tt(t.desc,lang))}</p>
+  // Karta výletu. compact=true → <details>: sbalená hlavička, jedno klepnutí ji rozbalí.
+  // Značka .trip a nadpis h3 musí zůstat i ve sbalené variantě – závisí na nich Umami tracking.
+  function tripCard(t,compact){
+    const openNote=tt(t.openNote,lang),price=tt(t.price,lang);
+    const doprava=t.byFoot?L.byFoot:(t.travelMin+' '+L.min);
+    const hlava=`<div class="tg">${esc(tt(t.tagline,lang))}</div>
+      <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>`;
+    let telo=`<p>${esc(tt(t.desc,lang))}</p>
       <div class="facts">
-        <div><div class="lbl">${L.openLabel}</div>${esc(open)}</div>
+        <div><div class="lbl">${L.openLabel}</div>${esc(openNote)}</div>
         <div><div class="lbl">${L.priceLabel}</div>${esc(price)}</div>
-        <div><div class="lbl">${L.transport}</div>${t.byFoot?L.byFoot:(t.travelMin+' '+L.min)}</div>
+        <div><div class="lbl">${L.transport}</div>${doprava}</div>
       </div>`;
     const warns=[];
     if(t.group&&t.group.reservation&&fl.isGroup)warns.push(L.reservation);
     if(t.crossBorderId&&(party.children&&party.children.length))warns.push(L.idDocs);
     if(t.group&&t.group.capacity)warns.push(L.capacity);
-    for(const wn of warns)html+=`<div class="note"><svg class="icon"><use href="#i-alert"></use></svg><span>${esc(wn)}</span></div>`;
-    html+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div></div>`;
+    for(const wn of warns)telo+=`<div class="note"><svg class="icon"><use href="#i-alert"></use></svg><span>${esc(wn)}</span></div>`;
+    telo+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div>`;
+    if(!compact)return `<div class="card trip" id="${t.id}" style="--acc:${t.accent}">${hlava}${telo}</div>`;
+    return `<details class="card trip" id="${t.id}" style="--acc:${t.accent}"><summary>`
+      +`<div class="sum">${hlava}<div class="smeta">${doprava}</div></div>`
+      +`<svg class="icon chev"><use href="#i-chevron"></use></svg></summary>${telo}</details>`;
   }
+
+  // DOPORUČENÍ (výlety z plánu podle počasí) + zbytek katalogu sbalený
+  const recIds=new Set();
+  for(const p of plan){ if(p.pick)recIds.add(p.pick.id); (p.alts||[]).forEach(a=>recIds.add(a.id)); }
+  const recTrips=trips.filter(t=>recIds.has(t.id)),restTrips=trips.filter(t=>!recIds.has(t.id));
+
+  if(recTrips.length){
+    html+=`<div class="sec-h"><svg class="icon"><use href="#i-route"></use></svg><h2>${esc(L.recTitle)}</h2></div>`;
+    for(const t of recTrips)html+=tripCard(t,false);
+  }
+  // Bez plánu (host už odjel) není co doporučovat – zbytek je pak prostě celý katalog.
+  html+=`<div class="sec-h"><svg class="icon"><use href="#i-pin"></use></svg><h2>${esc(recTrips.length?L.moreTitle:L.allTrips)}</h2></div>`;
+  html+=`<div class="chips">`
+    +FILTER_IDS.map(f=>`<button type="button" class="chip${f==='vse'?' on':''}" data-f="${f}">${esc(L.filters[f])}</button>`).join('')
+    +`<span class="chip-count" id="chip-count">${restTrips.length} ${esc(L.tripWord(restTrips.length))}</span></div>`;
+  for(const t of restTrips)html+=tripCard(t,true);
 
   // KAM NA DOBRÉ JÍDLO (nefiltruje se, není na mapě) – skryto přes CFG.SHOW_FOOD, data zůstávají v trips.json
   if(CFG.SHOW_FOOD && food.length){
@@ -688,18 +726,35 @@ function render(data,token){
   }
 
   // ===== Filtrační chipy: skrytí karet + přerenderování mapy + počet =====
+  // Filtruje se jen sekce „Další výlety“; doporučení z plánu zůstávají vidět vždy.
   const chips=document.querySelectorAll('.chip');
   const mapInner=document.getElementById('map-inner');
   const countEl=document.getElementById('chip-count');
   function applyFilter(fid){
     chips.forEach(c=>c.classList.toggle('on',c.dataset.f===fid));
     let n=0;
-    for(const t of trips){ const el=document.getElementById(t.id); if(!el)continue;
+    for(const t of restTrips){ const el=document.getElementById(t.id); if(!el)continue;
       const show=matchFilter(t,fid); el.hidden=!show; if(show)n++; }
     if(mapInner) mapInner.innerHTML=renderMapInner(trips,plan,lang,L,fid);
     if(countEl) countEl.textContent=n+' '+L.tripWord(n);
   }
   chips.forEach(c=>c.addEventListener('click',()=>applyFilter(c.dataset.f)));
+
+  // ===== Skok na #výlet: sbalenou kartu rovnou rozbal =====
+  // Jinak by cíl z mapy/plánu skončil na zavřené kartě a detail by byl zase na dvě klepnutí.
+  function otevriCil(scroll){
+    const id=decodeURIComponent(location.hash.slice(1));
+    if(!id)return;
+    const el=document.getElementById(id);
+    if(!el)return;
+    document.querySelectorAll('.trip.cil').forEach(e=>e.classList.remove('cil'));
+    el.classList.add('cil');
+    if(el.tagName==='DETAILS')el.open=true;
+    if(scroll)el.scrollIntoView(); // po prvním vykreslení: karta v době skoku ještě neexistovala
+  }
+  window.onhashchange=()=>otevriCil(false);
+  otevriCil(prvniVykresleni);
+  prvniVykresleni=false;
 }
 
 /* ===== Start ===== */
