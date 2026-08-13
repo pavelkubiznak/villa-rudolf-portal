@@ -1,5 +1,5 @@
 {
- "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en). Tagy pohánějí doporučovací jádro. Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
+ "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en/pl). Tagy pohánějí doporučovací jádro. Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
  "trips": [
   {
    "id": "snezka-cablecar",
@@ -72,6 +72,7 @@
      "label": {
       "cs": "Mapy.cz – autem do Pece",
       "de": "Mapy.cz – Route nach Pec",
+      "en": "Mapy.cz – drive to Pec",
       "pl": "Mapy.cz – samochodem do Pecu"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
@@ -151,6 +152,7 @@
      "label": {
       "cs": "Vstupenky online",
       "de": "Tickets online",
+      "en": "Tickets online",
       "pl": "Bilety online"
      },
      "url": "https://portal.colosseum.eu/Tours?mrsid=382"
@@ -160,6 +162,7 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
+      "en": "Mapy.cz – by car",
       "pl": "Mapy.cz – samochodem"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic"
@@ -240,6 +243,7 @@
      "label": {
       "cs": "E-shop vstupenek",
       "de": "Ticket-Shop",
+      "en": "Ticket shop",
       "pl": "Sklep z biletami"
      },
      "url": "https://eshop.stezkakrkonose.cz/cz/"
@@ -249,6 +253,7 @@
      "label": {
       "cs": "Mapy.cz – pěšky od vily",
       "de": "Mapy.cz – zu Fuß",
+      "en": "Mapy.cz – on foot from the villa",
       "pl": "Mapy.cz – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking"
@@ -328,6 +333,7 @@
      "label": {
       "cs": "Mapy.cz – pěšky",
       "de": "Mapy.cz – zu Fuß",
+      "en": "Mapy.cz – on foot",
       "pl": "Mapy.cz – pieszo"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking"
@@ -403,6 +409,7 @@
      "label": {
       "cs": "obsazenost živě",
       "de": "Auslastung live",
+      "en": "live occupancy",
       "pl": "obłożenie na żywo"
      },
      "url": "https://www.aquacentrum-vrchlabi.cz/"
@@ -412,6 +419,7 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
+      "en": "Mapy.cz – by car",
       "pl": "Mapy.cz – samochodem"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic"
@@ -492,6 +500,7 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
+      "en": "Mapy.cz – by car",
       "pl": "Mapy.cz – samochodem"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic"
@@ -571,6 +580,7 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
+      "en": "Mapy.cz – by car",
       "pl": "Mapy.cz – samochodem"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic"
@@ -650,6 +660,7 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
+      "en": "Mapy.cz – by car",
       "pl": "Mapy.cz – samochodem"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic"
@@ -731,6 +742,7 @@
      "label": {
       "cs": "Mapy.cz – půjčovna",
       "de": "Mapy.cz – Verleih",
+      "en": "Mapy.cz – rental",
       "pl": "Mapy.cz – wypożyczalnia"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic"

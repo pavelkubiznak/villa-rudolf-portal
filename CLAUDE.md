@@ -60,4 +60,6 @@ ne tady. Než začneš cokoliv programovat, ověř, co už v n8n stojí.
 ## Jazyk
 
 Kód, komentáře i dokumentace jsou česky. Uživatelské rozhraní je vícejazyčné
-(`I18N`, hosté cs/de/en) — texty výletů jsou v `trips.json` jako objekty `{cs, de, en}`.
+(`I18N`, hosté cs/de/en/pl) — texty výletů jsou v `trips.json` jako objekty `{cs, de, en, pl}`.
+Přidání jazyka = nový blok v `I18N`, klíč navíc v `CAT` (počasí) a v `LOCALE` (formát data);
+klíče `I18N` musí být ve všech jazycích stejné, jinak část UI tiše propadne na `undefined`.

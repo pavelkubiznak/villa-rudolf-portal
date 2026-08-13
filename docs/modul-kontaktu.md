@@ -185,7 +185,7 @@ Zobrazí nadcházející pobyty (odjezd ≥ dnes) se stavem:
 Majitel vybere pobyt → formulář **předvyplněný z kalendáře**:
 
 - `arrival`, `departure`, `platform`, `ical_uidh` — **jen ke čtení**, netypují se
-- vyplňuje se: jméno, příjmení, jazyk (cs/de/en), dospělí, děti (věky)
+- vyplňuje se: jméno, příjmení, jazyk (cs/de/en/pl), dospělí, děti (věky)
 
 Odeslání:
 
