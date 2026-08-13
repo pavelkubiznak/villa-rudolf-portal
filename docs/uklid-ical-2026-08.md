@@ -152,6 +152,15 @@ Tyhle čtyři body jsou to, co po úklidu zbude jako zadání pro vlastní hub.
 Rezervace z Bookingu 3.–10. 7. 2027 zůstala korektně zablokovaná přes e-chalupy,
 takže odebrání přímého importu nic neodkrylo.
 
+### Druhé kolo (po rozhodnutích)
+
+| Změna | Výsledek |
+|---|---|
+| Booking „Decide what to export" → **Booked dates only** | ✅ uloženo |
+| FeWo: odebrat `hledamchatu.cz` (Pavel: nepoužívá se) | ✅ odebráno, FeWo teď importuje **jen e-chalupy** |
+| FeWo: „Auch Buchungen unter Vorbehalt erfassen" | ⚠️ **není to uložitelné nastavení** — zaškrtnutí se nikam neukládá, jen mění podobu odkazu, který vygeneruje tlačítko „Link kopieren". Aby tentativní rezervace tekly ven, musí se do e-chalup vložit **nová exportní adresa FeWo vygenerovaná se zaškrtnutou volbou**. |
+| e-chalupy: odebrat import `Api.hladamchatu.sk` | ⏳ čeká — session vypršela |
+
 ### Co zůstalo otevřené
 
 - **Lodgify pořád tahá tvůj booking kalendář** („Last exported: před 2 hodinami"),
@@ -161,8 +170,8 @@ takže odebrání přímého importu nic neodkrylo.
   Příčina nalezena: FeWo má vypnuté **„Auch Buchungen unter Vorbehalt erfassen"**
   (kalendář → ⚙ → Verfügbarkeit → Verknüpfen Sie Ihre Kalender → Schritt 1),
   takže tentativní rezervace do exportu nedává. Do rozhodnutí hlídat ručně.
-- **Booking „Decide what to export"** zůstal na „Booked and closed dates" — čeká na rozhodnutí.
-- **`hledamchatu.cz`** v FeWo ponechán, dokud se nepotvrdí, jestli je kanál aktivní.
+- **V e-chalupách zbývá:** vyměnit adresu importu `Fewo-direkt.de` za novou (s tentativními
+  rezervacemi) a smazat import `Api.hladamchatu.sk`.
 
 ### Zálohy
 
