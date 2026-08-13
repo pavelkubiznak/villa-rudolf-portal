@@ -17,7 +17,8 @@ technický problém, je to obchodní rozhodnutí platforem:
 | megaubytko.cz | ne | — | **ano** (základní i kompletní export) |
 
 **Channel manager (Beds24, Smoobu) zamítnut** — rozhodnutí Pavel, 13. 8. 2026. Důvody:
-Lodgify už jednou nepomohl, paušál ~8–15 €/měs. je proti přínosu vysoký, a hlavně:
+Lodgify už jednou nepomohl, paušál je proti přínosu vysoký (Beds24 reálně od 16 €/měs.,
+ne 8–9 € podle srovnávačů — ověřeno na ceníku), a hlavně:
 **žádný channel manager nepodporuje e-chalupy ani megaubytko**, což jsou 2 z 5 kanálů —
 a jeden z nich je ten bez provize. Zaplatili bychom předplatné za sjednocení tří kanálů
 a dva bychom stejně řešili ručně. Tím je varianta uzavřená, dál se k ní nevracíme.
@@ -50,12 +51,29 @@ V ceníku to znamená koeficient na kanál, ne jednu cenu pro všechny.
 
 ## 3. Vlastní iCal hub — návrh
 
-### Proč
+### Proč — a co je dnes špatně
 
-Dnes si portály posílají obsazenost **každý s každým**. Pět kanálů = až dvacet vazeb,
-v nich smyčky a ozvěny: týž pobyt dorazí do FeWo dvěma cestami a vyrobí červený
-„Konflikt", který není konflikt. Řešení není rychlejší synchronizace, ale **jiná
-topologie** — hvězda místo sítě:
+**Hvězda už existuje, jen má cizí střed.** Dnešní stav (upřesnil Pavel 13. 8. 2026):
+středem jsou **e-chalupy**, na ně je obousměrně napojený Booking, Airbnb i FeWo;
+mezi sebou ty tři propojené nejsou. Funguje to líp než síť každý-s-každým, ale
+zdaleka ne dost dobře. Důvody jsou konkrétní a žádný z nich nespraví lepší nastavení:
+
+1. **Střed tiše zahazuje.** e-chalupy odmítají překrývající se rezervace — když už tam
+   blok z jednoho kanálu je, import z druhého se nepropíše a nikdo to neohlásí.
+   Systém, který za určitých okolností událost nepřevezme, nemůže být zdrojem pravdy.
+2. **Střed neumí filtrovat na výstupu.** Vydává jeden feed pro všechny, takže Airbnb
+   dostane zpátky vlastní rezervace jako cizí blok. Odsud ozvěny a červené „Konflikty".
+3. **Dvě pomalá přeskočení.** Obě vazby jedou portálovou rychlostí — hodiny tam,
+   hodiny zpátky.
+4. **Do středu není vidět.** Výpis rezervací je omezený na 12 měsíců od data ve filtru,
+   žádná historie, žádné upozornění na novou rezervaci, žádný audit.
+5. **Střed je cizí systém.** Když e-chalupy změní chování nebo formát exportu,
+   rozbije se ti celá distribuce a dozvíš se to až podle následků.
+6. **Osobní údaje.** Detailní export nese jména hostů do všech ostatních portálů.
+
+Vlastní hub nemění topologii — ta je správná — ale mění vlastnosti středu:
+filtr na výstupu, čtení á 10 minut, nic se tiše nezahazuje, výstup bez osobních údajů,
+historie a upozornění.
 
 ```
 Booking ─┐                            ┌─→ Booking      (feed bez událostí z Bookingu)
@@ -119,8 +137,10 @@ Nevyřeší:
 
 - **ceny.** iCal přenáší jen obsazenost, cena v něm není. Parita zůstává na auditu
   a asistovaném zápisu — to jsou dvě oddělené úlohy a nesmí se plést dohromady.
-- **zpoždění.** Portály si náš feed stahují po svém (řádově hodiny), a to neovlivníme.
-  Okno pro dvojitý prodej se zmenší, ale nezavře. Hub je rychlý na čtení, ne na zápis.
+- **zpoždění na výstupu.** Portály si náš feed stahují po svém (megaubytko ~2 h,
+  ostatní řádově hodiny) a to neovlivníme. Zrychlí se jen první přeskočení —
+  z portálové rychlosti na 10 minut — takže z „hodiny + hodiny" bude
+  „10 minut + hodiny". Okno pro dvojitý prodej se zhruba půlí, ale nezavře.
 - Riziko chyby v hubu = dvojitý prodej. Proto: hub nikdy nemaže blok bez potvrzení
   a denně hlásí každý termín, kde se portál s hubem neshodne.
 
