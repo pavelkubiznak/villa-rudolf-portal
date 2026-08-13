@@ -193,6 +193,7 @@ const I18N = {
     footer:'Připraveno ve Ville Rudolf · ceny a otevírací doby ověřte před cestou · počasí: yr.no.',thanks:'Děkujeme za návštěvu a přejeme šťastnou cestu domů!',
     mapTitle:'Mapa okolí',mapCaption:'Zvýrazněné = výlety z vašeho plánu',mapCapRing:'v kroužku = pěšky od vily',mapFoot:'pěšky',ringLabel:'pěšky od vily',
     legVilla:'Pěšky od vily',legNear:'V okolí',legFar:'Na celý den',foodTitle:'Kam na dobré jídlo',
+    details:'Detail',north:'S',mapPoland:'POLSKO',mapMountains:'KRKONOŠE',
     filters:{vse:'Vše',pesky:'Bez auta',dest:'Za deště',deti:'Pro děti',zviratka:'Zvířátka',vyhledy:'Výhledy',koupani:'Koupání',nenarocne:'Nenáročné'},
     tripWord:n=>n===1?'výlet':(n>=2&&n<=4?'výlety':'výletů'),
     why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu'}},
@@ -208,6 +209,7 @@ const I18N = {
     footer:'Zusammengestellt in der Villa Rudolf · Preise und Öffnungszeiten vorab prüfen · Wetter: yr.no.',thanks:'Danke für Ihren Besuch und eine gute Heimreise!',
     mapTitle:'Übersichtskarte',mapCaption:'Hervorgehoben = Ausflüge aus Ihrem Plan',mapCapRing:'im Kreis = zu Fuß erreichbar',mapFoot:'zu Fuß',ringLabel:'zu Fuß erreichbar',
     legVilla:'Zu Fuß',legNear:'In der Umgebung',legFar:'Tagesausflüge',foodTitle:'Gut essen gehen',
+    details:'Details',north:'N',mapPoland:'POLEN',mapMountains:'RIESENGEBIRGE',
     filters:{vse:'Alle',pesky:'Ohne Auto',dest:'Bei Regen',deti:'Für Kinder',zviratka:'Tiere',vyhledy:'Aussichten',koupani:'Baden',nenarocne:'Gemütlich'},
     tripWord:n=>n===1?'Ausflug':'Ausflüge',
     why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht'}},
@@ -223,23 +225,40 @@ const I18N = {
     footer:'Prepared at Villa Rudolf · verify prices and hours before you go · weather: yr.no.',thanks:'Thank you for visiting and safe travels home!',
     mapTitle:'Area map',mapCaption:'Highlighted = trips from your plan',mapCapRing:'in the ring = walkable',mapFoot:'on foot',ringLabel:'walkable',
     legVilla:'Walkable',legNear:'Nearby',legFar:'Day trips',foodTitle:'Where to eat well',
+    details:'Details',north:'N',mapPoland:'POLAND',mapMountains:'GIANT MOUNTAINS',
     filters:{vse:'All',pesky:'No car',dest:'Rainy day',deti:'For kids',zviratka:'Animals',vyhledy:'Views',koupani:'Swimming',nenarocne:'Easy'},
     tripWord:n=>n===1?'trip':'trips',
-    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}}
+    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}},
+  pl:{greet:'Szanowni Państwo',welcome:'przygotowaliśmy propozycje wycieczek w okolicy – uszeregowane według pogody, wieku dzieci i wielkości grupy.',
+    arrival:'Przyjazd',departure:'Wyjazd',adults:'dorosłych',kids:'dzieci',today:'Propozycja na dziś',tomorrow:'Jutro',
+    arrivingIn:d=>`Przyjazd za ${d} ${d===1?'dzień':'dni'}`,plan:'Plan według pogody',allTrips:'Wszystkie wycieczki',
+    recommend:'Polecane',alt:'lub',forParty:'Szacunek dla Państwa grupy',openLabel:'Otwarte',priceLabel:'Wstęp',
+    transport:'Dojazd',byFoot:'pieszo od willi',min:'min samochodem',foot:'Wycieczka prosto od willi',
+    reservation:'Dla grupy zalecamy wcześniejszą rezerwację.',idDocs:'Przy przekraczaniu granicy każde dziecko musi mieć własny dokument tożsamości.',
+    capacity:'Przed wyjazdem prosimy sprawdzić obłożenie online.',
+    wxLive:'Pogoda na żywo z yr.no',updated:'zaktualizowano',planNote:'Plan opiera się na prognozie i jest tylko sugestią – rano prosimy sprawdzić aktualną pogodę i spokojnie zamienić dni (na dwór przy słońcu, pod dach przy deszczu).',
+    editParty:'zmień',editTitle:'Uściślij grupę',editAdults:'Dorośli',editKids:'Wiek dzieci (np. 8, 12)',editSave:'Zapisz',editClose:'Zamknij',
+    footer:'Przygotowane w Villi Rudolf · ceny i godziny otwarcia prosimy sprawdzić przed wyjazdem · pogoda: yr.no.',thanks:'Dziękujemy za wizytę i życzymy szczęśliwej drogi do domu!',
+    mapTitle:'Mapa okolicy',mapCaption:'Wyróżnione = wycieczki z Państwa planu',mapCapRing:'w kółku = pieszo od willi',mapFoot:'pieszo',ringLabel:'pieszo od willi',
+    legVilla:'Pieszo od willi',legNear:'W okolicy',legFar:'Na cały dzień',foodTitle:'Gdzie dobrze zjeść',
+    details:'Szczegóły',north:'N',mapPoland:'POLSKA',mapMountains:'KARKONOSZE',
+    filters:{vse:'Wszystko',pesky:'Bez auta',dest:'Na deszcz',deti:'Dla dzieci',zviratka:'Zwierzęta',vyhledy:'Widoki',koupani:'Kąpiel',nenarocne:'Łatwe'},
+    tripWord:n=>n===1?'wycieczka':((n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?'wycieczki':'wycieczek'),
+    why:{rain:'idealne na deszcz',clear:'piękny dzień na dworze',heat:'ochłoda w upał',teen:'dla nastolatków',kids:'dla dzieci',foot:'bez auta',cold:'na chłodne dni',adrenalin:'adrenalina',indoor:'pod dachem'}}
 };
 
 /* ===== Počasí: kategorie -> ikona + text ===== */
 const CAT = {
-  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',wet:1},
-  heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',wet:1},
-  rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',wet:1},
-  showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',wet:.5},
-  snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',wet:1},
-  fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',wet:0},
-  cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',wet:0},
-  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',wet:0},
-  fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',wet:0},
-  clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',wet:0}
+  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',pl:'burze',wet:1},
+  heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',pl:'silny deszcz',wet:1},
+  rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',pl:'deszcz',wet:1},
+  showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',pl:'przelotne opady',wet:.5},
+  snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',pl:'śnieg',wet:1},
+  fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',pl:'mgła',wet:0},
+  cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',pl:'pochmurno',wet:0},
+  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',pl:'częściowo pochmurno',wet:0},
+  fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',pl:'przeważnie słonecznie',wet:0},
+  clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',pl:'słonecznie',wet:0}
 };
 const isWet = c => CAT[c] ? CAT[c].wet : 0;
 const isNice = c => ['clear','fair','partly'].includes(c);
@@ -305,8 +324,10 @@ function buildPlan(trips,days,fl){
 
 /* ===== Pomocné ===== */
 const qs=new URLSearchParams(location.search);
-const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||''));
-function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(lang==='cs'?'cs-CZ':(lang==='de'?'de-DE':'en-GB'),{weekday:'short',day:'numeric',month:'numeric'});}
+const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||v.pl||''));
+// mapování jazyka hosta na locale pro data a časy (klíče musí odpovídat I18N)
+const LOCALE={cs:'cs-CZ',de:'de-DE',en:'en-GB',pl:'pl-PL'};
+function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(LOCALE[lang]||LOCALE.de,{weekday:'short',day:'numeric',month:'numeric'});}
 function daysBetween(a,b){const out=[];let d=new Date(a+'T00:00:00Z');const e=new Date(b+'T00:00:00Z');while(d<=e){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
@@ -445,7 +466,7 @@ function renderMapInner(trips,plan,lang,L,filterId){
   const target=0.3*(W-2*padX)*kmPerPx;
   const barKm=[2,5,10,15].reduce((a,b)=>Math.abs(b-target)<Math.abs(a-target)?b:a);
   const barPx=barKm/kmPerPx,sx=padX,sy=H-12;
-  const northLetter=lang==='cs'?'S':'N',nx=W-20;
+  const northLetter=L.north||'N',nx=W-20;
 
   let svg=`<svg class="map" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(L.mapTitle)}">`
     +`<rect class="m-land" x="0" y="0" width="${W}" height="${H}" rx="12"/>`;
@@ -482,8 +503,8 @@ function renderMapInner(trips,plan,lang,L,filterId){
   const riverPts=[[50.690,15.735],[50.668,15.775],[50.645,15.800],[50.6255,15.8136],[50.612,15.836],[50.598,15.858]].map(([la,lo])=>XY(la,lo));
   svg+=`<path class="m-river" d="${mapSmooth(riverPts)}"/>`;
   // řídké popisky do prázdných míst (destinace pojmenovává legenda, ne mapa)
-  svg+=`<text class="m-lbl" x="${X(15.5).toFixed(1)}" y="${Math.max(15,Y(50.8)-2).toFixed(1)}" text-anchor="middle">POLSKO</text>`
-    +`<text class="m-lbl" x="${X(15.63).toFixed(1)}" y="${(Y(borderLatAt(15.63))+12).toFixed(1)}" text-anchor="middle">KRKONOŠE</text>`
+  svg+=`<text class="m-lbl" x="${X(15.5).toFixed(1)}" y="${Math.max(15,Y(50.8)-2).toFixed(1)}" text-anchor="middle">${esc(L.mapPoland)}</text>`
+    +`<text class="m-lbl" x="${X(15.63).toFixed(1)}" y="${(Y(borderLatAt(15.63))+12).toFixed(1)}" text-anchor="middle">${esc(L.mapMountains)}</text>`
     +`<text class="m-lbl" x="${X(15.96).toFixed(1)}" y="${Y(50.53).toFixed(1)}" text-anchor="middle">Trutnov</text>`;
 
   // ===== schematický kroužek „pěšky od vily" =====
@@ -605,7 +626,7 @@ function render(data,token){
       <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
       <div class="meta">${heroDay.day.cat?(CAT[heroDay.day.cat][lang]+' · '+heroDay.day.max+'°C · '):''}${esc(tt(t.tagline,lang))}</div>
       <div class="badges">${bs.map(b=>`<span class="badge ${b.k}">${esc(b.t)}</span>`).join('')}</div>
-      <div class="alts"><a href="#${t.id}">${lang==='de'?'Details':(lang==='en'?'Details':'Detail')} →</a></div>
+      <div class="alts"><a href="#${t.id}">${esc(L.details)} →</a></div>
     </div>`;}
   else if(today>guest.departure){html+=`<div class="today"><h3>${esc(L.thanks)}</h3></div>`;}
 
@@ -664,7 +685,7 @@ function render(data,token){
     }
   }
 
-  html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(lang==='cs'?'cs-CZ':'de-DE',{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
+  html+=`<footer><p>${esc(L.footer)}</p><p>${esc(L.wxLive)}${gen?(' · '+L.updated+' '+gen.toLocaleString(LOCALE[lang]||LOCALE.de,{day:'numeric',month:'numeric',hour:'2-digit',minute:'2-digit'})):''}</p></footer>`;
   document.getElementById('app').innerHTML=html;
 
   // ===== Úprava skupiny: ovládání formuláře =====
