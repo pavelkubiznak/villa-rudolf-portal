@@ -72,7 +72,8 @@
      "label": {
       "cs": "Mapy.cz – autem do Pece",
       "de": "Mapy.cz – Route nach Pec",
-      "pl": "Mapy.cz – samochodem do Pecu"
+      "pl": "Mapy.cz – samochodem do Pecu",
+      "en": "Mapy.cz – drive to Pec"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
@@ -160,7 +161,8 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem"
+      "pl": "Mapy.cz – samochodem",
+      "en": "Mapy.cz – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic"
     }
@@ -249,7 +251,8 @@
      "label": {
       "cs": "Mapy.cz – pěšky od vily",
       "de": "Mapy.cz – zu Fuß",
-      "pl": "Mapy.cz – pieszo od willi"
+      "pl": "Mapy.cz – pieszo od willi",
+      "en": "Mapy.cz – walk from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking"
     }
@@ -328,7 +331,8 @@
      "label": {
       "cs": "Mapy.cz – pěšky",
       "de": "Mapy.cz – zu Fuß",
-      "pl": "Mapy.cz – pieszo"
+      "pl": "Mapy.cz – pieszo",
+      "en": "Mapy.cz – walk from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking"
     }
@@ -412,7 +416,8 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem"
+      "pl": "Mapy.cz – samochodem",
+      "en": "Mapy.cz – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic"
     }
@@ -492,7 +497,8 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem"
+      "pl": "Mapy.cz – samochodem",
+      "en": "Mapy.cz – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic"
     }
@@ -571,7 +577,8 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem"
+      "pl": "Mapy.cz – samochodem",
+      "en": "Mapy.cz – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic"
     }
@@ -650,7 +657,8 @@
      "label": {
       "cs": "Mapy.cz – autem",
       "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem"
+      "pl": "Mapy.cz – samochodem",
+      "en": "Mapy.cz – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic"
     }
@@ -731,7 +739,8 @@
      "label": {
       "cs": "Mapy.cz – půjčovna",
       "de": "Mapy.cz – Verleih",
-      "pl": "Mapy.cz – wypożyczalnia"
+      "pl": "Mapy.cz – wypożyczalnia",
+      "en": "Mapy.cz – rental shop"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic"
     }
@@ -816,12 +825,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – Areál Mladé Buky",
-      "de": "Mapy.cz – Areál Mladé Buky",
-      "en": "Mapy.cz – Areál Mladé Buky",
-      "pl": "Mapy.cz – Areál Mladé Buky"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=H%C5%99%C3%AD%C4%8Dky%20Buky%20Mlad%C3%A9%20Buky"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.839,50.609&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -907,12 +916,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – pěšky od vily",
+      "de": "Mapy.cz – zu Fuß ab Villa",
+      "en": "Mapy.cz – walk from the villa",
+      "pl": "Mapy.cz – pieszo od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Rodinn%C3%A1%20farma%20Vl%C4%8Dek%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8094,50.6326&routeType=foot_hiking"
     }
    ],
    "seasons": [
@@ -995,12 +1004,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – pěšky od vily",
+      "de": "Mapy.cz – zu Fuß ab Villa",
+      "en": "Mapy.cz – walk from the villa",
+      "pl": "Mapy.cz – pieszo od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Farmapark%20Muchom%C5%AFrka%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8052,50.6303&routeType=foot_hiking"
     }
    ],
    "seasons": [
@@ -1084,12 +1093,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – pěšky od vily",
+      "de": "Mapy.cz – zu Fuß ab Villa",
+      "en": "Mapy.cz – walk from the villa",
+      "pl": "Mapy.cz – pieszo od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Do%20Krakono%C5%A1ova%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.811656,50.633707&routeType=foot_hiking"
     }
    ]
   },
@@ -1169,12 +1178,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – pěšky od vily",
+      "de": "Mapy.cz – zu Fuß ab Villa",
+      "en": "Mapy.cz – walk from the villa",
+      "pl": "Mapy.cz – pieszo od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=R%20Burger%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.811605,50.63349&routeType=foot_hiking"
     }
    ]
   },
@@ -1254,12 +1263,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – pěšky od vily",
+      "de": "Mapy.cz – zu Fuß ab Villa",
+      "en": "Mapy.cz – walk from the villa",
+      "pl": "Mapy.cz – pieszo od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=St%C5%99elnice%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.805395,50.628414&routeType=foot_hiking"
     }
    ]
   },
@@ -1340,12 +1349,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Park%20Kabinka%20%C4%8Cern%C3%A1%20hora%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7524,50.649&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1425,12 +1434,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Rozhledna%20Hn%C4%9Bd%C3%BD%20vrch%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7071,50.6883&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1511,12 +1520,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Hern%C3%AD%20krajina%20Pecka%20Velk%C3%A1%20%C3%9Apa"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7689,50.702&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -1600,12 +1609,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Ob%C5%99%C3%AD%20d%C5%AFl%20kapli%C4%8Dka%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7336,50.6936&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1685,12 +1694,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=R%C3%BDchorsk%C3%A1%20bouda%20R%C3%BDchory"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8201,50.6608&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1771,12 +1780,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Sp%C3%A1len%C3%BD%20Ml%C3%BDn%20Mal%C3%A1%20%C3%9Apa"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8206,50.7447&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1856,12 +1865,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Muzeum%20V%C3%A1penka%20Horn%C3%AD%20Albe%C5%99ice"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.845,50.696&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1941,12 +1950,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Aichelburg%20Temn%C3%BD%20D%C5%AFl"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7914,50.6686&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -2030,12 +2039,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Ekocentrum%20DOTEK%20Horn%C3%AD%20Mar%C5%A1ov"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8192,50.6545&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -2118,12 +2127,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lanov%C3%BD%20park%20SV%C4%8C%20Trutnov"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.9121688,50.5658288&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -2207,12 +2216,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Letn%C3%AD%20koupali%C5%A1t%C4%9B%20Trutnov"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.92825,50.56518&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -2295,12 +2304,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Adr%C5%A1pa%C5%A1sk%C3%A9%20sk%C3%A1ly"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.1209,50.6142&routeType=car_fast_traffic"
     }
    ]
   },
@@ -2381,12 +2390,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Safari%20Park%20Dv%C5%AFr%20Kr%C3%A1lov%C3%A9"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8079,50.4323&routeType=car_fast_traffic"
     }
    ]
   },
@@ -2467,12 +2476,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20plov%C3%A1rna%20Sejfy%20Mlad%C3%A9%20Buky"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.84043,50.61743&routeType=car_fast_traffic"
     }
    ],
    "seasons": [
@@ -2554,12 +2563,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Nau%C4%8Dn%C3%A1%20stezka%20%C4%8Cernohorsk%C3%A9%20ra%C5%A1elini%C5%A1t%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.746,50.6462&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2640,12 +2649,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=R%C5%AF%C5%BEov%C3%A1%20hora%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7365,50.7235&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2725,12 +2734,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lu%C4%8Dn%C3%AD%20bouda%20Sn%C4%9B%C5%BEka"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.692,50.7256&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2803,12 +2812,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Chata%20Jelenka%20Horn%C3%AD%20Mal%C3%A1%20%C3%9Apa"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.806,50.748&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2879,12 +2888,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20d%C5%AFm%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.79,50.638&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2964,12 +2973,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=D%C4%9Btsk%C3%A9%20h%C5%99i%C5%A1t%C4%9B%20Horn%C3%AD%20Mar%C5%A1ov%20Mal%C3%A1%20uli%C4%8Dka"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8302,50.6497&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3052,12 +3061,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lezeck%C3%A1%20st%C4%9Bna%20SV%C4%8C%20Trutnov%20Na%20Niv%C3%A1ch"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.9124,50.5659&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -3138,12 +3147,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lesn%C3%AD%20bouda%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.709,50.677&routeType=car_fast_traffic"
     }
    ],
    "category": "animals",
@@ -3223,12 +3232,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Hotel%20Horizont%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7285,50.689&routeType=car_fast_traffic"
     }
    ],
    "category": "water",
@@ -3309,12 +3318,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8007,50.6349&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3398,12 +3407,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Svoboda%20nad%20%C3%9Apou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8012,50.6347&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3486,12 +3495,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=%C4%8Cernohorsk%C3%BD%20Express%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -3574,12 +3583,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7305,50.691&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -3663,12 +3672,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Lanovka%20Port%C3%A1%C5%A1ky%20Velk%C3%A1%20%C3%9Apa"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7679,50.69&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3752,12 +3761,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Skiare%C3%A1l%20%C4%8Cern%C3%BD%20D%C5%AFl"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.70571,50.64106&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3841,12 +3850,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Ski%20are%C3%A1l%20SKiMU%20Pomezn%C3%AD%20Boudy"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8226,50.7459&routeType=car_fast_traffic"
     }
    ],
    "category": "kids",
@@ -3929,12 +3938,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=%C4%8Cern%C3%A1%20hora%20Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7524,50.649&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -4017,12 +4026,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Jansk%C3%A9%20L%C3%A1zn%C4%9B"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7807,50.6306&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -4105,12 +4114,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Krkono%C5%A1sk%C3%A1%20magistr%C3%A1la%20%C4%8Cern%C3%A1%20hora"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7545,50.6425&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -4193,12 +4202,12 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – ukázat na mapě",
-      "de": "Mapy.cz – auf der Karte",
-      "en": "Mapy.cz – show on map",
-      "pl": "Mapy.cz – pokaż na mapie"
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.cz/turisticka?q=Funline%20Pec%20pod%20Sn%C4%9B%C5%BEkou"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.729,50.689&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
