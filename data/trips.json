@@ -4215,6 +4215,330 @@
    "seasons": [
     "winter"
    ]
+  },
+  {
+   "id": "klaster-broumov",
+   "icon": "fort",
+   "accent": "#8a6d3b",
+   "coords": {
+    "lat": 50.5862,
+    "lon": 16.3319,
+    "alt": 400
+   },
+   "travelMin": 55,
+   "byFoot": false,
+   "outdoor": false,
+   "indoorOrCovered": true,
+   "rainOk": true,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": true,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "category": "culture",
+   "zone": "far",
+   "group": {
+    "groupTariffMin": null,
+    "reservation": true,
+    "capacity": false
+   },
+   "name": {
+    "cs": "Klášter Broumov a klášterní zahrada",
+    "de": "Kloster Broumov und der Klostergarten",
+    "en": "Broumov Monastery and its garden",
+    "pl": "Klasztor Broumov i ogród klasztorny"
+   },
+   "tagline": {
+    "cs": "barokní Dientzenhofer · zahrada zdarma",
+    "de": "Barock von Dientzenhofer · Garten frei zugänglich",
+    "en": "Dientzenhofer baroque · garden free to enter",
+    "pl": "barok Dientzenhofera · ogród za darmo"
+   },
+   "desc": {
+    "cs": "Benediktinské opatství sv. Václava od Kiliána Ignáce Dientzenhofera, asi hodinu autem přes Adršpach. Základní prohlídka trvá 70–80 minut a vede klášterním kostelem, refektářem, sakristií a křížovou chodbou; knihovna v ní není. Prohlídky startují v celou půlhodinu od 9:30 do 15:30, takže se vyplatí přijet s rezervou. Nejlepší na tom je ale klášterní zahrada – je volně přístupná i bez vstupenky a je v ní kavárna Café Dientzenhofer, dětská galerie Lapidárium a Galerie Dům. U vstupu do zahrady je krytá kolárna. Když nemáte čas nebo náladu na celou prohlídku, zajděte aspoň do zahrady.",
+    "de": "Die Benediktinerabtei St. Wenzel von Kilian Ignaz Dientzenhofer, etwa eine Autostunde über Adersbach. Die Basisführung dauert 70–80 Minuten und führt durch Klosterkirche, Refektorium, Sakristei und Kreuzgang; die Bibliothek gehört nicht dazu. Die Führungen starten jeweils zur halben Stunde von 9:30 bis 15:30 – kommen Sie lieber mit etwas Puffer. Das Schönste ist aber der Klostergarten: frei zugänglich auch ohne Eintrittskarte, mit dem Café Dientzenhofer, der Kindergalerie Lapidárium und der Galerie Dům. Am Garteneingang gibt es einen überdachten Fahrradraum. Wenn die Zeit für die ganze Führung nicht reicht, gehen Sie wenigstens in den Garten.",
+    "en": "The Benedictine abbey of St Wenceslas by Kilian Ignaz Dientzenhofer, about an hour's drive via Adršpach. The basic tour runs 70–80 minutes through the monastery church, refectory, sacristy and cloister; the library is not included. Tours leave on the half hour from 9:30 to 15:30, so allow a little slack. The best part, though, is the monastery garden – open to anyone without a ticket, with Café Dientzenhofer, the Lapidárium children's gallery and Galerie Dům inside. There is covered bicycle storage by the garden entrance. If a full tour is too much, at least walk through the garden.",
+    "pl": "Opactwo benedyktynów św. Wacława autorstwa Kiliána Ignáca Dientzenhofera, około godziny jazdy przez Adršpach. Podstawowe zwiedzanie trwa 70–80 minut i prowadzi przez kościół klasztorny, refektarz, zakrystię i krużganek; biblioteki w nim nie ma. Zwiedzanie rusza o każdej pełnej półgodzinie od 9:30 do 15:30, więc warto przyjechać z zapasem. Najlepszy jest jednak ogród klasztorny – dostępny bez biletu, a w nim Café Dientzenhofer, galeria dziecięca Lapidárium i Galerie Dům. Przy wejściu do ogrodu jest zadaszona rowerownia. Jeśli nie starczy czasu na całe zwiedzanie, wejdźcie chociaż do ogrodu."
+   },
+   "openNote": {
+    "cs": "duben–říjen denně 9:00–16:00 · listopad–březen denně 10:00–15:00 · prohlídky 9:30–15:30 · zahrada volně přístupná",
+    "de": "April–Oktober täglich 9:00–16:00 · November–März täglich 10:00–15:00 · Führungen 9:30–15:30 · Garten frei zugänglich",
+    "en": "April–October daily 9:00–16:00 · November–March daily 10:00–15:00 · tours 9:30–15:30 · garden freely accessible",
+    "pl": "kwiecień–październik codziennie 9:00–16:00 · listopad–marzec codziennie 10:00–15:00 · zwiedzanie 9:30–15:30 · ogród dostępny swobodnie"
+   },
+   "price": {
+    "cs": "dospělí 170 Kč · rodina (1–2 dospělí + max. 3 děti do 15 let) 600 Kč · zahrada zdarma",
+    "de": "Erwachsene 170 Kč · Familie (1–2 Erwachsene + max. 3 Kinder bis 15 J.) 600 Kč · Garten kostenlos",
+    "en": "adults 170 Kč · family (1–2 adults + up to 3 children under 15) 600 Kč · garden free",
+    "pl": "dorośli 170 Kč · rodzina (1–2 dorosłych + maks. 3 dzieci do 15 lat) 600 Kč · ogród za darmo"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": "klasterbroumov.cz",
+     "url": "https://www.klasterbroumov.cz/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
+     },
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.3319,50.5862&routeType=car_fast_traffic"
+    }
+   ]
+  },
+  {
+   "id": "broumovske-steny-hvezda",
+   "icon": "mountain",
+   "accent": "#6b7f5a",
+   "coords": {
+    "lat": 50.5668,
+    "lon": 16.2665,
+    "alt": 674
+   },
+   "travelMin": 50,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": true,
+   "effort": "medium",
+   "stairs": true,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "category": "viewpoint",
+   "zone": "far",
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": false
+   },
+   "interests": [
+    "moto"
+   ],
+   "name": {
+    "cs": "Broumovské stěny – Hvězda a stolová hora Ostaš",
+    "de": "Broumover Wände – Hvězda und der Tafelberg Ostaš",
+    "en": "Broumov Walls – Hvězda and the Ostaš table mountain",
+    "pl": "Ściany Broumovskie – Hvězda i góra stołowa Ostaš"
+   },
+   "tagline": {
+    "cs": "hřeben s vyhlídkami · serpentiny cestou",
+    "de": "Kamm mit Aussichten · Serpentinen auf dem Weg",
+    "en": "ridge with viewpoints · switchbacks on the way",
+    "pl": "grzbiet z widokami · serpentyny po drodze"
+   },
+   "desc": {
+    "cs": "Skalnatý hřeben nad Broumovskou kotlinou. Autem se sem jede přes Polici nad Metují a Hlavňov a už samotná cesta stojí za to – klikaté silničky s minimem provozu. Parkuje se asi 200 m pod chatou Hvězda (674 m), která je zároveň hostinec, takže se dá spojit vyhlídka s obědem. Od chaty vede po hřebeni řada vyhlídek na Broumovsko, Javoří a Soví hory. Kousek vedle stojí stolová hora Ostaš s Horním a Dolním labyrintem – úzké skalní chodby, ve kterých se dá strávit klidně další dvě hodiny. Celé území je CHKO Broumovsko. Za mlhy nebo silného větru výhledy nejsou a mokrý pískovec klouže.",
+    "de": "Ein Felsenkamm über dem Broumover Becken. Mit dem Auto fährt man über Police nad Metují und Hlavňov, und schon die Anfahrt lohnt sich – kurvige Sträßchen mit sehr wenig Verkehr. Geparkt wird rund 200 m unterhalb der Baude Hvězda (674 m), die zugleich ein Gasthaus ist, Aussicht und Mittagessen lassen sich also verbinden. Vom Haus führt der Kamm zu mehreren Aussichtspunkten über das Broumovsko, das Rabengebirge und die Eulenberge. Gleich nebenan liegt der Tafelberg Ostaš mit dem Oberen und Unteren Labyrinth – enge Felsengassen, in denen man leicht zwei weitere Stunden verbringt. Das ganze Gebiet ist Landschaftsschutzgebiet. Bei Nebel oder starkem Wind gibt es keine Aussicht, und nasser Sandstein ist rutschig.",
+    "en": "A rocky ridge above the Broumov basin. You drive in via Police nad Metují and Hlavňov, and the approach alone is worth it – winding lanes with very little traffic. Parking is about 200 m below the Hvězda chalet (674 m), which is also an inn, so a viewpoint and lunch go together. From the chalet the ridge strings together several outlooks over the Broumov region and the Javoří and Soví hills. Next door stands the Ostaš table mountain with its Upper and Lower Labyrinth – narrow rock corridors that can easily swallow another two hours. The whole area is a protected landscape. In fog or strong wind there is no view, and wet sandstone is slippery.",
+    "pl": "Skalisty grzbiet nad Kotliną Broumovską. Samochodem jedzie się przez Police nad Metují i Hlavňov, a sama droga jest tego warta – kręte drogi z minimalnym ruchem. Parking znajduje się około 200 m poniżej schroniska Hvězda (674 m), które jest jednocześnie gospodą, więc widoki można połączyć z obiadem. Od schroniska grzbietem prowadzi szereg punktów widokowych na Broumovsko oraz góry Javoří i Soví. Obok leży góra stołowa Ostaš z Górnym i Dolnym Labiryntem – wąskie skalne korytarze, w których łatwo spędzić kolejne dwie godziny. Cały teren to park krajobrazowy. We mgle lub przy silnym wietrze widoków nie ma, a mokry piaskowiec jest śliski."
+   },
+   "openNote": {
+    "cs": "hřeben přístupný celoročně · chata Hvězda mimo sezónu nemusí mít otevřeno, ověřte předem",
+    "de": "Kamm ganzjährig zugänglich · die Baude Hvězda hat außerhalb der Saison nicht immer offen, vorher prüfen",
+    "en": "ridge open all year · the Hvězda chalet may be closed off-season, check ahead",
+    "pl": "grzbiet dostępny cały rok · schronisko Hvězda poza sezonem bywa zamknięte, sprawdźcie wcześniej"
+   },
+   "price": {
+    "cs": "vstup zdarma · parkoviště pod chatou za poplatek",
+    "de": "Eintritt frei · Parkplatz unterhalb der Baude gebührenpflichtig",
+    "en": "free entry · paid car park below the chalet",
+    "pl": "wstęp wolny · parking pod schroniskiem płatny"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": "broumovskesteny.cz",
+     "url": "https://www.broumovskesteny.cz/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
+     },
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.2665,50.5668&routeType=car_fast_traffic"
+    }
+   ]
+  },
+  {
+   "id": "museum-crr",
+   "icon": "bike",
+   "accent": "#b4442c",
+   "coords": {
+    "lat": 50.3665,
+    "lon": 15.6318,
+    "alt": 300
+   },
+   "travelMin": 50,
+   "byFoot": false,
+   "outdoor": false,
+   "indoorOrCovered": true,
+   "rainOk": true,
+   "lovesHeat": false,
+   "needsClearLowWind": false,
+   "effort": "easy",
+   "stairs": true,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "child",
+    "teen",
+    "adult"
+   ],
+   "category": "culture",
+   "zone": "far",
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": false
+   },
+   "interests": [
+    "moto"
+   ],
+   "name": {
+    "cs": "Museum Czech Road Racing v Hořicích",
+    "de": "Museum Czech Road Racing in Hořice",
+    "en": "Museum Czech Road Racing in Hořice",
+    "pl": "Museum Czech Road Racing w Hořicach"
+   },
+   "tagline": {
+    "cs": "závodní speciály · 300 zatáček · vstup 50 Kč",
+    "de": "Rennmaschinen · 300 Kurven · Eintritt 50 Kč",
+    "en": "racing machines · 300 Curves · entry 50 Kč",
+    "pl": "motocykle wyścigowe · 300 zakrętów · wstęp 50 Kč"
+   },
+   "desc": {
+    "cs": "Muzeum silničních motocyklových závodů v hořickém zámku, věnované legendárnímu přírodnímu okruhu 300 zatáček Gustava Havla. Ve dvou patrech stojí závodní speciály jako muzejní exponáty a je tu Síň slávy motocyklových legend. Na motorkáře to působí jinak než běžná expozice – tohle je domácí historie, ne přehlídka cizích strojů. V roce 2026 muzeum připomíná 100 let od prvního čistě hořického motocyklového závodu a 90 let od prvního předválečného ročníku 300 zatáček. Vstupné je symbolické. Mimo otevírací dny se dá návštěva domluvit telefonicky.",
+    "de": "Ein Museum des Straßenrennsports im Schloss von Hořice, gewidmet dem legendären Naturkurs „300 Kurven des Gustav Havel\". Auf zwei Etagen stehen Rennmaschinen als Museumsstücke, dazu eine Ruhmeshalle der Motorradlegenden. Auf Motorradfahrer wirkt das anders als eine übliche Ausstellung – das ist heimische Geschichte, keine Schau fremder Maschinen. 2026 erinnert das Museum an 100 Jahre seit dem ersten rein Hořicer Motorradrennen und 90 Jahre seit dem ersten Vorkriegslauf der 300 Kurven. Der Eintritt ist symbolisch. Außerhalb der Öffnungstage lässt sich ein Besuch telefonisch vereinbaren.",
+    "en": "A museum of road racing in the Hořice chateau, devoted to the legendary natural circuit known as Gustav Havel's 300 Curves. Two floors of racing machines as museum pieces, plus a hall of fame of motorcycle legends. For riders it lands differently than an ordinary exhibition – this is local history, not a parade of other people's machines. In 2026 the museum marks 100 years since the first purely Hořice motorcycle race and 90 years since the first pre-war running of the 300 Curves. Admission is nominal. Outside opening days a visit can be arranged by phone.",
+    "pl": "Muzeum wyścigów motocyklowych w zamku w Hořicach, poświęcone legendarnemu torowi naturalnemu „300 zakrętów Gustava Havla\". Na dwóch piętrach stoją motocykle wyścigowe jako eksponaty, jest też galeria sław motocyklowych legend. Na motocyklistów działa to inaczej niż zwykła ekspozycja – to historia miejscowa, nie pokaz cudzych maszyn. W 2026 roku muzeum przypomina 100 lat od pierwszego czysto hořickiego wyścigu motocyklowego i 90 lat od pierwszej przedwojennej edycji 300 zakrętów. Wstęp jest symboliczny. Poza dniami otwarcia wizytę można umówić telefonicznie."
+   },
+   "openNote": {
+    "cs": "sezóna 15. 5.–20. 9. · květen, červen, září pá–ne 10:00–17:00 · červenec–srpen čt–ne 10:00–17:00 · jindy po telefonu",
+    "de": "Saison 15. 5.–20. 9. · Mai, Juni, September Fr–So 10:00–17:00 · Juli–August Do–So 10:00–17:00 · sonst nach telefonischer Absprache",
+    "en": "season 15 May–20 Sep · May, June, September Fri–Sun 10:00–17:00 · July–August Thu–Sun 10:00–17:00 · otherwise by phone",
+    "pl": "sezon 15.05–20.09 · maj, czerwiec, wrzesień pt–niedz 10:00–17:00 · lipiec–sierpień czw–niedz 10:00–17:00 · poza tym po telefonie"
+   },
+   "price": {
+    "cs": "dospělí 50 Kč · děti od 12 let a senioři 30 Kč · děti do 12 let zdarma",
+    "de": "Erwachsene 50 Kč · Kinder ab 12 J. und Senioren 30 Kč · Kinder unter 12 frei",
+    "en": "adults 50 Kč · children 12+ and seniors 30 Kč · under 12 free",
+    "pl": "dorośli 50 Kč · dzieci od 12 lat i seniorzy 30 Kč · dzieci do 12 lat za darmo"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": "museumcrr.cz",
+     "url": "https://www.museumcrr.cz/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
+     },
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6318,50.3665&routeType=car_fast_traffic"
+    }
+   ]
+  },
+  {
+   "id": "moto-okruh-vila",
+   "icon": "route",
+   "accent": "#c0492b",
+   "coords": {
+    "lat": 50.62545,
+    "lon": 15.8136,
+    "alt": 500
+   },
+   "travelMin": 0,
+   "byFoot": false,
+   "outdoor": true,
+   "indoorOrCovered": false,
+   "rainOk": false,
+   "lovesHeat": false,
+   "needsClearLowWind": true,
+   "effort": "easy",
+   "stairs": false,
+   "crossBorderId": false,
+   "minAge": 0,
+   "bestFor": [
+    "teen",
+    "adult"
+   ],
+   "category": "viewpoint",
+   "zone": "villa",
+   "group": {
+    "groupTariffMin": null,
+    "reservation": false,
+    "capacity": false
+   },
+   "interests": [
+    "moto"
+   ],
+   "name": {
+    "cs": "Okružní vyjížďka přímo od vily",
+    "de": "Ausfahrt direkt ab der Villa",
+    "en": "Round trip straight from the villa",
+    "pl": "Pętla prosto od willi"
+   },
+   "tagline": {
+    "cs": "hotová trasa · kurvy a málo provozu",
+    "de": "fertige Route · Kurven und wenig Verkehr",
+    "en": "ready-made route · curves and little traffic",
+    "pl": "gotowa trasa · zakręty i mały ruch"
+   },
+   "desc": {
+    "cs": "Okruh, který startuje přímo před domem a zase se sem vrací – nemusíte nic plánovat, stačí otevřít trasu v mapě a vyrazit. Vede po silnicích, které tady místní používají na projížďky: hodně zatáček, minimum kamionů a cestou je pořád co koukat. Hodí se na motorku i na kolo a autem se dá projet taky. Za deště nebo mlhy si ji nechte na jiný den – tyhle silnice mají smysl za sucha a za dobré viditelnosti. Počítejte, že to není závod: nejlepší je vzít to na půl dne a někde po cestě se zastavit na oběd.",
+    "de": "Eine Runde, die direkt vor dem Haus startet und wieder hierher zurückführt – Sie müssen nichts planen, einfach die Route in der Karte öffnen und losfahren. Sie verläuft über Straßen, die die Einheimischen hier zum Fahren nutzen: viele Kurven, kaum Lastwagen und unterwegs immer etwas zu sehen. Passt für Motorrad und Fahrrad, mit dem Auto geht es ebenso. Bei Regen oder Nebel heben Sie sie sich für einen anderen Tag auf – diese Straßen lohnen sich bei trockener Fahrbahn und guter Sicht. Und rechnen Sie nicht mit einem Rennen: Am schönsten ist es, einen halben Tag einzuplanen und unterwegs zum Mittagessen anzuhalten.",
+    "en": "A loop that starts right outside the house and brings you back to it – nothing to plan, just open the route on the map and go. It runs on the roads locals here use for riding: plenty of corners, almost no lorries, and something to look at the whole way. It suits a motorcycle or a bicycle, and a car works too. Save it for another day if it rains or fogs in – these roads are worth it on a dry surface with good visibility. And do not treat it as a race: it is best taken as a half day with a lunch stop somewhere along the way.",
+    "pl": "Pętla, która startuje tuż przed domem i tu wraca – nie trzeba nic planować, wystarczy otworzyć trasę na mapie i ruszyć. Prowadzi drogami, których miejscowi używają do jazdy dla przyjemności: dużo zakrętów, minimum ciężarówek, a po drodze ciągle jest na co patrzeć. Nadaje się na motocykl i na rower, samochodem też się da. Przy deszczu lub mgle zostawcie ją na inny dzień – te drogi mają sens przy suchej nawierzchni i dobrej widoczności. I nie traktujcie jej jak wyścigu: najlepiej wziąć na pół dnia i zatrzymać się gdzieś na obiad."
+   },
+   "openNote": {
+    "cs": "kdykoli · nejlepší za sucha a dobré viditelnosti",
+    "de": "jederzeit · am besten bei trockener Fahrbahn und guter Sicht",
+    "en": "any time · best on a dry road with good visibility",
+    "pl": "o każdej porze · najlepiej przy suchej drodze i dobrej widoczności"
+   },
+   "price": {
+    "cs": "zdarma",
+    "de": "kostenlos",
+    "en": "free",
+    "pl": "za darmo"
+   },
+   "links": [
+    {
+     "icon": "route",
+     "label": {
+      "cs": "Trasa na Mapy.cz",
+      "de": "Route auf Mapy.cz",
+      "en": "Route on Mapy.cz",
+      "pl": "Trasa na Mapy.cz"
+     },
+     "url": "https://en.mapy.cz/zakladni?planovani-trasy&rc=9jz7ox10439kqZT3af9l6O4x-5xK9lYZcmEu9j.uCx1ixOe9mx1043&rs=firm&rs=muni&rs=base&rs=base&rs=area&rs=firm&ri=13367623&ri=795&ri=1716094&ri=1833956&ri=21737&ri=13367623&mrp=%7B%22c%22%3A111%7D&xc=%5B%5D&rut=1&x=16.0731020&y=50.6750182&z=10"
+    }
+   ],
+   "interestOnly": true
   }
  ],
  "food": [
@@ -4525,6 +4849,56 @@
       "pl": "Mapy.cz – pokaż na mapie"
      },
      "url": "https://mapy.cz/turisticka?q=Cukr%C3%A1rna%20a%20kav%C3%A1rna%20Promen%C3%A1da%20Trutnov"
+    }
+   ]
+  },
+  {
+   "id": "u-kostela-broumov",
+   "coords": {
+    "lat": 50.5855,
+    "lon": 16.3305
+   },
+   "travelMin": 55,
+   "byFoot": false,
+   "name": {
+    "cs": "Restaurace U Kostela, Broumov",
+    "de": "Restaurace U Kostela, Broumov",
+    "en": "Restaurace U Kostela, Broumov",
+    "pl": "Restauracja U Kostela, Broumov"
+   },
+   "tagline": {
+    "cs": "česká klasika · kousek od kláštera",
+    "de": "tschechische Klassiker · nahe am Kloster",
+    "en": "Czech classics · a short walk from the monastery",
+    "pl": "czeska klasyka · kawałek od klasztoru"
+   },
+   "desc": {
+    "cs": "Dobré, jednoduché jídlo za normální ceny – přesně to, co člověk po půldni na cestě ocení. České speciality, denní menu a čepované broumovské pivo. Uvnitř je asi 45 míst plus zahrádka, takže větší parta se vejde, ale o víkendu je lepší zavolat dopředu. Hodí se to spojit s návštěvou kláštera, je odsud kousek.",
+    "de": "Gutes, einfaches Essen zu normalen Preisen – genau das, was man nach einem halben Tag unterwegs zu schätzen weiß. Tschechische Spezialitäten, Tagesmenü und Broumover Bier vom Fass. Drinnen rund 45 Plätze plus Gartenterrasse, eine größere Gruppe passt also hinein, am Wochenende ruft man aber besser vorher an. Lässt sich gut mit dem Klosterbesuch verbinden, es ist nur ein Stück entfernt.",
+    "en": "Good, simple food at normal prices – exactly what you appreciate after half a day on the road. Czech specialities, a daily menu and Broumov beer on tap. Around 45 seats inside plus a terrace, so a larger group fits, though at weekends it is better to call ahead. Easy to combine with the monastery, which is close by.",
+    "pl": "Dobre, proste jedzenie w normalnych cenach – dokładnie to, co docenia się po pół dnia w drodze. Czeskie specjalności, menu dnia i lane piwo z Broumova. W środku około 45 miejsc plus ogródek, więc większa grupa się zmieści, ale w weekend lepiej zadzwonić wcześniej. Dobrze łączy się ze zwiedzaniem klasztoru, jest stąd kawałek."
+   },
+   "openNote": {
+    "cs": "po–ne 11:00–22:30 · pro skupinu volejte předem",
+    "de": "Mo–So 11:00–22:30 · für Gruppen bitte vorher anrufen",
+    "en": "Mon–Sun 11:00–22:30 · call ahead for groups",
+    "pl": "pon–niedz 11:00–22:30 · dla grup zadzwońcie wcześniej"
+   },
+   "links": [
+    {
+     "icon": "globe",
+     "label": "Facebook",
+     "url": "https://www.facebook.com/DVORACEKDUSAN/"
+    },
+    {
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.cz – autem od vily",
+      "de": "Mapy.cz – Route ab Villa",
+      "en": "Mapy.cz – drive from the villa",
+      "pl": "Mapy.cz – samochodem od willi"
+     },
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.3305,50.5855&routeType=car_fast_traffic"
     }
    ]
   }

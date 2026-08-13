@@ -44,6 +44,10 @@ a{color:var(--accent);}
 .edit-form .fld{margin-bottom:14px;}
 .edit-form input{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);}
 .edit-form input:focus{outline:2px solid var(--accent-2);outline-offset:0;border-color:var(--accent-2);}
+/* zaškrtávátko: popiska vedle boxu, ne nad ním jako u textových polí */
+.edit-form .chk{display:flex;align-items:center;gap:9px;margin:0;font-size:.95rem;font-weight:400;
+  text-transform:none;letter-spacing:0;color:var(--ink);cursor:pointer;}
+.edit-form .chk input{width:auto;flex:none;accent-color:var(--accent);}
 .edit-form .btns{display:flex;gap:10px;flex-wrap:wrap;}
 .edit-form button{font:inherit;font-weight:600;padding:10px 18px;border-radius:10px;cursor:pointer;border:1px solid var(--line);}
 .edit-form .save{background:var(--accent);color:#fbf9f3;border-color:var(--accent);}
@@ -197,6 +201,8 @@ const CFG = {
 /* ===== i18n ===== */
 const I18N = {
   cs:{greet:'Vážená rodino',welcome:'připravili jsme vám tipy na výlety v okolí – řazené podle počasí, věku dětí i velikosti vaší skupiny.',
+    greetGroup:'Vážení hosté',welcomeGroup:'připravili jsme vám tipy na výlety v okolí – řazené podle počasí a velikosti vaší party.',
+    editInterests:'Jedete na motorkách?',intMoto:'Ano, jsme na motorkách',
     arrival:'Příjezd',departure:'Odjezd',adults:'dospělí',kids:'děti',today:'Dnešní tip',tomorrow:'Zítřek',
     arrivingIn:d=>`Přijíždíte za ${d} ${d===1?'den':(d<5?'dny':'dní')}`,plan:'Plán podle počasí',allTrips:'Všechny výlety',
     recTitle:'Doporučujeme vám',moreTitle:'Další výlety',
@@ -211,8 +217,10 @@ const I18N = {
     legVilla:'Pěšky od vily',legNear:'V okolí',legFar:'Na celý den',foodTitle:'Kam na dobré jídlo',
     filters:{vse:'Vše',pesky:'Bez auta',dest:'Za deště',deti:'Pro děti',zviratka:'Zvířátka',vyhledy:'Výhledy',koupani:'Koupání',nenarocne:'Nenáročné'},
     tripWord:n=>n===1?'výlet':(n>=2&&n<=4?'výlety':'výletů'),
-    why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu'}},
+    why:{rain:'ideální za deště',clear:'krásný den ven',heat:'osvěžení v horku',teen:'pro teenagery',kids:'pro děti',foot:'bez auta',cold:'do chladna',adrenalin:'adrenalin',indoor:'pod střechu',moto:'pro motorkáře'}},
   de:{greet:'Liebe Familie',welcome:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter, Alter der Kinder und Größe Ihrer Gruppe.',
+    greetGroup:'Liebe Gäste',welcomeGroup:'wir haben Ausflugstipps für die Umgebung zusammengestellt – sortiert nach Wetter und Größe Ihrer Gruppe.',
+    editInterests:'Sind Sie mit dem Motorrad unterwegs?',intMoto:'Ja, wir sind mit dem Motorrad da',
     arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
     arrivingIn:d=>`Anreise in ${d} ${d===1?'Tag':'Tagen'}`,plan:'Plan nach Wetter',allTrips:'Alle Ausflüge',
     recTitle:'Unsere Empfehlung für Sie',moreTitle:'Weitere Ausflüge',
@@ -227,8 +235,10 @@ const I18N = {
     legVilla:'Zu Fuß',legNear:'In der Umgebung',legFar:'Tagesausflüge',foodTitle:'Gut essen gehen',
     filters:{vse:'Alle',pesky:'Ohne Auto',dest:'Bei Regen',deti:'Für Kinder',zviratka:'Tiere',vyhledy:'Aussichten',koupani:'Baden',nenarocne:'Gemütlich'},
     tripWord:n=>n===1?'Ausflug':'Ausflüge',
-    why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht'}},
+    why:{rain:'ideal bei Regen',clear:'schöner Tag draußen',heat:'Abkühlung bei Hitze',teen:'für Teenager',kids:'für Kinder',foot:'ohne Auto',cold:'für kühle Tage',adrenalin:'Adrenalin',indoor:'überdacht',moto:'für Motorradfahrer'}},
   en:{greet:'Dear guests',welcome:'we put together trip ideas nearby – ranked by weather, kids’ ages and your group size.',
+    greetGroup:'Dear guests',welcomeGroup:'we put together trip ideas nearby – ranked by weather and your group size.',
+    editInterests:'Are you travelling by motorbike?',intMoto:'Yes, we are on motorbikes',
     arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
     arrivingIn:d=>`Arriving in ${d} day${d===1?'':'s'}`,plan:'Weather-based plan',allTrips:'All trips',
     recTitle:'Recommended for you',moreTitle:'More trips',
@@ -243,7 +253,7 @@ const I18N = {
     legVilla:'Walkable',legNear:'Nearby',legFar:'Day trips',foodTitle:'Where to eat well',
     filters:{vse:'All',pesky:'No car',dest:'Rainy day',deti:'For kids',zviratka:'Animals',vyhledy:'Views',koupani:'Swimming',nenarocne:'Easy'},
     tripWord:n=>n===1?'trip':'trips',
-    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors'}}
+    why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors',moto:'for riders'}}
 };
 
 /* ===== Počasí: kategorie -> ikona + text ===== */
@@ -265,6 +275,7 @@ const isNice = c => ['clear','fair','partly'].includes(c);
 /* ===== Doporučovací jádro ===== */
 function partyFlags(p){
   const kids = p.children||[];
+  const zajmy = p.interests||[];
   return {
     size:(p.adults||0)+kids.length,
     minKidAge:kids.length?Math.min.apply(null,kids):null,
@@ -272,7 +283,10 @@ function partyFlags(p){
     hasYoungKid:kids.some(a=>a>=5&&a<=9),
     hasKid:kids.some(a=>a<=11),
     hasTeen:kids.some(a=>a>=12)|| (kids.length===0), // bez dětí = dospělá parta, adrenalin OK
-    isGroup:((p.adults||0)+kids.length)>=8
+    isGroup:((p.adults||0)+kids.length)>=8,
+    hasKids:kids.length>0,          // rozhoduje o oslovení: rodina vs. parta
+    interests:zajmy,
+    isMoto:zajmy.includes('moto')
   };
 }
 // tvrdé filtry pro daný den
@@ -281,6 +295,10 @@ function eligible(trip,day,fl){
   if(fl.hasToddler && trip.effort==='hard') return false;
   // do plánu nedoporučuj výlety s věkovým limitem nad nejmladší dítě (v katalogu zůstávají)
   if(trip.minAge&&fl.minKidAge!=null&&fl.minKidAge<trip.minAge) return false;
+  // interests = pro koho je výlet navíc zajímavý (jen bonus ve skóre).
+  // interestOnly = bez toho zájmu nedává smysl vůbec (vyjížďka po serpentinách
+  // rodině s kočárkem), takže ven z plánu – v katalogu zůstává.
+  if(trip.interestOnly&&!(trip.interests||[]).some(i=>fl.interests.includes(i))) return false;
   return true;
 }
 function scoreTrip(trip,day,fl){
@@ -295,6 +313,11 @@ function scoreTrip(trip,day,fl){
   if(fl.hasTeen){ if(['adrenalin','active','viewpoint'].includes(trip.category)|| ['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) s+=1.5; }
   if(fl.hasToddler||fl.hasYoungKid){ if(['janske-hallenbad','baumwipfelpfad','aqua-vrchlabi','aquapark-karpacz','hricky-buky'].includes(trip.id)) s+=1.5; if(trip.stairs) s-=1; }
   if(trip.byFoot) s+=0.6;
+  // parta bez dětí: dětské atrakce dolů. Bez toho dostali čtyři motorkáři
+  // do doporučení dětský zábavní park.
+  if(!fl.hasKids && trip.category==='kids') s-=2.5;
+  // zájmový bonus – motorkáři dostanou nahoru to, co je baví (muzeum, serpentiny, vyjížďka)
+  if((trip.interests||[]).some(i=>fl.interests.includes(i))) s+=2.5;
   return s;
 }
 function whyBadges(trip,day,fl,L){
@@ -303,6 +326,7 @@ function whyBadges(trip,day,fl,L){
   else if(hot&&trip.lovesHeat) out.push({t:w.heat,k:'heat'});
   else if(c&&isNice(c)&&trip.outdoor) out.push({t:w.clear,k:''});
   else if(cold&&trip.indoorOrCovered) out.push({t:w.cold,k:''});
+  if(fl.isMoto&&(trip.interests||[]).includes('moto')) out.push({t:w.moto,k:'heat'});
   if(fl.hasTeen&&['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) out.push({t:w.adrenalin,k:'heat'});
   if((fl.hasToddler||fl.hasYoungKid)&&['janske-hallenbad','baumwipfelpfad','hricky-buky'].includes(trip.id)) out.push({t:w.kids,k:''});
   if(trip.byFoot) out.push({t:w.foot,k:''});
@@ -330,7 +354,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 
 /* ===== Úprava skupiny (localStorage + Supabase RPC) ===== */
 const partyKey=token=>'vr-party-'+token;
-function parseParty(adultsRaw,kidsRaw){
+function parseParty(adultsRaw,kidsRaw,interestsRaw){
   let adults=parseInt(adultsRaw,10); if(!Number.isFinite(adults))adults=1;
   adults=Math.min(30,Math.max(1,adults));
   const children=String(kidsRaw||'').split(',')
@@ -338,20 +362,35 @@ function parseParty(adultsRaw,kidsRaw){
     .filter(n=>Number.isFinite(n))
     .map(n=>Math.min(17,Math.max(0,n)))
     .slice(0,20);
-  return {adults,children};
+  // whitelist – do zájmů se nesmí dostat nic, co neumí jádro ani katalog
+  const ZNAME=['moto'];
+  const interests=(Array.isArray(interestsRaw)?interestsRaw:[]).filter(i=>ZNAME.includes(i));
+  return {adults,children,interests};
 }
 function loadPartyOverride(token){
   try{const raw=localStorage.getItem(partyKey(token));if(!raw)return null;const p=JSON.parse(raw);
-    if(p&&typeof p.adults==='number'&&Array.isArray(p.children))return p;}catch(e){}
+    // interests dopisujeme až teď – uložená party ze starší verze je nemá
+    if(p&&typeof p.adults==='number'&&Array.isArray(p.children))
+      return Object.assign({interests:[]},p);}catch(e){}
   return null;
 }
 function savePartyOverride(token,party){
   try{localStorage.setItem(partyKey(token),JSON.stringify(party));}catch(e){}
   if(token&&token!=='demo'&&CFG.SUPABASE_URL){
-    fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_update_party',{method:'POST',
+    const rpc=body=>fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_update_party',{method:'POST',
       headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},
-      body:JSON.stringify({p_token:token,p_adults:party.adults,p_children:party.children})
-    }).then(r=>{if(!r.ok)console.warn('vr_update_party HTTP '+r.status);}).catch(e=>console.warn('vr_update_party',e));
+      body:JSON.stringify(body)});
+    const zaklad={p_token:token,p_adults:party.adults,p_children:party.children};
+    rpc(Object.assign({p_interests:party.interests||[]},zaklad))
+      .then(r=>{
+        // 404 = čtyřparametrová funkce v DB ještě není (migrace 2026-08-13-interests.sql
+        // neproběhla). Ať se aspoň velikost party uloží — zájmy zůstanou v localStorage.
+        if(r.status===404) return rpc(zaklad).then(r2=>{
+          if(!r2.ok)console.warn('vr_update_party HTTP '+r2.status);
+          else console.warn('vr_update_party: DB bez interests, uložena jen velikost party');
+        });
+        if(!r.ok)console.warn('vr_update_party HTTP '+r.status);
+      }).catch(e=>console.warn('vr_update_party',e));
   }
 }
 
@@ -597,8 +636,8 @@ function render(data,token){
   const childTxt=(party.children&&party.children.length)?`<span><svg class="icon"><use href="#i-users"></use></svg>${party.children.length} ${L.kids} (${party.children.join(', ')})</span>`:'';
   let html=`<header class="hero">
     <div class="kick">Villa Rudolf · Krkonoše</div>
-    <h1>${esc(L.greet)}${guest.name&&guest.name.last?' '+esc(guest.name.last):''}</h1>
-    <div class="sub">${esc(L.welcome)}</div>
+    <h1>${esc(fl.hasKids?L.greet:L.greetGroup)}${guest.name&&guest.name.last?' '+esc(guest.name.last):''}</h1>
+    <div class="sub">${esc(fl.hasKids?L.welcome:L.welcomeGroup)}</div>
     <div class="party">
       <span><svg class="icon"><use href="#i-calendar"></use></svg>${fmtDate(guest.arrival,lang)} – ${fmtDate(guest.departure,lang)}</span>
       <span><svg class="icon"><use href="#i-users"></use></svg>${party.adults} ${L.adults}</span>${childTxt}
@@ -610,6 +649,8 @@ function render(data,token){
         <input type="number" id="ef-adults" min="1" max="30" step="1" inputmode="numeric" value="${party.adults}"></div>
       <div class="fld"><label for="ef-kids">${esc(L.editKids)}</label>
         <input type="text" id="ef-kids" inputmode="numeric" value="${esc((party.children||[]).join(', '))}"></div>
+      <div class="fld"><label for="ef-moto">${esc(L.editInterests)}</label>
+        <label class="chk"><input type="checkbox" id="ef-moto"${fl.isMoto?' checked':''}> ${esc(L.intMoto)}</label></div>
       <div class="btns"><button type="button" class="save" id="ef-save">${esc(L.editSave)}</button>
         <button type="button" class="close" id="ef-close">${esc(L.editClose)}</button></div>
     </div>`;
@@ -649,7 +690,8 @@ function render(data,token){
   // Značka .trip a nadpis h3 musí zůstat i ve sbalené variantě – závisí na nich Umami tracking.
   function tripCard(t,compact){
     const openNote=tt(t.openNote,lang),price=tt(t.price,lang);
-    const doprava=t.byFoot?L.byFoot:(t.travelMin+' '+L.min);
+    // travelMin 0 = výlet startuje u domu (okružní trasa) – „0 min autem" by byl nesmysl
+    const doprava=t.byFoot?L.byFoot:(t.travelMin?(t.travelMin+' '+L.min):L.foot);
     const hlava=`<div class="tg">${esc(tt(t.tagline,lang))}</div>
       <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>`;
     let telo=`<p>${esc(tt(t.desc,lang))}</p>
@@ -718,7 +760,8 @@ function render(data,token){
     if(saveBtn)saveBtn.addEventListener('click',()=>{
       const adultsRaw=(document.getElementById('ef-adults')||{}).value;
       const kidsRaw=(document.getElementById('ef-kids')||{}).value;
-      const np=parseParty(adultsRaw,kidsRaw);
+      const motoEl=document.getElementById('ef-moto');
+      const np=parseParty(adultsRaw,kidsRaw,motoEl&&motoEl.checked?['moto']:[]);
       savePartyOverride(token,np);
       data.guest.party=np;
       render(data,token); // přerenderuj celé UI s novým party (plán se přepočítá)
