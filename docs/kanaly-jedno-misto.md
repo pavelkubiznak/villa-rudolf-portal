@@ -10,7 +10,7 @@ technický problém, je to obchodní rozhodnutí platforem:
 
 | Kanál | API existuje? | Dostane ho majitel objektu? | iCal export/import |
 |---|---|---|---|
-| Booking.com | ano (Connectivity API) | ne — jen certifikovaní connectivity partneři, přihlášky navíc pozastavené | pravděpodobně ano, **ověřit v extranetu** |
+| Booking.com | ano (Connectivity API) | ne — jen certifikovaní connectivity partneři, přihlášky navíc pozastavené | **ano** — Rates & Availability → Sync calendars (ověřeno 13. 8. 2026) |
 | Airbnb | ano (partnerské API) | ne — jen schválení software partneři, příjem žádostí pozastaven | ano |
 | FeWo-direkt / Vrbo | ano | ne — jen přes schválené integrační partnery | ano |
 | e-chalupy.cz | ne | — | **ano** (export i import v klientské administraci) |
