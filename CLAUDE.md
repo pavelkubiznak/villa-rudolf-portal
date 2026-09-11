@@ -28,7 +28,9 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
 - `supabase/schema.sql` — tabulky `vr_bookings`, RPC `vr_verify_token` / `vr_update_party`.
   Projekt `fpknbrzbqpalguajskut` (sdílený se SINTERA, proto prefix `vr_`).
 - `scripts/fetch-forecast.mjs` — sběr počasí z yr.no, běží cronem na Hetzneru.
-- `docs/n8n-booking-ingest.md` — dokumentace n8n workflow (Booking.com → Gmail → token).
+- `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
+  **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
+  trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
 - `sw.js` + `manifest.webmanifest` — PWA vrstva, relativní cesty kvůli GitHub Pages subpath.
 
 ## Jak to testovat
@@ -56,6 +58,26 @@ Booking.com, protože Booking.com nedává e-mail hosta a blokuje bot-odkazy.
 **Automatické rozesílání přes WhatsApp v tomhle repu neexistuje** — slovo „whatsapp"
 se tu nevyskytuje ani jednou. Pokud se na něm pracuje, je to na straně n8n na Hetzneru,
 ne tady. Než začneš cokoliv programovat, ověř, co už v n8n stojí.
+
+### Tokeny se nezakládají samy (ověřeno 12. 9. 2026)
+
+Workflow `VrNewGuestWf001` je aktivní a zdravý, webhook `POST vr-new-guest` je registrovaný —
+ale **má 0 spuštění**. Nic ho nevolá: žádný cron, skript ani jiný workflow; jediná zmínka
+`vr-new-guest` na serveru je ta dokumentace. n8n navíc poslouchá jen na `127.0.0.1:5678`,
+takže zvenčí ho nikdo netrefí.
+
+Důsledek: v `vr_bookings` je jednorázová dávka 18 tokenů z 24. 7. 2026 plus pár ručních.
+**Každá rezervace založená po tomhle datu zůstává bez tokenu**, dokud ji někdo nedoplní ručně.
+
+Gmail jako zdroj dat nestačí, ověřeno na reálné poště:
+- **Booking** pošle `Booking.com - Nová rezervace! (<ref>, <datum příjezdu>)`, ale v těle je
+  jen číslo rezervace a odkaz do extranetu — **žádné jméno, odjezd ani počet osob**.
+- **Airbnb** o rezervacích nemailuje vůbec (200 dní zpět samý marketing a hodnocení).
+- **FeWo** posílá `Reservierung für <jméno>`, jenže to jsou vlákna zpráv od zájemců,
+  ne potvrzení rezervace.
+
+Jména, termíny a počty osob má jen extranet a API nemá ani jeden kanál. Než začneš stavět
+ingest, počítej s tím, že vstupní data se musí brát z extranetu (prohlížečem), ne z mailu.
 
 ## Jazyk
 
