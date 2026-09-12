@@ -1,7 +1,7 @@
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- Villa Rudolf guest portal — schéma Supabase
 -- Projekt: fpknbrzbqpalguajskut (sdílený multi-app, EU London) — vše s prefixem vr_.
--- Poslední ověření proti živé DB: 2026-07-05
+-- Poslední ověření proti živé DB: 2026-09-12 (sloupce tabulky + seznam funkcí)
 --
 -- ⚠️ TENTO SOUBOR NENÍ ÚPLNÝ. V živé databázi navíc existují funkce, jejichž definice
 --    tady chybí (byly vytvořené přímo ve Studiu, nikdy se nezapsaly do repa):
@@ -48,7 +48,14 @@ create table if not exists public.vr_bookings (
   children     int[] default '{}',
   notes        text,
   created_at   timestamptz default now(),
-  expires_at   timestamptz
+  expires_at   timestamptz,
+  -- sloupce doplněné přímo v živé DB (ověřeno 12. 9. 2026), v repu dosud chyběly:
+  uidh          text,          -- sha256(iCal UID)[:16] — spojka na history.json kalendáře
+  platform      text,          -- 'Booking.com' | 'Airbnb' | 'Fewo-direkt' | 'E-chalupy' | 'Přímá'
+  phone         text,          -- PII, jen v DB
+  email         text,          -- PII, jen v DB
+  door_code     text,
+  anonymized_at timestamptz    -- po anonymizaci se jméno v konfliktech nezobrazuje
 );
 
 alter table public.vr_bookings enable row level security;
@@ -101,7 +108,16 @@ grant execute on function public.vr_update_party(text, int, int[]) to anon;
 --   funkce    vr_verify_token(text)              [anon]
 --             vr_update_party(text, int, int[])  [anon]
 --
--- CHYBÍ (existuje živě, definice nutno exportovat — viz hlavička)
---   funkce    vr_create_booking(...)             [anon + ingest secret]
---             vr_purge_expired(text)             [anon + ingest secret]
+-- CHYBÍ (existuje živě, definice nutno exportovat — viz hlavička; těla sem NEkopíruj
+-- bez nahrazení secretů). Signatury z živé DB k 12. 9. 2026:
+--   vr_create_booking(p_secret, p_booking_ref, p_token_hash, p_first, p_last, p_lang,
+--                     p_arrival, p_departure, p_adults, p_children, p_expires)   [ingest secret]
+--   vr_purge_expired(p_secret)                                                   [ingest secret]
+--   vr_apply_conflicts(p_conflicts jsonb)            ← n8n VrConflictWatch, tabulka vr_conflicts
+--   vr_admin_*(p_admin_key, …)                       ← /sprava/ na villarudolf.com (10 funkcí)
+--   vr_album_*(p_token, …), vr_persons_*(p_token, …) ← album a evidence hostů (site)
+--   vr_checkin(…), vr_request(…)                     ← formuláře na site
+-- Další tabulky s prefixem vr_ (mimo tenhle soubor): vr_conflicts, vr_persons, vr_requests,
+-- vr_registrations, vr_msglog, vr_album_photos, vr_admin_config, vr_admin_rl.
+-- Schéma pravdy pro site je villa-rudolf-site/supabase/migrations/.
 -- ═══════════════════════════════════════════════════════════════════════════════
