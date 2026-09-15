@@ -21,13 +21,19 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   - Vykreslení: `render()` (~ř. 561). Mapa: `buildMapSection()` / `renderMapInner()`.
   - Filtrování: chipy + `applyFilter()` na konci souboru.
   - Karta výletu je `.trip`, nadpis `h3` (na tom závisí Umami tracking na konci souboru).
-- `data/trips.json` — katalog výletů, **jediný zdroj pravdy**. Objekt s klíči `trips` (49 položek) a `food`.
+- `data/trips.json` — katalog výletů, **jediný zdroj pravdy**. Objekt s klíči `trips` (53 položek) a `food`.
   Tagy pro jádro: `outdoor`, `indoorOrCovered`, `rainOk`, `lovesHeat`, `needsClearLowWind`,
-  `effort`, `stairs`, `minAge`, `bestFor`, `group`, `crossBorderId`, `category`, `zone`.
+  `effort`, `stairs`, `minAge`, `bestFor`, `group`, `crossBorderId`, `category`, `zone`,
+  `seasons` (`["summer"]`/`["winter"]`, chybí = celoročně; hranice zimy 15. 10. – 31. 3. jako na webu).
 - `data/demo-guest.json` — ukázkový host pro `?t=demo`, bez reálných dat.
 - `supabase/schema.sql` — tabulky `vr_bookings`, RPC `vr_verify_token` / `vr_update_party`.
+  Zdroj pravdy schématu je ale `villa-rudolf-site/supabase/migrations/` — migrace piš tam,
+  aplikuj `supabase db query --linked --file …` a pak `notify pgrst, 'reload schema'`
+  (bez toho PostgREST novou funkci nevidí a vrací 404).
   Projekt `fpknbrzbqpalguajskut` (sdílený se SINTERA, proto prefix `vr_`).
-- `scripts/fetch-forecast.mjs` — sběr počasí z yr.no, běží cronem na Hetzneru.
+- `scripts/fetch-forecast.mjs` — sběr počasí z yr.no, běží cronem na Hetzneru. Cron dělá před
+  během `git reset --hard origin/main`, takže push z Macu ho nasadí sám; **feature commity
+  se ale nasazují jen ručním pushem z Macu** — na začátku session kontroluj `git status -sb`.
 - `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
   **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
   trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
