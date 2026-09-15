@@ -65,25 +65,30 @@ Booking.com, protože Booking.com nedává e-mail hosta a blokuje bot-odkazy.
 se tu nevyskytuje ani jednou. Pokud se na něm pracuje, je to na straně n8n na Hetzneru,
 ne tady. Než začneš cokoliv programovat, ověř, co už v n8n stojí.
 
-### Tokeny se nezakládají samy (ověřeno 12. 9. 2026)
+### Jak tokeny vznikají doopravdy (ověřeno 15. 9. 2026)
 
-Workflow `VrNewGuestWf001` je aktivní a zdravý, webhook `POST vr-new-guest` je registrovaný —
-ale **má 0 spuštění**. Nic ho nevolá: žádný cron, skript ani jiný workflow; jediná zmínka
-`vr-new-guest` na serveru je ta dokumentace. n8n navíc poslouchá jen na `127.0.0.1:5678`,
-takže zvenčí ho nikdo netrefí.
+Workflow `VrNewGuestWf001` (webhook `vr-new-guest`) je slepá větev — nic ho nevolá, 0 spuštění.
+**Tokeny ale nevznikají tudy.** Živá cesta je ve `villa-rudolf-site`:
 
-Důsledek: v `vr_bookings` je jednorázová dávka 18 tokenů z 24. 7. 2026 plus pár ručních.
-**Každá rezervace založená po tomhle datu zůstává bez tokenu**, dokud ji někdo nedoplní ručně.
+1. Kalendář (`villa-booking-calendar`, iCal každé 3 h) publikuje `history.json` → každý pobyt má `uidh`.
+2. `/sprava/` ho zobrazí jako „pobyt bez kontaktu“; majitel doplní jméno, jazyk, telefon.
+3. `vr_admin_upsert_booking` založí řádek v `vr_bookings` **a vygeneruje token** (48 hex).
+   Od 15. 9. 2026 se ukládá i zašifrovaný admin klíčem (`token_enc`), takže odkazy
+   `/pruvodce/?t=` a `/registrace/?t=` jdou zobrazit na každém zařízení bez regenerace.
+4. Odkaz na průvodce je od 15. 9. 2026 součástí uvítací zprávy (T−7) — dřív se neposílal vůbec.
 
-Gmail jako zdroj dat nestačí, ověřeno na reálné poště:
-- **Booking** pošle `Booking.com - Nová rezervace! (<ref>, <datum příjezdu>)`, ale v těle je
-  jen číslo rezervace a odkaz do extranetu — **žádné jméno, odjezd ani počet osob**.
-- **Airbnb** o rezervacích nemailuje vůbec (200 dní zpět samý marketing a hodnocení).
-- **FeWo** posílá `Reservierung für <jméno>`, jenže to jsou vlákna zpráv od zájemců,
-  ne potvrzení rezervace.
+Stav 15. 9. 2026: všech 25 potvrzených pobytů v kalendáři má rezervaci s tokenem. Šest pobytů
+bez rezervace jsou servisní bloky (rekonstrukce schodů) a nepotvrzené termíny bez smlouvy —
+podle `verified.json` kalendáře správně bez hosta. Denní e-mail (`VrDailyTasks`) hlásí nový
+nespárovaný pobyt od T−35 (potvrzení jde v T−30).
 
-Jména, termíny a počty osob má jen extranet a API nemá ani jeden kanál. Než začneš stavět
-ingest, počítej s tím, že vstupní data se musí brát z extranetu (prohlížečem), ne z mailu.
+Gmail jako zdroj dat nestačí (ověřeno 12. 9. 2026): Booking mailuje jen číslo rezervace,
+Airbnb o rezervacích nemailuje, FeWo posílá vlákna zájemců. Jméno hosta se bere z extranetu
+ručně při zakládání ve `/sprava/` — to je jediný ruční krok a zatím není co automatizovat.
+
+**Hosté dostávají `villarudolf.com/pruvodce/?t=…`** (planner v site čte `trips.json` a
+`forecast.json` odsud), ne `pavelkubiznak.github.io/villa-rudolf-portal/`. Změny v `index.html`
+tohoto repa vidí jen hosté se starým odkazem.
 
 ## Jazyk
 
