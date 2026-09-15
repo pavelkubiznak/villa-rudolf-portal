@@ -3,7 +3,7 @@
 // běží přes cron 1–2× denně (NE z prohlížeče hosta). Výstup: data/forecast.json.
 //
 // Spuštění:  node scripts/fetch-forecast.mjs
-// Cron (Hetzner):  0 5,15 * * *  cd /opt/vr-portal && node scripts/fetch-forecast.mjs && git ...
+// Cron (Hetzner):  15 5,15 * * *  /opt/vr-portal/refresh-weather.sh  (node + git commit + push, log /var/log/vr-weather.log)
 //
 // Node 18+ (global fetch). Bez závislostí.
 
@@ -33,17 +33,29 @@ function buildLocations() {
 }
 const LOCS = buildLocations();
 
-function addDay(d) { const t = new Date(d + 'T00:00:00Z'); t.setUTCDate(t.getUTCDate() + 1); return t.toISOString().slice(0, 10); }
-function dominant(syms) { const n = {}; let b = '', bc = 0; for (const s of syms) { const k = (s || '').replace(/_(day|night|polartwilight)$/, ''); n[k] = (n[k] || 0) + 1; if (n[k] > bc) { bc = n[k]; b = k; } } return b; }
+// Pražský místní den a hodina pro UTC čas z met.no – Intl řeší CET/CEST samo
+// (dřív natvrdo +2 h, v zimě se okno 06–22 posouvalo na 05–21).
+const PRAGUE = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Prague', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit' });
+function localDayHour(iso) {
+  const p = Object.fromEntries(PRAGUE.formatToParts(new Date(iso)).map(x => [x.type, x.value]));
+  return { day: `${p.year}-${p.month}-${p.day}`, hour: Number(p.hour) % 24 };
+}
+function dominant(syms) { const n = {}; let b = '', bc = 0; for (const s of syms) { n[s] = (n[s] || 0) + 1; if (n[s] > bc) { bc = n[s]; b = s; } } return b; }
 
-// Jedna kategorie -> sjednocené počasí (musí odpovídat category() ve front-endu).
-function category(prefix, precip) {
-  const p = prefix || '';
-  if (p.includes('thunder')) return 'thunder';
-  if (p.includes('sleet') || p.includes('snow')) return 'snow';
-  if (p === 'heavyrain' || p === 'heavyrainshowers' || precip >= 10) return 'heavyrain';
-  if (p.includes('rain') || p.includes('showers') || precip >= 3) return 'rain';
-  if (precip > 0.4) return 'showers';
+// Kategorie dne. Rozhoduje podíl hodin se srážkami – ne denní suma (ta se mezi dvěma běhy modelu houpe
+// kolem 3 mm a den přeskakoval 'rain' <-> 'showers') a ne „nejčastější symbol" (rozmělnil hlasy mezi
+// lightrain/rain/rainshowers, takže bouřka za celé léto 2026 nevyhrála ani jednou).
+// Klíče musí zůstat stejné jako CAT v index.html.
+function category(syms, precip) {
+  const s = syms.map(x => (x || '').replace(/_(day|night|polartwilight)$/, ''));
+  const n = s.length || 1, share = re => s.filter(x => re.test(x)).length / n;
+  if (share(/thunder/) >= 0.2) return 'thunder';
+  if (share(/sleet|snow/) >= 0.3) return 'snow';
+  if (precip >= 10 || share(/^heavyrain/) >= 0.3) return 'heavyrain';
+  const wet = share(/rain|sleet|snow|thunder/);
+  if (wet >= 0.5 || precip >= 6) return 'rain';
+  if (wet > 0 || precip > 0.4) return 'showers';
+  const p = dominant(s);
   if (p === 'clearsky') return 'clear';
   if (p === 'fair') return 'fair';
   if (p === 'partlycloudy') return 'partly';
@@ -58,9 +70,7 @@ async function getForecast(loc, stayDates) {
   const j = await r.json();
   const acc = {};
   for (const ts of j.properties.timeseries) {
-    const hh = parseInt(ts.time.slice(11, 13), 10);
-    let ld = ts.time.slice(0, 10), lh = hh + 2; // CEST = UTC+2 (léto)
-    if (lh >= 24) { lh -= 24; ld = addDay(ld); }
+    const { day: ld, hour: lh } = localDayHour(ts.time);
     if (lh < 6 || lh > 22 || !stayDates.includes(ld)) continue;
     const o = acc[ld] || (acc[ld] = { temps: [], precip: 0, syms: [], wind: [] });
     const det = ts.data.instant.details;
@@ -77,16 +87,20 @@ async function getForecast(loc, stayDates) {
       min: Math.round(Math.min(...v.temps)),
       precip: Math.round(v.precip * 10) / 10,
       windKmh: v.wind.length ? Math.round(Math.max(...v.wind) * 3.6) : null,
-      cat: category(dominant(v.syms), v.precip),
+      cat: category(v.syms, v.precip),
+      // bouřka kdykoli během dne – jádro s ní vyřadí hřebenové výlety (needsClearLowWind), i když
+      // v kategorii dne nevyhraje
+      thunder: v.syms.some(x => /thunder/.test(x)),
     };
   }
   return daily;
 }
 
 async function main() {
-  const today = new Date();
+  // dny od pražského „dnes" (server běží v UTC; v 05:15 UTC je to totéž, ale ať to nezávisí na čase cronu)
   const stay = [];
-  for (let i = 0; i < DAYS_AHEAD; i++) { const d = new Date(today); d.setDate(d.getDate() + i); stay.push(d.toISOString().slice(0, 10)); }
+  const d0 = localDayHour(new Date().toISOString()).day;
+  for (let i = 0; i < DAYS_AHEAD; i++) { const d = new Date(d0 + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + i); stay.push(d.toISOString().slice(0, 10)); }
 
   const byLocation = {};
   for (const [id, loc] of Object.entries(LOCS)) {

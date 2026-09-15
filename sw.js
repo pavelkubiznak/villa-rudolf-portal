@@ -1,7 +1,7 @@
 /* Villa Rudolf portal — service worker (PWA, offline-first) */
 // Verzi zvyš při každé změně sw.js – activate smaže staré cache,
 // takže hosté se starým katalogem dostanou data hned, ne až na druhé načtení.
-const CACHE = 'vr-v3';
+const CACHE = 'vr-v4';
 const PRECACHE = ['./', './data/trips.json', './data/demo-guest.json'];
 
 self.addEventListener('install', (event) => {
@@ -44,7 +44,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Data soubory (./data/*): stale-while-revalidate.
+  // Počasí: network-first. Stale-while-revalidate by hostovi, který průvodce otevře jednou denně,
+  // vždy ukázal předpověď z minulé návštěvy (soubor se generuje 2× denně). Offline → cache.
+  if (url.pathname.endsWith('/data/forecast.json')) {
+    event.respondWith(
+      fetch(req).then((res) => {
+        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {}); }
+        return res;
+      }).catch(() => caches.match(req).then((m) => m || Response.error()))
+    );
+    return;
+  }
+
+  // Ostatní data (./data/*, katalog a demo host): stale-while-revalidate.
   if (url.pathname.includes('/data/')) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE);
