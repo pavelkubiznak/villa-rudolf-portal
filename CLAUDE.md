@@ -34,6 +34,10 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
 - `scripts/fetch-forecast.mjs` — sběr počasí z yr.no, běží cronem na Hetzneru. Cron dělá před
   během `git reset --hard origin/main`, takže push z Macu ho nasadí sám; **feature commity
   se ale nasazují jen ručním pushem z Macu** — na začátku session kontroluj `git status -sb`.
+- `docs/cenik.json` + `scripts/cenik.mjs` — **ceník = zdroj pravdy pro ceny, min. noci a horizont**
+  na Booking/Airbnb/FeWo/e-chalupy. Zadání a runbook auditu i asistovaného zápisu přes Chrome:
+  `docs/cenova-parita-2027.md` (API kanálů nejsou, channel manager zamítnut — `docs/kanaly-jedno-misto.md`).
+  Snímky auditů v `docs/audit-cen/`. Před zápisem do extranetu vždy `node scripts/cenik.mjs plan`.
 - `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
   **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
   trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
