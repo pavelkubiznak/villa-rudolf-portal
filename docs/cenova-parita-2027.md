@@ -67,6 +67,25 @@ zaokrouhlení a drobný kurzový drift nesvítily jako chyba.
 Ceník záměrně umí vyjádřit **obě paritní strategie** (viz bod 3): stejná cena pro
 hosta všude = koeficienty 1,00; stejný čistý výnos = koeficienty podle provizí.
 
+### 2.1 Nástroj: `scripts/cenik.mjs` (od 15. 9. 2026)
+
+Ceník je vyplněný v [`cenik.json`](cenik.json) — místo ručních úseků obsahuje **pravidla sezón**
+(bod 7.1), z nichž se hranice pro každý rok počítají. Skript nic nezapisuje do extranetů,
+jen připravuje čísla pro audit a asistovaný zápis:
+
+```bash
+node scripts/cenik.mjs sezony 2027 2028        # hranice sezón, ceny, min. noci
+node scripts/cenik.mjs plan --kanal booking    # úsek → cena v měně kanálu, min. noci, otevřít/ZAVŘÍT
+node scripts/cenik.mjs plan --jen min_noci     # plán zápisu jen pro min. noci (sloučené úseky)
+node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json   # co je pod cenou / otevřené za horizontem
+```
+
+Rozhodnutí z bodu 3 jsou v ceníku vyplněná takto: základní měna **CZK**, plánovací kurz
+**24,6 Kč/€** (hladina, na které audit našel B a F srovnané), **hrubá parita** (koeficient 1,0 u
+B/A/F), e-chalupy **koeficient 0,9**, zaokrouhlení 1 € / 100 Kč. Položky, které Pavel výslovně
+nerozhodl, jsou v JSON označené `k_potvrzeni` (cena Vánoc 17 000 Kč, mimosezóna 12 900 Kč,
+koeficient e-chalup).
+
 ## 3. Rozhodnutí, která musí padnout před prvním zápisem
 
 | # | Otázka | Varianty | Dopad |
@@ -301,8 +320,8 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
   Pozor: extranet po rychlé sérii čtení rate-limituje kalendářní API — číst pomalu, rozsahy zadávat
   klikáním v pickeru (List view + get_page_text; když jsou buňky editovatelné, číst přes read_page).
 - [x] cenová politika, min. noci, horizont a kontrola rozhodnuty (bod 7) — 13. 8. 2026
-- [ ] rozhodnutí 1–4 (bod 3) a vyplnění `cenik-2027.json` podle politiky v bodě 7
-      (včetně `min_nocí` a hranic sezón dopočítaných na 2027–2029)
+- [x] rozhodnutí 1–4 (bod 3) a vyplnění ceníku podle politiky v bodě 7 — 15. 9. 2026,
+      [`cenik.json`](cenik.json) + `scripts/cenik.mjs` (bod 2.1); položky `k_potvrzeni` čekají na Pavla
 - [ ] **min. noci v létě 2027 zvednout na 5** (Booking i Airbnb mají dnes 2) — nejrychlejší oprava
 - [ ] první asistovaný zápis + ověřovací re-audit
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
