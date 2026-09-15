@@ -144,8 +144,11 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   jen první klik/klávesa; ostatní dojdou později nebo se ztratí. Klikat po jednom, mezi kroky čekat,
   hodnoty nastavovat přes `form_input`, nikdy neposílat sérii kliků naslepo.
 - Kalendář má klávesové zkratky (?): PgUp/PgDn měsíc, šipky den/týden, Shift+šipky rozšíření výběru.
-- Stav 15. 9. 2026: léto 2027 min. noci „Hromadné“ (většinou 2), léto 2028 bez vlastního nastavení (= 2),
-  **Vánoce 2027 už mají min. 6 nocí** a 15 655 Kč, Vánoce 2026 zablokované (import e-chalupy).
+- **Zapsáno 15. 9. 2026 (Airbnb):** léto 2027 (26. 6.–3. 9.) a léto 2028 (1. 7.–1. 9.) min. noci **5**.
+  Ověřeno po uložení na jednotlivých dnech: volné noci 5, noci uvnitř existujících rezervací si drží
+  původní 2 (proto souhrn rozsahu dál hlásí „Hromadné“ — to je v pořádku, prodat je nejde).
+  Vánoce 2027 už měly min. 6 nocí a 15 655 Kč, Vánoce 2026 jsou zablokované (import e-chalupy).
+  **Booking.com zatím NE** — extranet byl odhlášený; udělat léto 2027, Vánoce 2027 a léto 2028.
 
 ## 6. Rizika a limity
 
@@ -338,7 +341,8 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
 - [x] cenová politika, min. noci, horizont a kontrola rozhodnuty (bod 7) — 13. 8. 2026
 - [x] rozhodnutí 1–4 (bod 3) a vyplnění ceníku podle politiky v bodě 7 — 15. 9. 2026,
       [`cenik.json`](cenik.json) + `scripts/cenik.mjs` (bod 2.1); položky `k_potvrzeni` čekají na Pavla
-- [ ] **min. noci v létě 2027 zvednout na 5** (Booking i Airbnb mají dnes 2) — nejrychlejší oprava
+- [x] **min. noci v létě 2027 (a 2028) zvednout na 5** — Airbnb hotovo 15. 9. 2026 (bod 5.1)
+- [ ] totéž na Booking.com (léto 2027, Vánoce 2027, léto 2028) — čeká na přihlášení do extranetu
 - [ ] první asistovaný zápis + ověřovací re-audit
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
 - [ ] rešerše konkurence z pohledu beneluxské skupiny (bod 8) → `docs/konkurence-benelux.md`
