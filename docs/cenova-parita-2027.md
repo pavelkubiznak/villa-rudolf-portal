@@ -59,7 +59,7 @@ Poznámky:
 
 ## 2. Ceník — zdroj pravdy
 
-Soubor `docs/cenik-2027.json` (šablona: [`cenik-2027.template.json`](cenik-2027.template.json)).
+Soubor [`cenik.json`](cenik.json) (původní šablona [`cenik-2027.template.json`](cenik-2027.template.json) zůstává jen pro srovnání; živý formát je pravidlový, viz 2.1).
 Cílová cena na kanálu = `noc_zaklad × koeficient × kurz (je-li měna jiná než základní)`,
 zaokrouhleno podle kanálu. Audit porovnává s tolerancí (výchozí ±3 %), aby
 zaokrouhlení a drobný kurzový drift nesvítily jako chyba.
