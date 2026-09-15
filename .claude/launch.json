@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "villa-rudolf-portal",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8767",
+        "--directory",
+        "/Users/pavelkubiznak/villa-rudolf-portal"
+      ],
+      "port": 8767
+    },
+    {
+      "name": "villa-booking-calendar",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--directory",
+        "/Users/pavelkubiznak/villa-booking-calendar"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "villa-rudolf-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--directory",
+        "/Users/pavelkubiznak/villa-rudolf-site"
+      ],
+      "port": 8766
+    }
+  ]
+}

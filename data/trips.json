@@ -1,5 +1,5 @@
 {
- "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en). Tagy pohánějí doporučovací jádro. Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
+ "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en). Tagy pohánějí doporučovací jádro (`seasons`: [\"summer\"]/[\"winter\"], bez pole = celoročně; hranice sezón drží index.html podle assets/season.js na webu). Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
  "trips": [
   {
    "id": "snezka-cablecar",
@@ -152,7 +152,8 @@
      "label": {
       "cs": "Vstupenky online",
       "de": "Tickets online",
-      "pl": "Bilety online"
+      "pl": "Bilety online",
+      "en": "Tickets online"
      },
      "url": "https://portal.colosseum.eu/Tours?mrsid=382"
     },
@@ -223,7 +224,7 @@
     "cs": "letní sezóna denně 9:30–19:00 (poslední vstup 18:00); mimo sezónu kratší — ověřte web",
     "de": "Sommersaison täglich 9:30–19:00 (letzter Einlass 18:00); außerhalb kürzer — Website prüfen",
     "en": "summer season daily 9:30–19:00 (last entry 18:00); shorter off-season — check the website",
-    "pl": "sezon letni codziennie 9:30–19:00 (ostatnie wejście 18:00); poza sezonem krócej — sprawdź stronę"
+    "pl": "sezon letni codziennie 9:30–19:00 (ostatnie wejście 18:00); poza sezonem krócej — sprawdźcie stronę"
    },
    "price": {
     "cs": "dospělí (od 15 let) 450 Kč · děti 3–14 let 350 Kč · tobogán 50 Kč",
@@ -242,7 +243,8 @@
      "label": {
       "cs": "E-shop vstupenek",
       "de": "Ticket-Shop",
-      "pl": "Sklep z biletami"
+      "pl": "Sklep z biletami",
+      "en": "Ticket shop"
      },
      "url": "https://eshop.stezkakrkonose.cz/cz/"
     },
@@ -393,7 +395,7 @@
     "cs": "před cestou zkontrolujte obsazenost online (kapacita 141)",
     "de": "vor der Fahrt Auslastung online prüfen (Kapazität 141)",
     "en": "check occupancy online before you go (capacity 141)",
-    "pl": "przed wyjazdem sprawdź obłożenie online (pojemność 141)"
+    "pl": "przed wyjazdem sprawdźcie obłożenie online (pojemność 141)"
    },
    "price": {
     "cs": "prvních 75 min 165 Kč, denní max 290 Kč",
@@ -407,7 +409,8 @@
      "label": {
       "cs": "obsazenost živě",
       "de": "Auslastung live",
-      "pl": "obłożenie na żywo"
+      "pl": "obłożenie na żywo",
+      "en": "live occupancy"
      },
      "url": "https://www.aquacentrum-vrchlabi.cz/"
     },
@@ -605,8 +608,9 @@
    "effort": "easy",
    "stairs": false,
    "crossBorderId": false,
-   "minAge": 8,
+   "minAge": 2,
    "bestFor": [
+    "toddler",
     "child",
     "teen",
     "adult"
@@ -629,22 +633,22 @@
     "pl": "adrenalina · samochodem 20 min · czynny przy każdej pogodzie"
    },
    "desc": {
-    "cs": "900 m nerezová dráha, dvojsedačky až 40 km/h, jezdí i v dešti. Od 8 let lze jet samostatně.",
-    "de": "900 m Edelstahlbahn, Zweisitzer bis 40 km/h, fährt auch bei Regen. Ab 8 Jahren allein.",
-    "en": "900 m stainless track, two-seater sleds up to 40 km/h, runs even in rain. From age 8 you can ride solo.",
-    "pl": "900 m tor ze stali nierdzewnej, dwuosobowe sanki do 40 km/h, kursuje także w deszczu. Od 8 lat można zjeżdżać samodzielnie."
+    "cs": "900 m nerezová dráha, dvojsedačky až 40 km/h, jezdí i v dešti a v zimě. Děti od 2 let jedou s doprovodem (od 12 let), od 8 let samostatně.",
+    "de": "900 m Edelstahlbahn, Zweisitzer bis 40 km/h, fährt auch bei Regen und im Winter. Kinder ab 2 Jahren in Begleitung (ab 12 J.), ab 8 Jahren allein.",
+    "en": "900 m stainless track, two-seater sleds up to 40 km/h, runs even in rain and in winter. Children from age 2 ride with a companion (12+), from age 8 solo.",
+    "pl": "900 m tor ze stali nierdzewnej, dwuosobowe sanki do 40 km/h, kursuje także w deszczu i zimą. Dzieci od 2 lat jadą z opiekunem (od 12 lat), od 8 lat samodzielnie."
    },
    "openNote": {
-    "cs": "červen denně 9–18, červenec/srpen 9–20",
-    "de": "Juni täglich 9–18, Juli/Aug. 9–20",
-    "en": "June daily 9–18, July/Aug 9–20",
-    "pl": "czerwiec codziennie 9–18, lipiec/sierpień 9–20"
+    "cs": "hlavní sezóna denně 9:00–20:00 (mimo sezónu kratší provoz); aktuální dobu ověřte na relaxpark.cz",
+    "de": "Hauptsaison täglich 9:00–20:00 (außerhalb kürzer); aktuelle Zeiten auf relaxpark.cz prüfen",
+    "en": "high season daily 9:00–20:00 (shorter hours off-season); check current times at relaxpark.cz",
+    "pl": "sezon główny codziennie 9:00–20:00 (poza sezonem krócej); aktualne godziny sprawdźcie na relaxpark.cz"
    },
    "price": {
-    "cs": "jízda ~160–210 Kč; 10 jízd ~1 300 Kč",
-    "de": "Fahrt ~160–210 Kč; 10 Fahrten ~1 300 Kč",
-    "en": "one ride ~160–210 Kč; 10 rides ~1,300 Kč",
-    "pl": "przejazd ~160–210 Kč; 10 przejazdów ~1 300 Kč"
+    "cs": "jízda 190 Kč nad 140 cm / 150 Kč do 140 cm (online 175/135); 10 jízd 1 490 / 1 100 Kč (ceny 2026)",
+    "de": "Fahrt 190 Kč über 140 cm / 150 Kč bis 140 cm (online 175/135); 10 Fahrten 1 490 / 1 100 Kč (Preise 2026)",
+    "en": "one ride 190 Kč over 140 cm / 150 Kč under 140 cm (online 175/135); 10 rides 1,490 / 1,100 Kč (2026 prices)",
+    "pl": "przejazd 190 Kč powyżej 140 cm / 150 Kč do 140 cm (online 175/135); 10 przejazdów 1 490 / 1 100 Kč (ceny 2026)"
    },
    "links": [
     {
@@ -664,10 +668,7 @@
     }
    ],
    "category": "adrenalin",
-   "zone": "near",
-   "seasons": [
-    "summer"
-   ]
+   "zone": "near"
   },
   {
    "id": "ebikes",
@@ -769,7 +770,7 @@
    "needsClearLowWind": false,
    "effort": "easy",
    "stairs": false,
-   "crossBorderId": null,
+   "crossBorderId": false,
    "minAge": 0,
    "bestFor": [
     "toddler",
@@ -806,10 +807,10 @@
     "pl": "Sezon główny (lipiec–sierpień) codziennie 9:00–18:00; działanie zależne od pogody."
    },
    "price": {
-    "cs": "Děti (nar. 2011–2022) 320 Kč online / 390 Kč na místě, od 13:00 levněji 220 Kč; starší a dospělí 190 Kč online; do ~3 let zdarma. Online výhodněji.",
-    "de": "Kinder (Jg. 2011–2022) 320 CZK online / 390 CZK vor Ort, ab 13:00 günstiger 220 CZK; Ältere und Erwachsene 190 CZK online; bis ~3 J. gratis. Online günstiger.",
-    "en": "Children (born 2011–2022) 320 CZK online / 390 CZK on site, from 1 pm cheaper 220 CZK; older & adults 190 CZK online; under ~3 free. Cheaper online.",
-    "pl": "Dzieci (ur. 2011–2022) 320 Kč online / 390 Kč na miejscu, od 13:00 taniej 220 Kč; starsi i dorośli 190 Kč online; do ~3 lat za darmo. Taniej online."
+    "cs": "děti (nar. 2011–2022) 320 Kč online / 390 Kč na místě, od 13:00 levněji 220 Kč; starší a dospělí 190 Kč online; do ~3 let zdarma. Online výhodněji.",
+    "de": "kinder (Jg. 2011–2022) 320 Kč online / 390 Kč vor Ort, ab 13:00 günstiger 220 Kč; Ältere und Erwachsene 190 Kč online; bis ~3 J. gratis. Online günstiger.",
+    "en": "children (born 2011–2022) 320 Kč online / 390 Kč on site, from 1 pm cheaper 220 Kč; older & adults 190 Kč online; under ~3 free. Cheaper online.",
+    "pl": "dzieci (ur. 2011–2022) 320 Kč online / 390 Kč na miejscu, od 13:00 taniej 220 Kč; starsi i dorośli 190 Kč online; do ~3 lat za darmo. Taniej online."
    },
    "links": [
     {
@@ -1354,7 +1355,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7524,50.649&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
    ]
   },
@@ -1439,8 +1440,11 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7071,50.6883&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
+   ],
+   "seasons": [
+    "summer"
    ]
   },
   {
@@ -1752,7 +1756,7 @@
     "cs": "Snadná procházka z kopce lesem z Horní Malé Úpy dolů ke Spálenému mlýnu, oficiálně popisovaná jako 5 km nenáročné trasy vhodné i pro seniory a děti. Cestou minete kostel svatého Petra a Pavla a zvířata u hospodářství, u Chaty Krakonoš je pak Čertův mlýn – dřevěný vodní mlýnek s pohyblivými figurkami čerta a Káči. Zpět nahoru se dá svézt pravidelným autobusem, který ale jezdí zhruba jednou za dvě hodiny – přesný jízdní řád si ověřte den předem (skibus v létě nejede). V zimě je to klasická trasa na sáňky.",
     "de": "Ein leichter Waldspaziergang bergab von Horní Malá Úpa hinunter zum Spálený mlýn, offiziell als 5 km leichte Route beschrieben, auch für Senioren und Kinder geeignet. Unterwegs kommen Sie an der Kirche St. Peter und Paul und Tieren am Hof vorbei, bei der Chata Krakonoš steht dann die Teufelsmühle – ein hölzernes Wassermühlchen mit beweglichen Figuren von Teufel und Katharina. Zurück nach oben fährt ein Linienbus, allerdings nur etwa alle zwei Stunden – den genauen Fahrplan am Vortag prüfen (der Skibus fährt im Sommer nicht). Im Winter ist es eine klassische Rodelstrecke.",
     "en": "An easy downhill forest walk from Horní Malá Úpa down to Spálený mlýn, officially described as a 5 km easy route suitable for seniors and children too. Along the way you pass the church of St Peter and Paul and farm animals, and by Chata Krakonoš stands the Devil's Mill – a little wooden water mill with moving figures of the devil and Káča. A regular bus takes you back up, but it runs only about once every two hours – check the exact timetable the day before (the ski bus doesn't run in summer). In winter it's a classic sledging route.",
-    "pl": "Łatwy spacer z górki lasem z Horní Malé Úpy w dół do Spálenego mlýna, oficjalnie opisywany jako 5 km niewymagającej trasy odpowiedniej także dla seniorów i dzieci. Po drodze mijacie kościół świętych Piotra i Pawła oraz zwierzęta przy gospodarstwie, a przy Chacie Krakonoš stoi Čertův mlýn – drewniany młyn wodny z ruchomymi figurkami diabła i Kaczki. Z powrotem w górę można podjechać regularnym autobusem, który jednak kursuje mniej więcej co dwie godziny – dokładny rozkład sprawdźcie dzień wcześniej (skibus latem nie jeździ). Zimą to klasyczna trasa saneczkowa."
+    "pl": "Łatwy spacer z górki lasem z Horní Malé Úpy w dół do Spálenego mlýna, oficjalnie opisywany jako 5 km niewymagającej trasy odpowiedniej także dla seniorów i dzieci. Po drodze mijacie kościół świętych Piotra i Pawła oraz zwierzęta przy gospodarstwie, a przy Chacie Krakonoš stoi Čertův mlýn – drewniany młyn wodny z ruchomymi figurkami diabła i Kasi. Z powrotem w górę można podjechać regularnym autobusem, który jednak kursuje mniej więcej co dwie godziny – dokładny rozkład sprawdźcie dzień wcześniej (skibus latem nie jeździ). Zimą to klasyczna trasa saneczkowa."
    },
    "openNote": {
     "cs": "trasa i Čertův mlýn přístupné celoročně a zdarma; autobus zpět cca po 2 hodinách – ověřte jízdní řád (idos.cz)",
@@ -2439,22 +2443,22 @@
     "pl": "Leśne kąpielisko Sejfy (Mladé Buky)"
    },
    "tagline": {
-    "cs": "přírodní bazén v lese · POZOR: otevírá až 1. 8. 2026",
-    "de": "Naturbecken im Wald · ACHTUNG: erst ab 1. 8. 2026 offen",
-    "en": "a natural forest pool · NOTE: opens only 1 Aug 2026",
-    "pl": "naturalny basen w lesie · UWAGA: otwarcie dopiero 1.8.2026"
+    "cs": "přírodní bazén v lese · jen za hezkého počasí",
+    "de": "Naturbecken im Wald · nur bei schönem Wetter",
+    "en": "a natural forest pool · only in fine weather",
+    "pl": "naturalny basen w lesie · tylko przy ładnej pogodzie"
    },
    "desc": {
-    "cs": "Přírodní 50metrový bazén napájený horským pramenem v lesním areálu Retropark Sejfy, jen asi 2 km od vily. Pozvolna klesající dno (0–4 m) je fajn i pro menší děti, k dispozici jsou travnaté pláže, plážový volejbal a bistro. DŮLEŽITÉ pro léto 2026: kvůli rozsáhlé rekonstrukci se veřejné otevření bazénu posunulo na 1. srpna 2026 – celý červenec je bazén zavřený, i když zbytek resortu funguje. Než vyrazíte, raději zavolejte a ověřte, že rekonstrukce opravdu skončila. Venkovní bazén dává smysl jen za hezkého počasí.",
-    "de": "Ein natürliches 50-Meter-Becken, gespeist von einer Bergquelle, im Waldareal Retropark Sejfy, nur etwa 2 km von der Villa. Der flach abfallende Boden (0–4 m) ist auch für kleinere Kinder gut, dazu gibt es Liegewiesen, Beachvolleyball und ein Bistro. WICHTIG für den Sommer 2026: Wegen einer umfangreichen Sanierung verschiebt sich die öffentliche Öffnung des Beckens auf den 1. August 2026 – den ganzen Juli ist das Becken geschlossen, auch wenn der Rest des Resorts läuft. Rufen Sie vor dem Besuch lieber an und prüfen Sie, ob die Sanierung wirklich fertig ist. Ein Freibad lohnt sich nur bei schönem Wetter.",
-    "en": "A natural 50-metre pool fed by a mountain spring in the Retropark Sejfy forest grounds, just about 2 km from the villa. The gently sloping bottom (0–4 m) is fine for smaller children too, and there are grassy lawns, beach volleyball and a bistro. IMPORTANT for summer 2026: because of a major renovation the pool's public opening is pushed to 1 August 2026 – it's closed all July, even though the rest of the resort runs. Before you set off, it's best to call and check the renovation has really finished. An outdoor pool is only worth it in nice weather.",
-    "pl": "Naturalny 50-metrowy basen zasilany górskim źródłem na leśnym terenie Retropark Sejfy, zaledwie około 2 km od willi. Łagodnie opadające dno (0–4 m) jest fajne także dla mniejszych dzieci, do dyspozycji są trawiaste plaże, siatkówka plażowa i bistro. WAŻNE na lato 2026: z powodu gruntownego remontu publiczne otwarcie basenu przesunięto na 1 sierpnia 2026 – przez cały lipiec basen jest zamknięty, choć reszta ośrodka działa. Zanim wyruszycie, lepiej zadzwońcie i sprawdźcie, czy remont naprawdę się zakończył. Basen odkryty ma sens tylko przy ładnej pogodzie."
+    "cs": "Přírodní 50metrový bazén napájený horským pramenem v lesním areálu Retropark Sejfy, jen asi 2 km od vily. Pozvolna klesající dno (0–4 m) je fajn i pro menší děti, k dispozici jsou travnaté pláže, plážový volejbal a bistro. Venkovní bazén dává smysl jen za hezkého počasí.",
+    "de": "Ein natürliches 50-Meter-Becken, gespeist von einer Bergquelle, im Waldareal Retropark Sejfy, nur etwa 2 km von der Villa. Der flach abfallende Boden (0–4 m) ist auch für kleinere Kinder gut, dazu gibt es Liegewiesen, Beachvolleyball und ein Bistro. Ein Freibad lohnt sich nur bei schönem Wetter.",
+    "en": "A natural 50-metre pool fed by a mountain spring in the Retropark Sejfy forest grounds, just about 2 km from the villa. The gently sloping bottom (0–4 m) is fine for smaller children too, and there are grassy lawns, beach volleyball and a bistro. An outdoor pool is only worth it in nice weather.",
+    "pl": "Naturalny 50-metrowy basen zasilany górskim źródłem na leśnym terenie Retropark Sejfy, zaledwie około 2 km od willi. Łagodnie opadające dno (0–4 m) jest fajne także dla mniejszych dzieci, do dyspozycji są trawiaste plaże, siatkówka plażowa i bistro. Basen odkryty ma sens tylko przy ładnej pogodzie."
    },
    "openNote": {
-    "cs": "POZOR: bazén kvůli rekonstrukci otevírá až 1. 8. 2026, pak denně 10:00–18:00; celý červenec 2026 zavřeno; před cestou zavolejte",
-    "de": "ACHTUNG: Becken wegen Sanierung erst ab 1. 8. 2026, dann täglich 10:00–18:00; ganzer Juli 2026 geschlossen; vorher anrufen",
-    "en": "NOTE: due to renovation the pool opens only on 1 Aug 2026, then daily 10:00–18:00; closed all July 2026; call before you go",
-    "pl": "UWAGA: basen z powodu remontu otwiera się dopiero 1.8.2026, potem codziennie 10:00–18:00; przez cały lipiec 2026 zamknięte; przed wyjazdem zadzwońcie"
+    "cs": "sezóna zhruba červen–září, denně 10:00–18:00 (dle počasí); před cestou zavolejte",
+    "de": "Saison etwa Juni–September, täglich 10:00–18:00 (wetterabhängig); vorher anrufen",
+    "en": "season roughly June–September, daily 10:00–18:00 (weather-dependent); call before you go",
+    "pl": "sezon mniej więcej czerwiec–wrzesień, codziennie 10:00–18:00 (zależnie od pogody); przed wyjazdem zadzwońcie"
    },
    "price": {
     "cs": "pro ubytované hosty resortu zdarma; vstupné pro veřejnost není zveřejněno – ověřte telefonicky (ceny 2026)",
@@ -2568,11 +2572,14 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.746,50.6462&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
-   "zone": "near"
+   "zone": "near",
+   "seasons": [
+    "summer"
+   ]
   },
   {
    "id": "ruzova-hora-pec",
@@ -2654,7 +2661,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7365,50.7235&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2739,7 +2746,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.692,50.7256&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -2817,7 +2824,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.806,50.748&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8206,50.7447&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -3327,7 +3334,7 @@
     }
    ],
    "category": "kids",
-   "zone": "villa",
+   "zone": "near",
    "seasons": [
     "winter"
    ]
@@ -3416,7 +3423,7 @@
     }
    ],
    "category": "kids",
-   "zone": "villa",
+   "zone": "near",
    "seasons": [
     "winter"
    ]
@@ -3910,7 +3917,7 @@
     "cs": "Jediné lyžařské propojení v resortu: z Černé hory nad Janskými Lázněmi se dá přejet až do Pece pod Sněžkou. Trasa má čtyři úseky – dva sjedete na lyžích a na dvou krátkých pasážích vás potáhne rolba. Nastupuje se u horní stanice kabinové lanovky na Černé hoře a provozovatel uvádí přejezd asi za 25 minut. Funguje jen jedním směrem, zpátky se jede skibusem – na lyžích se vrátit nedá. Pro partu je to zážitkový den: dopoledne Černá hora, odpoledne Pec. Provoz a podmínky přepravy rolbou si ověřte předem.",
     "de": "Die einzige Skiverbindung im Resort: Von der Černá hora über Janské Lázně kann man bis nach Pec pod Sněžkou hinüberfahren. Die Route hat vier Abschnitte – zwei fährt man auf Skiern, auf zwei kurzen Passagen zieht eine Pistenraupe. Eingestiegen wird an der Bergstation der Kabinenbahn auf der Černá hora, der Betreiber gibt für den Übergang etwa 25 Minuten an. Es funktioniert nur in eine Richtung, zurück geht es mit dem Skibus – auf Skiern kommt man nicht zurück. Für die Gruppe ist das ein Erlebnistag: vormittags Černá hora, nachmittags Pec. Betrieb und Bedingungen der Raupenbeförderung vorab prüfen.",
     "en": "The resort's only ski link: from Černá hora above Janské Lázně you can cross all the way to Pec pod Sněžkou. The route has four sections – you ski two of them, and on two short stretches a snowcat tows you. You start at the top station of the Černá hora cabin cable car and the operator gives the crossing as about 25 minutes. It works in one direction only; you return by skibus – skiing back is not possible. For a group it makes a proper day out: Černá hora in the morning, Pec in the afternoon. Check operation and the terms of the snowcat transport in advance.",
-    "pl": "Jedyne narciarskie połączenie w resorcie: z Černej hory nad Janskými Lázněmi można przejechać aż do Pecu pod Sněžkou. Trasa ma cztery odcinki – dwa zjeżdża się na nartach, a na dwóch krótkich fragmentach ciągnie ratrak. Wsiada się przy górnej stacji kolei gondolowej na Černej horze, operator podaje przejazd na około 25 minut. Działa tylko w jedną stronę, z powrotem jedzie się skibusem – na nartach nie da się wrócić. Dla ekipy to dzień z historią: przed południem Černá hora, po południu Pec. Pracę i warunki przewozu ratrakiem sprawdźcie wcześniej."
+    "pl": "Jedyne narciarskie połączenie w resorcie: z Černej hory nad Janskými Lázněmi można przejechać aż do Pecu pod Sněžkou. Trasa ma cztery odcinki – dwa zjeżdża się na nartach, a na dwóch krótkich fragmentach ciągnie ratrak. Wsiada się przy górnej stacji kolei gondolowej na Černej horze, operator podaje przejazd na około 25 minut. Działa tylko w jedną stronę, z powrotem jedzie się skibusem – na nartach nie da się wrócić. Dla ekipy to dzień pełen wrażeń: przed południem Černá hora, po południu Pec. Pracę i warunki przewozu ratrakiem sprawdźcie wcześniej."
    },
    "openNote": {
     "cs": "provozuje se jen v zimní sezóně a podle sněhových podmínek, jen ve směru Černá hora → Pec; termíny a provozní dobu ověřte na skiresort.cz",
@@ -3943,7 +3950,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7524,50.649&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
    ],
    "category": "adrenalin",
@@ -4119,7 +4126,7 @@
       "en": "Mapy.cz – drive from the villa",
       "pl": "Mapy.cz – samochodem od willi"
      },
-     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7545,50.6425&routeType=car_fast_traffic"
+     "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
    ],
    "category": "walk",
@@ -4460,6 +4467,9 @@
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6318,50.3665&routeType=car_fast_traffic"
     }
+   ],
+   "seasons": [
+    "summer"
    ]
   },
   {

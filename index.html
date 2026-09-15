@@ -9,7 +9,9 @@
 <meta name="theme-color" content="#33493a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2333493a' d='M3 20L9 8l4 7 2-3 6 8z'/%3E%3C/svg%3E">
 <link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icons/icon.svg">
+<link rel="apple-touch-icon" href="./icons/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Villa Rudolf">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -194,8 +196,7 @@ const CFG = {
   // Ostrý provoz: doplň po vytvoření Supabase projektu. Prázdné = demo režim (čte demo-guest.json).
   SUPABASE_URL: 'https://fpknbrzbqpalguajskut.supabase.co',
   SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwa25icnpicXBhbGd1YWpza3V0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDEyMTAsImV4cCI6MjA5Mjg3NzIxMH0.goat1c7Y1YnpTq7_XyMD3LROElkVI6E27f0B3EG8btA',
-  UMAMI_SRC: 'https://178-104-207-97.sslip.io/script.js',
-  UMAMI_ID: 'e7532123-5434-44e1-a7ef-6c5d18bed939'
+  // Umami: značka je staticky na konci souboru (s data-exclude-search, ať do analytiky nejde token z ?t=)
 };
 
 /* ===== i18n ===== */
@@ -206,6 +207,7 @@ const I18N = {
     arrival:'Příjezd',departure:'Odjezd',adults:'dospělí',kids:'děti',today:'Dnešní tip',tomorrow:'Zítřek',
     arrivingIn:d=>`Přijíždíte za ${d} ${d===1?'den':(d<5?'dny':'dní')}`,plan:'Plán podle počasí',allTrips:'Všechny výlety',
     detail:'Detail',recTitle:'Doporučujeme vám',moreTitle:'Další výlety',
+    greetFamily:n=>`Vážená rodino ${n}`,north:'S',mapPoland:'POLSKO',mapMountains:'KRKONOŠE',region:'Krkonoše',title:'Villa Rudolf – průvodce',
     recommend:'Doporučeno',alt:'nebo',forParty:'Odhad pro vaši partu',openLabel:'Otevřeno',priceLabel:'Vstupné',
     transport:'Doprava',byFoot:'pěšky od vily',min:'min autem',foot:'Výlet přímo od vily',
     reservation:'Pro skupinu doporučujeme rezervovat předem.',idDocs:'Do Polska má mít vlastní doklad i každé dítě.',
@@ -224,6 +226,7 @@ const I18N = {
     arrival:'Anreise',departure:'Abreise',adults:'Erwachsene',kids:'Kinder',today:'Tipp für heute',tomorrow:'Morgen',
     arrivingIn:d=>`Anreise in ${d} ${d===1?'Tag':'Tagen'}`,plan:'Plan nach Wetter',allTrips:'Alle Ausflüge',
     detail:'Details',recTitle:'Unsere Empfehlung für Sie',moreTitle:'Weitere Ausflüge',
+    greetFamily:n=>`Liebe Familie ${n}`,north:'N',mapPoland:'POLEN',mapMountains:'RIESENGEBIRGE',region:'Riesengebirge',title:'Villa Rudolf – Reiseführer',
     recommend:'Empfohlen',alt:'oder',forParty:'Schätzung für Ihre Gruppe',openLabel:'Öffnungszeiten',priceLabel:'Eintritt',
     transport:'Anfahrt',byFoot:'zu Fuß von der Villa',min:'Min. mit dem Auto',foot:'Ausflug direkt von der Villa',
     reservation:'Für die Gruppe bitte vorab reservieren.',idDocs:'Nach Polen braucht auch jedes Kind einen eigenen Ausweis.',
@@ -242,6 +245,7 @@ const I18N = {
     arrival:'Arrival',departure:'Departure',adults:'adults',kids:'children',today:'Today’s pick',tomorrow:'Tomorrow',
     arrivingIn:d=>`Arriving in ${d} day${d===1?'':'s'}`,plan:'Weather-based plan',allTrips:'All trips',
     detail:'Details',recTitle:'Recommended for you',moreTitle:'More trips',
+    greetFamily:n=>`Dear ${n} family`,north:'N',mapPoland:'POLAND',mapMountains:'GIANT MOUNTAINS',region:'Krkonoše Mountains',title:'Villa Rudolf – guide',
     recommend:'Recommended',alt:'or',forParty:'Estimate for your group',openLabel:'Open',priceLabel:'Admission',
     transport:'Getting there',byFoot:'on foot from the villa',min:'min by car',foot:'Trip straight from the villa',
     reservation:'For a group, book ahead.',idDocs:'For Poland every child needs their own ID.',
@@ -254,20 +258,22 @@ const I18N = {
     filters:{vse:'All',pesky:'No car',dest:'Rainy day',deti:'For kids',zviratka:'Animals',vyhledy:'Views',koupani:'Swimming',nenarocne:'Easy'},
     tripWord:n=>n===1?'trip':'trips',
     why:{rain:'ideal in rain',clear:'great day outside',heat:'cool off in the heat',teen:'for teens',kids:'for kids',foot:'no car needed',cold:'for cool days',adrenalin:'adrenaline',indoor:'indoors',moto:'for riders'}},
-  pl:{greet:'Szanowna Rodzino',welcome:'przygotowaliśmy dla Państwa propozycje wycieczek w okolicy – uszeregowane według pogody, wieku dzieci i wielkości grupy.',
-    greetGroup:'Szanowni Goście',welcomeGroup:'przygotowaliśmy dla Państwa propozycje wycieczek w okolicy – uszeregowane według pogody i wielkości grupy.',
-    editInterests:'Podróżują Państwo motocyklami?',intMoto:'Tak, jesteśmy na motocyklach',
+  pl:{greet:'Szanowna Rodzino',welcome:'przygotowaliśmy dla Was propozycje wycieczek w okolicy – uszeregowane według pogody, wieku dzieci i wielkości grupy.',
+    greetGroup:'Szanowni Goście',welcomeGroup:'przygotowaliśmy dla Was propozycje wycieczek w okolicy – uszeregowane według pogody i wielkości grupy.',
+    editInterests:'Podróżujecie motocyklami?',intMoto:'Tak, jesteśmy na motocyklach',
     arrival:'Przyjazd',departure:'Wyjazd',adults:'dorośli',kids:'dzieci',today:'Propozycja na dziś',tomorrow:'Jutro',
     arrivingIn:d=>`Przyjazd za ${d} ${d===1?'dzień':'dni'}`,plan:'Plan według pogody',allTrips:'Wszystkie wycieczki',
-    detail:'Szczegóły',recTitle:'Polecamy Państwu',moreTitle:'Więcej wycieczek',
-    recommend:'Polecane',alt:'lub',forParty:'Szacunek dla Państwa grupy',openLabel:'Otwarte',priceLabel:'Wstęp',
+    detail:'Szczegóły',recTitle:'Polecamy Wam',moreTitle:'Więcej wycieczek',
+    // polsky by se příjmení muselo skloňovat (Kowalskich) – proto oslovení bez něj
+    greetFamily:()=>'Szanowna Rodzino',north:'N',mapPoland:'POLSKA',mapMountains:'KARKONOSZE',region:'Karkonosze',title:'Villa Rudolf – przewodnik',
+    recommend:'Polecane',alt:'lub',forParty:'Orientacyjnie dla Waszej grupy',openLabel:'Otwarte',priceLabel:'Wstęp',
     transport:'Dojazd',byFoot:'pieszo od willi',min:'min samochodem',foot:'Wycieczka prosto od willi',
     reservation:'Dla grupy zalecamy wcześniejszą rezerwację.',idDocs:'Do Polski każde dziecko powinno mieć własny dokument.',
     capacity:'Przed wyjazdem sprawdźcie dostępność miejsc online.',
     wxLive:'Pogoda na żywo z yr.no',updated:'zaktualizowano',planNote:'Plan opiera się na prognozie i jest tylko sugestią – rano sprawdźcie aktualną pogodę i spokojnie zamieńcie dni (na dworze przy ładnej, pod dachem przy deszczu).',
     editParty:'zmień',editTitle:'Uściślij grupę',editAdults:'Dorośli',editKids:'Wiek dzieci (np. 8, 12)',editSave:'Zapisz',editClose:'Zamknij',
     footer:'Przygotowane w Villa Rudolf · ceny i godziny otwarcia sprawdźcie przed wyjazdem · pogoda: yr.no.',thanks:'Dziękujemy za wizytę i życzymy szczęśliwej drogi do domu!',
-    mapTitle:'Mapa okolicy',mapCaption:'Wyróżnione = wycieczki z Państwa planu',mapCapRing:'w kółku = pieszo od willi',mapFoot:'pieszo',ringLabel:'pieszo od willi',
+    mapTitle:'Mapa okolicy',mapCaption:'Wyróżnione = wycieczki z Waszego planu',mapCapRing:'w kółku = pieszo od willi',mapFoot:'pieszo',ringLabel:'pieszo od willi',
     legVilla:'Pieszo od willi',legNear:'W okolicy',legFar:'Na cały dzień',foodTitle:'Gdzie dobrze zjeść',
     filters:{vse:'Wszystko',pesky:'Bez samochodu',dest:'Na deszcz',deti:'Dla dzieci',zviratka:'Zwierzęta',vyhledy:'Widoki',koupani:'Kąpiel',nenarocne:'Łatwe'},
     // pl má tři formy: 1 wycieczka / 2–4 wycieczki / 5+ wycieczek, s výjimkou 12–14
@@ -277,14 +283,14 @@ const I18N = {
 
 /* ===== Počasí: kategorie -> ikona + text ===== */
 const CAT = {
-  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunder',pl:'burze',wet:1},
+  thunder:{ic:'i-cloud-rain',cs:'bouřky',de:'Gewitter',en:'thunderstorms',pl:'burze',wet:1},
   heavyrain:{ic:'i-cloud-rain',cs:'silný déšť',de:'kräftiger Regen',en:'heavy rain',pl:'silny deszcz',wet:1},
   rain:{ic:'i-cloud-rain',cs:'déšť',de:'Regen',en:'rain',pl:'deszcz',wet:1},
   showers:{ic:'i-cloud-rain',cs:'přeháňky',de:'Schauer',en:'showers',pl:'przelotne opady',wet:.5},
   snow:{ic:'i-cloud-rain',cs:'sníh',de:'Schnee',en:'snow',pl:'śnieg',wet:1},
   fog:{ic:'i-cloud',cs:'mlha',de:'Nebel',en:'fog',pl:'mgła',wet:0},
   cloudy:{ic:'i-cloud',cs:'zataženo',de:'bedeckt',en:'cloudy',pl:'pochmurno',wet:0},
-  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',pl:'częściowe zachmurzenie',wet:0},
+  partly:{ic:'i-cloud-sun',cs:'polojasno',de:'wolkig',en:'partly cloudy',pl:'częściowo pochmurno',wet:0},
   fair:{ic:'i-cloud-sun',cs:'skoro jasno',de:'meist sonnig',en:'mostly sunny',pl:'przeważnie słonecznie',wet:0},
   clear:{ic:'i-sun',cs:'jasno',de:'sonnig',en:'sunny',pl:'słonecznie',wet:0}
 };
@@ -301,17 +307,33 @@ function partyFlags(p){
     hasToddler:kids.some(a=>a<=4),
     hasYoungKid:kids.some(a=>a>=5&&a<=9),
     hasKid:kids.some(a=>a<=11),
-    hasTeen:kids.some(a=>a>=12)|| (kids.length===0), // bez dětí = dospělá parta, adrenalin OK
+    hasTeen:kids.some(a=>a>=12),
+    activeParty:kids.some(a=>a>=12)||kids.length===0, // bez dětí = dospělá parta: výhledy a adrenalin nahoru (odznak „adrenalin" ale jen se skutečným teenagerem)
     isGroup:((p.adults||0)+kids.length)>=8,
     hasKids:kids.length>0,          // rozhoduje o oslovení: rodina vs. parta
     interests:zajmy,
     isMoto:zajmy.includes('moto')
   };
 }
+// Sezóna dne – stejné hranice jako assets/season.js na webu (villa-rudolf-site): ZIMA 15. 10. – 31. 3., jinak LÉTO.
+function seasonOf(iso){const m=+iso.slice(5,7),d=+iso.slice(8,10);return (m>=11||(m===10&&d>=15)||m<=3)?'winter':'summer';}
+// Výlet bez `seasons` je celoroční (stejně jako seasonOk() v planneru na webu).
+function seasonOk(trip,iso){const s=trip.seasons;return !s||!s.length||!iso||s.includes(seasonOf(iso));}
+// Vítr: model met.no (~9 km) vrchol Sněžky nerozliší – za 134 běhů cronu (VII–IX 2026) byl max 30 km/h
+// u vily a 27 km/h v bodě lanovky, dřívější hranice 45 tedy nikdy nesepnula. Hranice provozu lanovky
+// (~60 km/h v nárazech) odpovídá modelovému průměru zhruba 30–35. 35 je odhad – kalibrovat proti odstávkám.
+const WIND_LIMIT_KMH=35;
+let FORECAST=null; // nastavuje render(); eligible() přes něj sahá na předpověď v místě výletu
 // tvrdé filtry pro daný den
 function eligible(trip,day,fl){
-  if(trip.needsClearLowWind){ if(day && (isWet(day.cat)||day.cat==='fog'||(day.windKmh&&day.windKmh>=45))) return false; }
-  if(fl.hasToddler && trip.effort==='hard') return false;
+  if(!seasonOk(trip,day&&day.date)) return false; // lyže v červenci a koupaliště v lednu ven z plánu (v katalogu zůstávají)
+  if(trip.needsClearLowWind&&day){
+    // počasí v místě výletu (Sněžka, Černá hora), ne u vily v údolí; když chybí, vezmi vilu
+    const w=(day.date&&wxFor(FORECAST,trip.id,day.date))||day;
+    if(isWet(w.cat)||w.thunder||day.thunder||w.cat==='fog'||(w.windKmh&&w.windKmh>=WIND_LIMIT_KMH)) return false;
+  }
+  // hard = ne pro batolata, pokud výlet není přímo pro ně napsaný (trasa pro sportovní kočárek)
+  if(fl.hasToddler && trip.effort==='hard' && !(trip.bestFor||[]).includes('toddler')) return false;
   // do plánu nedoporučuj výlety s věkovým limitem nad nejmladší dítě (v katalogu zůstávají)
   if(trip.minAge&&fl.minKidAge!=null&&fl.minKidAge<trip.minAge) return false;
   // interests = pro koho je výlet navíc zajímavý (jen bonus ve skóre).
@@ -322,26 +344,28 @@ function eligible(trip,day,fl){
 }
 function scoreTrip(trip,day,fl){
   let s=0; const c=day?day.cat:null; const hot=day&&day.max>=28; const cold=day&&day.max<=12;
+  const zimni=(trip.seasons||[]).includes('winter'); // lyže: mráz a sníh nejsou handicap, ale důvod
   if(c){
-    if(['rain','heavyrain','thunder'].includes(c)){ s += (trip.indoorOrCovered||trip.rainOk)?3:-3.5; }
+    if(c==='snow'){ s += zimni?2:((trip.indoorOrCovered||trip.rainOk)?3:-3.5); }
+    else if(['rain','heavyrain','thunder'].includes(c)){ s += (trip.indoorOrCovered||(trip.rainOk&&c!=='thunder'))?3:-3.5; } // za bouřky jen pod střechu
     else if(c==='showers'){ s += (trip.indoorOrCovered||trip.rainOk)?1:-1; }
     else if(isNice(c)){ s += trip.outdoor?2:(trip.lovesHeat?0:-1); }
   }
   if(hot){ if(trip.lovesHeat) s+=3; else if(trip.outdoor&&trip.effort!=='easy') s-=1.5; }
-  if(cold){ s += trip.indoorOrCovered?1:-1; }
-  if(fl.hasTeen){ if(['adrenalin','active','viewpoint'].includes(trip.category)|| ['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) s+=1.5; }
+  if(cold&&!zimni){ s += trip.indoorOrCovered?1:-1; }
+  if(fl.activeParty){ if(['adrenalin','viewpoint'].includes(trip.category)|| ['bobsled-pec','ebikes','snezka-cablecar'].includes(trip.id)) s+=1.5; }
   if(fl.hasToddler||fl.hasYoungKid){ if(['janske-hallenbad','baumwipfelpfad','aqua-vrchlabi','aquapark-karpacz','hricky-buky'].includes(trip.id)) s+=1.5; if(trip.stairs) s-=1; }
   if(trip.byFoot) s+=0.6;
   // parta bez dětí: dětské atrakce dolů. Bez toho dostali čtyři motorkáři
   // do doporučení dětský zábavní park.
-  if(!fl.hasKids && trip.category==='kids') s-=2.5;
+  if(!fl.hasKid && trip.category==='kids') s-=2.5; // hasKid = dítě do 11 let; teenagery hřiště nezajímá
   // zájmový bonus – motorkáři dostanou nahoru to, co je baví (muzeum, serpentiny, vyjížďka)
   if((trip.interests||[]).some(i=>fl.interests.includes(i))) s+=2.5;
   return s;
 }
 function whyBadges(trip,day,fl,L){
   const w=L.why,out=[],c=day?day.cat:null,hot=day&&day.max>=28,cold=day&&day.max<=12;
-  if(c&&['rain','heavyrain','thunder','showers'].includes(c)&&(trip.indoorOrCovered||trip.rainOk)) out.push({t:w.rain,k:'rain'});
+  if(c&&['rain','heavyrain','thunder','showers','snow'].includes(c)&&(trip.indoorOrCovered||(trip.rainOk&&c!=='thunder'))) out.push({t:w.rain,k:'rain'});
   else if(hot&&trip.lovesHeat) out.push({t:w.heat,k:'heat'});
   else if(c&&isNice(c)&&trip.outdoor) out.push({t:w.clear,k:''});
   else if(cold&&trip.indoorOrCovered) out.push({t:w.cold,k:''});
@@ -358,19 +382,27 @@ function buildPlan(trips,days,fl){
     const ranked=trips.filter(t=>eligible(t,day,fl)).map(t=>({t,sc:scoreTrip(t,day,fl)})).sort((a,b)=>b.sc-a.sc);
     let pick=ranked.find(r=>!used.has(r.t.id))||ranked[0];
     if(pick){ used.add(pick.t.id); }
-    const alts=ranked.filter(r=>pick&&r.t.id!==pick.t.id&&r.sc>0).slice(0,2).map(r=>r.t);
-    plan.push({day,pick:pick?pick.t:null,alts});
+    plan.push({day,pick:pick?pick.t:null,ranked});
+  }
+  // alternativy až po výběru všech dnů: nenabízej hlavní tip jiného dne a každou alternativu
+  // ukaž jen jednou – jinak se „Stezka korunami stromů" opakovala 13× za čtrnáctidenní pobyt
+  const shown=new Set(used);
+  for(const p of plan){
+    p.alts=p.ranked.filter(r=>!shown.has(r.t.id)&&r.sc>0).slice(0,2).map(r=>r.t);
+    p.alts.forEach(t=>shown.add(t.id)); delete p.ranked;
   }
   return plan;
 }
 
 /* ===== Pomocné ===== */
 const qs=new URLSearchParams(location.search);
-const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||''));
+const tt=(v,lang)=> v==null?'':(typeof v==='string'?v:(v[lang]||v.cs||v.de||v.en||v.pl||''));
 // jedno místo pro mapování jazyka na locale – dřív se větvilo na třech místech
 // a angličtina kvůli tomu dostávala v patičce německý formát data
 const LOCALE={cs:'cs-CZ',de:'de-DE',en:'en-GB',pl:'pl-PL'};
 const locale=lang=>LOCALE[lang]||LOCALE.de;
+// místní datum (Praha) jako YYYY-MM-DD – toISOString() by dalo UTC a mezi půlnocí a 2:00 včerejšek
+const localISO=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 function fmtDate(iso,lang){const d=new Date(iso+'T00:00:00');return d.toLocaleDateString(locale(lang),{weekday:'short',day:'numeric',month:'numeric'});}
 function daysBetween(a,b){const out=[];let d=new Date(a+'T00:00:00Z');const e=new Date(b+'T00:00:00Z');while(d<=e){out.push(d.toISOString().slice(0,10));d.setUTCDate(d.getUTCDate()+1);}return out;}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -380,7 +412,7 @@ const partyKey=token=>'vr-party-'+token;
 function parseParty(adultsRaw,kidsRaw,interestsRaw){
   let adults=parseInt(adultsRaw,10); if(!Number.isFinite(adults))adults=1;
   adults=Math.min(30,Math.max(1,adults));
-  const children=String(kidsRaw||'').split(',')
+  const children=String(kidsRaw||'').split(/[^\d]+/) // čárka, mezera, středník – co host napíše
     .map(s=>parseInt(s.trim(),10))
     .filter(n=>Number.isFinite(n))
     .map(n=>Math.min(17,Math.max(0,n)))
@@ -421,13 +453,24 @@ async function loadGuest(token){
   if(!token||token==='demo'||!CFG.SUPABASE_URL){
     const g=await (await fetch(CFG.DEMO_GUEST_URL)).json();
     // Evergreen demo: pobyt vždy začíná zítra (klouzavé datum), ať sedí na živou předpověď
-    const lp=n=>{const x=new Date();x.setDate(x.getDate()+n);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
+    const lp=n=>{const x=new Date();x.setDate(x.getDate()+n);return localISO(x);};
     g.arrival=lp(1); g.departure=lp(5);
     return g;
   }
-  const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_verify_token',{method:'POST',headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},body:JSON.stringify({p_token:token})});
+  const cacheKey='vr-guest-'+token;
+  let r;
+  try{
+    r=await fetch(CFG.SUPABASE_URL+'/rest/v1/rpc/vr_verify_token',{method:'POST',headers:{'Content-Type':'application/json','apikey':CFG.SUPABASE_ANON_KEY,'Authorization':'Bearer '+CFG.SUPABASE_ANON_KEY},body:JSON.stringify({p_token:token})});
+  }catch(e){
+    // offline (Supabase není same-origin, service worker ho nepokryje): poslední ověřený host z tohoto zařízení
+    try{const c=localStorage.getItem(cacheKey);if(c)return JSON.parse(c);}catch(e2){}
+    throw e;
+  }
   if(!r.ok) throw new Error('token');
-  const rows=await r.json(); return Array.isArray(rows)?rows[0]:rows;
+  const rows=await r.json(); const g=Array.isArray(rows)?rows[0]:rows;
+  if(!g) throw new Error('expired'); // null = neznámý nebo prošlý token
+  try{localStorage.setItem(cacheKey,JSON.stringify(g));}catch(e){}
+  return g;
 }
 
 /* ===== Render ===== */
@@ -462,7 +505,7 @@ function matchFilter(t,f){
   switch(f){
     case 'pesky':     return t.byFoot===true;
     case 'dest':      return !!(t.indoorOrCovered||t.rainOk);
-    case 'deti':      return t.category==='kids'||t.category==='animals'||(t.minAge<=4&&t.effort==='easy');
+    case 'deti':      return (t.category==='kids'||t.category==='animals'||(t.minAge<=4&&t.effort==='easy'))&&(t.bestFor||[]).some(b=>b==='toddler'||b==='child');
     case 'zviratka':  return t.category==='animals';
     case 'vyhledy':   return t.category==='viewpoint';
     case 'koupani':   return t.category==='water';
@@ -525,7 +568,7 @@ function renderMapInner(trips,plan,lang,L,filterId){
   const target=0.3*(W-2*padX)*kmPerPx;
   const barKm=[2,5,10,15].reduce((a,b)=>Math.abs(b-target)<Math.abs(a-target)?b:a);
   const barPx=barKm/kmPerPx,sx=padX,sy=H-12;
-  const northLetter=lang==='cs'?'S':'N',nx=W-20;
+  const northLetter=L.north||'N',nx=W-20;
 
   let svg=`<svg class="map" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(L.mapTitle)}">`
     +`<rect class="m-land" x="0" y="0" width="${W}" height="${H}" rx="12"/>`;
@@ -562,8 +605,8 @@ function renderMapInner(trips,plan,lang,L,filterId){
   const riverPts=[[50.690,15.735],[50.668,15.775],[50.645,15.800],[50.6255,15.8136],[50.612,15.836],[50.598,15.858]].map(([la,lo])=>XY(la,lo));
   svg+=`<path class="m-river" d="${mapSmooth(riverPts)}"/>`;
   // řídké popisky do prázdných míst (destinace pojmenovává legenda, ne mapa)
-  svg+=`<text class="m-lbl" x="${X(15.5).toFixed(1)}" y="${Math.max(15,Y(50.8)-2).toFixed(1)}" text-anchor="middle">POLSKO</text>`
-    +`<text class="m-lbl" x="${X(15.63).toFixed(1)}" y="${(Y(borderLatAt(15.63))+12).toFixed(1)}" text-anchor="middle">KRKONOŠE</text>`
+  svg+=`<text class="m-lbl" x="${X(15.5).toFixed(1)}" y="${Math.max(15,Y(50.8)-2).toFixed(1)}" text-anchor="middle">${esc(L.mapPoland)}</text>`
+    +`<text class="m-lbl" x="${X(15.63).toFixed(1)}" y="${(Y(borderLatAt(15.63))+12).toFixed(1)}" text-anchor="middle">${esc(L.mapMountains)}</text>`
     +`<text class="m-lbl" x="${X(15.96).toFixed(1)}" y="${Y(50.53).toFixed(1)}" text-anchor="middle">Trutnov</text>`;
 
   // ===== schematický kroužek „pěšky od vily" =====
@@ -622,7 +665,7 @@ function renderMapInner(trips,plan,lang,L,filterId){
     key+=`<div class="mapkey-group"><div class="mapkey-h">${esc(head)}</div><div class="mapkey">`;
     for(const o of items){ const t=o.t,pick=showPlan&&pickIds.has(t.id);
       const short=esc(tt(t.name,lang).split('–')[0].split('(')[0].trim());
-      const dist=t.byFoot?esc(L.mapFoot):esc(t.travelMin+' min');
+      const dist=t.byFoot?esc(L.mapFoot):(t.travelMin?esc(t.travelMin+' min'):esc(L.foot));
       key+=`<a href="#${t.id}" class="mk${pick?' pick':''}" style="--acc:${t.accent}"><span class="n">${o.num}</span><span class="t">${short}</span><span class="d">${dist}</span></a>`;
     }
     key+=`</div></div>`;
@@ -642,24 +685,29 @@ function renderMapInner(trips,plan,lang,L,filterId){
 // znovu a host by jinak odskočil od formuláře na starý cíl v URL.
 let prvniVykresleni=true;
 function render(data,token){
-  const {guest,trips,forecast}=data;
+  const {guest,forecast}=data;
+  FORECAST=forecast;
   const food=data.food||[];
-  const lang=(guest.lang in I18N)?guest.lang:'de';
+  const lang=Object.prototype.hasOwnProperty.call(I18N,guest.lang)?guest.lang:'de';
   const L=I18N[lang];
   document.documentElement.lang=lang;
+  document.title=L.title;
   const party=guest.party||{adults:2,children:[]};
   const fl=partyFlags(party);
   const stay=daysBetween(guest.arrival,guest.departure);
+  // katalog jen pro sezónu pobytu – lyžařské areály v září a koupaliště v lednu hosta jen matou
+  const staySeasons=new Set(stay.map(seasonOf));
+  const trips=data.trips.filter(t=>!t.seasons||!t.seasons.length||t.seasons.some(s=>staySeasons.has(s)));
   const days=stay.map(d=>({date:d, ...(wxFor(forecast,CFG.VILLA,d)||{})}));
   const plan=buildPlan(trips,days,fl);
   const tripById=Object.fromEntries(trips.map(t=>[t.id,t]));
-  const today=new Date().toISOString().slice(0,10);
+  const today=localISO(new Date());
   const gen=forecast&&forecast.generatedAt?new Date(forecast.generatedAt):null;
 
-  const childTxt=(party.children&&party.children.length)?`<span><svg class="icon"><use href="#i-users"></use></svg>${party.children.length} ${L.kids} (${party.children.join(', ')})</span>`:'';
+  const childTxt=(party.children&&party.children.length)?`<span><svg class="icon"><use href="#i-users"></use></svg>${party.children.length} ${L.kids} (${esc(party.children.join(', '))})</span>`:'';
   let html=`<header class="hero">
-    <div class="kick">Villa Rudolf · Krkonoše</div>
-    <h1>${esc(fl.hasKids?L.greet:L.greetGroup)}${guest.name&&guest.name.last?' '+esc(guest.name.last):''}</h1>
+    <div class="kick">Villa Rudolf · ${esc(L.region)}</div>
+    <h1>${(fl.hasKids&&guest.name&&guest.name.last)?L.greetFamily(esc(guest.name.last)):esc(fl.hasKids?L.greet:L.greetGroup)}</h1>
     <div class="sub">${esc(fl.hasKids?L.welcome:L.welcomeGroup)}</div>
     <div class="party">
       <span><svg class="icon"><use href="#i-calendar"></use></svg>${fmtDate(guest.arrival,lang)} – ${fmtDate(guest.departure,lang)}</span>
@@ -671,7 +719,7 @@ function render(data,token){
       <div class="fld"><label for="ef-adults">${esc(L.editAdults)}</label>
         <input type="number" id="ef-adults" min="1" max="30" step="1" inputmode="numeric" value="${party.adults}"></div>
       <div class="fld"><label for="ef-kids">${esc(L.editKids)}</label>
-        <input type="text" id="ef-kids" inputmode="numeric" value="${esc((party.children||[]).join(', '))}"></div>
+        <input type="text" id="ef-kids" value="${esc((party.children||[]).join(', '))}"></div>
       <div class="fld"><label for="ef-moto">${esc(L.editInterests)}</label>
         <label class="chk"><input type="checkbox" id="ef-moto"${fl.isMoto?' checked':''}> ${esc(L.intMoto)}</label></div>
       <div class="btns"><button type="button" class="save" id="ef-save">${esc(L.editSave)}</button>
@@ -688,7 +736,7 @@ function render(data,token){
     html+=`<div class="today" style="--acc:${t.accent}">
       <div class="lbl">${esc(heroLabel)}</div>
       <h3><svg class="icon" style="color:${t.accent}"><use href="#i-${t.icon}"></use></svg> ${esc(tt(t.name,lang))}</h3>
-      <div class="meta">${heroDay.day.cat?(CAT[heroDay.day.cat][lang]+' · '+heroDay.day.max+'°C · '):''}${esc(tt(t.tagline,lang))}</div>
+      <div class="meta">${heroDay.day.cat?((CAT[heroDay.day.cat]||CAT.cloudy)[lang]+' · '+heroDay.day.max+'°C · '):''}${esc(tt(t.tagline,lang))}</div>
       <div class="badges">${bs.map(b=>`<span class="badge ${b.k}">${esc(b.t)}</span>`).join('')}</div>
       <div class="alts"><a href="#${t.id}">${esc(L.detail)} →</a></div>
     </div>`;}
@@ -809,7 +857,8 @@ function render(data,token){
   // ===== Skok na #výlet: sbalenou kartu rovnou rozbal =====
   // Jinak by cíl z mapy/plánu skončil na zavřené kartě a detail by byl zase na dvě klepnutí.
   function otevriCil(scroll){
-    const id=decodeURIComponent(location.hash.slice(1));
+    let id='';
+    try{id=decodeURIComponent(location.hash.slice(1));}catch(e){return;} // rozbitý hash nesmí shodit render()
     if(!id)return;
     const el=document.getElementById(id);
     if(!el)return;
@@ -824,20 +873,36 @@ function render(data,token){
 }
 
 /* ===== Start ===== */
+// Poslední platný token: PWA z plochy startuje přes start_url bez ?t=, bez paměti by host dostal demo.
+const TOKEN_KEY='vr-token';
 (async function(){
   try{
-    const token=qs.get('t')||'demo';
+    let token=qs.get('t');
+    if(!token){ try{token=localStorage.getItem(TOKEN_KEY);}catch(e){} }
+    token=token||'demo';
     const [guest,tripsRaw,forecast]=await Promise.all([
       loadGuest(token),
       fetch(CFG.TRIPS_URL).then(r=>r.json()),
       fetch(CFG.FORECAST_URL).then(r=>r.json()).catch(()=>null)
     ]);
-    // lokální override skupiny (host si upravil partu; funguje i v demu)
+    if(token!=='demo'){ try{localStorage.setItem(TOKEN_KEY,token);}catch(e){} }
+    // Party: v demu je localStorage jediný zdroj. U ostrého hosta je zdrojem pravdy Supabase (úprava
+    // z druhého telefonu nebo ze správy by jinak zůstala schovaná) a lokálně se bere jen to, co DB
+    // ještě neumí – interests před migrací 2026-08-13-interests.sql.
     const ov=loadPartyOverride(token);
-    if(ov)guest.party=ov;
+    let p=guest.party||{adults:2,children:[]};
+    if(ov){ if(token==='demo') p=ov; else if(!Array.isArray(p.interests)||!p.interests.length) p=Object.assign({},p,{interests:ov.interests}); }
+    // jedna normalizace pro Supabase, demo i localStorage (clamp, whitelist zájmů)
+    guest.party=parseParty(p.adults==null?2:p.adults,(p.children||[]).join(','),p.interests);
     render({guest,trips:tripsRaw.trips,food:tripsRaw.food,forecast},token);
   }catch(e){
-    document.getElementById('app').innerHTML='<div class="loading">Průvodce se nepodařilo načíst. / Guide konnte nicht geladen werden.</div>';
+    // Jazyk hosta tu ještě známý být nemusí – hlášky jsou ve všech čtyřech.
+    const expired=e&&e.message==='expired';
+    if(expired){ try{localStorage.removeItem(TOKEN_KEY);}catch(e2){} } // mrtvý token si nepamatovat
+    const msg=expired
+      ?'Odkaz už není platný (platí 30 dní po odjezdu) – ozvěte se nám, pošleme nový. / Der Link ist nicht mehr gültig (30 Tage nach der Abreise) – melden Sie sich, wir senden einen neuen. / This link is no longer valid (30 days after departure) – contact us and we will send a new one. / Link już nie jest ważny (30 dni po wyjeździe) – napiszcie do nas, wyślemy nowy.'
+      :'Průvodce se nepodařilo načíst – zkuste to prosím za chvíli. / Der Guide konnte nicht geladen werden – bitte später erneut versuchen. / The guide could not be loaded – please try again later. / Nie udało się wczytać przewodnika – spróbujcie ponownie za chwilę.';
+    document.getElementById('app').innerHTML='<div class="loading">'+msg+'</div>';
     console.error(e);
   }
 })();
@@ -852,7 +917,7 @@ try{
 }catch(e){/* jsdom apod. — SW není k dispozici */}
 </script>
 
-<script defer src="https://178-104-207-97.sslip.io/script.js" data-website-id="e7532123-5434-44e1-a7ef-6c5d18bed939"></script>
+<script defer src="https://178-104-207-97.sslip.io/script.js" data-website-id="e7532123-5434-44e1-a7ef-6c5d18bed939" data-exclude-search="true" data-exclude-hash="true"></script>
 <script>
 document.addEventListener('click',function(e){var a=e.target.closest('a[href^="http"]');if(!a||!window.umami)return;var s=a.closest('.trip'),h=s&&s.querySelector('h3');window.umami.track('Link-Klick',{ausflug:h?h.textContent.trim().slice(0,48):'Allg.',link:(a.textContent||a.href).trim().replace(/\s+/g,' ').slice(0,60),url:a.href});});
 </script>
