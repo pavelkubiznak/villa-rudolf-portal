@@ -150,6 +150,28 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   Vánoce 2027 už měly min. 6 nocí a 15 655 Kč, Vánoce 2026 jsou zablokované (import e-chalupy).
   **Booking.com zatím NE** — extranet byl odhlášený; udělat léto 2027, Vánoce 2027 a léto 2028.
 
+### 5.2 Booking.com: hromadná úprava restrikcí (ověřeno 15. 9. 2026)
+
+- Vstup jen proklikem: admin.booking.com → Group homepage → vila (otevře novou kartu se `ses`).
+  S platným `ses` v URL už přímá navigace funguje, i **List view s `from/until` načte data**
+  (`…/calendar/index.html?…&view_mode=MATRIX&room_id=1255847301&from=RRRR-MM-DD&until=RRRR-MM-DD`,
+  max ~30 dní na pohled). `new_calendar.html` neexistuje (404).
+- **Zápis rozsahu = List view → tlačítko Bulk edit.** Pole „From“ / „Up to and including“ jsou textová
+  v ISO formátu a berou psaní z klávesnice (triple-click, cmd+A, napsat, Tab). V měsíčním pohledu
+  naopak rozsah přes datová pole nastavit nejde (jen pro čtení) a klik na druhé datum výběr nahradí.
+- Sekce Restrictions: „Select a rate plan“ → „Minimum length of stay“ → počet nocí, „Add more“ pro
+  druhý plán. **Restrikce se nastavují na každý plán zvlášť** (Standard Rate i Nevratná), jinak
+  nevratná zůstane na svém výchozím minimu (4 noci).
+- Ověření: v List view zaškrtnout „Restrictions“ — přidá řádky Minimum length of stay pod každý plán.
+  Zaškrtnutí nepřežije navigaci, po každé změně URL znovu.
+- Kalendář Bookingu sahá jen do **března 2028** → léto 2028 tam nastavit zatím nejde (otevře se samo,
+  hlídat v měsíčním rituálu).
+- **Zapsáno 15. 9. 2026 (Booking):** léto 2027 (26. 6.–3. 9.) a Vánoce 2027 (18.–31. 12.) min. 5 nocí
+  na obou plánech, ověřeno v List view.
+- Nálezy při zápisu: (a) **15.–28. 8. 2027 „No inventory“** (rooms to sell 0, v měsíčním pohledu
+  červené „Closed“) — zjistit, jestli je to záměr; (b) Vánoce 2027 na Bookingu 529 € / 486,68 € nevratná
+  (cíl 691 €); (c) 15. 9. 2026 visela žádost o rezervaci 27. 12. 2027–2. 1. 2028 za 3 136 € = 523 €/noc.
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
@@ -342,7 +364,8 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
 - [x] rozhodnutí 1–4 (bod 3) a vyplnění ceníku podle politiky v bodě 7 — 15. 9. 2026,
       [`cenik.json`](cenik.json) + `scripts/cenik.mjs` (bod 2.1); položky `k_potvrzeni` čekají na Pavla
 - [x] **min. noci v létě 2027 (a 2028) zvednout na 5** — Airbnb hotovo 15. 9. 2026 (bod 5.1)
-- [ ] totéž na Booking.com (léto 2027, Vánoce 2027, léto 2028) — čeká na přihlášení do extranetu
+- [x] totéž na Booking.com — léto 2027 a Vánoce 2027 hotovo 15. 9. 2026 (bod 5.2); léto 2028 až kalendář dosáhne
+- [ ] Booking 15.–28. 8. 2027 „No inventory“ — ověřit záměr, případně otevřít
 - [ ] první asistovaný zápis + ověřovací re-audit
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
 - [ ] rešerše konkurence z pohledu beneluxské skupiny (bod 8) → `docs/konkurence-benelux.md`
