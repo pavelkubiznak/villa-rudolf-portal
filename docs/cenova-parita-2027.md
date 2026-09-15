@@ -172,6 +172,23 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   červené „Closed“) — zjistit, jestli je to záměr; (b) Vánoce 2027 na Bookingu 529 € / 486,68 € nevratná
   (cíl 691 €); (c) 15. 9. 2026 visela žádost o rezervaci 27. 12. 2027–2. 1. 2028 za 3 136 € = 523 €/noc.
 
+### 5.3 FeWo-direkt: minimální pobyt pro rozsah dat (ověřeno 15. 9. 2026)
+
+- Kalendář `fewo-direkt.de/p/calendar/651.5510810.4062041`; ozubené kolo → Einstellungen → Verfügbarkeit
+  je jen **globální** Mindestaufenthalt (2 noci) a okno „Frühestmögliche Buchung“ 18 měsíců.
+- **Rozsah dat jde otevřít přímo URL, včetně editoru:**
+  `…/p/calendar/651.5510810.4062041/rail/minimumStay?selectionStart=RRRR-MM-DD&selectionEnd=RRRR-MM-DD`
+  (panel „Mindestaufenthalt“ ukáže rozsah a aktuální hodnotu, např. „2-6“ = smíšené; `…/rail/manage?…`
+  otevře přehled výběru s cenami, blokacemi a min. pobytem). Hodnotu napsat do pole, Speichern;
+  potvrzení „Änderungen am Mindestaufenthalt gespeichert“, v mřížce se u dnů objeví odznak s číslem.
+- Hlavička měsíce v kalendáři zaostává za mřížkou (ukazovala „Dez.“ nad červnem) — datum ověřovat
+  podle popupu dne nebo URL, ne podle hlavičky.
+- Léto 2028 je na FeWo celé přeškrtnuté (mimo 18měsíční okno), nastavení se ale uloží a začne platit,
+  až okno dojede.
+- **Zapsáno 15. 9. 2026 (FeWo):** léto 2027 (26. 6.–3. 9., dřív 2–6) → 5; Vánoce 2027 (18.–31. 12.,
+  dřív 2) → 5; léto 2028 (1. 7.–1. 9., dřív 2) → 5. Ceny při zápisu: léto 2027 529 €, Vánoce 2027
+  639 €, léto 2028 589 €.
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
@@ -365,6 +382,7 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
       [`cenik.json`](cenik.json) + `scripts/cenik.mjs` (bod 2.1); položky `k_potvrzeni` čekají na Pavla
 - [x] **min. noci v létě 2027 (a 2028) zvednout na 5** — Airbnb hotovo 15. 9. 2026 (bod 5.1)
 - [x] totéž na Booking.com — léto 2027 a Vánoce 2027 hotovo 15. 9. 2026 (bod 5.2); léto 2028 až kalendář dosáhne
+- [x] FeWo min. noci 5 — léto 2027, Vánoce 2027, léto 2028 hotovo 15. 9. 2026 (bod 5.3)
 - [ ] Booking 15.–28. 8. 2027 „No inventory“ — ověřit záměr, případně otevřít
 - [ ] první asistovaný zápis + ověřovací re-audit
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
