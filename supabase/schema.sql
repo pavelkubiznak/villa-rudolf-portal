@@ -1,7 +1,7 @@
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- Villa Rudolf guest portal — schéma Supabase
 -- Projekt: fpknbrzbqpalguajskut (sdílený multi-app, EU London) — vše s prefixem vr_.
--- Poslední ověření proti živé DB: 2026-09-12 (sloupce tabulky + seznam funkcí)
+-- Poslední ověření proti živé DB: 2026-09-15 (sloupce tabulky + seznam funkcí, aplikována migrace interests)
 --
 -- ⚠️ TENTO SOUBOR NENÍ ÚPLNÝ. V živé databázi navíc existují funkce, jejichž definice
 --    tady chybí (byly vytvořené přímo ve Studiu, nikdy se nezapsaly do repa):
@@ -55,7 +55,8 @@ create table if not exists public.vr_bookings (
   phone         text,          -- PII, jen v DB
   email         text,          -- PII, jen v DB
   door_code     text,
-  anonymized_at timestamptz    -- po anonymizaci se jméno v konfliktech nezobrazuje
+  anonymized_at timestamptz,   -- po anonymizaci se jméno v konfliktech nezobrazuje
+  interests     text[] default '{}'  -- zájmy party (whitelist: 'moto'); migrace 2026-08-13-interests.sql, v živé DB od 15. 9. 2026
 );
 
 alter table public.vr_bookings enable row level security;
@@ -71,7 +72,8 @@ as $$
     'lang', b.lang,
     'arrival', b.arrival,
     'departure', b.departure,
-    'party', json_build_object('adults', b.adults, 'children', b.children),
+    'party', json_build_object('adults', b.adults, 'children', b.children,
+                               'interests', coalesce(b.interests, '{}')),
     'notes', b.notes
   )
   from public.vr_bookings b
@@ -80,6 +82,8 @@ as $$
   limit 1;
 $$;
 
+-- Tříparametrová varianta zůstává kvůli klientům se starou verzí index.html v service workeru.
+-- Vedle ní od 15. 9. 2026 běží čtyřparametrová (p_interests text[]) – definice v 2026-08-13-interests.sql.
 create or replace function public.vr_update_party(p_token text, p_adults int, p_children int[])
 returns json
 language sql

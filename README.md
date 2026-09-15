@@ -10,15 +10,15 @@ počasí živě z yr.no (serverově cachované), doporučovací jádro řadí v�
 - `data/forecast.json` — počasí z yr.no (generuje `scripts/fetch-forecast.mjs`).
 - `data/demo-guest.json` — ukázkový host (`?t=demo`), žádná reálná data.
 - `scripts/fetch-forecast.mjs` — serverový sběr počasí (cron, respektuje ToS met.no).
-- `supabase/schema.sql` — tabulka `bookings` + token RPC `verify_token` / `update_party`.
+- `supabase/schema.sql` — tabulka `vr_bookings` + token RPC `vr_verify_token` / `vr_update_party`.
 
 Demo: otevři `index.html?t=demo`.
 
 ## Architektura
-Booking.com → Gmail → **n8n** (parse + token + návrh zprávy) → **Supabase** (`bookings`,
-jen hash tokenu) → **statická stránka** (Cloudflare/GitHub Pages) čte přes token →
-**jádro** (počasí × věk × skupina) → výpis. Počasí dodává **cron** (`forecast.json`),
-návštěvy/kliky měří **Umami**. Jediný ruční krok: vložení odkazu do zprávy na Booking.com.
+Rezervace (extranet) → **token** v **Supabase** (`vr_bookings`, jen hash tokenu; dnes se
+zakládá ručně, viz níže) → **statická stránka** (GitHub Pages) čte přes token →
+**jádro** (počasí × věk × skupina × sezóna) → výpis. Počasí dodává **cron** (`forecast.json`),
+návštěvy/kliky měří **Umami**. Ruční kroky: založení tokenu a vložení odkazu do zprávy hostovi.
 
 ## Kroky k ostrému provozu
 1. **Hosting:** nasaď tuto složku na GitHub Pages nebo Cloudflare Pages (doména je na Cloudflare).
@@ -26,9 +26,10 @@ návštěvy/kliky měří **Umami**. Jediný ruční krok: vložení odkazu do z
    běží v projektu `fpknbrzbqpalguajskut` (sdílený, vr_ prefix); CFG v `index.html` je zapojené.
 3. **Počasí cron:** HOTOVO (2026-07-05) — `/opt/vr-portal/refresh-weather.sh` na Hetzneru,
    cron `15 5,15 * * *`, push přes deploy key, log `/var/log/vr-weather.log`.
-4. **n8n ingest:** workflow na Gmail trigger (Booking.com): naparsuj jméno/termín/počty,
-   vyrob `RAW_TOKEN`, ulož `sha256(token)` do `bookings`, sestav URL `…/?t=RAW_TOKEN`
-   a **připrav uvítací zprávu v jazyce hosta** (Gmail draft / tlačítko v owner dashboardu).
+4. **Ingest tokenů: NENÍ automatický** (ověřeno 12. 9. 2026). Workflow „VR – nový host" je jen
+   webhook bez volajícího a Gmail jako zdroj nestačí (Booking neposílá jméno ani termín, Airbnb
+   nemailuje vůbec) — podrobně v `CLAUDE.md`. Tokeny se zakládají ručně přes `vr_create_booking`;
+   budoucí ingest musí brát data z extranetu, ne z mailu.
 5. **Doručení odkazu:** vlož odkaz do zprávy hostovi v extranetu Booking.com (1 copy-paste),
    nebo QR karta ve vile. (Booking.com nedává e-mail hosta a blokuje bot-odkazy — proto ruční vložení.)
 
