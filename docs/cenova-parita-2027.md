@@ -131,6 +131,22 @@ Jen s Pavlem u počítače, po auditu a s vyplněným ceníkem.
 Nejhorší scénář zůstává v záloze: audit ukáže tabulku a Pavel klidně nastaví
 všechno ručně — vrstva 2 je pohodlí, ne podmínka.
 
+### 5.1 Airbnb: jak na rozsah dat (ověřeno 15. 9. 2026)
+
+- **Rozsah dní jde vybrat přímo URL**, bez klikání v kalendáři:
+  `https://www.airbnb.cz/multicalendar/1122389326464885565/edit-selected-dates/RRRR-MM-DD/RRRR-MM-DD`
+  (od–do jsou noci včetně). Pravý panel pak ukáže dostupnost, rozpětí cen a „Vlastní nastavení“.
+  Karta Vlastní nastavení → „Minimální počet nocí“ otevře editor (číselné pole + Uložit); zabookované
+  noci v rozsahu se ignorují samy. Hodnota „Hromadné“ = v rozsahu jsou různá minima.
+- Kalendář po načtení často ukáže „Invalid date“ a prázdnou mřížku, dokud se do něj neklikne — panel
+  vpravo přitom funguje. Přímé URL s `?date=` nepomáhá.
+- **Vstupy z rozšíření chodí do Airbnb se zpožděním** (sekundy) a v jedné dávce se spolehlivě provede
+  jen první klik/klávesa; ostatní dojdou později nebo se ztratí. Klikat po jednom, mezi kroky čekat,
+  hodnoty nastavovat přes `form_input`, nikdy neposílat sérii kliků naslepo.
+- Kalendář má klávesové zkratky (?): PgUp/PgDn měsíc, šipky den/týden, Shift+šipky rozšíření výběru.
+- Stav 15. 9. 2026: léto 2027 min. noci „Hromadné“ (většinou 2), léto 2028 bez vlastního nastavení (= 2),
+  **Vánoce 2027 už mají min. 6 nocí** a 15 655 Kč, Vánoce 2026 zablokované (import e-chalupy).
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
