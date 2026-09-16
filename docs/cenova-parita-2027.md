@@ -10,6 +10,11 @@ opírá o **ceník jako zdroj pravdy + Chrome jako ruce**.
 > Varianty „jedno místo na správu cen i kalendářů" (channel manager, jeho API, migrace)
 > rozebírá [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md). Tenhle dokument popisuje
 > variantu bez dalšího předplatného, která běží teď.
+>
+> **Podle čeho nastavit ceny na 2027 a 2028** (prázdniny DE/NL/BE/CZ, inflace, další kritéria,
+> konvence dny × noci, kontrolní systém) řeší od 16. 9. 2026
+> [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md); data jsou v `data/svatky.json`
+> a `node scripts/cenik.mjs poptavka`.
 
 **Vlastní nástroj, který by ceny nastavil všude přes API napřímo, postavit NEJDE.**
 Booking.com Connectivity API je jen pro certifikované connectivity partnery,
@@ -387,3 +392,6 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
 - [ ] první asistovaný zápis + ověřovací re-audit
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
 - [ ] rešerše konkurence z pohledu beneluxské skupiny (bod 8) → `docs/konkurence-benelux.md`
+- [x] kalendáře prázdnin a svátků DE/NL/BE/CZ 2027–2028, poptávkový přehled, návrh indexace 4 %,
+      konvence dny × noci — 16. 9. 2026, [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md);
+      rozhodnutí 1–5 tam čekají na Pavla
