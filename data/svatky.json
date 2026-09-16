@@ -1,0 +1,126 @@
+{
+  "_pozn": "Školní prázdniny zdrojových trhů Villy Rudolf (DE, NL, BE, CZ) pro nacenění 2027–2028. Rozsahy od–do včetně (kalendářní dny volna). Rozsahy Po–Pá skript sám roztahuje o přilehlý víkend. Státní svátky se v datech NEVEDOU — počítá je scripts/cenik.mjs z pravidel (Velikonoce apod.). Váhy = obyvatelstvo regionu v milionech (přibližně); vahy_zemi = kolik který trh pro vilu znamená (1 = rovnocenné; doladit podle skutečných rezervací).",
+  "verze": "2026-09-16",
+  "zdroje": {
+    "DE": "schulferien.org (přepis KMK), načteno 16. 9. 2026; podzim 2028 u HB/NI/MV/ST/SH má zdroj sloučené rozsahy — před naceňováním podzimu 2028 ověřit na kmk.org/service/ferien.html",
+    "NL": "medilexonderwijs.nl (adviesdata Rijksoverheid) 2026-27 a 2027-28; herfst/voorjaar jsou doporučené, školy se mohou odchýlit",
+    "BE": "kampkompas.be (Vlaanderen) a RTBF (Fédération Wallonie-Bruxelles, arrêté 20. 11. 2025) — 2026-27 až 2028-29",
+    "CZ": "MŠMT Organizace školního roku 2026/2027 (č.j. MSMT-12071/2022-5) a 2027/2028"
+  },
+  "vahy_zemi": { "DE": 1, "NL": 1, "BE": 1, "CZ": 1 },
+  "zeme": {
+    "DE": {
+      "nazev": "Německo",
+      "regiony": {
+        "BW": { "nazev": "Baden-Württemberg", "obyv": 11.3, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-26", "do": "2026-10-30"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-09"},
+          {"nazev": "Ostern", "od": "2027-03-30", "do": "2027-04-03"}, {"nazev": "Pfingsten", "od": "2027-05-18", "do": "2027-05-29"}, {"nazev": "Sommer", "od": "2027-07-29", "do": "2027-09-11"}, {"nazev": "Herbst", "od": "2027-11-02", "do": "2027-11-06"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-08"},
+          {"nazev": "Ostern", "od": "2028-04-13", "do": "2028-04-22"}, {"nazev": "Pfingsten", "od": "2028-06-06", "do": "2028-06-17"}, {"nazev": "Sommer", "od": "2028-07-27", "do": "2028-09-09"}, {"nazev": "Herbst", "od": "2028-10-30", "do": "2028-11-03"}, {"nazev": "Weihnachten", "od": "2028-12-23", "do": "2029-01-05"} ] },
+        "BY": { "nazev": "Bayern", "obyv": 13.4, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-11-02", "do": "2026-11-06"}, {"nazev": "Weihnachten", "od": "2026-12-24", "do": "2027-01-08"},
+          {"nazev": "Winter", "od": "2027-02-08", "do": "2027-02-12"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-02"}, {"nazev": "Pfingsten", "od": "2027-05-18", "do": "2027-05-28"}, {"nazev": "Sommer", "od": "2027-08-02", "do": "2027-09-13"}, {"nazev": "Herbst", "od": "2027-11-02", "do": "2027-11-05"}, {"nazev": "Weihnachten", "od": "2027-12-24", "do": "2028-01-07"},
+          {"nazev": "Winter", "od": "2028-02-28", "do": "2028-03-03"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-21"}, {"nazev": "Pfingsten", "od": "2028-06-06", "do": "2028-06-16"}, {"nazev": "Sommer", "od": "2028-07-31", "do": "2028-09-11"}, {"nazev": "Herbst", "od": "2028-10-30", "do": "2028-11-03"}, {"nazev": "Weihnachten", "od": "2028-12-23", "do": "2029-01-05"} ] },
+        "BE": { "nazev": "Berlin", "obyv": 3.9, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-19", "do": "2026-10-31"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-06"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-02"}, {"nazev": "Pfingsten", "od": "2027-05-18", "do": "2027-05-19"}, {"nazev": "Sommer", "od": "2027-07-01", "do": "2027-08-14"}, {"nazev": "Herbst", "od": "2027-10-11", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-22", "do": "2027-12-31"},
+          {"nazev": "Winter", "od": "2028-01-31", "do": "2028-02-05"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Pfingsten", "od": "2028-06-01", "do": "2028-06-02"}, {"nazev": "Sommer", "od": "2028-07-01", "do": "2028-08-12"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-10-14"}, {"nazev": "Weihnachten", "od": "2028-12-22", "do": "2029-01-02"} ] },
+        "BB": { "nazev": "Brandenburg", "obyv": 2.6, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-19", "do": "2026-10-30"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-06"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-03"}, {"nazev": "Sommer", "od": "2027-07-01", "do": "2027-08-14"}, {"nazev": "Herbst", "od": "2027-10-11", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2027-12-31"},
+          {"nazev": "Winter", "od": "2028-01-31", "do": "2028-02-05"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Sommer", "od": "2028-06-29", "do": "2028-08-12"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-10-14"}, {"nazev": "Weihnachten", "od": "2028-12-22", "do": "2029-01-02"} ] },
+        "HB": { "nazev": "Bremen", "obyv": 0.7, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-12", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-09"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-02"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-03"}, {"nazev": "Sommer", "od": "2027-07-08", "do": "2027-08-18"}, {"nazev": "Herbst", "od": "2027-10-18", "do": "2027-10-30"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-08"},
+          {"nazev": "Winter", "od": "2028-01-31", "do": "2028-02-01"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Pfingsten", "od": "2028-05-26", "do": "2028-06-06"}, {"nazev": "Sommer", "od": "2028-07-20", "do": "2028-08-30"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-11-04", "overit": true}, {"nazev": "Weihnachten", "od": "2028-12-27", "do": "2029-01-06"} ] },
+        "HH": { "nazev": "Hamburg", "obyv": 1.9, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-19", "do": "2026-10-30"}, {"nazev": "Weihnachten", "od": "2026-12-21", "do": "2027-01-01"},
+          {"nazev": "Frühjahr", "od": "2027-03-01", "do": "2027-03-12"}, {"nazev": "Pfingsten", "od": "2027-05-07", "do": "2027-05-15"}, {"nazev": "Sommer", "od": "2027-07-01", "do": "2027-08-11"}, {"nazev": "Herbst", "od": "2027-10-11", "do": "2027-10-22"}, {"nazev": "Weihnachten", "od": "2027-12-20", "do": "2027-12-31"},
+          {"nazev": "Frühjahr", "od": "2028-03-06", "do": "2028-03-17"}, {"nazev": "Pfingsten", "od": "2028-05-22", "do": "2028-05-26"}, {"nazev": "Sommer", "od": "2028-07-03", "do": "2028-08-11"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-10-13"}, {"nazev": "Weihnachten", "od": "2028-12-18", "do": "2028-12-31"} ] },
+        "HE": { "nazev": "Hessen", "obyv": 6.4, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-05", "do": "2026-10-17"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-12"},
+          {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-02"}, {"nazev": "Sommer", "od": "2027-06-28", "do": "2027-08-06"}, {"nazev": "Herbst", "od": "2027-10-04", "do": "2027-10-16"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-11"},
+          {"nazev": "Ostern", "od": "2028-04-03", "do": "2028-04-14"}, {"nazev": "Sommer", "od": "2028-07-03", "do": "2028-08-11"}, {"nazev": "Herbst", "od": "2028-10-09", "do": "2028-10-20"}, {"nazev": "Weihnachten", "od": "2028-12-27", "do": "2029-01-12"} ] },
+        "MV": { "nazev": "Mecklenburg-Vorpommern", "obyv": 1.6, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-15", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-21", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-08", "do": "2027-02-19"}, {"nazev": "Ostern", "od": "2027-03-24", "do": "2027-04-02"}, {"nazev": "Pfingsten", "od": "2027-05-14", "do": "2027-05-18"}, {"nazev": "Sommer", "od": "2027-07-05", "do": "2027-08-14"}, {"nazev": "Herbst", "od": "2027-10-14", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-22", "do": "2028-01-04"},
+          {"nazev": "Winter", "od": "2028-02-05", "do": "2028-02-17"}, {"nazev": "Ostern", "od": "2028-04-12", "do": "2028-04-21"}, {"nazev": "Pfingsten", "od": "2028-06-02", "do": "2028-06-06"}, {"nazev": "Sommer", "od": "2028-06-26", "do": "2028-08-05"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-10-28", "overit": true}, {"nazev": "Weihnachten", "od": "2028-12-22", "do": "2029-01-02"} ] },
+        "NI": { "nazev": "Niedersachsen", "obyv": 8.2, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-12", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-09"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-02"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-03"}, {"nazev": "Sommer", "od": "2027-07-08", "do": "2027-08-18"}, {"nazev": "Herbst", "od": "2027-10-16", "do": "2027-10-30"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-08"},
+          {"nazev": "Winter", "od": "2028-01-31", "do": "2028-02-01"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Pfingsten", "od": "2028-05-26", "do": "2028-06-06"}, {"nazev": "Sommer", "od": "2028-07-20", "do": "2028-08-30"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-11-04", "overit": true}, {"nazev": "Weihnachten", "od": "2028-12-27", "do": "2029-01-06"} ] },
+        "NW": { "nazev": "Nordrhein-Westfalen", "obyv": 18.2, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-17", "do": "2026-10-31"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-06"},
+          {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-03"}, {"nazev": "Sommer", "od": "2027-07-19", "do": "2027-08-31"}, {"nazev": "Herbst", "od": "2027-10-23", "do": "2027-11-06"}, {"nazev": "Weihnachten", "od": "2027-12-24", "do": "2028-01-08"},
+          {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Sommer", "od": "2028-07-10", "do": "2028-08-22"}, {"nazev": "Herbst", "od": "2028-10-23", "do": "2028-11-04"}, {"nazev": "Weihnachten", "od": "2028-12-21", "do": "2029-01-05"} ] },
+        "RP": { "nazev": "Rheinland-Pfalz", "obyv": 4.2, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-05", "do": "2026-10-16"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-08"},
+          {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-02"}, {"nazev": "Sommer", "od": "2027-06-28", "do": "2027-08-06"}, {"nazev": "Herbst", "od": "2027-10-04", "do": "2027-10-15"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-07"},
+          {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-21"}, {"nazev": "Sommer", "od": "2028-07-03", "do": "2028-08-11"}, {"nazev": "Herbst", "od": "2028-10-09", "do": "2028-10-20"}, {"nazev": "Weihnachten", "od": "2028-12-21", "do": "2029-01-08"} ] },
+        "SL": { "nazev": "Saarland", "obyv": 1.0, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-05", "do": "2026-10-16"}, {"nazev": "Weihnachten", "od": "2026-12-21", "do": "2026-12-31"},
+          {"nazev": "Winter", "od": "2027-02-08", "do": "2027-02-12"}, {"nazev": "Ostern", "od": "2027-03-30", "do": "2027-04-09"}, {"nazev": "Sommer", "od": "2027-06-28", "do": "2027-08-06"}, {"nazev": "Herbst", "od": "2027-10-04", "do": "2027-10-15"}, {"nazev": "Weihnachten", "od": "2027-12-20", "do": "2027-12-31"},
+          {"nazev": "Winter", "od": "2028-02-21", "do": "2028-02-29"}, {"nazev": "Ostern", "od": "2028-04-12", "do": "2028-04-21"}, {"nazev": "Sommer", "od": "2028-07-03", "do": "2028-08-11"}, {"nazev": "Herbst", "od": "2028-10-09", "do": "2028-10-20"}, {"nazev": "Weihnachten", "od": "2028-12-20", "do": "2029-01-02"} ] },
+        "SN": { "nazev": "Sachsen", "obyv": 4.1, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-12", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-08", "do": "2027-02-19"}, {"nazev": "Ostern", "od": "2027-03-26", "do": "2027-04-02"}, {"nazev": "Pfingsten", "od": "2027-05-15", "do": "2027-05-18"}, {"nazev": "Sommer", "od": "2027-07-10", "do": "2027-08-20"}, {"nazev": "Herbst", "od": "2027-10-11", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-01"},
+          {"nazev": "Winter", "od": "2028-02-14", "do": "2028-02-26"}, {"nazev": "Ostern", "od": "2028-04-14", "do": "2028-04-22"}, {"nazev": "Sommer", "od": "2028-07-22", "do": "2028-09-01"}, {"nazev": "Herbst", "od": "2028-10-23", "do": "2028-11-03"}, {"nazev": "Weihnachten", "od": "2028-12-23", "do": "2029-01-03"} ] },
+        "ST": { "nazev": "Sachsen-Anhalt", "obyv": 2.2, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-19", "do": "2026-10-30"}, {"nazev": "Weihnachten", "od": "2026-12-21", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-06"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-03-27"}, {"nazev": "Pfingsten", "od": "2027-05-15", "do": "2027-05-22"}, {"nazev": "Sommer", "od": "2027-07-10", "do": "2027-08-20"}, {"nazev": "Herbst", "od": "2027-10-18", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-20", "do": "2027-12-31"},
+          {"nazev": "Winter", "od": "2028-02-07", "do": "2028-02-12"}, {"nazev": "Ostern", "od": "2028-04-10", "do": "2028-04-22"}, {"nazev": "Pfingsten", "od": "2028-06-03", "do": "2028-06-10"}, {"nazev": "Sommer", "od": "2028-07-22", "do": "2028-09-01"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-11-03", "overit": true}, {"nazev": "Weihnachten", "od": "2028-12-21", "do": "2029-01-02"} ] },
+        "SH": { "nazev": "Schleswig-Holstein", "obyv": 3.0, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-12", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-21", "do": "2027-01-06"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-02"}, {"nazev": "Ostern", "od": "2027-03-30", "do": "2027-04-10"}, {"nazev": "Sommer", "od": "2027-07-03", "do": "2027-08-14"}, {"nazev": "Herbst", "od": "2027-10-11", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2028-01-08"},
+          {"nazev": "Ostern", "od": "2028-04-03", "do": "2028-04-15"}, {"nazev": "Sommer", "od": "2028-06-24", "do": "2028-08-04"}, {"nazev": "Herbst", "od": "2028-10-02", "do": "2028-10-30", "overit": true}, {"nazev": "Weihnachten", "od": "2028-12-21", "do": "2029-01-05"} ] },
+        "TH": { "nazev": "Thüringen", "obyv": 2.1, "prazdniny": [
+          {"nazev": "Herbst", "od": "2026-10-12", "do": "2026-10-24"}, {"nazev": "Weihnachten", "od": "2026-12-23", "do": "2027-01-02"},
+          {"nazev": "Winter", "od": "2027-02-01", "do": "2027-02-06"}, {"nazev": "Ostern", "od": "2027-03-22", "do": "2027-04-03"}, {"nazev": "Sommer", "od": "2027-07-10", "do": "2027-08-20"}, {"nazev": "Herbst", "od": "2027-10-09", "do": "2027-10-23"}, {"nazev": "Weihnachten", "od": "2027-12-23", "do": "2027-12-31"},
+          {"nazev": "Winter", "od": "2028-02-07", "do": "2028-02-12"}, {"nazev": "Ostern", "od": "2028-04-03", "do": "2028-04-15"}, {"nazev": "Sommer", "od": "2028-07-22", "do": "2028-09-01"}, {"nazev": "Herbst", "od": "2028-10-23", "do": "2028-11-03"}, {"nazev": "Weihnachten", "od": "2028-12-23", "do": "2029-01-05"} ] }
+      }
+    },
+    "NL": {
+      "nazev": "Nizozemsko",
+      "regiony": {
+        "noord": { "nazev": "Regio Noord", "obyv": 5.5, "prazdniny": [
+          {"nazev": "herfst", "od": "2026-10-10", "do": "2026-10-18"}, {"nazev": "kerst", "od": "2026-12-19", "do": "2027-01-03"}, {"nazev": "voorjaar", "od": "2027-02-20", "do": "2027-02-28"}, {"nazev": "mei", "od": "2027-04-24", "do": "2027-05-02"}, {"nazev": "zomer", "od": "2027-07-10", "do": "2027-08-22"},
+          {"nazev": "herfst", "od": "2027-10-16", "do": "2027-10-24"}, {"nazev": "kerst", "od": "2027-12-25", "do": "2028-01-09"}, {"nazev": "voorjaar", "od": "2028-02-19", "do": "2028-02-27"}, {"nazev": "mei", "od": "2028-04-29", "do": "2028-05-07"}, {"nazev": "zomer", "od": "2028-07-15", "do": "2028-08-27"} ] },
+        "midden": { "nazev": "Regio Midden", "obyv": 6.0, "prazdniny": [
+          {"nazev": "herfst", "od": "2026-10-17", "do": "2026-10-25"}, {"nazev": "kerst", "od": "2026-12-19", "do": "2027-01-03"}, {"nazev": "voorjaar", "od": "2027-02-20", "do": "2027-02-28"}, {"nazev": "mei", "od": "2027-04-24", "do": "2027-05-02"}, {"nazev": "zomer", "od": "2027-07-17", "do": "2027-08-29"},
+          {"nazev": "herfst", "od": "2027-10-16", "do": "2027-10-24"}, {"nazev": "kerst", "od": "2027-12-25", "do": "2028-01-09"}, {"nazev": "voorjaar", "od": "2028-02-26", "do": "2028-03-05"}, {"nazev": "mei", "od": "2028-04-29", "do": "2028-05-07"}, {"nazev": "zomer", "od": "2028-07-08", "do": "2028-08-20"} ] },
+        "zuid": { "nazev": "Regio Zuid", "obyv": 6.0, "prazdniny": [
+          {"nazev": "herfst", "od": "2026-10-17", "do": "2026-10-25"}, {"nazev": "kerst", "od": "2026-12-19", "do": "2027-01-03"}, {"nazev": "voorjaar", "od": "2027-02-13", "do": "2027-02-21"}, {"nazev": "mei", "od": "2027-04-24", "do": "2027-05-02"}, {"nazev": "zomer", "od": "2027-07-24", "do": "2027-09-05"},
+          {"nazev": "herfst", "od": "2027-10-23", "do": "2027-10-31"}, {"nazev": "kerst", "od": "2027-12-25", "do": "2028-01-09"}, {"nazev": "voorjaar", "od": "2028-02-26", "do": "2028-03-05"}, {"nazev": "mei", "od": "2028-04-29", "do": "2028-05-07"}, {"nazev": "zomer", "od": "2028-07-22", "do": "2028-09-03"} ] }
+      }
+    },
+    "BE": {
+      "nazev": "Belgie",
+      "regiony": {
+        "vl": { "nazev": "Vlaanderen", "obyv": 6.8, "prazdniny": [
+          {"nazev": "herfst", "od": "2026-11-02", "do": "2026-11-08"}, {"nazev": "kerst", "od": "2026-12-21", "do": "2027-01-03"}, {"nazev": "krokus", "od": "2027-02-08", "do": "2027-02-14"}, {"nazev": "paas", "od": "2027-03-29", "do": "2027-04-11"}, {"nazev": "zomer", "od": "2027-07-01", "do": "2027-08-31"},
+          {"nazev": "herfst", "od": "2027-11-01", "do": "2027-11-07"}, {"nazev": "kerst", "od": "2027-12-27", "do": "2028-01-09"}, {"nazev": "krokus", "od": "2028-02-28", "do": "2028-03-05"}, {"nazev": "paas", "od": "2028-04-03", "do": "2028-04-17"}, {"nazev": "zomer", "od": "2028-07-01", "do": "2028-08-31"},
+          {"nazev": "kerst", "od": "2028-12-25", "do": "2029-01-07", "overit": true} ] },
+        "fwb": { "nazev": "Fédération Wallonie-Bruxelles", "obyv": 4.9, "prazdniny": [
+          {"nazev": "automne", "od": "2026-10-19", "do": "2026-10-30"}, {"nazev": "hiver", "od": "2026-12-21", "do": "2027-01-01"}, {"nazev": "détente", "od": "2027-02-22", "do": "2027-03-05"}, {"nazev": "printemps", "od": "2027-04-26", "do": "2027-05-07"}, {"nazev": "été", "od": "2027-07-03", "do": "2027-08-29"},
+          {"nazev": "automne", "od": "2027-10-25", "do": "2027-11-05"}, {"nazev": "hiver", "od": "2027-12-27", "do": "2028-01-07"}, {"nazev": "détente", "od": "2028-02-28", "do": "2028-03-10"}, {"nazev": "printemps", "od": "2028-05-01", "do": "2028-05-12"}, {"nazev": "été", "od": "2028-07-08", "do": "2028-08-27"},
+          {"nazev": "automne", "od": "2028-10-23", "do": "2028-11-03"}, {"nazev": "hiver", "od": "2028-12-25", "do": "2029-01-05"} ] }
+      }
+    },
+    "CZ": {
+      "nazev": "Česko",
+      "_pozn": "Šest turnusů jarních prázdnin se rotuje: skupina, která měla 2027 první termín, má 2028 druhý; skupina F (2027 poslední) jde 2028 první. Trutnov (domácí okres vily) je ve skupině C.",
+      "spolecne": [
+        {"nazev": "podzimní", "od": "2026-10-29", "do": "2026-10-30"}, {"nazev": "vánoční", "od": "2026-12-23", "do": "2027-01-03"}, {"nazev": "pololetní", "od": "2027-01-29", "do": "2027-01-29"}, {"nazev": "velikonoční", "od": "2027-03-25", "do": "2027-03-25"}, {"nazev": "hlavní", "od": "2027-07-01", "do": "2027-08-31"},
+        {"nazev": "podzimní", "od": "2027-10-27", "do": "2027-10-29"}, {"nazev": "vánoční", "od": "2027-12-23", "do": "2028-01-02"}, {"nazev": "pololetní", "od": "2028-02-04", "do": "2028-02-04"}, {"nazev": "velikonoční", "od": "2028-04-13", "do": "2028-04-13"}, {"nazev": "hlavní", "od": "2028-07-01", "do": "2028-09-03"},
+        {"nazev": "vánoční", "od": "2028-12-23", "do": "2029-01-02", "overit": true}
+      ],
+      "regiony": {
+        "A": { "nazev": "Liberecko, Vysočina, Kladno, Kolín, Kutná Hora, Písek, Náchod, Bruntál", "obyv": 1.55, "okresy": ["Česká Lípa", "Jablonec nad Nisou", "Liberec", "Semily", "Havlíčkův Brod", "Jihlava", "Pelhřimov", "Třebíč", "Žďár nad Sázavou", "Kladno", "Kolín", "Kutná Hora", "Písek", "Náchod", "Bruntál"], "prazdniny": [ {"nazev": "jarní", "od": "2027-02-01", "do": "2027-02-07"}, {"nazev": "jarní", "od": "2028-02-14", "do": "2028-02-20"} ] },
+        "B": { "nazev": "Mladá Boleslav, Příbram, jižní Čechy západ, Ústecko, Jičín, Rychnov, Olomoucko, Opava, Jeseník", "obyv": 1.53, "okresy": ["Mladá Boleslav", "Příbram", "Tábor", "Prachatice", "Strakonice", "Ústí nad Labem", "Chomutov", "Most", "Jičín", "Rychnov nad Kněžnou", "Olomouc", "Šumperk", "Opava", "Jeseník"], "prazdniny": [ {"nazev": "jarní", "od": "2027-02-08", "do": "2027-02-14"}, {"nazev": "jarní", "od": "2028-02-21", "do": "2028-02-27"} ] },
+        "C": { "nazev": "Benešov, Beroun, Rokycany, Budějovicko, Klatovy, Trutnov, Pardubicko, Ostrava, Prostějov", "obyv": 1.63, "okresy": ["Benešov", "Beroun", "Rokycany", "České Budějovice", "Český Krumlov", "Klatovy", "Trutnov", "Pardubice", "Chrudim", "Svitavy", "Ústí nad Orlicí", "Ostrava-město", "Prostějov"], "prazdniny": [ {"nazev": "jarní", "od": "2027-02-15", "do": "2027-02-21"}, {"nazev": "jarní", "od": "2028-02-28", "do": "2028-03-05"} ] },
+        "D": { "nazev": "Praha 1–5, Brno a jižní Morava, Domažlice, Tachov, Louny, Karviná", "obyv": 2.28, "okresy": ["Praha 1 až 5", "Blansko", "Brno-město", "Brno-venkov", "Břeclav", "Hodonín", "Vyškov", "Znojmo", "Domažlice", "Tachov", "Louny", "Karviná"], "prazdniny": [ {"nazev": "jarní", "od": "2027-02-22", "do": "2027-02-28"}, {"nazev": "jarní", "od": "2028-03-06", "do": "2028-03-12"} ] },
+        "E": { "nazev": "Praha 6–10, Karlovarsko, Nymburk, J. Hradec, Litoměřice, Děčín, Přerov, Frýdek-Místek", "obyv": 1.82, "okresy": ["Praha 6 až 10", "Cheb", "Karlovy Vary", "Sokolov", "Nymburk", "Jindřichův Hradec", "Litoměřice", "Děčín", "Přerov", "Frýdek-Místek"], "prazdniny": [ {"nazev": "jarní", "od": "2027-03-01", "do": "2027-03-07"}, {"nazev": "jarní", "od": "2028-03-13", "do": "2028-03-19"} ] },
+        "F": { "nazev": "Zlínsko, Praha-východ/západ, Mělník, Rakovník, Plzeňsko, Hradec Králové, Teplice, Nový Jičín", "obyv": 1.88, "okresy": ["Kroměříž", "Uherské Hradiště", "Vsetín", "Zlín", "Praha-východ", "Praha-západ", "Mělník", "Rakovník", "Plzeň-město", "Plzeň-sever", "Plzeň-jih", "Hradec Králové", "Teplice", "Nový Jičín"], "prazdniny": [ {"nazev": "jarní", "od": "2027-03-08", "do": "2027-03-14"}, {"nazev": "jarní", "od": "2028-02-07", "do": "2028-02-13"} ] }
+      }
+    }
+  }
+}
