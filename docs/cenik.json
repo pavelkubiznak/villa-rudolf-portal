@@ -1,6 +1,6 @@
 {
   "_pozn": "Ceník Villy Rudolf — jediný zdroj pravdy pro ceny, min. noci a horizont otevření na všech kanálech. Hranice sezón se z pravidel POČÍTAJÍ pro každý rok (node scripts/cenik.mjs sezony 2027). Politika: docs/cenova-parita-2027.md sekce 7. Položky označené k_potvrzeni nebyly Pavlem výslovně rozhodnuty.",
-  "verze": "2026-09-15",
+  "verze": "2026-09-16",
 
   "mena_zaklad": "CZK",
   "kurz": { "EUR": 24.6, "_pozn": "plánovací kurz Kč/€ na sezónu; 14 000 Kč ≈ 569 € = hladina, na které audit 12. 8. 2026 našel Booking a FeWo srovnané. Při pohybu kurzu o víc než ~3 % přepočítat a znovu zapsat." },
@@ -43,6 +43,14 @@
       "min_noci": 2,
       "k_potvrzeni": "cena = dnešní základní cena na Airbnb (audit 12. 8. 2026), politika ji neřeší; min. noci 2–3 „k doladění“, zatím 2 = žádná změna"
     }
+  },
+
+  "indexace": {
+    "rok_zaklad": 2027,
+    "rocni_pct": 4,
+    "zaokrouhleni": 100,
+    "k_potvrzeni": "Sazba 4 %/rok: ČSÚ srpen 2026 — inflace 1,9 %, ale ubytovací služby +6,8 % a služby celkem +4,5 %; eurozóna 3,3 % (DE 2,9 %). Ceny v ceníku platí pro rok 2027; 2028 = ×1,04 (14 000 → 14 600, 12 900 → 13 400, 17 000 → 17 700). Pavel nepotvrdil; pro nulovou indexaci nastav rocni_pct: 0.",
+    "_pozn": "Rok ceny = rok sezóny (Vánoce 2027 zůstávají v ceně 2027 i 1. 1. 2028), u mimosezóny kalendářní rok noci. Skript: node scripts/cenik.mjs plan; bez indexace --bez-indexace. Zdůvodnění: docs/cenova-logika-2027-2028.md sekce 3."
   },
 
   "vyjimky": [],
