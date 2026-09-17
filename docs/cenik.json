@@ -1,6 +1,13 @@
 {
   "_pozn": "Ceník Villy Rudolf — jediný zdroj pravdy pro ceny, min. noci a horizont otevření na všech kanálech. Hranice sezón se z pravidel POČÍTAJÍ pro každý rok (node scripts/cenik.mjs sezony 2027). Politika: docs/cenova-parita-2027.md sekce 7. Položky označené k_potvrzeni nebyly Pavlem výslovně rozhodnuty.",
-  "verze": "2026-09-16",
+  "verze": "2026-09-17",
+
+  "model": {
+    "typ": "cisty_vynos",
+    "referencni_kanal": "booking",
+    "sleva_primo_pct": 10,
+    "_pozn": "Od 17. 9. 2026 (Pavel): základ = ČISTÝ výnos za noc, jaký dnes dávají e-chalupy bez provize (sezóna 12 900, mimo 11 900 Kč, ceny roku 2026). 'noc' u sezón je tedy čistý výnos, ne cena pro hosta. Portál: cena = noc ÷ (1 − provize). Přímý prodej (web villarudolf.com + e-chalupy, vždy stejná cena): cena = cena referenčního kanálu × (1 − sleva_primo). Host přímo ušetří 10 %, zbylých ~5 % rozdílu proti provizi zůstává nám."
+  },
 
   "mena_zaklad": "CZK",
   "kurz": { "EUR": 24.6, "_pozn": "plánovací kurz Kč/€ na sezónu; 14 000 Kč ≈ 569 € = hladina, na které audit 12. 8. 2026 našel Booking a FeWo srovnané. Při pohybu kurzu o víc než ~3 % přepočítat a znovu zapsat." },
@@ -17,51 +24,51 @@
       "priorita": 1,
       "pravidlo": "týden So–So obsahující 24. 12. + týden So–So obsahující 31. 12.",
       "premiova": true,
-      "noc": 17000,
+      "noc": 15700,
       "min_noci": 5,
-      "k_potvrzeni": "výše ceny (politika říká jen „extra nad 14 000“; 17 000 ≈ +21 %, FeWo dnes 689 € = +17 %, Airbnb 15 700 Kč = +22 %) a min. noci 5"
+      "k_potvrzeni": "čistý výnos 15 700 = sezóna 12 900 × 1,21 (stejný poměr jako dřívějších 17 000 : 14 000); min. noci 5"
     },
     "leto": {
       "priorita": 2,
       "pravidlo": "všechny týdny So–So zasahující do 1. 7.–31. 8.",
       "premiova": true,
-      "noc": 14000,
+      "noc": 12900,
       "min_noci": 5
     },
     "zima": {
       "priorita": 3,
       "pravidlo": "1. 1.–28./29. 2. (mimo dny, které patří Vánocům)",
       "premiova": true,
-      "noc": 14000,
+      "noc": 12900,
       "min_noci": 2
     },
     "mimo": {
       "priorita": 9,
       "pravidlo": "vše ostatní",
       "premiova": false,
-      "noc": 12900,
+      "noc": 11900,
       "min_noci": 2,
-      "k_potvrzeni": "cena = dnešní základní cena na Airbnb (audit 12. 8. 2026), politika ji neřeší; min. noci 2–3 „k doladění“, zatím 2 = žádná změna"
+      "k_potvrzeni": "min. noci 2–3 „k doladění“, zatím 2 = žádná změna"
     }
   },
 
   "indexace": {
-    "rok_zaklad": 2027,
+    "rok_zaklad": 2026,
     "rocni_pct": 4,
     "zaokrouhleni": 100,
-    "k_potvrzeni": "Sazba 4 %/rok: ČSÚ srpen 2026 — inflace 1,9 %, ale ubytovací služby +6,8 % a služby celkem +4,5 %; eurozóna 3,3 % (DE 2,9 %). Ceny v ceníku platí pro rok 2027; 2028 = ×1,04 (14 000 → 14 600, 12 900 → 13 400, 17 000 → 17 700). Pavel nepotvrdil; pro nulovou indexaci nastav rocni_pct: 0.",
+    "k_potvrzeni": "Sazba 4 %/rok: ČSÚ srpen 2026 — inflace 1,9 %, ale ubytovací služby +6,8 % a služby celkem +4,5 %; eurozóna 3,3 %. Čistý výnos 2026 → 2027 → 2028: sezóna 12 900 → 13 400 → 14 000; mimo 11 900 → 12 400 → 12 900; Vánoce 15 700 → 16 300 → 17 000. Pavel 17. 9. 2026: navýšit MINIMÁLNĚ o inflaci; číslo nepotvrdil.",
     "_pozn": "Rok ceny = rok sezóny (Vánoce 2027 zůstávají v ceně 2027 i 1. 1. 2028), u mimosezóny kalendářní rok noci. Skript: node scripts/cenik.mjs plan; bez indexace --bez-indexace. Zdůvodnění: docs/cenova-logika-2027-2028.md sekce 3."
   },
 
   "vyjimky": [],
-  "_vyjimky_pozn": "ruční přepis pro konkrétní rozsah: {\"od\":\"2027-03-27\",\"do\":\"2027-04-05\",\"noc\":13500,\"min_noci\":3,\"duvod\":\"Velikonoce\"}. Vyhrává nad sezónou.",
+  "_vyjimky_pozn": "ruční přepis pro konkrétní rozsah. Buď pevný čistý výnos {\"od\":…,\"do\":…,\"noc\":13500,…}, nebo odkaz na sezónu s koeficientem {\"od\":…,\"do\":…,\"jako\":\"zima\",\"koef\":1.1,\"min_noci\":3,\"duvod\":…} — ten se indexuje rokem noci. Vyhrává nad sezónou.",
 
   "kanaly": {
-    "booking":  { "nazev": "Booking.com",  "mena": "EUR", "koeficient": 1.0, "zaokrouhleni": 1,   "id": "hotel_id 12558473 / room 1255847301", "nevratna_sleva_pct": 8,  "provize_pct": 15, "_pozn": "ceník v EUR (audit 12. 8. 2026); nevratný plán odvozený −8 %, cílové dno = 0,92 × cena" },
-    "airbnb":   { "nazev": "Airbnb",       "mena": "CZK", "koeficient": 1.0, "zaokrouhleni": 100, "id": "listing 1122389326464885565", "last_minute_sleva_pct": 15, "provize_pct": 3, "_pozn": "ceník v CZK; Smart Pricing musí zůstat vypnutý; last-minute −15 % v prémiových obdobích vypnout (politika 7.6)" },
-    "fewo":     { "nazev": "FeWo-direkt",  "mena": "EUR", "koeficient": 1.0, "zaokrouhleni": 1,   "id": "propertyId 106405316 / FEWO 5510810", "provize_pct": 8 },
-    "echalupy": { "nazev": "e-chalupy.cz", "mena": "CZK", "koeficient": 0.9, "zaokrouhleni": 100, "id": "objekt 18852", "provize_pct": 0, "k_potvrzeni": "koeficient 0,9 = o 10 % levněji než portály (bez provize by stejný čistý výnos jako Booking dal až 0,85). Pavel 15. 9. 2026: e-chalupy MOHOU mít jinou cenu; číslo zatím neurčil." }
+    "booking":  { "nazev": "Booking.com",  "mena": "EUR", "zaokrouhleni": 1,   "id": "hotel_id 12558473 / room 1255847301", "provize_pct": 15, "poplatek_hosta_pct": 0, "nevratna_sleva_pct": 8, "_pozn": "provize 15 % z ceny pro hosta, host nic navíc neplatí. OVĚŘIT ve faktuře: poplatek za Payments by Booking (~1–2 %), pokud je zapnuté. Nevratný plán −8 % = čistý výnos o 8 % níž." },
+    "airbnb":   { "nazev": "Airbnb",       "mena": "CZK", "zaokrouhleni": 100, "id": "listing 1122389326464885565", "provize_pct": 15.5, "poplatek_hosta_pct": 0, "last_minute_sleva_pct": 15, "_pozn": "Od 13. 10. 2026 Airbnb v EHP povinně převádí i nezávislé hostitele ze sdíleného poplatku (3 % hostitel + ~14–16 % host) na jednotný hostitelský poplatek 15,5 %; host pak navíc neplatí nic. Všechny pobyty 2027+ proto počítat s 15,5 %. OVĚŘIT na výplatě první rezervace po 13. 10. Smart Pricing vypnutý; last-minute −15 % v prémiových obdobích vypnout." },
+    "fewo":     { "nazev": "FeWo-direkt",  "mena": "EUR", "zaokrouhleni": 1,   "id": "propertyId 106405316 / FEWO 5510810", "provize_pct": 8, "poplatek_hosta_pct": 8, "_pozn": "pay-per-booking 8 % bez DPH (5 % provize + 3 % zpracování platby). Host platí NAVÍC servisní poplatek 6–15 % (u velkých částek spíš 6–9 %, počítáno 8 %) → cena, kterou host vidí, je zhruba stejná jako na Bookingu." },
+    "echalupy": { "nazev": "přímo (web + e-chalupy)", "mena": "CZK", "zaokrouhleni": 100, "id": "villarudolf.com · e-chalupy objekt 18852", "primy": true, "provize_pct": 0, "poplatek_hosta_pct": 0, "_pozn": "Pavel 17. 9. 2026: e-chalupy = stejná cena jako web villarudolf.com. Cena = referenční portál × (1 − sleva_primo)." }
   },
 
-  "_vypocet": "cena na kanálu = noc × koeficient ÷ kurz (je-li měna kanálu EUR), zaokrouhleno na 'zaokrouhleni'. Koeficienty 1,0 = stejná cena pro hosta na všech portálech (hrubá parita)."
+  "_vypocet": "portál: cena = čistý výnos (indexovaný) ÷ (1 − provize), v EUR děleno kurzem, zaokrouhleno. Přímo: cena referenčního kanálu v CZK × (1 − sleva_primo). DPH z provize (identifikovaná osoba / plátce, 21 % z provize zahraniční platformy) zde NENÍ — pokud se nás týká, přičíst k provize_pct (15 → 18,15)."
 }
