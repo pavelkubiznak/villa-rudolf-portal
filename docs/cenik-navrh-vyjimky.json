@@ -1,0 +1,15 @@
+{
+  "_pozn": "NÁVRH výjimek podle docs/cenova-logika-2027-2028.md (sekce 2 a 7) — Pavel NEPOTVRDIL. Do živého ceníku (docs/cenik.json → vyjimky) přenést až po rozhodnutí. Použití: node scripts/cenik.mjs kalendar --vyjimky docs/cenik-navrh-vyjimky.json. Rozsahy jsou noci včetně; první shoda vyhrává, proto špičky před prodlouženou zimou.",
+  "verze": "2026-09-17",
+  "vyjimky": [
+    {"od": "2027-02-06", "do": "2027-02-12", "noc": 15400, "min_noci": 2, "duvod": "beneluxská špička: krokus Vlaanderen + Winterferien SN/BY/MV (+10 %)"},
+    {"od": "2027-02-20", "do": "2027-02-26", "noc": 15400, "min_noci": 2, "duvod": "beneluxská špička: voorjaar NL Noord+Midden + détente FWB (+10 %)"},
+    {"od": "2027-03-01", "do": "2027-03-13", "noc": 14000, "min_noci": 2, "duvod": "zima prodloužená: détente FWB do 5. 3., jarní prázdniny CZ do 14. 3."},
+    {"od": "2027-03-25", "do": "2027-04-03", "noc": 14000, "min_noci": 3, "duvod": "Velikonoce (Velký pátek 26. 3., Ostern DE, paasvakantie VL)"},
+    {"od": "2027-04-24", "do": "2027-05-08", "noc": 14000, "min_noci": 3, "duvod": "meivakantie NL, printemps FWB, 1. máj, Himmelfahrt 6. 5. + most"},
+    {"od": "2027-10-23", "do": "2027-11-05", "noc": 14000, "min_noci": 3, "duvod": "podzimní prázdniny CZ/NL Zuid/FWB/VL + Reformationstag, Allerheiligen"},
+    {"od": "2028-01-01", "do": "2028-01-07", "noc": 17000, "min_noci": 3, "duvod": "kerstvakantie NL/BE běží do 9. 1. 2028 — vánoční hladina"},
+    {"od": "2028-02-26", "do": "2028-03-03", "noc": 16100, "min_noci": 2, "duvod": "beneluxská špička: krokus + détente + voorjaar NL (+10 %)"},
+    {"od": "2028-03-04", "do": "2028-03-18", "noc": 14600, "min_noci": 2, "duvod": "zima prodloužená: détente FWB do 10. 3., jarní prázdniny CZ do 19. 3."}
+  ]
+}
