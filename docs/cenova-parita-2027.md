@@ -15,6 +15,11 @@ opírá o **ceník jako zdroj pravdy + Chrome jako ruce**.
 > konvence dny × noci, kontrolní systém) řeší od 16. 9. 2026
 > [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md); data jsou v `data/svatky.json`
 > a `node scripts/cenik.mjs poptavka`.
+>
+> ⚠️ **Od 17. 9. 2026 ceník nepracuje s cílovou cenou pro hosta (14 000 Kč), ale s ČISTÝM VÝNOSEM**
+> podle e-chalup (12 900 / 11 900 Kč + 4 %/rok); portály se dopočítávají přes provizi, přímá cena je
+> −10 % pod Bookingem. Hrubá parita a koeficient e-chalup 0,9 níže v textu jsou tím překonané —
+> viz `cenova-logika-2027-2028.md` sekce 9 a `node scripts/cenik.mjs provize`.
 
 **Vlastní nástroj, který by ceny nastavil všude přes API napřímo, postavit NEJDE.**
 Booking.com Connectivity API je jen pro certifikované connectivity partnery,

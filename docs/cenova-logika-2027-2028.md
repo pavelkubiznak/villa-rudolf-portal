@@ -304,3 +304,45 @@ Nic z toho není podmínka provozu; je to pořadí, ve kterém by se z „asisto
 - [ ] první asistovaný zápis cen podle plánu (parita 5) + re-audit → invarianty I1–I4
 - [ ] report tempa prodeje z `vr_bookings` (sekce 4)
 - [ ] měsíční rituál jako scheduled task (parita 7.5)
+
+## 9. Model čistého výnosu (zadání Pavla 17. 9. 2026) — nahrazuje cílové ceny 14 000 / 12 900 / 17 000
+
+**Zadání:** e-chalupy dnes dávají bez provize 12 900 Kč/noc v sezóně a 11 900 Kč mimo ni (ceny 2026, před
+navýšením). To je základ. Navýšit minimálně o inflaci, na portálech se po provizi dostat na totéž, web
+villarudolf.com a e-chalupy mají stejnou cenu. Host, který objedná přímo, má ušetřit asi 10 % (ne celých
+15 %); rozdíl zůstává nám a přímý prodej navíc dává volnost se stornem.
+
+**Provize (ověřeno 17. 9. 2026 z veřejných zdrojů, ne z našich faktur):**
+
+| Kanál | Bere nám | Host platí navíc | Poznámka |
+|---|---|---|---|
+| Booking.com | 15 % | 0 | standard; Preferred by bylo +3 p. b. Poplatek za Payments by Booking (~1–2 %) **ověřit ve faktuře** |
+| Airbnb | **15,5 %** | 0 | sdílený poplatek 3 % + ~14–16 % hostovi končí; nezávislí hostitelé v EHP přecházejí povinně **13. 10. 2026** na jednotný hostitelský poplatek. V nastavení účtu 17. 9. 2026 volba poplatku není. **Ověřit na první výplatě po 13. 10.** |
+| FeWo-direkt | 8 % bez DPH (5 % + 3 % platba) | 6–15 %, u velkých částek spíš 6–9 % (počítáno 8 %) | proto je cena v kalendáři FeWo nižší, host ale zaplatí zhruba totéž co na Bookingu |
+| e-chalupy, web | 0 | 0 | paušál ~2 000 Kč/rok |
+
+**Neřešeno v kalkulaci:** DPH z provizí zahraničních platforem (identifikovaná osoba / plátce odvádí 21 %
+z provize → Booking efektivně 18,15 %). Pokud se nás týká, přičíst do `provize_pct`.
+
+**Výpočet** (`cenik.json` → `model`, `node scripts/cenik.mjs provize`):
+portál = čistý výnos ÷ (1 − provize); přímo = cena Bookingu × 0,9.
+
+| 2027 | čistý cíl | Booking | Airbnb | FeWo | přímo (web + e-chalupy) |
+|---|---|---|---|---|---|
+| sezóna (léto, zima) | 13 400 | 641 € | 15 900 Kč | 592 € | 14 200 Kč |
+| mimo | 12 400 | 593 € | 14 700 Kč | 548 € | 13 100 Kč |
+| Vánoce | 16 300 | 780 € | 19 300 Kč | 720 € | 17 300 Kč |
+
+2028 (další 4 %): sezóna 14 000 čistého → 670 € / 16 600 / 619 € / 14 800; mimo 12 900 → 617 € / 15 300 / 570 € / 13 700.
+
+**Co to říká o dnešku:** Booking má léto 2027 za 569 €. To po provizi dává 11 900 Kč — tedy čistý výnos
+*mimosezóny* e-chalup, ne sezóny. Booking je dnes o 1 000 Kč/noc pod e-chalupami a od října bude Airbnb
+(14 000 Kč × 0,845 = 11 830) taky. Zdražení na portálech o ~12,5 % (569 → 641 €) je tedy z poloviny
+jen dorovnání provize, z poloviny indexace.
+
+**Riziko:** 641 €/noc = 4 490 € za týden = 280 €/os. při 16 lidech (dnes 250 €). Politika z 13. 8. říká
+„radši neprodat než pod cenou“, ale skok o 12 % je dost na to, aby se hlídalo tempo prodeje léta 2027 —
+co je už prodané za 569 €, zůstává. Přímá cena 14 200 Kč je o 10 % výš než dnešních 12 900 na e-chalupách.
+
+**Min. noci, horizont, sezóny, výjimky** beze změny; navržené výjimky jsou nově zapsané jako
+`jako: "zima", koef: 1.1`, aby se indexovaly samy.
