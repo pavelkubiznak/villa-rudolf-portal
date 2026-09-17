@@ -296,6 +296,8 @@ Nic z toho není podmínka provozu; je to pořadí, ve kterém by se z „asisto
 - [x] `cenik.mjs svatky` a `cenik.mjs poptavka` (týdny, mix, `--navrh`, `--json`)
 - [x] indexace v `cenik.json` + ve skriptu (`k_potvrzeni`)
 - [x] konvence noc = datum příjezdu noci zapsaná (5.1), tabulka kanálů (5.2)
+- [x] kalendář po nocích s cenou na každém kanálu (17. 9. 2026 – 31. 3. 2028): `node scripts/cenik.mjs kalendar`,
+      navržené výjimky v [`cenik-navrh-vyjimky.json`](cenik-navrh-vyjimky.json) (`--vyjimky`), NEPOTVRZENO — 17. 9. 2026
 - [ ] rozhodnutí 1–5 → zapsat do `cenik.json` (sezóna zima / výjimky / indexace / váhy)
 - [ ] test dny × noci na e-chalupách a megaubytku (5.3) při příštím auditu
 - [ ] ověřit podzim 2028 DE (`overit` v datech) na kmk.org před naceňováním podzimu 2028; Vánoce 2028 NL (zatím chybí) a BE/CZ (`overit`)

@@ -11,6 +11,8 @@
 //   node scripts/cenik.mjs poptavka [volby]          týden po týdnu (So–So): podíl obyvatel na prázdninách po zemích,
 //                                                    svátky, sezóna a cena z ceníku; --navrh vypíše týdny, kde je
 //                                                    poptávka vysoká a ceník má jen mimosezónu (kandidáti na výjimku)
+//   node scripts/cenik.mjs kalendar [volby]          den po dni: sezóna, cena na každém kanálu, min. noci, otevřeno,
+//                                                    podíl trhů s volnem; --json pro stránku s kalendářem
 // Volby:
 //   --kanal booking|airbnb|fewo|echalupy   jen jeden kanál
 //   --od YYYY-MM-DD --do YYYY-MM-DD        rozsah (výchozí: dnes → konec nejzazšího otevřeného dne + 1 měsíc)
@@ -21,6 +23,7 @@
 //   --navrh                                (poptavka) jen týdny, kde poptávka ≥ prah a sezóna je „mimo“
 //   --prah 40                              (poptavka) práh v % pro --navrh (výchozí 40)
 //   --bez-indexace                         nepočítat roční indexaci z cenik.json (ceny v základním roce)
+//   --vyjimky soubor.json                  přidat výjimky z jiného souboru (např. docs/cenik-navrh-vyjimky.json)
 //
 // Nic nezapisuje do extranetů. Zápis je asistovaný přes Chrome podle docs/cenova-parita-2027.md sekce 5.
 
@@ -267,6 +270,7 @@ for (let i = 0; i < argv.length; i++) {
   } else pos.push(argv[i]);
 }
 bezIndexace = !!opt["bez-indexace"];
+if (opt.vyjimky) cenik.vyjimky = [...JSON.parse(readFileSync(join(root, opt.vyjimky), "utf8")).vyjimky, ...cenik.vyjimky];
 const dnes = d(opt.dnes ?? iso(new Date()));
 const rokDnes = dnes.getUTCFullYear();
 const sezony = vsechnySezony(rokDnes - 1, rokDnes + 4);
@@ -360,6 +364,31 @@ if (cmd === "diff") {
   process.exit(0);
 }
 
+if (cmd === "kalendar") {
+  const od = opt.od ? d(opt.od) : dnes;
+  const do_ = opt.do ? d(opt.do) : d(`${rokDnes + 2}-03-31`);
+  const zemeK = Object.keys(svatky.zeme);
+  const dny = [];
+  for (let t = od; t <= do_; t = addDays(t, 1)) {
+    const info = denInfo(t, sezony);
+    const zitra = addDays(t, 1); // noc t → volno následující den
+    let sv = 0, sw = 0; const podil = {};
+    for (const z of zemeK) { const p = podilVolna(zitra, z); podil[z] = Math.round(p * 100); sv += p * (svatky.vahy_zemi[z] ?? 1); sw += svatky.vahy_zemi[z] ?? 1; }
+    const sv_dne = [];
+    for (const z of zemeK) for (const x of svatkyRoku(t.getUTCFullYear())[z]) if (x.datum.getTime() === t.getTime()) sv_dne.push(`${z}: ${x.nazev}${x.regiony ? " (" + x.regiony.join(", ") + ")" : ""}`);
+    dny.push({ d: iso(t), s: info.sezona, noc: info.noc, min: info.min_noci, o: ctx.h.otevreno(t) || /^výjimka/.test(info.sezona) && t <= addDays(ctx.h.konecKlouzaveho, 31), mix: Math.round((sv / sw) * 100), podil, sv: sv_dne,
+      ceny: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, cenaKanalu(info.noc, k)])) });
+  }
+  if (opt.json) {
+    console.log(JSON.stringify({ verze: cenik.verze, dnes: iso(dnes), kurz: cenik.kurz.EUR, indexace: bezIndexace ? null : cenik.indexace ?? null, horizont_do: iso(h.konecKlouzaveho),
+      kanaly: Object.fromEntries(Object.entries(cenik.kanaly).map(([k, v]) => [k, { nazev: v.nazev, mena: v.mena, koeficient: v.koeficient, nevratna_sleva_pct: v.nevratna_sleva_pct ?? null, provize_pct: v.provize_pct ?? null }])), dny }));
+    process.exit(0);
+  }
+  const ks = Object.keys(cenik.kanaly);
+  tabulka(["noc", "den", "sezóna", ...ks.map((k) => cenik.kanaly[k].nazev), "min", "stav", "volno %"], dny.map((x) => [x.d, ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"][d(x.d).getUTCDay()], x.s, ...ks.map((k) => sMenou(x.ceny[k], k)), x.min, x.o ? "otevřeno" : "ZAVŘENO", x.mix]), opt.md);
+  process.exit(0);
+}
+
 if (cmd === "svatky") {
   const roky = pos.length ? pos.map(Number) : [rokDnes + 1];
   for (const rok of roky) {
@@ -408,5 +437,5 @@ if (cmd === "poptavka") {
   process.exit(0);
 }
 
-console.error("Neznámý příkaz. Použití: node scripts/cenik.mjs sezony|plan|diff|svatky|poptavka …  (viz hlavička souboru)");
+console.error("Neznámý příkaz. Použití: node scripts/cenik.mjs sezony|plan|diff|svatky|poptavka|kalendar …  (viz hlavička souboru)");
 process.exit(1);
