@@ -11,6 +11,7 @@
 //   node scripts/cenik.mjs poptavka [volby]          týden po týdnu (So–So): podíl obyvatel na prázdninách po zemích,
 //                                                    svátky, sezóna a cena z ceníku; --navrh vypíše týdny, kde je
 //                                                    poptávka vysoká a ceník má jen mimosezónu (kandidáti na výjimku)
+//   node scripts/cenik.mjs provize [rok …]           čistý výnos → cena na kanál, co zaplatí host a co zbude nám
 //   node scripts/cenik.mjs kalendar [volby]          den po dni: sezóna, cena na každém kanálu, min. noci, otevřeno,
 //                                                    podíl trhů s volnem; --json pro stránku s kalendářem
 // Volby:
@@ -79,7 +80,12 @@ function indexuj(noc, rok) {
 
 function denInfo(t, sezony) {
   for (const v of cenik.vyjimky) {
-    if (t >= d(v.od) && t <= d(v.do)) return { sezona: `výjimka: ${v.duvod ?? ""}`.trim(), noc: v.noc, min_noci: v.min_noci, premiova: !!v.premiova };
+    if (t >= d(v.od) && t <= d(v.do)) {
+      // buď pevný čistý výnos (noc), nebo odkaz na sezónu: jako + koef, indexováno rokem noci (nebo v.rok)
+      const z = cenik.indexace?.zaokrouhleni ?? 100;
+      const noc = v.jako ? Math.round((indexuj(cenik.sezony[v.jako].noc, v.rok ?? t.getUTCFullYear()) * (v.koef ?? 1)) / z) * z : v.noc;
+      return { sezona: `výjimka: ${v.duvod ?? ""}`.trim(), noc, min_noci: v.min_noci, premiova: !!v.premiova };
+    }
   }
   for (const s of sezony) {
     if (t >= s.od && t <= s.do) {
@@ -215,11 +221,25 @@ function horizont(dnes, sezony) {
 }
 
 // ---------- kanály ----------
+// Model „cisty_vynos“: noc = čistý výnos v CZK. Portál = noc ÷ (1 − provize); přímý kanál = referenční portál × (1 − sleva).
+// Starý model (koeficient) zůstává funkční, když cenik.model chybí.
+function cenaKanaluCZK(noc, kanal) {
+  const k = cenik.kanaly[kanal], m = cenik.model;
+  if (m?.typ !== "cisty_vynos") return noc * (k.koeficient ?? 1);
+  if (k.primy) return cenaKanaluCZK(noc, m.referencni_kanal) * (1 + (cenik.kanaly[m.referencni_kanal].poplatek_hosta_pct ?? 0) / 100) * (1 - m.sleva_primo_pct / 100);
+  return noc / (1 - k.provize_pct / 100);
+}
 function cenaKanalu(noc, kanal) {
   const k = cenik.kanaly[kanal];
-  let c = noc * k.koeficient;
+  let c = cenaKanaluCZK(noc, kanal);
   if (k.mena !== cenik.mena_zaklad) c = c / cenik.kurz[k.mena];
   return Math.round(c / k.zaokrouhleni) * k.zaokrouhleni;
+}
+// co zaplatí host (v CZK) a co zbude nám, při zaokrouhlené ceně kanálu
+function rozpad(noc, kanal) {
+  const k = cenik.kanaly[kanal];
+  const cenaCZK = cenaKanalu(noc, kanal) * (k.mena !== cenik.mena_zaklad ? cenik.kurz[k.mena] : 1);
+  return { host: Math.round(cenaCZK * (1 + (k.poplatek_hosta_pct ?? 0) / 100)), cisty: Math.round(cenaCZK * (1 - (k.provize_pct ?? 0) / 100)) };
 }
 const sMenou = (c, kanal) => (c == null ? "—" : `${c.toLocaleString("cs-CZ")} ${cenik.kanaly[kanal].mena === "CZK" ? "Kč" : "€"}`);
 
@@ -302,7 +322,7 @@ if (cmd === "plan") {
   console.log(`Rozsah: ${cz(od)} – ${cz(do_)} (noci; odjezd = poslední noc + 1)\n`);
   for (const k of kanaly) {
     const kk = cenik.kanaly[k];
-    console.log(`## ${kk.nazev} (${kk.mena}${kk.koeficient !== 1 ? `, koef. ${kk.koeficient}` : ""})${kk.k_potvrzeni ? " — k potvrzení: " + kk.k_potvrzeni : ""}`);
+    console.log(`## ${kk.nazev} (${kk.mena}${kk.koeficient != null && kk.koeficient !== 1 ? `, koef. ${kk.koeficient}` : ""}${kk.provize_pct ? `, provize ${kk.provize_pct} %` : ""})${kk.k_potvrzeni ? " — k potvrzení: " + kk.k_potvrzeni : ""}`);
     const rows = useky(od, do_, k, opt.jen, ctx);
     const hl = ["od (noc)", "do (noc)", "nocí"];
     if (!opt.jen || opt.jen === "cena") hl.push("cena/noc");
@@ -377,15 +397,31 @@ if (cmd === "kalendar") {
     const sv_dne = [];
     for (const z of zemeK) for (const x of svatkyRoku(t.getUTCFullYear())[z]) if (x.datum.getTime() === t.getTime()) sv_dne.push(`${z}: ${x.nazev}${x.regiony ? " (" + x.regiony.join(", ") + ")" : ""}`);
     dny.push({ d: iso(t), s: info.sezona, noc: info.noc, min: info.min_noci, o: ctx.h.otevreno(t) || /^výjimka/.test(info.sezona) && t <= addDays(ctx.h.konecKlouzaveho, 31), mix: Math.round((sv / sw) * 100), podil, sv: sv_dne,
-      ceny: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, cenaKanalu(info.noc, k)])) });
+      ceny: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, cenaKanalu(info.noc, k)])),
+      host: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, rozpad(info.noc, k).host])), cisty: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, rozpad(info.noc, k).cisty])) });
   }
   if (opt.json) {
     console.log(JSON.stringify({ verze: cenik.verze, dnes: iso(dnes), kurz: cenik.kurz.EUR, indexace: bezIndexace ? null : cenik.indexace ?? null, horizont_do: iso(h.konecKlouzaveho),
-      kanaly: Object.fromEntries(Object.entries(cenik.kanaly).map(([k, v]) => [k, { nazev: v.nazev, mena: v.mena, koeficient: v.koeficient, nevratna_sleva_pct: v.nevratna_sleva_pct ?? null, provize_pct: v.provize_pct ?? null }])), dny }));
+      kanaly: Object.fromEntries(Object.entries(cenik.kanaly).map(([k, v]) => [k, { nazev: v.nazev, mena: v.mena, primy: !!v.primy, nevratna_sleva_pct: v.nevratna_sleva_pct ?? null, provize_pct: v.provize_pct ?? null, poplatek_hosta_pct: v.poplatek_hosta_pct ?? 0 }])), dny }));
     process.exit(0);
   }
   const ks = Object.keys(cenik.kanaly);
   tabulka(["noc", "den", "sezóna", ...ks.map((k) => cenik.kanaly[k].nazev), "min", "stav", "volno %"], dny.map((x) => [x.d, ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"][d(x.d).getUTCDay()], x.s, ...ks.map((k) => sMenou(x.ceny[k], k)), x.min, x.o ? "otevřeno" : "ZAVŘENO", x.mix]), opt.md);
+  process.exit(0);
+}
+
+if (cmd === "provize") {
+  const roky = pos.length ? pos.map(Number) : [rokDnes, rokDnes + 1, rokDnes + 2];
+  console.log(`Model ${cenik.model?.typ ?? "koeficient"} · kurz ${cenik.kurz.EUR} Kč/€ · indexace ${cenik.indexace.rocni_pct} %/rok od ${cenik.indexace.rok_zaklad} · přímo o ${cenik.model?.sleva_primo_pct} % levněji než ${cenik.model?.referencni_kanal}\n`);
+  const radky = [];
+  for (const rok of roky) for (const sz of ["leto", "vanoce", "mimo"]) {
+    const noc = indexuj(cenik.sezony[sz].noc, rok);
+    for (const k of Object.keys(cenik.kanaly)) {
+      const r = rozpad(noc, k), kk = cenik.kanaly[k];
+      radky.push([rok, sz === "leto" ? "sezóna (léto, zima)" : sz, kk.nazev, `${kk.provize_pct} %`, sMenou(cenaKanalu(noc, k), k), `${r.host.toLocaleString("cs-CZ")} Kč`, `${r.cisty.toLocaleString("cs-CZ")} Kč`, `${(((r.cisty - noc) / noc) * 100).toFixed(1)} %`]);
+    }
+  }
+  tabulka(["rok", "sezóna", "kanál", "provize", "cena v kanálu", "host zaplatí", "nám zbude", "vs. cíl"], radky, opt.md);
   process.exit(0);
 }
 
@@ -437,5 +473,5 @@ if (cmd === "poptavka") {
   process.exit(0);
 }
 
-console.error("Neznámý příkaz. Použití: node scripts/cenik.mjs sezony|plan|diff|svatky|poptavka|kalendar …  (viz hlavička souboru)");
+console.error("Neznámý příkaz. Použití: node scripts/cenik.mjs sezony|plan|diff|provize|svatky|poptavka|kalendar …  (viz hlavička souboru)");
 process.exit(1);
