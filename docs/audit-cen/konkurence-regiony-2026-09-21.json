@@ -1,0 +1,163 @@
+{
+ "_meta": {
+  "datum": "2026-09-21",
+  "metoda": "airbnb.cz, filtr 16 hostů, týden 13.–20. 3. 2027, cena za pobyt zobrazená ve výpisu po týdenní slevě; prvních ~18 výsledků bez výběru podle srovnatelnosti",
+  "villa_rudolf": {
+   "dnes": 89600,
+   "navrh": 113000
+  }
+ },
+ "regiony": {
+  "krkonose_cz": {
+   "nazev": "Krkonoše (CZ, okolí Svobody n. Ú.)",
+   "zdroj": "benchmark 17. 9. 2026, airbnb.cz, 16 hostů, 13.–20. 3. 2027",
+   "ceny": [
+    114741,
+    109548,
+    89820,
+    89600,
+    88013,
+    84107,
+    82600,
+    72845,
+    67811,
+    67178,
+    66570,
+    63301,
+    49958,
+    48136,
+    46903,
+    46070,
+    38674,
+    26158
+   ],
+   "n": 18,
+   "min": 26158,
+   "median": 67494,
+   "max": 114741,
+   "q1": 47827,
+   "q3": 88409
+  },
+  "krusne_hory": {
+   "nazev": "Krušné hory (Klínovec, Boží Dar, Jáchymov)",
+   "zdroj": "airbnb.cz 21. 9. 2026, hledání Oberwiesenthal, 16 hostů, 13.–20. 3. 2027",
+   "ceny": [
+    50400,
+    78460,
+    53677,
+    69825,
+    65908,
+    86592,
+    56540,
+    90590,
+    57804,
+    49878,
+    71316,
+    40950,
+    77977,
+    75500,
+    46104,
+    80067,
+    79500,
+    314957
+   ],
+   "n": 18,
+   "min": 40950,
+   "median": 70570,
+   "max": 314957,
+   "q1": 52857,
+   "q3": 79641
+  },
+  "harz": {
+   "nazev": "Harz (Braunlage, Schierke, Goslar)",
+   "zdroj": "airbnb.cz 21. 9. 2026, hledání Braunlage, 16 hostů, 13.–20. 3. 2027",
+   "ceny": [
+    55621,
+    122472,
+    151508,
+    140224,
+    188681,
+    105078,
+    143186,
+    65841,
+    89961,
+    89866,
+    131233,
+    211387,
+    106514,
+    66674,
+    113841,
+    220878,
+    115009,
+    187816
+   ],
+   "n": 18,
+   "min": 55621,
+   "median": 118740,
+   "max": 220878,
+   "q1": 89937,
+   "q3": 160585
+  },
+  "sumava": {
+   "nazev": "Šumava + Bavorský les",
+   "zdroj": "airbnb.cz 21. 9. 2026, hledání Železná Ruda, 16 hostů, 13.–20. 3. 2027",
+   "ceny": [
+    38226,
+    68129,
+    39389,
+    42017,
+    39179,
+    107293,
+    69000,
+    59702,
+    141533,
+    48209,
+    72340,
+    97674,
+    87520,
+    85874,
+    61890,
+    106608,
+    120018,
+    120018
+   ],
+   "n": 18,
+   "min": 38226,
+   "median": 70670,
+   "max": 141533,
+   "q1": 46661,
+   "q3": 106779
+  },
+  "karkonosze_pl": {
+   "nazev": "Karkonosze (PL) — jen 3 objekty v březnu",
+   "zdroj": "airbnb.cz 21. 9. 2026, hledání Karpacz (výsledky převážně CZ strana); Silvestr 2026 z benchmarku 17. 9.",
+   "ceny": [
+    78346,
+    55640
+   ],
+   "silvestr_2026": [
+    208182,
+    189080,
+    164360,
+    158881,
+    141906
+   ]
+  },
+  "sauerland": {
+   "nazev": "Sauerland / Winterberg (DE)",
+   "zdroj": "benchmark 17. 9. 2026",
+   "rozpeti": [
+    79974,
+    156854
+   ]
+  },
+  "allgau": {
+   "nazev": "Allgäu / Oberstdorf (Alpy)",
+   "zdroj": "benchmark 17. 9. 2026",
+   "rozpeti": [
+    91338,
+    335403
+   ]
+  }
+ }
+}

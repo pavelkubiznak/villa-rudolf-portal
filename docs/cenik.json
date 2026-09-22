@@ -1,74 +1,226 @@
 {
-  "_pozn": "Ceník Villy Rudolf — jediný zdroj pravdy pro ceny, min. noci a horizont otevření na všech kanálech. Hranice sezón se z pravidel POČÍTAJÍ pro každý rok (node scripts/cenik.mjs sezony 2027). Politika: docs/cenova-parita-2027.md sekce 7. Položky označené k_potvrzeni nebyly Pavlem výslovně rozhodnuty.",
-  "verze": "2026-09-17",
-
+  "_pozn": "Ceník Villy Rudolf — jediný zdroj pravdy pro ceny, min. noci a horizont na všech kanálech. Hladiny 13 400 mimo / 14 900 sezóna / 18 000 Vánoce / 20 000 Silvestr = čistý výnos = přímá cena; potvrzeno Pavlem 21. 9. 2026 (rozhodnutí A–D v docs/cenovy-kalendar-2027-2028.md). Zápis do extranetů: docs/STAV-cenik-2026-09-21.md.",
+  "verze": "2026-09-21",
   "model": {
     "typ": "cisty_vynos",
+    "primo": "cisty_vynos",
     "referencni_kanal": "booking",
-    "sleva_primo_pct": 10,
-    "_pozn": "Od 17. 9. 2026 (Pavel): základ = ČISTÝ výnos za noc, jaký dnes dávají e-chalupy bez provize (sezóna 12 900, mimo 11 900 Kč, ceny roku 2026). 'noc' u sezón je tedy čistý výnos, ne cena pro hosta. Portál: cena = noc ÷ (1 − provize). Přímý prodej (web villarudolf.com + e-chalupy, vždy stejná cena): cena = cena referenčního kanálu × (1 − sleva_primo). Host přímo ušetří 10 %, zbylých ~5 % rozdílu proti provizi zůstává nám."
+    "sleva_primo_pct": 15,
+    "_pozn": "Pavel 21. 9. 2026: 13 400 mimo sezónu / 14 900 v sezóně je cena na e-chalupách = cena PRO NÁS (bez provize). 'noc' u sezón je tedy čistý výnos a zároveň přímá cena (web villarudolf.com + e-chalupy). Portály: cena = noc ÷ (1 − provize), takže po provizi vynesou totéž. Host, který koupí přímo, ušetří proti portálům celou provizi (~15 %); dřívější varianta „přímo jen −10 % pod Bookingem“ (17. 9.) by dala přímou cenu 14 100 / 15 700 — viz rozhodnutí v docs/cenovy-kalendar-2027-2028.md."
   },
-
   "mena_zaklad": "CZK",
-  "kurz": { "EUR": 24.6, "_pozn": "plánovací kurz Kč/€ na sezónu; 14 000 Kč ≈ 569 € = hladina, na které audit 12. 8. 2026 našel Booking a FeWo srovnané. Při pohybu kurzu o víc než ~3 % přepočítat a znovu zapsat." },
+  "kurz": {
+    "EUR": 24.6,
+    "_pozn": "plánovací kurz Kč/€; při pohybu o víc než ~3 % přepočítat a znovu zapsat."
+  },
   "tolerance_pct": 3,
-
   "horizont": {
     "klouzavy_mesicu": 18,
     "premiove_sezony_dopredu": 2,
-    "_pozn": "Otevřeno je od dneška do konce měsíce, který je 18 měsíců od začátku aktuálního měsíce. Prémiové sezóny (léto, zima, Vánoce) jsou otevřené vždy pro nejbližší 2 výskyty, i za horizontem. Všechno ostatní za horizontem je ZAVŘENÉ. Pořadí vždy: nejdřív cena, pak otevřít."
+    "_pozn": "beze změny: otevřeno do konce měsíce 18 měsíců od začátku aktuálního; prémiové sezóny (léto, zima, Vánoce) vždy 2 výskyty dopředu; zbytek za horizontem ZAVŘENÝ. Pořadí: nejdřív cena, pak otevřít."
   },
-
   "sezony": {
     "vanoce": {
       "priorita": 1,
       "pravidlo": "týden So–So obsahující 24. 12. + týden So–So obsahující 31. 12.",
       "premiova": true,
-      "noc": 15700,
+      "noc": 18000,
       "min_noci": 5,
-      "k_potvrzeni": "čistý výnos 15 700 = sezóna 12 900 × 1,21 (stejný poměr jako dřívějších 17 000 : 14 000); min. noci 5"
+      "_pozn": "18 000 = sezóna × 1,21; Silvestrovský týden výjimkou 20 000 (benchmark 17. 9. 2026). Potvrzeno 21. 9. 2026."
     },
     "leto": {
       "priorita": 2,
       "pravidlo": "všechny týdny So–So zasahující do 1. 7.–31. 8.",
       "premiova": true,
-      "noc": 12900,
+      "noc": 14900,
       "min_noci": 5
     },
     "zima": {
       "priorita": 3,
-      "pravidlo": "1. 1.–28./29. 2. (mimo dny, které patří Vánocům)",
+      "pravidlo": "1. 1.–28./29. 2. (mimo dny, které patří Vánocům); prodloužení do poloviny března řeší výjimky",
       "premiova": true,
-      "noc": 12900,
+      "noc": 14900,
       "min_noci": 2
     },
     "mimo": {
       "priorita": 9,
       "pravidlo": "vše ostatní",
       "premiova": false,
-      "noc": 11900,
-      "min_noci": 2,
-      "k_potvrzeni": "min. noci 2–3 „k doladění“, zatím 2 = žádná změna"
+      "noc": 13400,
+      "min_noci": 2
     }
   },
-
   "indexace": {
-    "rok_zaklad": 2026,
+    "rok_zaklad": 2028,
     "rocni_pct": 4,
     "zaokrouhleni": 100,
-    "k_potvrzeni": "Sazba 4 %/rok: ČSÚ srpen 2026 — inflace 1,9 %, ale ubytovací služby +6,8 % a služby celkem +4,5 %; eurozóna 3,3 %. Čistý výnos 2026 → 2027 → 2028: sezóna 12 900 → 13 400 → 14 000; mimo 11 900 → 12 400 → 12 900; Vánoce 15 700 → 16 300 → 17 000. Pavel 17. 9. 2026: navýšit MINIMÁLNĚ o inflaci; číslo nepotvrdil.",
-    "_pozn": "Rok ceny = rok sezóny (Vánoce 2027 zůstávají v ceně 2027 i 1. 1. 2028), u mimosezóny kalendářní rok noci. Skript: node scripts/cenik.mjs plan; bez indexace --bez-indexace. Zdůvodnění: docs/cenova-logika-2027-2028.md sekce 3."
+    "_pozn": "Pavel 21. 9. 2026: 13 400 / 14 900 platí od teď do února–března 2028 a stejná hladina i pro léto 2028 (prodává se během 2027). Skok 11 900 → 13 400 (+12,6 %) a 12 900 → 14 900 (+15,5 %) už pokrývá dorovnání provize i ~2 roky indexace. Indexace 4 %/rok tedy naskočí až od roku 2029 (Vánoce 2028 zůstávají v ceně 2028). Přehodnotit v září 2027 s novým číslem ČSÚ."
   },
-
-  "vyjimky": [],
-  "_vyjimky_pozn": "ruční přepis pro konkrétní rozsah. Buď pevný čistý výnos {\"od\":…,\"do\":…,\"noc\":13500,…}, nebo odkaz na sezónu s koeficientem {\"od\":…,\"do\":…,\"jako\":\"zima\",\"koef\":1.1,\"min_noci\":3,\"duvod\":…} — ten se indexuje rokem noci. Vyhrává nad sezónou.",
-
+  "vyjimky": [
+    {
+      "od": "2027-02-06",
+      "do": "2027-02-12",
+      "jako": "zima",
+      "koef": 1.1,
+      "min_noci": 2,
+      "duvod": "beneluxská špička: krokus Vlaanderen + Winterferien SN/BY/MV (+10 %)"
+    },
+    {
+      "od": "2027-02-20",
+      "do": "2027-02-26",
+      "jako": "zima",
+      "koef": 1.1,
+      "min_noci": 2,
+      "duvod": "beneluxská špička: voorjaar NL Noord+Midden + détente FWB (+10 %)"
+    },
+    {
+      "od": "2027-03-01",
+      "do": "2027-03-13",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 2,
+      "duvod": "zima prodloužená: détente FWB do 5. 3., jarní prázdniny CZ do 14. 3."
+    },
+    {
+      "od": "2027-03-25",
+      "do": "2027-04-03",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 3,
+      "duvod": "Velikonoce (Velký pátek 26. 3., Ostern DE, paasvakantie VL)"
+    },
+    {
+      "od": "2027-04-24",
+      "do": "2027-05-08",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 3,
+      "duvod": "meivakantie NL, printemps FWB, 1. máj, Himmelfahrt 6. 5. + most"
+    },
+    {
+      "od": "2027-10-23",
+      "do": "2027-11-05",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 3,
+      "duvod": "podzimní prázdniny CZ/NL Zuid/FWB/VL + Reformationstag, Allerheiligen"
+    },
+    {
+      "od": "2027-12-25",
+      "do": "2027-12-31",
+      "jako": "vanoce",
+      "koef": 1.11,
+      "min_noci": 5,
+      "rok": 2027,
+      "premiova": true,
+      "duvod": "Silvestr: nejnapjatější termín regionu (benchmark 17. 9. 2026), +11 % nad Vánoce = 20 000"
+    },
+    {
+      "od": "2028-01-01",
+      "do": "2028-01-07",
+      "jako": "zima",
+      "koef": 1.1,
+      "min_noci": 3,
+      "duvod": "kerstvakantie NL/BE běží do 9. 1. 2028 (poptávka 70 %) — zima +10 %"
+    },
+    {
+      "od": "2028-02-26",
+      "do": "2028-03-03",
+      "jako": "zima",
+      "koef": 1.1,
+      "min_noci": 2,
+      "duvod": "beneluxská špička: krokus + détente + voorjaar NL (+10 %)"
+    },
+    {
+      "od": "2028-03-04",
+      "do": "2028-03-18",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 2,
+      "duvod": "zima prodloužená: détente FWB do 10. 3., jarní prázdniny CZ do 19. 3."
+    },
+    {
+      "od": "2028-04-08",
+      "do": "2028-04-22",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 3,
+      "duvod": "Velikonoce 2028 (Velký pátek 14. 4., Ostern DE 85–87 %)"
+    },
+    {
+      "od": "2028-04-29",
+      "do": "2028-05-06",
+      "jako": "zima",
+      "koef": 1.0,
+      "min_noci": 3,
+      "duvod": "1. máj + meivakantie NL 100 % + printemps FWB"
+    }
+  ],
+  "_vyjimky_pozn": "Rozsahy jsou noci včetně (odjezd = do + 1); první shoda vyhrává, proto špičky před prodlouženou zimou. 'jako' + 'koef' = odkaz na sezónu, indexuje se rokem noci (nebo 'rok').",
   "kanaly": {
-    "booking":  { "nazev": "Booking.com",  "mena": "EUR", "zaokrouhleni": 1,   "id": "hotel_id 12558473 / room 1255847301", "provize_pct": 15, "poplatek_hosta_pct": 0, "nevratna_sleva_pct": 8, "_pozn": "provize 15 % z ceny pro hosta, host nic navíc neplatí. OVĚŘIT ve faktuře: poplatek za Payments by Booking (~1–2 %), pokud je zapnuté. Nevratný plán −8 % = čistý výnos o 8 % níž." },
-    "airbnb":   { "nazev": "Airbnb",       "mena": "CZK", "zaokrouhleni": 100, "id": "listing 1122389326464885565", "provize_pct": 15.5, "poplatek_hosta_pct": 0, "last_minute_sleva_pct": 15, "_pozn": "Od 13. 10. 2026 Airbnb v EHP povinně převádí i nezávislé hostitele ze sdíleného poplatku (3 % hostitel + ~14–16 % host) na jednotný hostitelský poplatek 15,5 %; host pak navíc neplatí nic. Všechny pobyty 2027+ proto počítat s 15,5 %. OVĚŘIT na výplatě první rezervace po 13. 10. Smart Pricing vypnutý; last-minute −15 % v prémiových obdobích vypnout." },
-    "fewo":     { "nazev": "FeWo-direkt",  "mena": "EUR", "zaokrouhleni": 1,   "id": "propertyId 106405316 / FEWO 5510810", "provize_pct": 8, "poplatek_hosta_pct": 8, "_pozn": "pay-per-booking 8 % bez DPH (5 % provize + 3 % zpracování platby). Host platí NAVÍC servisní poplatek 6–15 % (u velkých částek spíš 6–9 %, počítáno 8 %) → cena, kterou host vidí, je zhruba stejná jako na Bookingu." },
-    "echalupy": { "nazev": "přímo (web + e-chalupy)", "mena": "CZK", "zaokrouhleni": 100, "id": "villarudolf.com · e-chalupy objekt 18852", "primy": true, "provize_pct": 0, "poplatek_hosta_pct": 0, "_pozn": "Pavel 17. 9. 2026: e-chalupy = stejná cena jako web villarudolf.com. Cena = referenční portál × (1 − sleva_primo)." }
+    "booking": {
+      "nazev": "Booking.com",
+      "mena": "EUR",
+      "zaokrouhleni": 1,
+      "id": "hotel_id 12558473 / room 1255847301",
+      "provize_pct": 15,
+      "poplatek_hosta_pct": 0,
+      "nevratna_sleva_pct": 10,
+      "_pozn": "provize 15 % z ceny pro hosta. OVĚŘIT ve faktuře poplatek Payments by Booking (~1–2 %). Nevratný plán −8 % = čistý výnos o 8 % níž."
+    },
+    "airbnb": {
+      "nazev": "Airbnb",
+      "mena": "CZK",
+      "zaokrouhleni": 100,
+      "id": "listing 1122389326464885565",
+      "provize_pct": 15.5,
+      "poplatek_hosta_pct": 0,
+      "last_minute_sleva_pct": 15,
+      "_pozn": "jednotný hostitelský poplatek 15,5 % (EHP povinně od 13. 10. 2026). OVĚŘIT na první výplatě po 13. 10. Smart Pricing vypnutý; last-minute −15 % v prémiových obdobích vypnout.",
+      "nevratna_sleva_pct": 10
+    },
+    "fewo": {
+      "nazev": "FeWo-direkt",
+      "mena": "EUR",
+      "zaokrouhleni": 1,
+      "id": "propertyId 106405316 / FEWO 5510810",
+      "provize_pct": 8,
+      "poplatek_hosta_pct": 8,
+      "_pozn": "pay-per-booking 8 % (5 % provize + 3 % platba). Host platí navíc servisní poplatek ~8 % → vidí zhruba cenu Bookingu."
+    },
+    "echalupy": {
+      "nazev": "přímo (web + e-chalupy)",
+      "mena": "CZK",
+      "zaokrouhleni": 100,
+      "id": "villarudolf.com · e-chalupy objekt 18852",
+      "primy": true,
+      "provize_pct": 0,
+      "poplatek_hosta_pct": 0,
+      "_pozn": "web villarudolf.com = e-chalupy (CZ i anglická mutace) = čistý výnos. Sezónní ceník ručně v administraci; anglická verze zvlášť (ověřit, zda přebírá ceny automaticky)."
+    },
+    "megaubytko": {
+      "nazev": "Megaubytko.cz",
+      "mena": "CZK",
+      "zaokrouhleni": 100,
+      "id": "doplnit ID objektu",
+      "primy": true,
+      "provize_pct": 0,
+      "poplatek_hosta_pct": 0,
+      "_pozn": "paušál bez provize → stejná cena jako e-chalupy. Ručně v administraci, žádné API. Ověřit test dny × noci (cenova-logika 5.3)."
+    }
   },
-
-  "_vypocet": "portál: cena = čistý výnos (indexovaný) ÷ (1 − provize), v EUR děleno kurzem, zaokrouhleno. Přímo: cena referenčního kanálu v CZK × (1 − sleva_primo). DPH z provize (identifikovaná osoba / plátce, 21 % z provize zahraniční platformy) zde NENÍ — pokud se nás týká, přičíst k provize_pct (15 → 18,15)."
+  "_vypocet": "portál: cena = čistý výnos ÷ (1 − provize), v EUR děleno kurzem, zaokrouhleno. Přímo: cena = čistý výnos. DPH z provize zahraniční platformy (21 % z provize → Booking efektivně 18,15 %) zde NENÍ — pokud se nás týká, přičíst k provize_pct.",
+  "nevratna": {
+    "sleva_pct": 10,
+    "_pozn": "Pavel 21. 9. 2026: nevratná rezervace má hostovi dát zhruba cenu před zdražením. Přesně by to bylo −13,4 % v sezóně (14 900→12 900) a −11,2 % mimo (13 400→11 900); zvoleno jednotných −10 % → čistý výnos 13 400 sezóna / 12 100 mimo / 16 200 Vánoce. Booking: nevratný rate plan −10 % (dnes −8 %, změnit). Airbnb: volba „nevratná“ = pevných 10 %, zapnout. FeWo, e-chalupy, Megaubytko: rate plany nemají — přímý host dostane −10 % ve smlouvě výměnou za nevratnou zálohu 100 %."
+  },
+  "min_noci_pravidla": {
+    "leto": 5,
+    "vanoce": 5,
+    "silvestr": 5,
+    "zima": 2,
+    "mimo": 2,
+    "vyjimky_svatky": 3,
+    "_pozn": "Nikde a nikdy 1 noc. Léto 5 (upsell na týden ručně), Vánoce a Silvestr 5, zima 2 (čt/pá–ne/po), mimo 2, svátkové výjimky 3. Příjezdové dny neomezovat (medián pobytu 4 noci, týden jen čtvrtina pobytů)."
+  }
 }
