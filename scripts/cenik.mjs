@@ -25,6 +25,7 @@
 //   --prah 40                              (poptavka) práh v % pro --navrh (výchozí 40)
 //   --bez-indexace                         nepočítat roční indexaci z cenik.json (ceny v základním roce)
 //   --vyjimky soubor.json                  přidat výjimky z jiného souboru (např. docs/cenik-navrh-vyjimky.json)
+//   --cenik soubor.json                    použít jiný ceník než docs/cenik.json (návrh k porovnání)
 //
 // Nic nezapisuje do extranetů. Zápis je asistovaný přes Chrome podle docs/cenova-parita-2027.md sekce 5.
 
@@ -33,7 +34,10 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const cenik = JSON.parse(readFileSync(join(root, "docs/cenik.json"), "utf8"));
+// --cenik <soubor> načte jiný ceník (např. návrh docs/cenik-navrh-*.json) místo živého docs/cenik.json
+const cenikArg = process.argv.indexOf("--cenik");
+const cenikSoubor = cenikArg > -1 && process.argv[cenikArg + 1] ? process.argv[cenikArg + 1] : "docs/cenik.json";
+const cenik = JSON.parse(readFileSync(join(root, cenikSoubor), "utf8"));
 const svatky = JSON.parse(readFileSync(join(root, "data/svatky.json"), "utf8"));
 
 // ---------- data ----------
@@ -226,6 +230,7 @@ function horizont(dnes, sezony) {
 function cenaKanaluCZK(noc, kanal) {
   const k = cenik.kanaly[kanal], m = cenik.model;
   if (m?.typ !== "cisty_vynos") return noc * (k.koeficient ?? 1);
+  if (k.primy && m.primo === "cisty_vynos") return noc; // přímá cena = čistý výnos (host neplatí žádnou provizi)
   if (k.primy) return cenaKanaluCZK(noc, m.referencni_kanal) * (1 + (cenik.kanaly[m.referencni_kanal].poplatek_hosta_pct ?? 0) / 100) * (1 - m.sleva_primo_pct / 100);
   return noc / (1 - k.provize_pct / 100);
 }
@@ -412,7 +417,7 @@ if (cmd === "kalendar") {
 
 if (cmd === "provize") {
   const roky = pos.length ? pos.map(Number) : [rokDnes, rokDnes + 1, rokDnes + 2];
-  console.log(`Model ${cenik.model?.typ ?? "koeficient"} · kurz ${cenik.kurz.EUR} Kč/€ · indexace ${cenik.indexace.rocni_pct} %/rok od ${cenik.indexace.rok_zaklad} · přímo o ${cenik.model?.sleva_primo_pct} % levněji než ${cenik.model?.referencni_kanal}\n`);
+  console.log(`Model ${cenik.model?.typ ?? "koeficient"} · kurz ${cenik.kurz.EUR} Kč/€ · indexace ${cenik.indexace.rocni_pct} %/rok od ${cenik.indexace.rok_zaklad} · přímo ${cenik.model?.primo === "cisty_vynos" ? "= čistý výnos" : `o ${cenik.model?.sleva_primo_pct} % levněji než ${cenik.model?.referencni_kanal}`}\n`);
   const radky = [];
   for (const rok of roky) for (const sz of ["leto", "vanoce", "mimo"]) {
     const noc = indexuj(cenik.sezony[sz].noc, rok);

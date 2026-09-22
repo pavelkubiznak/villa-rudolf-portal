@@ -40,6 +40,17 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   Snímky auditů v `docs/audit-cen/`. Před zápisem do extranetu vždy `node scripts/cenik.mjs plan`.
   **Podle čeho ceny na 2027/2028** (prázdniny DE/NL/BE/CZ v `data/svatky.json`, `cenik.mjs poptavka`,
   indexace, dny × noci, kontrola): `docs/cenova-logika-2027-2028.md`. Konvence: noc = datum, kdy host spí.
+  **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
+  odkud hosté jezdí `docs/trhy-hostu-2026-09.md`). **Zápis do extranetů ještě NEPROBĚHL — stav a pořadí: `docs/STAV-cenik-2026-09-21.md`.**
+- `docs/text-villa-rudolf.md` — **zdroj pravdy pro texty**: hlas a styl (co se smí a co ne),
+  ověřená fakta a master text v češtině. Všechno na kanálech i na webu se odvozuje odsud,
+  nikdy naopak. Distribuce a stav kanálů je v `docs/popisy-na-kanalech.md`.
+- `docs/popisy-na-kanalech.md` — **audit popisů na Airbnb / Bookingu / FeWo / e-chalupách**
+  (21. 9. 2026) + jednotné znění textů CZ/EN/DE a otevřené body. Fakta o objektu jsou tam
+  potvrzená Pavlem; web `villa-rudolf-site/index.html` je zastaralejší. Booking má **dva objekty**:
+  `12558473 Villa Rudolf` (živý) a `353795 Rudolfův dvůr` (zavřený, 4 nepřečtené zprávy) —
+  popis si Booking generuje sám z vybavení, volný text je jen profil hostitele a house rules.
+  Názvy objektu řeší `docs/nazev-na-kanalech.md` (větev `claude/kind-bassi-ed1116`).
 - `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
   **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
   trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
