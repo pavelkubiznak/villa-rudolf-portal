@@ -42,12 +42,15 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   indexace, dny × noci, kontrola): `docs/cenova-logika-2027-2028.md`. Konvence: noc = datum, kdy host spí.
   **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
   odkud hosté jezdí `docs/trhy-hostu-2026-09.md`). **Zápis do extranetů ještě NEPROBĚHL — stav a pořadí: `docs/STAV-cenik-2026-09-21.md`.**
-- `docs/text-villa-rudolf.md` — **zdroj pravdy pro texty**: hlas a styl (co se smí a co ne),
-  ověřená fakta a master text v češtině. Všechno na kanálech i na webu se odvozuje odsud,
-  nikdy naopak. Distribuce a stav kanálů je v `docs/popisy-na-kanalech.md`.
+- `docs/text-villa-rudolf.md` — **zdroj pravdy pro texty** (23. 9. 2026): hlas a styl, názvosloví,
+  ověřená fakta (půdorys, rozpis lůžek) a master text **CZ + EN + DE** v blocích A–L. Všechno
+  na kanálech se odvozuje odsud, nikdy naopak. **Vzorem hlasu a názvů je web villarudolf.com**
+  (apartmá Suite, Pokoj 1–4, altán; DE tyká „ihr") — kde web tvrdí jiná fakta, opravuje se web
+  (seznam v kap. 8). Pozor na starší omyly: apartmá **není v podkroví** (půlka 1. patra + 2 ložnice
+  v podkroví), Pokoje 1–3 jsou v přízemí, obě kuchyně jsou plnohodnotné.
 - `docs/popisy-na-kanalech.md` — **audit popisů na Airbnb / Bookingu / FeWo / e-chalupách**
-  (21. 9. 2026) + jednotné znění textů CZ/EN/DE a otevřené body. Fakta o objektu jsou tam
-  potvrzená Pavlem; web `villa-rudolf-site/index.html` je zastaralejší. Booking má **dva objekty**:
+  (21. 9. 2026), mapování bloků na pole kanálů, stav zápisu a otevřené body. Texty samotné
+  tu už nejsou. Booking má **dva objekty**:
   `12558473 Villa Rudolf` (živý) a `353795 Rudolfův dvůr` (zavřený, 4 nepřečtené zprávy) —
   popis si Booking generuje sám z vybavení, volný text je jen profil hostitele a house rules.
   Názvy objektu řeší `docs/nazev-na-kanalech.md`.
