@@ -50,7 +50,7 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   potvrzená Pavlem; web `villa-rudolf-site/index.html` je zastaralejší. Booking má **dva objekty**:
   `12558473 Villa Rudolf` (živý) a `353795 Rudolfův dvůr` (zavřený, 4 nepřečtené zprávy) —
   popis si Booking generuje sám z vybavení, volný text je jen profil hostitele a house rules.
-  Názvy objektu řeší `docs/nazev-na-kanalech.md` (větev `claude/kind-bassi-ed1116`).
+  Názvy objektu řeší `docs/nazev-na-kanalech.md`.
 - `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
   **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
   trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
