@@ -1,6 +1,6 @@
 # Villa Rudolf — zdroj pravdy pro texty
 
-Stav k 23. 9. 2026. **Tohle je jediný text, který se píše.** Všechno na kanálech i v e-mailech
+Stav k 24. 9. 2026. **Tohle je jediný text, který se píše.** Všechno na kanálech i v e-mailech
 se z něj odvozuje — nikdy naopak. Když se něco změní na domě, mění se to tady a teprve pak se to
 protáhne ven. Které bloky jdou do kterého pole a co je kde zapsané: [`popisy-na-kanalech.md`](popisy-na-kanalech.md).
 
@@ -45,7 +45,8 @@ Zadání Pavla 21.–23. 9. 2026: texty na portálech byly „dost strojové", p
 - výčtů bez kontextu („2× trouba, 2× myčka, 3× mikrovlnka…")
 - formulací, ze kterých vznikne dojem, co tam není — „každý pokoj: koupelna, TV, lednička"
   budí dojem televize v každém pokoji; televize jsou dvě
-- zákazů — o sousedech se píše s pochopením, ne příkazem
+- zákazů — pravidla se píšou s pochopením a s důvodem, ne jako příkaz. Jediné pevné pravidlo
+  je klid kvůli sousedům (blok J): na zahradě žádná zvuková aparatura, večer žádná hudba.
 - **cen poplatků** (pes, úklid, kauce) — nastavují se v podmínkách portálu, ne v textu
 - odkazů mimo platformu na Bookingu a Airbnb (web, telefon, e-mail) — viz
   [`popisy-na-kanalech.md`](popisy-na-kanalech.md), kap. 3; odkaz na plánovač výletů k pobytu smí
@@ -148,6 +149,8 @@ Termín zarezervujeme, nebo předáme kontakt.
 **Praktické**
 - Pes vítán — **cenu do popisu nepsat** (500 Kč za pobyt, nastavuje se v podmínkách portálu).
 - Check-in od 15:00, check-out do 10:00. Energie v ceně. Nekuřácký dům.
+- **Klid kvůli sousedům** (Pavel 24. 9. 2026): na zahradě žádné reproduktory ani zvuková
+  aparatura, večer žádná hudba. Posezení a povídání u ohně do noci je v pořádku.
 - Kauce 5 000 Kč, úklid 3 500 Kč, poplatek obci 25 Kč / dospělý / noc. Ceny a minimální
   počet nocí: [`cenik.json`](cenik.json).
 
@@ -228,9 +231,13 @@ Pes je vítaný, poplatek najdete v podmínkách rezervace.
 
 Hned vedle domu má ordinaci masér a je s ním domluvené, že hosté od nás k němu chodí. Není v tom sleva ani balíček — jen praktická věc: když chcete mít termín jistý, řekněte nám to dopředu. Zarezervujeme ho, nebo předáme kontakt a objednáte se sami.
 
-### J — Sousedé *(formulace je záměrná — nezpřísňovat, nepřepisovat na zákazy)*
+### J — Sousedé *(zpřísněno Pavlem 24. 9. 2026 — pravidlo držet, tón nechat laskavý)*
 
-Pozemek je velký a oplocený, ale nestojíme na samotě. Kolem bydlí lidi, kteří si v létě taky chtějí nechat otevřené okno, a váš playlist je zajímá míň než vás. Takže se bavte, grilujte u ohniště, seďte venku dlouho — jen prosím bez velkých aparatur na zahradě a po desáté v hlasitosti, u které se dá spát. Nikdy jsme s tím neměli problém a rádi bychom, aby to tak zůstalo.
+A k sousedům jedna věc, na které nám opravdu záleží. Pozemek je velký a oplocený, ale nestojíme na samotě — kolem bydlí lidi, kteří si v létě taky chtějí nechat otevřené okno.
+
+Proto na zahradě žádné reproduktory ani jiná zvuková aparatura a večer žádná hudba. Posedět u ohně, povídat si a smát se klidně do noci — to k večerům tady patří a nikomu to nevadí.
+
+Tady musíme vycházet všichni spolu: my se sousedy a sousedé s vámi. Zatím to vždycky fungovalo a moc stojíme o to, aby to tak zůstalo. Díky za pochopení.
 
 ### K — Výlety a lyžování
 
@@ -280,7 +287,7 @@ Hřiště s prolézačkami, skluzavkou, houpačkami a lanovými prvky je na dohl
 
 ### Booking — House rules → Additional information (EN, zkrácený blok J)
 
-> The grounds are large and fenced, but we are not out in the wilderness — people live around us who also want their windows open in summer. Enjoy yourselves, grill at the fire pit and sit outside late; just please without big speaker systems in the garden, and after ten at a volume people can sleep through.
+> The grounds are large and fenced, but people live all around us. Please: no speakers or sound systems in the garden, and no music in the evening. Sitting by the fire and talking late is absolutely fine. We all need to get along here — thank you for understanding.
 
 ### e-chalupy
 
@@ -363,9 +370,13 @@ Dogs are welcome; you'll find the fee in the booking terms.
 
 There is also a masseur right next door, and it is agreed with him that our guests come to him. No discount, no package — just a practical thing: if you want a slot for certain, tell us in advance. We will book it for you, or pass on the contact so you can book it yourself.
 
-### J — The neighbours *(formulace je záměrná — nezpřísňovat, nepřepisovat na zákazy)*
+### J — The neighbours *(zpřísněno Pavlem 24. 9. 2026 — pravidlo držet, tón nechat laskavý)*
 
-The grounds are large and fenced, but we are not out in the wilderness. People live around us who also want their windows open in summer, and your playlist interests them rather less than it interests you. So enjoy yourselves, grill at the fire pit, sit outside late — just please without big speaker systems in the garden, and after ten at a volume people can sleep through. We have never had a problem with this and we would like to keep it that way.
+One thing about the neighbours that really matters to us. The grounds are large and fenced, but we are not out in the wilderness — people live all around us, and in summer they want to keep their windows open too.
+
+So please: no speakers or any other sound system in the garden, and no music in the evening. Sitting by the fire, talking and laughing late into the night is exactly what evenings here are for, and nobody minds that.
+
+Around here we all have to get along — us with the neighbours, and the neighbours with you. It has always worked so far, and we care a lot about keeping it that way. Thank you for understanding.
 
 ### K — Trips and skiing
 
@@ -457,9 +468,13 @@ Hunde sind willkommen, die Gebühr findet ihr in den Buchungsbedingungen.
 
 Gleich nebenan praktiziert außerdem ein Masseur, und es ist mit ihm abgesprochen, dass unsere Gäste zu ihm kommen. Rabatt oder Paket gibt es dafür keins — nur eine praktische Sache: Wenn ihr einen Termin sicher haben wollt, sagt uns vorher Bescheid. Wir reservieren ihn für euch oder geben euch den Kontakt, dann bucht ihr selbst.
 
-### J — Die Nachbarn *(formulace je záměrná — nezpřísňovat, nepřepisovat na zákazy)*
+### J — Die Nachbarn *(zpřísněno Pavlem 24. 9. 2026 — pravidlo držet, tón nechat laskavý)*
 
-Zu den Nachbarn: Das Grundstück ist groß und eingezäunt, aber wir stehen nicht in der Einöde. Rundherum wohnen Leute, die im Sommer auch das Fenster offen lassen möchten, und eure Playlist interessiert sie deutlich weniger als euch. Also: feiert, grillt an der Feuerstelle, sitzt lange draußen — bitte nur ohne große Musikanlagen im Garten und ab zehn in einer Lautstärke, bei der man schlafen kann. Probleme hatten wir damit noch nie, und das soll gern so bleiben.
+Eine Sache zu den Nachbarn, die uns wirklich wichtig ist. Das Grundstück ist groß und eingezäunt, aber wir stehen nicht in der Einöde — rundherum wohnen Leute, die im Sommer auch das Fenster offen lassen möchten.
+
+Deshalb bitte: keine Lautsprecher oder andere Musikanlagen im Garten und abends keine Musik. Am Feuer sitzen, reden und lachen bis spät in die Nacht — genau dafür sind die Abende hier da, und das stört niemanden.
+
+Hier müssen wir alle miteinander auskommen: wir mit den Nachbarn und die Nachbarn mit euch. Bisher hat das immer geklappt, und uns liegt viel daran, dass es so bleibt. Danke für euer Verständnis.
 
 ### K — Ausflüge und Skifahren
 
