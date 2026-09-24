@@ -285,18 +285,25 @@ strojový překlad Bookingu z češtiny. Anglické znění je v [`text-villa-rud
 
 ---
 
-## 6a. Co je skutečně zapsané (stav 23. 9. 2026)
+## 6a. Co je skutečně zapsané (stav 24. 9. 2026)
 
-**Všechno, co je dnes na kanálech, je napsané před 23. 9. 2026** — ve starším hlasu a se
-starým půdorysem (podkrovní apartmán, „pergola"). Přepsat je potřeba všude, podle
-[`text-villa-rudolf.md`](text-villa-rudolf.md) a mapování v kap. 5.
+**24. 9. 2026 zapsáno nové znění na Airbnb a FeWo-direkt** (texty; nastavení a vybavení ještě ne).
+Booking a e-chalupy mají pořád starší znění — obojí čeká na přihlášení Pavla.
 
 | Kanál | Zapsáno dřív | Zbývá |
 |---|---|---|
-| **Airbnb** | Popis, Tvá nemovitost, Přístup pro hosty v CS/DE/EN/PL (22. 9., starší znění) | **všechna pole v CS/EN/DE znovu**, PL vyprázdnit, Okolí, nastavení (kap. 5) |
-| **FeWo-direkt** | Beschreibung DE a EN (22. 9., starší znění, v DE vykání) · Massage odškrtnuto | **Beschreibung DE i EN znovu** (nově „ihr"), Golf a Gartenmöbel ručně, vybavení |
+| **Airbnb** | ✅ **24. 9. 2026, nové znění v CS/EN/DE:** Popis nabídky, Tvá nemovitost, Přístup pro hosty, Další podrobnosti (= Other things to note, dřív prázdné), Lokalita → Popis sousedství (dřív prázdné). **Polština vyprázdněná** ve všech čtyřech polích popisu. Ověřeno v náhledu editoru. | nastavení (kap. 5): rozpis lůžek (hlavička 15), štítek „U sjezdovky" v Lokalitě (nejbližší areál 1,9 km), vybavení; rozpor v Domácích pravidlech — viz níže |
+| **FeWo-direkt** | ✅ **24. 9. 2026:** Beschreibung **DE** (7 174 zn., „ihr") a **anglický překlad** (6 671 zn.) — obojí ověřeno po znovunačtení. Überschrift beze změny. Massage odškrtnuto dřív. | **překlady fr, it, ja, nl, pt, es mají pořád staré znění** (starý půdorys) — smazat, nebo nechat? · Golf a Gartenmöbel ručně · vybavení |
 | **Booking** | data: lůžka 19, přistýlky 3, max. dospělých 22, Rooftop pryč · profil hostitele z 21. 9. | profil v novém znění (zatím padá), vybavení, fine print, house rules |
 | **e-chalupy** | nic | všechno; nejdřív přístup do klientské sekce |
+
+**⚠️ Airbnb: rozpor v Domácích pravidlech.** „Další pravidla" povolují hudbu z mobilů bez externích
+reproduktorů; blok J (24. 9. 2026) říká večer žádná hudba. Noční klid je nastavený 22:00–6:00,
+kouření vypnuté. Text pravidel je Pavlův (včetně zřeknutí odpovědnosti) — upravit jen s jeho souhlasem.
+
+**FeWo — dlouhý text přes hodnotu pole jde.** Celý Beschreibung vložený najednou přes JS (ne psaním)
+se uložil; renderer po vložení na ~40 s zamrzl, ale pak se vzpamatoval. Dialog překladu se otevírá
+se zpožděním několika sekund.
 
 **🐞 Booking: profil hostitele nejde uložit.** Při každém pokusu 22. 9. 2026 vrátí
 *„We couldn't update your profile — Something went wrong when we tried to save your changes –
