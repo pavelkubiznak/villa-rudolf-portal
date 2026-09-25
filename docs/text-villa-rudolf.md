@@ -279,6 +279,23 @@ Airbnb dovolí zadat nejvýš 16 hostů, dům jich pojme 22.
 - **EN:** One note on the numbers: the house sleeps twenty-two, but Airbnb only lets us enter sixteen guests. If there are more of you, just message us.
 - **DE:** Noch ein Wort zur Personenzahl: Das Haus fasst zweiundzwanzig Gäste, Airbnb lässt uns aber nur sechzehn eintragen. Wenn ihr mehr seid, schreibt uns einfach.
 
+### Airbnb — Lokalita → Doprava (skibus místo štítku „U sjezdovky")
+
+Airbnb nemá štítek pro skibus; štítek „U sjezdovky" (= ski-in/ski-out) byl 25. 9. 2026 vypnutý,
+protože nejbližší areál je 1,9 km. Skibus zdarma jde místo toho sem, na první místo.
+
+- **CS:** Skibus SkiResortu Černá hora – Pec staví dvě stě metrů od brány a vozí zdarma — auto tak může zůstat stát celý týden. Obchod, restaurace, bowling i půjčovny jsou sto padesát metrů od brány, autobus sto, vlakové nádraží pět set. Z Prahy i z Vratislavi to k nám máte zhruba dvě hodiny, z Drážďan tři. Parkuje se zdarma přímo na pozemku, za vlastní bránou.
+- **EN:** The free ski bus for SkiResort Černá hora – Pec stops 200 metres from the gate, so the car can stay put all week. Shop, restaurants, bowling and rentals are 150 metres from the gate, the bus stop 100, the railway station 500. From Prague and from Wrocław it takes about two hours to get here, from Dresden three. Parking is free right on the grounds, behind your own gate.
+- **DE:** Der kostenlose Skibus des SkiResorts Černá hora – Pec hält 200 Meter vom Tor — das Auto kann also die ganze Woche stehen bleiben. Laden, Restaurants, Bowling und Verleih sind 150 Meter vom Tor entfernt, die Bushaltestelle 100, der Bahnhof 500. Aus Prag und aus Breslau seid ihr in etwa zwei Stunden hier, aus Dresden in drei. Geparkt wird kostenlos direkt auf dem Grundstück, hinter dem eigenen Tor.
+
+### Airbnb — Domácí pravidla → Dodatečná pravidla (jen CS, Pavlův text)
+
+25. 9. 2026 nahrazena jediná věta, zbytek (odpovědnost, děti, bazén) beze změny:
+
+> Na pozemku není povoleno používat reproduktory ani jinou zvukovou aparaturu a večer se hudba nepouští vůbec — posezení a povídání u ohně je v pořádku.
+
+Dřív tam stálo, že hudba z mobilů bez externích reproduktorů je povolená — v rozporu s blokem J.
+
 ### Booking — „Why Families Love Your Property" (CS)
 
 Celý dům patří jedné skupině, takže děti nikomu nepřekážejí a můžou běhat po domě i po zahradě. V potoce na kraji pozemku loví ryby, po parku sbírají šišky a vy je u toho nemusíte hlídat u silnice.
