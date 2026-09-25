@@ -306,10 +306,20 @@ Hřiště s prolézačkami, skluzavkou, houpačkami a lanovými prvky je na dohl
 
 > The grounds are large and fenced, but people live all around us. Please: no speakers or sound systems in the garden, and no music in the evening. Sitting by the fire and talking late is absolutely fine. We all need to get along here — thank you for understanding.
 
+### Booking — „About the Host“ (CS)
+
+Jediné volné pole na Bookingu, kam se vešel blok J — house rules mají jen přepínače.
+
+> Jsme rodina a Villa Rudolf je náš dům. Bydlíme nedaleko a odpovídáme rychle. Radši vám řekneme nepříjemnou věc dopředu, než abyste ji zjistili na místě: ptejte se na cokoliv ještě před rezervací — na dům, na skibus, na to, jakou teplotu má bazén v květnu, nebo co s dětmi, když prší.
+>
+> + blok I (pes, masér) + blok J (sousedé)
+
 ### e-chalupy
 
 - **Nadpis popisu:** Villa Rudolf — celý dům i pozemek jen pro vaši skupinu, 7 ložnic, bazén a sauna
-- **Na konec popisu:** Prohlídka 360°, video, plán domu a plánovač výletů: villarudolf.com
+- **Na konec popisu:** Prohlídku 360°, video, plán domu a plánovač výletů najdete na našem webu, odkaz je u kontaktů.
+- Web patří do **Kontakty → Adresa www stránek**, ne do textu (e-chalupy rozbijí tečky v adrese).
+- Pro e-chalupy bez spojovníků a dvojteček u časů: „Příjezd od 15 hodin, odjezd do 10 hodin“, „Wifi“, „stolní tenis“, „Pokoje 1 až 3“.
 
 ---
 
