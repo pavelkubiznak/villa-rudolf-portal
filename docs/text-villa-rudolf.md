@@ -92,13 +92,18 @@ Potvrzeno Pavlem 21.–23. 9. 2026. Půdorys a rozpis lůžek podle plánu domu 
 | Pokoj 2 | manželská + jednolůžko + výsuvná přistýlka | 3 | 1 | 4 |
 | Pokoj 3 | manželská + jednolůžko + výsuvná přistýlka | 3 | 1 | 4 |
 | Pokoj 4 | manželská | 2 | — | 2 |
-| Suite — ložnice | manželská | 2 | — | 2 |
-| Suite — ložnice | manželská + jednolůžko + výsuvná přistýlka | 3 | 1 | 4 |
-| Suite — ložnice | manželská + 2 jednolůžka | 4 | — | 4 |
+| Suite — ložnice v 1. patře | manželská + jednolůžko + výsuvná přistýlka | 3 | 1 | 4 |
+| Suite — podkroví | manželská | 2 | — | 2 |
+| Suite — podkroví | manželská + 2 jednolůžka | 4 | — | 4 |
 | **celkem** | | **19** | **3** | **22** |
 
-Apartmá Suite samo: 10 hostů (9 pevných lůžek + 1 přistýlka). Která ze tří ložnic Suite je
-v 1. patře a které dvě v podkroví, zatím zapsané není.
+Apartmá Suite samo: 10 hostů (9 pevných lůžek + 1 přistýlka). V 1. patře je ložnice pro 4
+(manželská + jednolůžko + přistýlka), v podkroví pod šikmým stropem ložnice pro 2 a ložnice pro 4
+(Pavel 25. 9. 2026, podle fotek u pokojů na Airbnb).
+
+**Airbnb pořadí ložnic:** Ložnice 1–4 = Pokoj 1–4, Ložnice 5 = Suite 1. patro, Ložnice 6 = Suite
+podkroví pro 2, Ložnice 7 = Suite podkroví pro 4. Velká postel je v editoru Airbnb typ
+„Větší manželská postel“ (zobrazuje se jako „manželská postel“).
 
 **Kuchyně — dvě, obě plnohodnotné** (Pavel 23. 9. 2026; web chybně píše „kuchyňka", kap. 8)
 - Obě mají vlastní troubu, myčku, dřez a kompletní nádobí.
