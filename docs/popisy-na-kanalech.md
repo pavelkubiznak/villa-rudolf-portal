@@ -194,6 +194,7 @@ znění se na kanálu nepřepisuje.
 | | Přístup pro hosty / Guest access | CS · EN · DE | H I |
 | | Ostatní poznámky / Other things to note | CS · EN · DE | J L + věta o kapacitě (texty, kap. 5) |
 | | Okolí / Neighbourhood | CS · EN · DE | K |
+| | Lokalita → Doprava | CS · EN · DE | skibus + doprava (texty, kap. 5) |
 | | polština a ostatní jazyky | — | **vyprázdnit** — Airbnb přeloží z češtiny |
 | **FeWo-direkt** | Überschrift (max. 80 zn.) | DE | podle [`nazev-na-kanalech.md`](nazev-na-kanalech.md), kap. 3.3 |
 | | Beschreibung | DE + EN | A → L; vkládat **po odstavcích** (editor zamrzá kolem 4 300 zn.) |
@@ -285,21 +286,24 @@ strojový překlad Bookingu z češtiny. Anglické znění je v [`text-villa-rud
 
 ---
 
-## 6a. Co je skutečně zapsané (stav 24. 9. 2026)
+## 6a. Co je skutečně zapsané (stav 25. 9. 2026)
 
 **24. 9. 2026 zapsáno nové znění na Airbnb a FeWo-direkt** (texty; nastavení a vybavení ještě ne).
-Booking a e-chalupy mají pořád starší znění — obojí čeká na přihlášení Pavla.
+Booking a e-chalupy mají pořád starší znění. 25. 9. 2026 se v Chromu s rozšířením Claude
+ani jeden nepřihlásil — přihlášení je potřeba udělat v tom samém profilu Chromu.
 
 | Kanál | Zapsáno dřív | Zbývá |
 |---|---|---|
-| **Airbnb** | ✅ **24. 9. 2026, nové znění v CS/EN/DE:** Popis nabídky, Tvá nemovitost, Přístup pro hosty, Další podrobnosti (= Other things to note, dřív prázdné), Lokalita → Popis sousedství (dřív prázdné). **Polština vyprázdněná** ve všech čtyřech polích popisu. Ověřeno v náhledu editoru. | nastavení (kap. 5): rozpis lůžek (hlavička 15), štítek „U sjezdovky" v Lokalitě (nejbližší areál 1,9 km), vybavení; rozpor v Domácích pravidlech — viz níže |
-| **FeWo-direkt** | ✅ **24. 9. 2026:** Beschreibung **DE** (7 174 zn., „ihr") a **anglický překlad** (6 671 zn.) — obojí ověřeno po znovunačtení. Überschrift beze změny. Massage odškrtnuto dřív. | **překlady fr, it, ja, nl, pt, es mají pořád staré znění** (starý půdorys) — smazat, nebo nechat? · Golf a Gartenmöbel ručně · vybavení |
+| **Airbnb** | ✅ **24. 9. 2026, nové znění v CS/EN/DE:** Popis nabídky, Tvá nemovitost, Přístup pro hosty, Další podrobnosti (= Other things to note, dřív prázdné), Lokalita → Popis sousedství (dřív prázdné). **Polština vyprázdněná** ve všech čtyřech polích popisu. Ověřeno v náhledu editoru. | nastavení (kap. 5): rozpis lůžek (hlavička 15), vybavení. **25. 9. 2026 hotovo:** věta o hudbě v Domácích pravidlech sladěná s blokem J, štítek „U sjezdovky" (ski-in/ski-out) vypnutý, pole Lokalita → Doprava vyplněné (skibus zdarma) v CS/EN/DE — vše ověřeno po reloadu |
+| **FeWo-direkt** | ✅ **24. 9. 2026:** Beschreibung **DE** (7 174 zn., „ihr") a **anglický překlad** (6 671 zn.) — obojí ověřeno po znovunačtení. Überschrift beze změny. Massage odškrtnuto dřív. | **25. 9. 2026 smazány překlady fr, it, ja** (Pavel: smazat). **Zbývají nl, pt, es** — potvrzovací dialog se při dalších pokusech neotevřel a stránka zamrzala; smazat ručně (Löschen → Löschen). · Golf a Gartenmöbel ručně · vybavení |
 | **Booking** | data: lůžka 19, přistýlky 3, max. dospělých 22, Rooftop pryč · profil hostitele z 21. 9. | profil v novém znění (zatím padá), vybavení, fine print, house rules |
 | **e-chalupy** | nic | všechno; nejdřív přístup do klientské sekce |
 
-**⚠️ Airbnb: rozpor v Domácích pravidlech.** „Další pravidla" povolují hudbu z mobilů bez externích
-reproduktorů; blok J (24. 9. 2026) říká večer žádná hudba. Noční klid je nastavený 22:00–6:00,
-kouření vypnuté. Text pravidel je Pavlův (včetně zřeknutí odpovědnosti) — upravit jen s jeho souhlasem.
+**✅ Airbnb: rozpor v Domácích pravidlech vyřešen 25. 9. 2026** — věta o hudbě přepsaná podle bloku J
+(znění v `text-villa-rudolf.md`, kap. 5). Noční klid 22:00–6:00 a vypnuté kouření beze změny.
+
+**FeWo — mazání překladu:** kliknutí na „Löschen" otevře potvrzovací dialog až po 10–30 s a stránka
+mezitím zamrzá; opakované pokusy za sebou dialog neotevřely vůbec. Po reloadu a pauze to znovu jde.
 
 **FeWo — dlouhý text přes hodnotu pole jde.** Celý Beschreibung vložený najednou přes JS (ne psaním)
 se uložil; renderer po vložení na ~40 s zamrzl, ale pak se vzpamatoval. Dialog překladu se otevírá
