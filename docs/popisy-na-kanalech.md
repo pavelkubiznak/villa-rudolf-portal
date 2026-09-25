@@ -289,15 +289,28 @@ strojový překlad Bookingu z češtiny. Anglické znění je v [`text-villa-rud
 ## 6a. Co je skutečně zapsané (stav 25. 9. 2026)
 
 **24. 9. 2026 zapsáno nové znění na Airbnb a FeWo-direkt** (texty; nastavení a vybavení ještě ne).
-Booking a e-chalupy mají pořád starší znění. 25. 9. 2026 se v Chromu s rozšířením Claude
-ani jeden nepřihlásil — přihlášení je potřeba udělat v tom samém profilu Chromu.
+**25. 9. 2026 zapsáno i na Booking (profil hostitele) a e-chalupy (celý popis).** Nové znění je tím
+na všech čtyřech kanálech; zbývá vybavení a nastavení (kap. 5 a 6).
 
 | Kanál | Zapsáno dřív | Zbývá |
 |---|---|---|
 | **Airbnb** | ✅ **24. 9. 2026, nové znění v CS/EN/DE:** Popis nabídky, Tvá nemovitost, Přístup pro hosty, Další podrobnosti (= Other things to note, dřív prázdné), Lokalita → Popis sousedství (dřív prázdné). **Polština vyprázdněná** ve všech čtyřech polích popisu. Ověřeno v náhledu editoru. | nastavení (kap. 5): rozpis lůžek (hlavička 15), vybavení. **25. 9. 2026 hotovo:** věta o hudbě v Domácích pravidlech sladěná s blokem J, štítek „U sjezdovky" (ski-in/ski-out) vypnutý, pole Lokalita → Doprava vyplněné (skibus zdarma) v CS/EN/DE — vše ověřeno po reloadu |
 | **FeWo-direkt** | ✅ **24. 9. 2026:** Beschreibung **DE** (7 174 zn., „ihr") a **anglický překlad** (6 671 zn.) — obojí ověřeno po znovunačtení. Überschrift beze změny. Massage odškrtnuto dřív. | **25. 9. 2026 smazány překlady fr, it, ja** (Pavel: smazat). **Zbývají nl, pt, es** — potvrzovací dialog se při dalších pokusech neotevřel a stránka zamrzala; smazat ručně (Löschen → Löschen). · Golf a Gartenmöbel ručně · vybavení |
-| **Booking** | data: lůžka 19, přistýlky 3, max. dospělých 22, Rooftop pryč · profil hostitele z 21. 9. | profil v novém znění (zatím padá), vybavení, fine print, house rules |
-| **e-chalupy** | nic | všechno; nejdřív přístup do klientské sekce |
+| **Booking** | data: lůžka 19, přistýlky 3, max. dospělých 22, Rooftop pryč · ✅ **25. 9. 2026 profil hostitele v novém znění** (CS, 4 pole, limit 2 000 zn. na pole): About the Property = A + kapacita + koupelny + půdorys + kuchyně + bazén + sauna + ohniště; About the Host = „Jsme rodina…“ + I + **J (sousedé)**; Neighbourhood = H + K; Families = zvláštní text. Ověřeno po reloadu. | vybavení, covidový fine print, closing dates bazénu. **House rules nemají volné pole** (jen přepínače: nekouřit, bez večírků, klid 22–6, mazlíčci na požádání), proto J v About the Host |
+| **e-chalupy** | ✅ **25. 9. 2026 celý popis** (8 polí, jeden formulář): Celkový popis = nadpis + A + J + L; Místnosti = B bez koupelen a termostatu; Sociální zařízení; Vytápění; Vybavení = F + G + lyžárna + E + I; Stravování = C (dřív prázdné); Doprava = skibus + H; Zábava = K. **Kontakty → www = https://www.villarudolf.com** (dřív prázdné). **Vzdálenosti → Vlek** = „Skiareál Svoboda nad Úpou (1,9 km), skibus zdarma 200 m od domu“. Ověřeno po reloadu i na veřejné stránce. | štítky v hlavičce („venkovní bazén“, „sjezdovka do 1500m“) skládá portál sám — napsat správcům; czech-cottages.com se překládá automaticky z CZ — ověřit za pár dní |
+
+**⚠️ e-chalupy „opravují“ typografii při uložení.** Kolem spojovníku uvnitř slova přidají mezery
+(`Check-in` → `Check - in`, `Wi-Fi` → `Wi - Fi`), za dvojtečku před číslicí taky (`15:00` → `15: 00`),
+za tečku uvnitř slova taky (`www.villarudolf.com` → `www. villarudolf. com`) a za číslicí mažou mezeru
+po čárce či tečce (`1, 2 a 3` → `1,2 a 3`). Odtud byly rozbité staré odkazy na videa. Pro e-chalupy
+proto: „Příjezd od 15 hodin, odjezd do 10 hodin“, „Wifi“, „stolní tenis“, „Pokoje 1 až 3“ a odkaz
+na web jen v Kontaktech. Server navíc přidává mezeru na konec řádků (neviditelné).
+
+**e-chalupy — jazykové verze (czech-cottages.com) jsou strojový překlad z češtiny.** Ruční úprava
+jde až po „Zpřístupnit texty pro úpravy“, což automatiku vypne — neklikat, dokud to nechceme napořád.
+
+**Booking — profil se ukládá jen skutečným kliknutím myší na Save.** Kliknutí přes odkaz prvku
+nebo skriptem neodešle nic; 22. 9. to vypadalo jako chyba Bookingu, nebyla.
 
 **✅ Airbnb: rozpor v Domácích pravidlech vyřešen 25. 9. 2026** — věta o hudbě přepsaná podle bloku J
 (znění v `text-villa-rudolf.md`, kap. 5). Noční klid 22:00–6:00 a vypnuté kouření beze změny.
@@ -309,10 +322,7 @@ mezitím zamrzá; opakované pokusy za sebou dialog neotevřely vůbec. Po reloa
 se uložil; renderer po vložení na ~40 s zamrzl, ale pak se vzpamatoval. Dialog překladu se otevírá
 se zpožděním několika sekund.
 
-**🐞 Booking: profil hostitele nejde uložit.** Při každém pokusu 22. 9. 2026 vrátí
-*„We couldn't update your profile — Something went wrong when we tried to save your changes –
-try again."* Text po reloadu vždy zmizí. Chyba je na straně Bookingu. Na objektu zůstává znění
-z 21. 9. 2026. Zkusit znovu, nebo napsat podpoře.
+**✅ Booking: profil hostitele jde uložit** (25. 9. 2026) — viz výše, jen skutečné kliknutí na Save.
 
 **🐞 FeWo: stránka Außenbereich nemá tlačítko Uložit.** Checkbox se v UI přepne, ale změna
 se nikam nepropíše a po reloadu je zpátky. Týká se **Golfu** (odškrtnout, hraje se v Mladých
