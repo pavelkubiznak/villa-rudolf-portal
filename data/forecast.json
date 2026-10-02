@@ -1,8 +1,7 @@
 {
- "generatedAt": "2026-10-01T15:15:18.016Z",
+ "generatedAt": "2026-10-02T05:15:18.059Z",
  "source": "yr.no / MET Norway",
  "dates": [
-  "2026-10-01",
   "2026-10-02",
   "2026-10-03",
   "2026-10-04",
@@ -10,7 +9,8 @@
   "2026-10-06",
   "2026-10-07",
   "2026-10-08",
-  "2026-10-09"
+  "2026-10-09",
+  "2026-10-10"
  ],
  "byLocation": {
   "villa": {
@@ -20,75 +20,75 @@
     "alt": 516
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -101,76 +101,76 @@
     "alt": 1603
    },
    "daily": {
-    "2026-10-01": {
-     "max": 11,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 12,
-     "min": 3,
+     "max": 13,
+     "min": 4,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
-     "max": 13,
+     "max": 12,
      "min": 5,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 12,
-     "min": 4,
+     "min": 5,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 9,
+     "max": 11,
      "min": 4,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 12,
-     "min": 6,
+     "min": 5,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 13,
-     "min": 6,
+     "min": 7,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 12,
-     "min": 5,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 4,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 5,
+     "max": 4,
      "min": 0,
-     "precip": 3,
-     "windKmh": 9,
-     "cat": "rain",
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 4,
+     "min": 0,
+     "precip": 7,
+     "windKmh": 15,
+     "cat": "snow",
      "thunder": false
     }
    }
@@ -182,19 +182,11 @@
     "alt": 615
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
+     "max": 18,
+     "min": 10,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 14,
      "cat": "partly",
      "thunder": false
     },
@@ -208,49 +200,57 @@
     },
     "2026-10-04": {
      "max": 17,
-     "min": 8,
+     "min": 9,
      "precip": 0,
      "windKmh": 9,
-     "cat": "clear",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 15,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 18,
      "min": 9,
      "precip": 0,
-     "windKmh": 11,
+     "windKmh": 12,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 11,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "cloudy",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
      "min": 11,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "clear",
+     "precip": 1,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 12,
-     "min": 7,
-     "precip": 4,
-     "windKmh": 8,
+     "max": 11,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 11,
+     "min": 6,
+     "precip": 3.4,
+     "windKmh": 22,
      "cat": "rain",
      "thunder": false
     }
@@ -263,75 +263,75 @@
     "alt": 650
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -344,75 +344,75 @@
     "alt": 640
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -425,17 +425,9 @@
     "alt": 480
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 18,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 10,
+     "max": 18,
+     "min": 11,
      "precip": 0,
      "windKmh": 12,
      "cat": "partly",
@@ -445,55 +437,63 @@
      "max": 18,
      "min": 10,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 16,
-     "min": 8,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 15,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
-     "min": 11,
+     "min": 10,
      "precip": 0,
-     "windKmh": 6,
-     "cat": "cloudy",
+     "windKmh": 10,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 12,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 5,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 19,
-     "min": 12,
-     "precip": 0.1,
-     "windKmh": 14,
-     "cat": "clear",
+     "max": 18,
+     "min": 11,
+     "precip": 1.4,
+     "windKmh": 18,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 12,
+     "max": 10,
      "min": 6,
-     "precip": 2.1,
-     "windKmh": 9,
+     "precip": 0.2,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 11,
+     "min": 6,
+     "precip": 5.7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -506,19 +506,11 @@
     "alt": 720
    },
    "daily": {
-    "2026-10-01": {
-     "max": 17,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
+     "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -526,31 +518,31 @@
      "max": 19,
      "min": 8,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
+     "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "cloudy",
+     "windKmh": 6,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 19,
-     "min": 10,
+     "max": 18,
+     "min": 9,
      "precip": 0,
-     "windKmh": 4,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
@@ -558,24 +550,32 @@
      "max": 20,
      "min": 10,
      "precip": 0,
-     "windKmh": 11,
-     "cat": "fair",
+     "windKmh": 6,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
-     "min": 12,
-     "precip": 0.5,
-     "windKmh": 16,
+     "min": 10,
+     "precip": 2.4,
+     "windKmh": 18,
      "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 10,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 4.6,
-     "windKmh": 13,
-     "cat": "rain",
+     "precip": 2,
+     "windKmh": 14,
+     "cat": "showers",
      "thunder": false
     }
    }
@@ -587,76 +587,76 @@
     "alt": 665
    },
    "daily": {
-    "2026-10-01": {
-     "max": 17,
-     "min": 14,
-     "precip": 0,
-     "windKmh": 24,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
+     "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 13,
+     "windKmh": 12,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 18,
-     "min": 9,
+     "min": 10,
      "precip": 0,
-     "windKmh": 11,
+     "windKmh": 12,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 17,
-     "min": 9,
+     "min": 10,
      "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
+     "windKmh": 10,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 15,
+     "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "cloudy",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 18,
+     "max": 17,
      "min": 10,
      "precip": 0,
-     "windKmh": 7,
-     "cat": "cloudy",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 19,
-     "min": 11,
+     "min": 10,
      "precip": 0,
-     "windKmh": 13,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 18,
-     "min": 13,
-     "precip": 0.3,
-     "windKmh": 21,
-     "cat": "fair",
+     "min": 9,
+     "precip": 2.1,
+     "windKmh": 18,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
      "max": 10,
-     "min": 6,
-     "precip": 4,
-     "windKmh": 12,
-     "cat": "rain",
+     "min": 5,
+     "precip": 0.6,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 10,
+     "min": 5,
+     "precip": 7.1,
+     "windKmh": 19,
+     "cat": "heavyrain",
      "thunder": false
     }
    }
@@ -668,19 +668,11 @@
     "alt": 769
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -688,7 +680,7 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -696,47 +688,55 @@
      "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
-     "min": 8,
+     "max": 15,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 17,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 17,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 10,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
-     "min": 5,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 9,
+     "min": 4,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -749,75 +749,75 @@
     "alt": 640
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -830,47 +830,7 @@
     "alt": 490
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 19,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 16,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 18,
      "min": 11,
      "precip": 0,
@@ -878,27 +838,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 19,
      "min": 11,
      "precip": 0,
+     "windKmh": 10,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-04": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
-     "min": 12,
-     "precip": 0,
+     "min": 11,
+     "precip": 1.2,
      "windKmh": 14,
-     "cat": "clear",
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 11,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 12,
-     "min": 7,
-     "precip": 3.3,
-     "windKmh": 5,
+     "min": 6,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -911,75 +911,75 @@
     "alt": 560
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -992,75 +992,75 @@
     "alt": 600
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -1073,75 +1073,75 @@
     "alt": 530
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -1154,75 +1154,75 @@
     "alt": 530
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -1235,75 +1235,75 @@
     "alt": 525
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -1316,47 +1316,7 @@
     "alt": 1260
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 14,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 13,
-     "min": 4,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 11,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 14,
      "min": 6,
      "precip": 0,
@@ -1364,27 +1324,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 14,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 15,
      "min": 7,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 13,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 12,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 13,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 15,
+     "min": 8,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 14,
+     "min": 7,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 6,
+     "min": 2,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 7,
-     "min": 3,
-     "precip": 3.3,
-     "windKmh": 5,
+     "min": 2,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -1397,19 +1397,11 @@
     "alt": 1207
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 14,
+     "max": 15,
      "min": 6,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -1417,7 +1409,7 @@
      "max": 15,
      "min": 7,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -1425,47 +1417,55 @@
      "max": 14,
      "min": 7,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 11,
-     "min": 6,
+     "max": 13,
+     "min": 7,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 15,
-     "min": 8,
+     "max": 14,
+     "min": 7,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 15,
-     "min": 8,
+     "min": 9,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 15,
      "min": 7,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 8,
-     "min": 3,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 6,
+     "min": 2,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 6,
+     "min": 2,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -1478,75 +1478,75 @@
     "alt": 1062
    },
    "daily": {
-    "2026-10-01": {
-     "max": 15,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 15,
+     "max": 16,
      "min": 7,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 16,
-     "min": 7,
+     "min": 8,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 15,
-     "min": 6,
+     "min": 7,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
+     "max": 14,
      "min": 7,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 16,
      "min": 8,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 10,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 16,
-     "min": 9,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 8,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 9,
-     "min": 4,
-     "precip": 3,
-     "windKmh": 10,
+     "max": 8,
+     "min": 3,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 3,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -1559,19 +1559,11 @@
     "alt": 830
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -1579,7 +1571,7 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -1587,47 +1579,55 @@
      "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
-     "min": 8,
+     "max": 15,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 17,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 17,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 10,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
-     "min": 5,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 9,
+     "min": 4,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -1640,19 +1640,11 @@
     "alt": 800
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -1660,55 +1652,63 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 14,
+     "max": 16,
      "min": 8,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
-     "min": 10,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 18,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 11,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
+     "max": 9,
      "min": 5,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 9,
+     "min": 5,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -1721,19 +1721,11 @@
     "alt": 1000
    },
    "daily": {
-    "2026-10-01": {
-     "max": 15,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 15,
-     "min": 7,
+     "max": 16,
+     "min": 8,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -1741,55 +1733,63 @@
      "max": 16,
      "min": 8,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 15,
-     "min": 6,
+     "min": 7,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
+     "max": 15,
      "min": 7,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 16,
-     "min": 9,
+     "min": 8,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 16,
-     "min": 9,
+     "max": 17,
+     "min": 10,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 16,
-     "min": 9,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 8,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 9,
+     "max": 8,
      "min": 4,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -1802,19 +1802,11 @@
     "alt": 700
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -1822,55 +1814,63 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 14,
+     "max": 16,
      "min": 8,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
-     "min": 10,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 18,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 11,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
+     "max": 9,
      "min": 5,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 9,
+     "min": 5,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -1883,19 +1883,11 @@
     "alt": 700
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -1903,55 +1895,63 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 14,
+     "max": 16,
      "min": 8,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
-     "min": 10,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 18,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 11,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
+     "max": 9,
      "min": 5,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 9,
+     "min": 5,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -1964,75 +1964,75 @@
     "alt": 560
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
+     "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 19,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 18,
-     "min": 9,
+     "min": 10,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
+     "max": 17,
      "min": 10,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 19,
-     "min": 11,
+     "max": 20,
+     "min": 13,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
-     "min": 12,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 11,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 12,
-     "min": 7,
-     "precip": 3,
-     "windKmh": 10,
+     "max": 11,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 11,
+     "min": 6,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -2045,19 +2045,11 @@
     "alt": 410
    },
    "daily": {
-    "2026-10-01": {
-     "max": 19,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 11,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 14,
      "cat": "partly",
      "thunder": false
     },
@@ -2071,49 +2063,57 @@
     },
     "2026-10-04": {
      "max": 18,
-     "min": 9,
+     "min": 10,
      "precip": 0,
      "windKmh": 9,
-     "cat": "clear",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
-     "min": 9,
+     "max": 18,
+     "min": 10,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 11,
+     "windKmh": 12,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 19,
-     "min": 11,
+     "max": 20,
+     "min": 12,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "cloudy",
      "thunder": false
     },
     "2026-10-08": {
      "max": 20,
      "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "clear",
+     "precip": 1,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 13,
-     "min": 8,
-     "precip": 4,
-     "windKmh": 8,
+     "max": 12,
+     "min": 7,
+     "precip": 0,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 12,
+     "min": 7,
+     "precip": 3.4,
+     "windKmh": 22,
      "cat": "rain",
      "thunder": false
     }
@@ -2126,19 +2126,11 @@
     "alt": 410
    },
    "daily": {
-    "2026-10-01": {
-     "max": 19,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 11,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 14,
      "cat": "partly",
      "thunder": false
     },
@@ -2152,49 +2144,57 @@
     },
     "2026-10-04": {
      "max": 18,
-     "min": 9,
+     "min": 10,
      "precip": 0,
      "windKmh": 9,
-     "cat": "clear",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
-     "min": 9,
+     "max": 18,
+     "min": 10,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 11,
+     "windKmh": 12,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 19,
-     "min": 11,
+     "max": 20,
+     "min": 12,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "cloudy",
      "thunder": false
     },
     "2026-10-08": {
      "max": 20,
      "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "clear",
+     "precip": 1,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 13,
-     "min": 8,
-     "precip": 4,
-     "windKmh": 8,
+     "max": 12,
+     "min": 7,
+     "precip": 0,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 12,
+     "min": 7,
+     "precip": 3.4,
+     "windKmh": 22,
      "cat": "rain",
      "thunder": false
     }
@@ -2207,76 +2207,76 @@
     "alt": 520
    },
    "daily": {
-    "2026-10-01": {
-     "max": 19,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 18,
      "min": 10,
      "precip": 0,
-     "windKmh": 19,
+     "windKmh": 18,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 19,
-     "min": 9,
+     "min": 8,
      "precip": 0,
      "windKmh": 13,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 17,
+     "max": 18,
      "min": 8,
      "precip": 0,
      "windKmh": 10,
-     "cat": "clear",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 18,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
+     "windKmh": 11,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 20,
+     "max": 19,
      "min": 12,
-     "precip": 0,
-     "windKmh": 21,
-     "cat": "clear",
+     "precip": 1.1,
+     "windKmh": 19,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
      "max": 12,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 14,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 12,
      "min": 7,
-     "precip": 5.3,
-     "windKmh": 15,
-     "cat": "rain",
+     "precip": 2.1,
+     "windKmh": 26,
+     "cat": "showers",
      "thunder": false
     }
    }
@@ -2288,17 +2288,9 @@
     "alt": 290
    },
    "daily": {
-    "2026-10-01": {
-     "max": 20,
-     "min": 14,
-     "precip": 0,
-     "windKmh": 15,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 20,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
@@ -2306,58 +2298,66 @@
     },
     "2026-10-03": {
      "max": 21,
-     "min": 9,
+     "min": 8,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 18,
-     "min": 8,
+     "max": 19,
+     "min": 9,
      "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 17,
+     "max": 18,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
-     "cat": "cloudy",
+     "windKmh": 10,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 19,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
+     "windKmh": 7,
      "cat": "cloudy",
      "thunder": false
     },
     "2026-10-07": {
      "max": 21,
-     "min": 11,
+     "min": 10,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 5,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 22,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 18,
-     "cat": "clear",
+     "max": 21,
+     "min": 12,
+     "precip": 1.3,
+     "windKmh": 19,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
      "max": 13,
-     "min": 10,
-     "precip": 7.2,
-     "windKmh": 5,
-     "cat": "rain",
+     "min": 7,
+     "precip": 0,
+     "windKmh": 13,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 14,
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 22,
+     "cat": "showers",
      "thunder": false
     }
    }
@@ -2369,47 +2369,7 @@
     "alt": 500
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 19,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 16,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 18,
      "min": 11,
      "precip": 0,
@@ -2417,27 +2377,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 19,
      "min": 11,
      "precip": 0,
+     "windKmh": 10,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-04": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
-     "min": 12,
-     "precip": 0,
+     "min": 11,
+     "precip": 1.2,
      "windKmh": 14,
-     "cat": "clear",
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 11,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 12,
-     "min": 7,
-     "precip": 3.3,
-     "windKmh": 5,
+     "min": 6,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -2450,75 +2450,75 @@
     "alt": 1250
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
-     "min": 5,
+     "max": 14,
+     "min": 6,
      "precip": 0,
-     "windKmh": 10,
+     "windKmh": 9,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 14,
-     "min": 6,
+     "min": 7,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 12,
-     "min": 4,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 11,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 13,
-     "min": 7,
+     "min": 5,
      "precip": 0,
      "windKmh": 8,
      "cat": "partly",
      "thunder": false
     },
+    "2026-10-05": {
+     "max": 12,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 13,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 11,
+     "cat": "cloudy",
+     "thunder": false
+    },
     "2026-10-07": {
-     "max": 14,
-     "min": 7,
+     "max": 15,
+     "min": 8,
      "precip": 0,
      "windKmh": 6,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 15,
+     "max": 14,
      "min": 7,
-     "precip": 0,
-     "windKmh": 13,
-     "cat": "clear",
+     "precip": 1.3,
+     "windKmh": 16,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 8,
-     "min": 3,
-     "precip": 2.6,
-     "windKmh": 6,
+     "max": 6,
+     "min": 2,
+     "precip": 0.2,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 7,
+     "min": 2,
+     "precip": 5.4,
+     "windKmh": 16,
      "cat": "rain",
      "thunder": false
     }
@@ -2531,19 +2531,11 @@
     "alt": 1390
    },
    "daily": {
-    "2026-10-01": {
-     "max": 13,
-     "min": 7,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
+     "max": 14,
      "min": 5,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -2551,55 +2543,63 @@
      "max": 14,
      "min": 6,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 13,
-     "min": 5,
+     "min": 6,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 10,
+     "max": 12,
      "min": 5,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 14,
-     "min": 7,
+     "max": 13,
+     "min": 6,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 14,
-     "min": 7,
+     "min": 8,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 14,
      "min": 6,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 7,
-     "min": 2,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 5,
+     "min": 1,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 5,
+     "min": 1,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -2612,19 +2612,11 @@
     "alt": 1410
    },
    "daily": {
-    "2026-10-01": {
-     "max": 13,
-     "min": 7,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
-     "min": 4,
+     "max": 14,
+     "min": 5,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -2632,55 +2624,63 @@
      "max": 14,
      "min": 6,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 13,
-     "min": 5,
+     "min": 6,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 10,
+     "max": 12,
      "min": 5,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 13,
-     "min": 7,
+     "min": 6,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 14,
-     "min": 7,
+     "min": 8,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 13,
-     "min": 6,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 5,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 7,
+     "max": 5,
      "min": 1,
-     "precip": 3,
-     "windKmh": 9,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 5,
+     "min": 1,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -2693,19 +2693,11 @@
     "alt": 1180
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 14,
-     "min": 6,
+     "max": 15,
+     "min": 7,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -2713,55 +2705,63 @@
      "max": 15,
      "min": 7,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 14,
-     "min": 5,
+     "min": 6,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 12,
+     "max": 14,
      "min": 6,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 15,
-     "min": 8,
+     "min": 7,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 15,
-     "min": 8,
+     "max": 16,
+     "min": 9,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 15,
-     "min": 8,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 7,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 8,
+     "max": 7,
      "min": 3,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 7,
+     "min": 3,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -2774,47 +2774,7 @@
     "alt": 720
    },
    "daily": {
-    "2026-10-01": {
-     "max": 17,
-     "min": 11,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 16,
-     "min": 7,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 17,
      "min": 9,
      "precip": 0,
@@ -2822,27 +2782,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
-     "max": 18,
+    "2026-10-03": {
+     "max": 17,
      "min": 10,
      "precip": 0,
+     "windKmh": 10,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-04": {
+     "max": 16,
+     "min": 8,
+     "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 8,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 18,
+     "min": 11,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 18,
      "min": 10,
-     "precip": 0,
+     "precip": 1.2,
      "windKmh": 14,
-     "cat": "clear",
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 11,
-     "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "max": 10,
+     "min": 5,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 10,
+     "min": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -2855,75 +2855,75 @@
     "alt": 560
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -2936,19 +2936,11 @@
     "alt": 410
    },
    "daily": {
-    "2026-10-01": {
-     "max": 19,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 11,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 14,
      "cat": "partly",
      "thunder": false
     },
@@ -2962,49 +2954,57 @@
     },
     "2026-10-04": {
      "max": 18,
-     "min": 9,
+     "min": 10,
      "precip": 0,
      "windKmh": 9,
-     "cat": "clear",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
-     "min": 9,
+     "max": 18,
+     "min": 10,
      "precip": 0,
      "windKmh": 12,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 19,
      "min": 10,
      "precip": 0,
-     "windKmh": 11,
+     "windKmh": 12,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 19,
-     "min": 11,
+     "max": 20,
+     "min": 12,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "cloudy",
      "thunder": false
     },
     "2026-10-08": {
      "max": 20,
      "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "clear",
+     "precip": 1,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 13,
-     "min": 8,
-     "precip": 4,
-     "windKmh": 8,
+     "max": 12,
+     "min": 7,
+     "precip": 0,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 12,
+     "min": 7,
+     "precip": 3.4,
+     "windKmh": 22,
      "cat": "rain",
      "thunder": false
     }
@@ -3017,75 +3017,75 @@
     "alt": 1102
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 15,
-     "min": 6,
+     "max": 16,
+     "min": 7,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
-     "max": 16,
+     "max": 15,
      "min": 8,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 15,
-     "min": 7,
+     "min": 8,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 12,
+     "max": 14,
      "min": 7,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 15,
-     "min": 9,
+     "min": 8,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 16,
-     "min": 9,
+     "min": 10,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 15,
-     "min": 8,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 7,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 8,
+     "max": 7,
      "min": 3,
-     "precip": 3,
-     "windKmh": 9,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 7,
+     "min": 3,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -3098,19 +3098,11 @@
     "alt": 890
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -3118,7 +3110,7 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -3126,47 +3118,55 @@
      "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
-     "min": 8,
+     "max": 15,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 17,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 17,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 10,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
-     "min": 5,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 9,
+     "min": 4,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -3179,75 +3179,75 @@
     "alt": 571
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3260,75 +3260,75 @@
     "alt": 572
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3341,75 +3341,75 @@
     "alt": 684
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3422,19 +3422,11 @@
     "alt": 813
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -3442,7 +3434,7 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -3450,47 +3442,55 @@
      "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
-     "min": 8,
+     "max": 15,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 17,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 17,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 10,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
-     "min": 5,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 9,
+     "min": 4,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -3503,19 +3503,11 @@
     "alt": 716
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
@@ -3523,55 +3515,63 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 14,
+     "max": 16,
      "min": 8,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
-     "min": 10,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
      "max": 18,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 11,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
+     "max": 9,
      "min": 5,
-     "precip": 3,
-     "windKmh": 10,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 9,
+     "min": 5,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -3584,57 +3584,49 @@
     "alt": 711
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
+     "max": 18,
+     "min": 10,
      "precip": 0,
-     "windKmh": 10,
+     "windKmh": 9,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 18,
-     "min": 10,
+     "min": 11,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 9,
      "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 15,
-     "min": 9,
+     "max": 16,
+     "min": 10,
      "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
+     "windKmh": 13,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
      "min": 10,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "partly",
+     "windKmh": 11,
+     "cat": "cloudy",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 18,
-     "min": 10,
+     "max": 19,
+     "min": 12,
      "precip": 0,
      "windKmh": 6,
      "cat": "clear",
@@ -3643,16 +3635,24 @@
     "2026-10-08": {
      "max": 18,
      "min": 11,
-     "precip": 0,
-     "windKmh": 13,
-     "cat": "clear",
+     "precip": 1.3,
+     "windKmh": 16,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.2,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 2.6,
-     "windKmh": 6,
+     "precip": 5.4,
+     "windKmh": 16,
      "cat": "rain",
      "thunder": false
     }
@@ -3665,75 +3665,75 @@
     "alt": 1050
    },
    "daily": {
-    "2026-10-01": {
-     "max": 15,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 15,
+     "max": 16,
      "min": 7,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 13,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
      "max": 16,
-     "min": 7,
+     "min": 8,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
      "max": 15,
-     "min": 6,
+     "min": 7,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
+     "max": 14,
      "min": 7,
-     "precip": 0.1,
+     "precip": 0,
      "windKmh": 7,
-     "cat": "cloudy",
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 16,
      "min": 8,
      "precip": 0,
-     "windKmh": 8,
+     "windKmh": 6,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-07": {
-     "max": 16,
-     "min": 8,
+     "max": 17,
+     "min": 10,
      "precip": 0,
-     "windKmh": 10,
-     "cat": "fair",
+     "windKmh": 9,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 16,
-     "min": 9,
-     "precip": 0.2,
-     "windKmh": 17,
-     "cat": "clear",
+     "min": 8,
+     "precip": 1.7,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 9,
-     "min": 4,
-     "precip": 3,
-     "windKmh": 10,
+     "max": 8,
+     "min": 3,
+     "precip": 0.1,
+     "windKmh": 13,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 3,
+     "precip": 4.4,
+     "windKmh": 18,
      "cat": "rain",
      "thunder": false
     }
@@ -3746,47 +3746,7 @@
     "alt": 1260
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 14,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 13,
-     "min": 4,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 11,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 14,
      "min": 6,
      "precip": 0,
@@ -3794,27 +3754,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 14,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 15,
      "min": 7,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 13,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 12,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 13,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 15,
+     "min": 8,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 14,
+     "min": 7,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 6,
+     "min": 2,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 7,
-     "min": 3,
-     "precip": 3.3,
-     "windKmh": 5,
+     "min": 2,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3827,75 +3827,75 @@
     "alt": 670
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 15,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
-     "max": 17,
      "min": 10,
      "precip": 0,
      "windKmh": 10,
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 8,
-     "cat": "fair",
-     "thunder": false
-    },
-    "2026-10-08": {
-     "max": 19,
      "min": 11,
      "precip": 0,
-     "windKmh": 14,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
+    "2026-10-04": {
+     "max": 17,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 16,
+     "min": 9,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-08": {
+     "max": 18,
+     "min": 10,
+     "precip": 1.2,
+     "windKmh": 14,
+     "cat": "showers",
+     "thunder": false
+    },
     "2026-10-09": {
+     "max": 10,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 11,
      "min": 6,
-     "precip": 3.3,
-     "windKmh": 5,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3908,47 +3908,7 @@
     "alt": 1230
    },
    "daily": {
-    "2026-10-01": {
-     "max": 14,
-     "min": 8,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 13,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 14,
-     "min": 6,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 13,
-     "min": 4,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 11,
-     "min": 5,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 14,
      "min": 6,
      "precip": 0,
@@ -3956,27 +3916,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
-     "max": 15,
+    "2026-10-03": {
+     "max": 14,
      "min": 7,
      "precip": 0,
+     "windKmh": 10,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-04": {
+     "max": 13,
+     "min": 5,
+     "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 13,
+     "min": 5,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 14,
+     "min": 6,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 15,
+     "min": 8,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 15,
      "min": 7,
-     "precip": 0,
+     "precip": 1.2,
      "windKmh": 14,
-     "cat": "clear",
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 8,
-     "min": 3,
-     "precip": 3.3,
-     "windKmh": 5,
+     "max": 7,
+     "min": 2,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 7,
+     "min": 2,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
@@ -3989,19 +3989,11 @@
     "alt": 850
    },
    "daily": {
-    "2026-10-01": {
-     "max": 16,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 17,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 16,
+     "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -4009,7 +4001,7 @@
      "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 7,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
@@ -4017,47 +4009,55 @@
      "max": 16,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
-     "cat": "clear",
+     "windKmh": 8,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 13,
-     "min": 8,
+     "max": 15,
+     "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 17,
+     "max": 16,
      "min": 10,
      "precip": 0,
      "windKmh": 7,
-     "cat": "partly",
+     "cat": "fair",
      "thunder": false
     },
     "2026-10-07": {
      "max": 17,
-     "min": 10,
+     "min": 11,
      "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 17,
-     "min": 10,
-     "precip": 0.3,
-     "windKmh": 14,
-     "cat": "clear",
+     "min": 9,
+     "precip": 1.9,
+     "windKmh": 15,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
-     "max": 10,
-     "min": 5,
-     "precip": 3,
-     "windKmh": 9,
+     "max": 9,
+     "min": 4,
+     "precip": 0.2,
+     "windKmh": 14,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 8,
+     "min": 4,
+     "precip": 7,
+     "windKmh": 15,
      "cat": "rain",
      "thunder": false
     }
@@ -4070,17 +4070,9 @@
     "alt": 400
    },
    "daily": {
-    "2026-10-01": {
-     "max": 19,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 19,
-     "min": 10,
+     "max": 20,
+     "min": 11,
      "precip": 0,
      "windKmh": 19,
      "cat": "partly",
@@ -4088,33 +4080,33 @@
     },
     "2026-10-03": {
      "max": 20,
-     "min": 10,
+     "min": 9,
      "precip": 0,
      "windKmh": 13,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 18,
-     "min": 8,
+     "max": 19,
+     "min": 9,
      "precip": 0,
      "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 16,
+     "max": 17,
      "min": 9,
      "precip": 0,
-     "windKmh": 13,
-     "cat": "cloudy",
+     "windKmh": 11,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
-     "max": 19,
-     "min": 10,
+     "max": 18,
+     "min": 9,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 10,
      "cat": "cloudy",
      "thunder": false
     },
@@ -4122,24 +4114,32 @@
      "max": 20,
      "min": 11,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 21,
+     "max": 20,
      "min": 13,
-     "precip": 0,
-     "windKmh": 18,
-     "cat": "clear",
+     "precip": 1.6,
+     "windKmh": 22,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 12,
+     "min": 5,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 13,
      "min": 8,
-     "precip": 6.3,
-     "windKmh": 14,
-     "cat": "rain",
+     "precip": 1.7,
+     "windKmh": 26,
+     "cat": "showers",
      "thunder": false
     }
    }
@@ -4151,24 +4151,16 @@
     "alt": 674
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 11,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
      "max": 18,
-     "min": 8,
+     "min": 9,
      "precip": 0,
      "windKmh": 19,
      "cat": "partly",
      "thunder": false
     },
     "2026-10-03": {
-     "max": 18,
+     "max": 19,
      "min": 8,
      "precip": 0,
      "windKmh": 13,
@@ -4176,7 +4168,7 @@
      "thunder": false
     },
     "2026-10-04": {
-     "max": 16,
+     "max": 17,
      "min": 7,
      "precip": 0,
      "windKmh": 9,
@@ -4185,17 +4177,17 @@
     },
     "2026-10-05": {
      "max": 15,
-     "min": 7,
+     "min": 8,
      "precip": 0,
-     "windKmh": 13,
-     "cat": "cloudy",
+     "windKmh": 11,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 17,
      "min": 8,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 10,
      "cat": "cloudy",
      "thunder": false
     },
@@ -4203,24 +4195,32 @@
      "max": 19,
      "min": 9,
      "precip": 0,
-     "windKmh": 15,
+     "windKmh": 10,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
-     "max": 19,
+     "max": 18,
      "min": 11,
-     "precip": 0,
-     "windKmh": 18,
-     "cat": "clear",
+     "precip": 1.6,
+     "windKmh": 22,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
      "max": 11,
-     "min": 7,
-     "precip": 6.3,
-     "windKmh": 14,
-     "cat": "rain",
+     "min": 4,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 11,
+     "min": 6,
+     "precip": 1.7,
+     "windKmh": 26,
+     "cat": "showers",
      "thunder": false
     }
    }
@@ -4232,19 +4232,11 @@
     "alt": 300
    },
    "daily": {
-    "2026-10-01": {
-     "max": 21,
-     "min": 14,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 20,
-     "min": 10,
+     "max": 21,
+     "min": 11,
      "precip": 0,
-     "windKmh": 12,
+     "windKmh": 11,
      "cat": "partly",
      "thunder": false
     },
@@ -4252,55 +4244,63 @@
      "max": 21,
      "min": 9,
      "precip": 0,
-     "windKmh": 10,
+     "windKmh": 9,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-04": {
-     "max": 18,
+     "max": 19,
      "min": 8,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "clear",
+     "windKmh": 9,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-05": {
-     "max": 17,
+     "max": 19,
      "min": 9,
      "precip": 0,
-     "windKmh": 8,
-     "cat": "cloudy",
+     "windKmh": 10,
+     "cat": "partly",
      "thunder": false
     },
     "2026-10-06": {
      "max": 20,
      "min": 9,
      "precip": 0,
-     "windKmh": 5,
+     "windKmh": 6,
      "cat": "cloudy",
      "thunder": false
     },
     "2026-10-07": {
      "max": 21,
-     "min": 11,
+     "min": 10,
      "precip": 0,
-     "windKmh": 9,
+     "windKmh": 6,
      "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 22,
-     "min": 13,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "clear",
+     "min": 12,
+     "precip": 1.2,
+     "windKmh": 19,
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
      "max": 13,
+     "min": 7,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
+     "max": 15,
      "min": 9,
-     "precip": 4.3,
-     "windKmh": 16,
+     "precip": 1.9,
+     "windKmh": 20,
      "cat": "rain",
      "thunder": false
     }
@@ -4313,47 +4313,7 @@
     "alt": 500
    },
    "daily": {
-    "2026-10-01": {
-     "max": 18,
-     "min": 12,
-     "precip": 0,
-     "windKmh": 16,
-     "cat": "partly",
-     "thunder": false
-    },
     "2026-10-02": {
-     "max": 18,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "partly",
-     "thunder": false
-    },
-    "2026-10-03": {
-     "max": 19,
-     "min": 10,
-     "precip": 0,
-     "windKmh": 9,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-04": {
-     "max": 17,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 6,
-     "cat": "clear",
-     "thunder": false
-    },
-    "2026-10-05": {
-     "max": 16,
-     "min": 9,
-     "precip": 0,
-     "windKmh": 12,
-     "cat": "cloudy",
-     "thunder": false
-    },
-    "2026-10-06": {
      "max": 18,
      "min": 11,
      "precip": 0,
@@ -4361,27 +4321,67 @@
      "cat": "partly",
      "thunder": false
     },
-    "2026-10-07": {
+    "2026-10-03": {
      "max": 19,
      "min": 11,
      "precip": 0,
+     "windKmh": 10,
+     "cat": "clear",
+     "thunder": false
+    },
+    "2026-10-04": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
      "windKmh": 8,
-     "cat": "fair",
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-05": {
+     "max": 17,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-06": {
+     "max": 18,
+     "min": 10,
+     "precip": 0,
+     "windKmh": 12,
+     "cat": "partly",
+     "thunder": false
+    },
+    "2026-10-07": {
+     "max": 19,
+     "min": 12,
+     "precip": 0,
+     "windKmh": 8,
+     "cat": "clear",
      "thunder": false
     },
     "2026-10-08": {
      "max": 19,
-     "min": 12,
-     "precip": 0,
+     "min": 11,
+     "precip": 1.2,
      "windKmh": 14,
-     "cat": "clear",
+     "cat": "showers",
      "thunder": false
     },
     "2026-10-09": {
+     "max": 11,
+     "min": 6,
+     "precip": 0.1,
+     "windKmh": 15,
+     "cat": "cloudy",
+     "thunder": false
+    },
+    "2026-10-10": {
      "max": 12,
-     "min": 7,
-     "precip": 3.3,
-     "windKmh": 5,
+     "min": 6,
+     "precip": 4.3,
+     "windKmh": 19,
      "cat": "rain",
      "thunder": false
     }
