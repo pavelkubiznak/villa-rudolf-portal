@@ -199,6 +199,19 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   dřív 2) → 5; léto 2028 (1. 7.–1. 9., dřív 2) → 5. Ceny při zápisu: léto 2027 529 €, Vánoce 2027
   639 €, léto 2028 589 €.
 
+### 5.4 Poznatky ze zápisu 5. 10. 2026 (Booking, FeWo, Airbnb)
+
+- **Booking:** List view přijme `from/until` až 62 dní; za technickým horizontem (~16. 8. 2028) datum v URL ignoruje a ukáže
+  dnešek — při čtení vždy kontrolovat hlavičku měsíců. Mřížka se vykreslí jen v kartě v popředí (~10 s). Bulk edit: Ceny
+  (Standard Rate, Nevratná se dopočte −8 %) a Omezení (každý plán zvlášť, „Přidat více“) se ukládají odděleně, každá sekce
+  má vlastní „Uložit změny“. Výběr plánu po uložení spadne na „Vyberte cenovou kategorii“.
+- **FeWo:** editor ceny otevírat přes `rail/manage?selectionStart=…&selectionEnd=…` → „Mietpreise und Rabatte“ (klik).
+  Přímé `rail/ratesAndDiscounts` nenačte validaci („Enter a rate between and NaN“, Speichern zašedlé). Když má rozsah
+  smíšené ceny, panel se sám přepne na ceny po dnech v týdnu — přepínač vypnout, pak jde zadat jedna cena.
+- **Airbnb:** `…/edit-selected-dates/OD/DO/nightly-price` otevře editor ceny; `form_input` hodnotu nepřevezme —
+  kliknout přímo na číslo, cmd+A, napsat. Smíšený rozsah ukazuje „X – Y Kč“ a po kliknutí na tužku prázdné pole.
+  Ověření nejrychleji přes interní dotaz getDLSHostCalendar + CustomSettingsQuery (viz audit 5. 10.).
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
