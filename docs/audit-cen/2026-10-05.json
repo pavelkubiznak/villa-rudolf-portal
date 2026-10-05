@@ -2,9 +2,8 @@
  "_meta": {
   "datum_auditu": "2026-10-05",
   "rozsah": "2026-10-05 až 2028-10 (Airbnb), 2028-12 (FeWo); e-chalupy a Megaubytko z veřejného ceníku do 2028-03",
-  "metoda": "read-only: Airbnb interní kalendářní dotaz (getDLSHostCalendar + CustomSettingsQuery), FeWo buňky kalendáře + rail/minimumStay, e-chalupy a Megaubytko veřejná stránka objektu",
+  "metoda": "read-only: Airbnb interní kalendářní dotaz (getDLSHostCalendar + CustomSettingsQuery), FeWo buňky kalendáře + rail/minimumStay, e-chalupy a Megaubytko veřejná stránka objektu; Booking extranet List view (doplněno po přihlášení týž den)",
   "chybi": [
-   "booking.com — extranet byl odhlášený (doplní se po přihlášení)",
    "e-chalupy administrace (CZ i EN) — chce přihlášení číslem objektu + heslem; čteno jen veřejné CZ"
   ],
   "pozn": "Bez jmen hostů. Airbnb 'cena' = nativní cena noci (bez last-minute), 'cena_po_sleve' = co vidí host 0–14 dní předem."
@@ -578,7 +577,461 @@
    }
   ]
  },
- "booking": null,
+ "booking": {
+  "hotel_id": "12558473",
+  "room_id": "1255847301",
+  "mena": "EUR",
+  "nastaveni": {
+   "plany": [
+    "Standard Rate (ID 47181683, Flexibilní – 14 dní, obsazenost 22)",
+    "Nevratná (ID 48235993) = Standard × 0,92 (o 8 % levnější)"
+   ],
+   "min_noci": "Standard: většinou 2 (prázdné = výchozí), léto 2027 5, Vánoce 2027 5, Silvestr 2026 7, 1. 1. 2028 6; Nevratná: 2 do 2. 1. 2027, pak výchozí 4, léto/Vánoce 2027 5",
+   "planovac_dostupnosti": {
+    "zapnuto": true,
+    "obdobi": "16 měsíců (dnes 488 dní dopředu)",
+    "vychozi_cena_eur": 529,
+    "volby": "30 / 60 / 90 / 180 / 365 dní / 16 měsíců"
+   },
+   "otevreno_do": "2028-07-01",
+   "nabidky": "žádná aktivní (mobilní ani zemské slevy, last-minute ani early booker)",
+   "genius": "nezjištěno, v nabídkách neaktivní",
+   "pozn_mereni": "čteno List view po 62denních oknech s restrikcemi; řádek 'Pokoje k prodeji' se při importovaných blokacích posouvá, proto stav (volné/blok) u Bookingu není spolehlivý a v úsecích chybí"
+  },
+  "useky_standard_eur": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-09",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-10",
+    "do": "2026-10-16",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-17",
+    "do": "2026-10-27",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-28",
+    "do": "2026-12-17",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-26",
+    "cena": 539,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-27",
+    "do": "2027-01-02",
+    "cena": 539,
+    "min_noci": 7
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-01-29",
+    "cena": 529
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-12",
+    "cena": 499
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 529
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 499
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-04-12",
+    "cena": 529
+   },
+   {
+    "od": "2027-04-13",
+    "do": "2027-04-15",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-04-16",
+    "do": "2027-04-28",
+    "cena": 529
+   },
+   {
+    "od": "2027-04-29",
+    "do": "2027-04-30",
+    "cena": 499
+   },
+   {
+    "od": "2027-05-01",
+    "do": "2027-05-01",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-02",
+    "do": "2027-05-04",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-05",
+    "do": "2027-05-08",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-05-09",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-05-10",
+    "do": "2027-05-13",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-14",
+    "do": "2027-05-17",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-18",
+    "do": "2027-05-31",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-06-01",
+    "do": "2027-06-09",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-10",
+    "do": "2027-06-12",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-13",
+    "do": "2027-06-16",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-17",
+    "do": "2027-06-19",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-20",
+    "do": "2027-06-25",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-07-16",
+    "cena": 569,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-17",
+    "do": "2027-07-20",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-21",
+    "do": "2027-08-31",
+    "cena": 569,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-01",
+    "do": "2027-09-03",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-12-17",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-31",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-01",
+    "cena": 529,
+    "min_noci": 6
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-02-05",
+    "cena": 529
+   },
+   {
+    "od": "2028-02-06",
+    "do": "2028-07-01",
+    "cena": 549
+   },
+   {
+    "od": "2028-07-02",
+    "do": "2028-08-16",
+    "stav": "blok",
+    "pozn": "bez ceny a dostupnosti (0 pokojů k prodeji); extranet dál než ~16. 8. 2028 datum v URL ignoruje"
+   }
+  ],
+  "useky_nevratna_eur": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-09",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-10",
+    "do": "2026-10-16",
+    "cena": 459.08,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-17",
+    "do": "2026-10-27",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-28",
+    "do": "2026-12-17",
+    "cena": 459.08,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-26",
+    "cena": 495.88,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-27",
+    "do": "2027-01-02",
+    "cena": 495.88,
+    "min_noci": 7
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-01-29",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-12",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-04-12",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-13",
+    "do": "2027-04-15",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-16",
+    "do": "2027-04-28",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-29",
+    "do": "2027-04-30",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-01",
+    "do": "2027-05-01",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-02",
+    "do": "2027-05-04",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-05",
+    "do": "2027-05-08",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-05-09",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-10",
+    "do": "2027-05-13",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-14",
+    "do": "2027-05-17",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-18",
+    "do": "2027-05-31",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-01",
+    "do": "2027-06-09",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-10",
+    "do": "2027-06-12",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-13",
+    "do": "2027-06-16",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-17",
+    "do": "2027-06-19",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-20",
+    "do": "2027-06-25",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-07-16",
+    "cena": 523.48,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-17",
+    "do": "2027-07-20",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-21",
+    "do": "2027-08-31",
+    "cena": 523.48,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-01",
+    "do": "2027-09-03",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-12-17",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-31",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-01",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-02-05",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2028-02-06",
+    "do": "2028-07-01",
+    "cena": 505.08,
+    "min_noci": 4
+   }
+  ]
+ },
  "echalupy": {
   "objekt": "18852",
   "mena": "CZK",

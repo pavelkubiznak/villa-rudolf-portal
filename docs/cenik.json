@@ -15,9 +15,9 @@
   },
   "tolerance_pct": 3,
   "horizont": {
-    "klouzavy_mesicu": 18,
+    "klouzavy_mesicu": 24,
     "premiove_sezony_dopredu": 2,
-    "_pozn": "beze změny: otevřeno do konce měsíce 18 měsíců od začátku aktuálního; prémiové sezóny (léto, zima, Vánoce) vždy 2 výskyty dopředu; zbytek za horizontem ZAVŘENÝ. Pořadí: nejdřív cena, pak otevřít."
+    "_pozn": "Pavel 5. 10. 2026: otevřít co nejdál → 24 měsíců (dřív 18). Platformy: Airbnb okno 24 měsíců, FeWo Frühestmögliche Buchung 24 měsíců, Booking technicky jen ~22 měsíců (plánovač max. 16 měsíců, ručně dál; extranet za ~polovinou srpna 2028 datum ignoruje). Klouzavě denně; prémiové sezóny (léto, zima, Vánoce) vždy 2 výskyty dopředu; zbytek za horizontem ZAVŘENÝ. Pořadí: nejdřív cena, pak otevřít."
   },
   "sezony": {
     "vanoce": {
