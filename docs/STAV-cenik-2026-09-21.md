@@ -6,7 +6,21 @@ Portály přes provizi: Booking 641 / 713 / 784 / 861 / 956 € · Airbnb 15 900
 FeWo 592 / 658 / 725 / 795 / 884 €. Kalendář po úsecích: `docs/cenovy-kalendar-2027-2028.md` sekce 2.
 Nevratná −10 % (Booking rate plan, Airbnb volba, přímo ve smlouvě). Min. noci: léto 5, Vánoce+Silvestr 6 (5. 10. 2026), zima 2, mimo 2, svátky 3.
 
-**Zápis do extranetů NEPROBĚHL.** Jde jen asistovaně přes Chrome s Pavlem u počítače (API nejsou, channel manager
+**Zápis do extranetů BĚŽÍ (od 5. 10. 2026).** Záloha před zápisem: `docs/audit-cen/2026-10-05.json` + `2026-10-05-zaloha.md`.
+Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-mesicni-posun` (1. v měsíci 8:30, read-only audit + plán).
+
+### Zapsáno
+- 5. 10. 2026 **Booking Vánoce+Silvestr 2027**: Standard 18.–24. 12. 861 €, 25.–31. 12. 956 €, 1.–7. 1. 2028 784 €
+  (Nevratná dopočtená −8 %: 792,12 / 879,52 / 721,28 €); min. noci obou plánů 18.–31. 12. 6, 1.–7. 1. 3. Ověřeno v List view.
+  Žádost 27. 12.–2. 1. za 523 €/noc nedotčena.
+
+### Zbývá (poznámky z auditu 5. 10.)
+- FeWo „Frühestmögliche Buchung“ 18 → 24 měsíců až PO zápisu FeWo cen duben–říjen 2028 (jinak se otevře za 549–589 €).
+- Booking Plánovač dostupnosti: výchozí cena nových dnů 529 € → mimosezóna 641 € (otevírá 16 měsíců dopředu).
+- Booking otevřený do 1. 7. 2028; ručně jde nejdál ~16. 8. 2028 (léto 2028 celé zatím ne).
+- Megaubytko: hlavička „od 4 990 Kč“ a ID 13334 ověřit v administraci; e-chalupy administrace nečtena (heslo).
+
+**Původně:** Zápis do extranetů NEPROBĚHL. Jde jen asistovaně přes Chrome s Pavlem u počítače (API nejsou, channel manager
 zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy ručně. Odhad: 3 portály ~1 h, e-chalupy + Megaubytko ~30 min.
 
 ## Pořadí zápisu (podle rizika) — každý krok = jedna relace, runbook `docs/cenova-parita-2027.md` sekce 5
