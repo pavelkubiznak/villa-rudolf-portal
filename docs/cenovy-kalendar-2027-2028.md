@@ -1,7 +1,7 @@
-# Cenový kalendář 21. 9. 2026 – léto 2028: návrh podle zadání z 21. 9. 2026
+# Cenový kalendář 21. 9. 2026 – léto 2028 (potvrzeno 21. 9. 2026)
 
-Stav k 21. 9. 2026. Návrh, **nic z toho není zapsané v extranetech ani v živém ceníku** — čísla jsou
-v [`cenik-navrh-2026-09-21.json`](cenik-navrh-2026-09-21.json) a počítá je `scripts/cenik.mjs … --cenik docs/cenik-navrh-2026-09-21.json`.
+Stav k 21. 9. 2026. Pavel návrh potvrdil, čísla jsou v živém [`cenik.json`](cenik.json) (verze 2026-09-21) a počítá je
+`scripts/cenik.mjs`. **V extranetech zatím zapsané nejsou** — pořadí v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md).
 Navazuje na [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md) (prázdniny, výjimky, model čistého výnosu)
 a na benchmark konkurence ze 17. 9. 2026 (artefakt „Krkonošský cenový benchmark“, airbnb.cz + booking.com, 16 hostů; shrnutí v sekci 4).
 
@@ -19,7 +19,7 @@ Portály musí po provizi vynést totéž, proto je cena pro hosta na portálu =
 | Silvestr (týden s 31. 12.) | 20 000 Kč | 956 € | 23 700 Kč | 884 € (host ≈ 955 €) |
 
 Kurz 24,6 Kč/€. Booking nevratný plán = −8 % (sezóna 656 €, tj. čistých 13 700). Po provizi vychází na všech třech
-portálech 13 400 / 14 900 ± 0,3 % (`node scripts/cenik.mjs provize 2027 --cenik docs/cenik-navrh-2026-09-21.json`).
+portálech 13 400 / 14 900 ± 0,3 % (`node scripts/cenik.mjs provize 2027`).
 
 Pro hosta je to v sezóně **713 € × 7 = 4 991 €/týden ≈ 277 €/os. při 18 lidech** (skutečný medián skupiny, Pavel 21. 9.; dnes 569 € → 221 €/os.);
 mimo sezónu 641 € × 7 = 4 487 € ≈ 249 €/os. Na osobu a noc: 40 € v sezóně, 36 € mimo.
@@ -113,7 +113,7 @@ i Allgäu (91–335 tis.); prodáváme 900–1 000 km cesty za skibus bez řetě
 
 ## 5. Dnešní extranety proti návrhu (audit 12. 8. 2026 + zápis 15. 9.)
 
-`node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json --cenik docs/cenik-navrh-2026-09-21.json`:
+`node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json`:
 
 | kanál | dnes | návrh | rozdíl |
 |---|---|---|---|
@@ -154,10 +154,10 @@ léto 2028 + Vánoce 2028 → mimosezóna 2026–2027 a výjimky → zima 2028. 
 ## 7. Jak s tím pracovat
 
 ```bash
-node scripts/cenik.mjs provize 2027 2028 --cenik docs/cenik-navrh-2026-09-21.json   # hladiny → kanály
-node scripts/cenik.mjs kalendar --od 2026-09-21 --do 2028-09-02 --cenik docs/cenik-navrh-2026-09-21.json   # den po dni
-node scripts/cenik.mjs plan --kanal booking --cenik docs/cenik-navrh-2026-09-21.json   # plán zápisu na kanál
-node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json --cenik docs/cenik-navrh-2026-09-21.json   # dnešek × návrh
+node scripts/cenik.mjs provize 2027 2028   # hladiny → kanály
+node scripts/cenik.mjs kalendar --od 2026-09-21 --do 2028-09-02   # den po dni
+node scripts/cenik.mjs plan --kanal booking   # plán zápisu na kanál
+node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json   # dnešek × návrh
 ```
 
 Po potvrzení A–D: obsah návrhu přepsat do `docs/cenik.json` (verze, `model.primo`, sezóny, `indexace.rok_zaklad`, `vyjimky`),
