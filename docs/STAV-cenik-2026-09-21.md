@@ -13,6 +13,9 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
 - 5. 10. 2026 **Booking Vánoce+Silvestr 2027**: Standard 18.–24. 12. 861 €, 25.–31. 12. 956 €, 1.–7. 1. 2028 784 €
   (Nevratná dopočtená −8 %: 792,12 / 879,52 / 721,28 €); min. noci obou plánů 18.–31. 12. 6, 1.–7. 1. 3. Ověřeno v List view.
   Žádost 27. 12.–2. 1. za 523 €/noc nedotčena.
+- 5. 10. 2026 **FeWo Vánoce+Silvestr 2027**: 18.–24. 12. 795 €, 25.–31. 12. 884 €, 1.–7. 1. 2028 725 €; min. pobyt 6 / 6 / 3. Ověřeno v kalendáři.
+- 5. 10. 2026 **Airbnb Vánoce+Silvestr 2027**: 21 300 / 23 700 / 19 400 Kč; min. noci 18.–31. 12. 6 (beze změny), 1.–7. 1. 3. Ověřeno přes kalendářní data.
+- **Další v pořadí:** zima 2027 (2. 1.–13. 3. vč. špiček 6.–12. 2. a 20.–26. 2.) na všech třech portálech.
 
 ### Zbývá (poznámky z auditu 5. 10.)
 - FeWo „Frühestmögliche Buchung“ 18 → 24 měsíců až PO zápisu FeWo cen duben–říjen 2028 (jinak se otevře za 549–589 €).
