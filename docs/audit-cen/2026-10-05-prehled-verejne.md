@@ -19,7 +19,7 @@ Poplatky v celkových cenách: Booking +220 € za pobyt; Airbnb úklid + ~250 K
 FeWo servisní poplatek hosta + úklid (+15–20 %).
 
 ## Nálezy
-- **Booking zima 2027 nezapsaná** — extranet se během zápisu odhlásil; čeká na přihlášení (713 € / špičky 784 €).
+- Booking zima 2027 doplněna týž den po novém přihlášení (713 € / špičky 784 €) — ve vzorku výše je ještě stará cena.
 - **e-chalupy, Megaubytko a web mají celé staré ceny** (12 900 / 11 900; Vánoce a Silvestr ~14 000/noc místo 18 000 / 20 000).
   Přímý kanál je tak teď výrazně levnější než portály — oprava jen ručně v administraci (heslo má Pavel).
 - **czech-cottages.com (EN verze e-chalup) má pořád název „Villa Rudolfův Dvůr“** a u Vánoc/Silvestru žádnou cenu;
