@@ -19,7 +19,10 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
 - 5. 10. 2026 **Airbnb zima 2027**: 2. 1.–13. 3. 17 600 Kč, 20.–26. 2. 19 400 Kč (6.–12. 2. je rezervace). Ověřeno.
   Min. noci v zimě beze změny — únorové špičky zůstávají 6–7 (Pavel 5. 10. 2026), ceník tam říká 2.
 - Přehled očima hosta na všech kanálech: `docs/audit-cen/2026-10-05-prehled-verejne.md` (e-chalupy CZ/EN/SK, Megaubytko a web mají celé staré ceny; czech-cottages.com má název „Rudolfův Dvůr“).
-- **Rozpracováno:** Booking zima 2027 (713 € / špičky 784 €) — extranet se uprostřed odhlásil, čeká na přihlášení.
+- 5. 10. 2026 **Booking zima 2027**: Standard 2. 1.–13. 3. 713 €, 6.–12. 2. a 20.–26. 2. 784 € (Nevratná −8 %). Ověřeno v List view.
+- **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
+  e-chalupy CZ/EN + Megaubytko ručně (heslo má Pavel) — tam jsou dnes celé staré ceny; FeWo okno 24 měsíců až po cenách 2028;
+  Booking plánovač výchozí cena 529 → 641 €; nevratná Booking 8 → 10 %.
 
 ### Zbývá (poznámky z auditu 5. 10.)
 - FeWo „Frühestmögliche Buchung“ 18 → 24 měsíců až PO zápisu FeWo cen duben–říjen 2028 (jinak se otevře za 549–589 €).
