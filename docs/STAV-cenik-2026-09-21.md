@@ -26,6 +26,18 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
   **Airbnb Vánoce 2028 NEJDOU**: „Termíny vzdálené více než dva roky ode dneška nemůžeš upravovat.“ Den se dá upravit až ve chvíli,
   kdy se otevře k prodeji (okno 24 měsíců) — 23. 12. 2028 tedy od 23. 12. 2026, a do té doby se otevírá za základ 12 900 Kč.
   Ochrana: základní cenu Airbnb zvednout aspoň na mimosezónu 15 900 Kč (krok 3/4) a Vánoce 2028 zapsat 23. 12. 2026 ráno.
+- 6. 10. 2026 **Booking léto 2028**: 1. 7.–16. 8. 2028 Standard 713 € (Nevratná dopočtená 655,96 €), min. 5 na obou plánech. Ověřeno v List view.
+  Za 16. 8. 2028 extranet nesahá — 17. 8.–1. 9. 2028 a Vánoce 2028 dopsat, až se kalendář posune.
+- 6. 10. 2026 **Booking Plánovač dostupnosti: výchozí cena 529 → 641 €** (16 měsíců / 488 dní, „Aktualizovat také stávající ceny“ VYPNUTO —
+  bylo zapnuté a přepsalo by celý kalendář). Ověřeno: Vánoce/Silvestr/zima beze změny.
+  **Pozor:** plánovač při otevření nového dne „použije základní cenu“ — léto 2028 (713 €) se otevírá ~2. 3.–16. 4. 2027 a nejspíš spadne
+  na 641 €. Měsíční úloha musí léto 2028 po otevření přepsat znovu (nebo na tu dobu dát výchozí cenu 713 €).
+- 6. 10. 2026 **Kontrola obsazenosti napříč kanály** (Booking List view, Airbnb, FeWo, Supabase, kalendář rezervací, holdy):
+  všechny potvrzené pobyty jsou na Bookingu, Airbnb i FeWo zavřené, KROMĚ **21.–28. 8. 2027 (přímá smlouva, `vr_holds` `hold_until` 25. 9. 2026,
+  stav „hold“, platba nezapsaná)** — Booking zavřený, Airbnb a FeWo otevřené. Rozhodne Pavel (zaplaceno → zablokovat Airbnb+FeWo, potvrdit hold;
+  nezaplaceno → otevřít Booking). Supabase: Airbnb 25.–29. 3. 2027 (host v Supabase) na Airbnb neexistuje = duch; Booking 2.–6. 6. 2027
+  a Airbnb 21.–31. 7. 2027 nemají hosta v Supabase (pobyt bez kontaktu). Tabulka po dnech: `docs/audit-cen/2026-10-06-dny.json`
+  (bez jmen) + artefakt „Ceny po dnech na všech kanálech“.
 - **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
   e-chalupy CZ/EN + Megaubytko ručně (heslo má Pavel) — tam jsou dnes celé staré ceny; FeWo okno 24 měsíců až po cenách 2028;
   Booking plánovač výchozí cena 529 → 641 €; nevratná Booking 8 → 10 %.
