@@ -34,8 +34,9 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
   na 641 €. Měsíční úloha musí léto 2028 po otevření přepsat znovu (nebo na tu dobu dát výchozí cenu 713 €).
 - 6. 10. 2026 **Kontrola obsazenosti napříč kanály** (Booking List view, Airbnb, FeWo, Supabase, kalendář rezervací, holdy):
   všechny potvrzené pobyty jsou na Bookingu, Airbnb i FeWo zavřené, KROMĚ **21.–28. 8. 2027 (přímá smlouva, `vr_holds` `hold_until` 25. 9. 2026,
-  stav „hold“, platba nezapsaná)** — Booking zavřený, Airbnb a FeWo otevřené. Rozhodne Pavel (zaplaceno → zablokovat Airbnb+FeWo, potvrdit hold;
-  nezaplaceno → otevřít Booking). Supabase: Airbnb 25.–29. 3. 2027 (host v Supabase) na Airbnb neexistuje = duch; Booking 2.–6. 6. 2027
+  stav „hold“, platba nezapsaná)** — Booking zavřený, Airbnb a FeWo otevřené. **Vyřešeno 6. 10.:** zaplaceno (Pavel) → hold v Supabase `confirmed`,
+  rezervace v e-chalupách 21.–28. 8. 2027, Airbnb i FeWo po importu zavřené (ověřeno). Příčina: kalendář rezervací má od 28. 9.
+  `CALENDAR_DRY_RUN=1` → `data/out/*.ics` nestojí na přímých prodejích, propadlý hold zmizel a nový se nepropíše — rozhodne Pavel. Supabase: Airbnb 25.–29. 3. 2027 (host v Supabase) na Airbnb neexistuje = duch; Booking 2.–6. 6. 2027
   a Airbnb 21.–31. 7. 2027 nemají hosta v Supabase (pobyt bez kontaktu). Tabulka po dnech: `docs/audit-cen/2026-10-06-dny.json`
   (bez jmen) + artefakt „Ceny po dnech na všech kanálech“.
 - **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
