@@ -20,6 +20,12 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
   Min. noci v zimě beze změny — únorové špičky zůstávají 6–7 (Pavel 5. 10. 2026), ceník tam říká 2.
 - Přehled očima hosta na všech kanálech: `docs/audit-cen/2026-10-05-prehled-verejne.md` (e-chalupy CZ/EN/SK, Megaubytko a web mají celé staré ceny; czech-cottages.com má název „Rudolfův Dvůr“).
 - 5. 10. 2026 **Booking zima 2027**: Standard 2. 1.–13. 3. 713 €, 6.–12. 2. a 20.–26. 2. 784 € (Nevratná −8 %). Ověřeno v List view.
+- 6. 10. 2026 **FeWo léto + Vánoce 2028**: 1. 7.–1. 9. 2028 658 € (dřív 549–589), 23.–29. 12. 795 €, 30.–31. 12. 884 € (dřív 689);
+  min. pobyt léto 5 (ověřeno), 23.–31. 12. 6. **Kalendář FeWo končí 31. 12. 2028** — noci 1.–5. 1. 2029 (884 €, min. 6) zapsat, až se otevře leden 2029.
+- 6. 10. 2026 **Airbnb léto 2028**: 1. 7.–1. 9. 17 600 Kč (dřív 14 450 / 12 900), min. 5 beze změny. Ověřeno.
+  **Airbnb Vánoce 2028 NEJDOU**: „Termíny vzdálené více než dva roky ode dneška nemůžeš upravovat.“ Den se dá upravit až ve chvíli,
+  kdy se otevře k prodeji (okno 24 měsíců) — 23. 12. 2028 tedy od 23. 12. 2026, a do té doby se otevírá za základ 12 900 Kč.
+  Ochrana: základní cenu Airbnb zvednout aspoň na mimosezónu 15 900 Kč (krok 3/4) a Vánoce 2028 zapsat 23. 12. 2026 ráno.
 - **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
   e-chalupy CZ/EN + Megaubytko ručně (heslo má Pavel) — tam jsou dnes celé staré ceny; FeWo okno 24 měsíců až po cenách 2028;
   Booking plánovač výchozí cena 529 → 641 €; nevratná Booking 8 → 10 %.
