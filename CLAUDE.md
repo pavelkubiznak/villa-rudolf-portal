@@ -41,7 +41,7 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   **Podle čeho ceny na 2027/2028** (prázdniny DE/NL/BE/CZ v `data/svatky.json`, `cenik.mjs poptavka`,
   indexace, dny × noci, kontrola): `docs/cenova-logika-2027-2028.md`. Konvence: noc = datum, kdy host spí.
   **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
-  odkud hosté jezdí `docs/trhy-hostu-2026-09.md`). **Zápis do extranetů BĚŽÍ (od 5. 10. 2026: Vánoce+Silvestr a zima 2027 hotové na Booking/FeWo/Airbnb; e-chalupy a Megaubytko ještě staré ceny) — stav a pořadí: `docs/STAV-cenik-2026-09-21.md`, záloha `docs/audit-cen/2026-10-05.json`.**
+  odkud hosté jezdí `docs/trhy-hostu-2026-09.md`). **Zápis do extranetů BĚŽÍ (od 5. 10. 2026: Vánoce+Silvestr a zima 2027 hotové na Booking/FeWo/Airbnb; 6. 10. léto 2028 na všech třech, Vánoce 2028 na FeWo, Booking plánovač 641 €; mimosezóna, e-chalupy a Megaubytko ještě staré ceny) — stav a pořadí: `docs/STAV-cenik-2026-09-21.md`, záloha `docs/audit-cen/2026-10-05.json`, denní snímek `docs/audit-cen/2026-10-06-dny.json`.**
 - `docs/text-villa-rudolf.md` — **zdroj pravdy pro texty** (23. 9. 2026): hlas a styl, názvosloví,
   ověřená fakta (půdorys, rozpis lůžek) a master text **CZ + EN + DE** v blocích A–L. Všechno
   na kanálech se odvozuje odsud, nikdy naopak. **Vzorem hlasu a názvů je web villarudolf.com**
