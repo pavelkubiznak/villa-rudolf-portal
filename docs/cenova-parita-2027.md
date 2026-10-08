@@ -199,6 +199,41 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   dřív 2) → 5; léto 2028 (1. 7.–1. 9., dřív 2) → 5. Ceny při zápisu: léto 2027 529 €, Vánoce 2027
   639 €, léto 2028 589 €.
 
+### 5.4 Poznatky ze zápisu 5. 10. 2026 (Booking, FeWo, Airbnb)
+
+- **Booking:** List view přijme `from/until` až 62 dní; za technickým horizontem (~16. 8. 2028) datum v URL ignoruje a ukáže
+  dnešek — při čtení vždy kontrolovat hlavičku měsíců. Mřížka se vykreslí jen v kartě v popředí (~10 s). Bulk edit: Ceny
+  (Standard Rate, Nevratná se dopočte −8 %) a Omezení (každý plán zvlášť, „Přidat více“) se ukládají odděleně, každá sekce
+  má vlastní „Uložit změny“. Výběr plánu po uložení spadne na „Vyberte cenovou kategorii“.
+- **FeWo:** editor ceny otevírat přes `rail/manage?selectionStart=…&selectionEnd=…` → „Mietpreise und Rabatte“ (klik).
+  Přímé `rail/ratesAndDiscounts` nenačte validaci („Enter a rate between and NaN“, Speichern zašedlé). Když má rozsah
+  smíšené ceny, panel se sám přepne na ceny po dnech v týdnu — přepínač vypnout, pak jde zadat jedna cena.
+- **Airbnb:** `…/edit-selected-dates/OD/DO/nightly-price` otevře editor ceny; `form_input` hodnotu nepřevezme —
+  kliknout přímo na číslo, cmd+A, napsat. Smíšený rozsah ukazuje „X – Y Kč“ a po kliknutí na tužku prázdné pole.
+  Ověření nejrychleji přes interní dotaz getDLSHostCalendar + CustomSettingsQuery (viz audit 5. 10.).
+
+### 5.5 e-chalupy: sezónní ceník (zapsáno 9. 10. 2026)
+
+- Vstup `klient.e-chalupy.cz`: číslo objektu 18852 i heslo jsou v Chromu předvyplněné („pamatovat si heslo“), **na Přihlásit
+  kliká Pavel**. Odhlášení po 180 minutách nečinnosti. Odkazy v administraci nesou session v URL — nevypisovat je, klikat.
+- Všechno je v jednom formuláři **Změny prezentace → Ceník / kapacita** (`/prezentace-cenik/`, tři tlačítka „uložit údaje“,
+  každé uloží celý formulář včetně kapacity). Pole: `min_dni` (**jediné minimum nocí na celý rok**), cena za noc
+  `leto_cena` / `zima_cena` / `mimo_cena`, za víkend (2 noci) `week_*_cena`, `sezona_kdy` (vymezení sezón, volný text,
+  **max. 200 znaků**), `cenik_detaily` (Provoz, upřesnění ceníku, poplatky — max. 7 000 zn.), týdenní ceny sekcí
+  `vanoce` / `silvestr` / `jarni` / `velikonoce` + komentář (max. 210 zn.) a detail (500 zn.).
+- **Sekce Obsazenost → Vánoce / Silvestr sdílí stejná pole** (cena, komentář, detail) — měnit jen na jednom místě.
+  Obsazenost Vánoc a Silvestru („máme již obsazeno“) se bere z kalendáře rezervací.
+- Formulář umí jen tři cenové sezóny a jedno minimum → výjimky (zimní týdny 16 400, svátky, léto min. 5, Vánoce min. 6)
+  patří do textu `cenik_detaily` s termíny „od příjezdu do odjezdu“ na dvě sezóny dopředu. Ceny v polích celými čísly bez mezer.
+  Hodnoty jde nastavit skriptem (`form.elements[...]`) a pak kliknout na „uložit údaje“; po uložení se objeví „Uloženo“.
+- Typografie: data psát bez mezer (`26.6.`), místo spojovníku „až“ (server kolem spojovníku mezi písmeny přidává mezery,
+  viz `popisy-na-kanalech.md`). 9. 10. 2026 prošly texty beze změny.
+- Jazykové verze: czech-cottages.com (EN, adresa `czech-cottages.com/cottage-18852`) a echaty.sk (SK) berou ceny ze stejných
+  polí; texty se na czech-cottages.com strojově přeloží do 24 h (neklikat „vypnout automatické překlady“). echaty.sk ukazuje
+  texty česky.
+- Související: Obsazenost → Last minute a Víkendové pobyty mají vlastní ceny (9. 10. 2026 jen prošlé nabídky).
+- Záznam zápisu a záloha původních hodnot: `docs/audit-cen/2026-10-09-echalupy.md`.
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když

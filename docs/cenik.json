@@ -15,9 +15,9 @@
   },
   "tolerance_pct": 3,
   "horizont": {
-    "klouzavy_mesicu": 18,
+    "klouzavy_mesicu": 24,
     "premiove_sezony_dopredu": 2,
-    "_pozn": "beze změny: otevřeno do konce měsíce 18 měsíců od začátku aktuálního; prémiové sezóny (léto, zima, Vánoce) vždy 2 výskyty dopředu; zbytek za horizontem ZAVŘENÝ. Pořadí: nejdřív cena, pak otevřít."
+    "_pozn": "Pavel 5. 10. 2026: otevřít co nejdál → 24 měsíců (dřív 18). Platformy: Airbnb okno 24 měsíců, FeWo Frühestmögliche Buchung 24 měsíců, Booking technicky jen ~22 měsíců (plánovač max. 16 měsíců, ručně dál; extranet za ~polovinou srpna 2028 datum ignoruje). Klouzavě denně; prémiové sezóny (léto, zima, Vánoce) vždy 2 výskyty dopředu; zbytek za horizontem ZAVŘENÝ. Pořadí: nejdřív cena, pak otevřít."
   },
   "sezony": {
     "vanoce": {
@@ -25,7 +25,7 @@
       "pravidlo": "týden So–So obsahující 24. 12. + týden So–So obsahující 31. 12.",
       "premiova": true,
       "noc": 18000,
-      "min_noci": 5,
+      "min_noci": 6,
       "_pozn": "18 000 = sezóna × 1,21; Silvestrovský týden výjimkou 20 000 (benchmark 17. 9. 2026). Potvrzeno 21. 9. 2026."
     },
     "leto": {
@@ -110,10 +110,20 @@
       "do": "2027-12-31",
       "jako": "vanoce",
       "koef": 1.11,
-      "min_noci": 5,
+      "min_noci": 6,
       "rok": 2027,
       "premiova": true,
       "duvod": "Silvestr: nejnapjatější termín regionu (benchmark 17. 9. 2026), +11 % nad Vánoce = 20 000"
+    },
+    {
+      "od": "2028-12-30",
+      "do": "2029-01-05",
+      "jako": "vanoce",
+      "koef": 1.11,
+      "min_noci": 6,
+      "rok": 2028,
+      "premiova": true,
+      "duvod": "Silvestr 2028 (týden So–So s 31. 12.): stejně jako 2027 20 000, cena roku 2028 bez indexace (rozhodnutí B, 21. 9. 2026)"
     },
     {
       "od": "2028-01-01",
@@ -196,7 +206,7 @@
       "primy": true,
       "provize_pct": 0,
       "poplatek_hosta_pct": 0,
-      "_pozn": "web villarudolf.com = e-chalupy (CZ i anglická mutace) = čistý výnos. Sezónní ceník ručně v administraci; anglická verze zvlášť (ověřit, zda přebírá ceny automaticky)."
+      "_pozn": "web villarudolf.com = e-chalupy (CZ, EN czech-cottages.com, SK echaty.sk) = čistý výnos. Sezónní ceník ručně v administraci (runbook docs/cenova-parita-2027.md 5.5): tři sezóny + jedno minimum nocí, výjimky jen v textu; jazykové verze berou ceny ze stejných polí, texty EN se strojově překládají do 24 h. Zapsáno 9. 10. 2026."
     },
     "megaubytko": {
       "nazev": "Megaubytko.cz",
@@ -216,11 +226,11 @@
   },
   "min_noci_pravidla": {
     "leto": 5,
-    "vanoce": 5,
-    "silvestr": 5,
+    "vanoce": 6,
+    "silvestr": 6,
     "zima": 2,
     "mimo": 2,
     "vyjimky_svatky": 3,
-    "_pozn": "Nikde a nikdy 1 noc. Léto 5 (upsell na týden ručně), Vánoce a Silvestr 5, zima 2 (čt/pá–ne/po), mimo 2, svátkové výjimky 3. Příjezdové dny neomezovat (medián pobytu 4 noci, týden jen čtvrtina pobytů)."
+    "_pozn": "Nikde a nikdy 1 noc. Léto 5 (upsell na týden ručně), Vánoce a Silvestr 6 (Pavel 5. 10. 2026), zima 2 (čt/pá–ne/po), mimo 2, svátkové výjimky 3. Příjezdové dny neomezovat (medián pobytu 4 noci, týden jen čtvrtina pobytů)."
   }
 }
