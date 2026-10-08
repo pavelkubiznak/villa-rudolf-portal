@@ -212,11 +212,11 @@
       "nazev": "Megaubytko.cz",
       "mena": "CZK",
       "zaokrouhleni": 100,
-      "id": "doplnit ID objektu",
+      "id": "13334",
       "primy": true,
       "provize_pct": 0,
       "poplatek_hosta_pct": 0,
-      "_pozn": "paušál bez provize → stejná cena jako e-chalupy. Ručně v administraci, žádné API. Ověřit test dny × noci (cenova-logika 5.3)."
+      "_pozn": "paušál bez provize → stejná cena jako e-chalupy. Ručně v administraci (megaubytko.cz/admin/u11972/uprava-objektu-ceny/o13334), žádné API. Sezóny jsou ROČNÍ (den.měsíc bez roku) a „od–do“ = noci včetně posledního dne (ověřeno 9. 10. 2026: 24.–30. 12. 2027 = 1 × 18 000 + 5 × 20 000 = 118 000). Zapsáno 9. 10. 2026 — docs/audit-cen/2026-10-09-megaubytko.md."
     }
   },
   "_vypocet": "portál: cena = čistý výnos ÷ (1 − provize), v EUR děleno kurzem, zaokrouhleno. Přímo: cena = čistý výnos. DPH z provize zahraniční platformy (21 % z provize → Booking efektivně 18,15 %) zde NENÍ — pokud se nás týká, přičíst k provize_pct.",

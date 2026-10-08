@@ -234,6 +234,35 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
 - Související: Obsazenost → Last minute a Víkendové pobyty mají vlastní ceny (9. 10. 2026 jen prošlé nabídky).
 - Záznam zápisu a záloha původních hodnot: `docs/audit-cen/2026-10-09-echalupy.md`.
 
+### 5.6 Megaubytko: roční sezóny (zapsáno 9. 10. 2026)
+
+- Vstup `megaubytko.cz/prihlaseni` („Přihlášení ubytovatele“): e-mail a heslo předvyplní Chrome, **na Přihlásit se kliká Pavel**.
+  Administrace: `megaubytko.cz/admin/u11972/uprava-objektu-ceny/o13334` (Úprava prezentace → Ceny a slevy).
+- Čtyři samostatné dialogy, každý se svým „Uložit změny a pokračovat“: **Cenová kategorie celého objektu** (rozpětí za objekt
+  a za osobu → hlavička inzerátu „od … Kč“), **Sezóny** (název ze seznamu, dny v týdnu, termín), **Ceník ubytování** (na každou
+  sezónu min. osob, min. nocí, cena za objekt/noc) a **Cena zahrnuje a doplatky na místě** (úklid, kauce, pes, poplatek obci).
+- **Sezóny jsou roční** (den.měsíc, rok se neukládá; výběr data ukazuje libovolný rok) a **„od–do“ = noci včetně posledního
+  dne**. Ověřeno předběžnou rezervací 24.–30. 12. 2027 = 118 000 Kč. Kalendář výběru přitom píše „(6 nocí)“ jako u pobytu.
+  Uložit jde jen tehdy, když sezóny pokrývají **všechny dny roku**. Chybějící dny dialog vypíše.
+- Názvy jsou pevný seznam: Sezóna, Mimosezóna, Víkendový pobyt, Jarní prázdniny, TOP Sezóna, Zimní sezóna, Velikonoční pobyt,
+  Letní/Zimní (mimo)sezóna, Vánoční pobyt, Silvestr, Celoročně. **Stejný název smí být víckrát.** Velikonoční pobyt, Vánoční
+  pobyt a Silvestr si **po výběru samy dosadí termín** (Velikonoce 2027 = 26.–29. 3.) a sousední řádky posouvají. Termín jde
+  pak přepsat.
+- ⚠️ **Překrývající se termíny formulář zacyklí a stránka zamrzne** (9. 10. 2026 dvakrát). Postup bez překryvu:
+  1. Stávající řádky nejdřív zkrátit na cílové termíny.
+  2. Nové řádky přidávat po jednom do volné mezery.
+  3. Zvláštní šablony (Velikonoce) nastavit až nakonec.
+  
+  Zamrzlou stránku vyřeší jen nové načtení. Neuložené změny se tím zahodí.
+- Pole se dají vyplnit skriptem, je to React formulář:
+  - Výběr data: tlačítka dnů mají `aria-label` „úterý 7. ledna 2025“, navigace „Předchozí/Následující měsíc“, „Vymazat filtry“, „Potvrdit výběr“.
+  - Ceník: `main_price_list_items.N.min_price`, `.valid_from_nights_count`, `.valid_from_persons_count`. Pořadí N není pořadí sezón, mapovat podle nadpisu bloku.
+  - Kategorie: `price_per_night_min/max`, `price_per_person_min/max`. Poplatky: `chargeable_items.N.price_from`.
+  - Hromadné změny jsou pomalé (překreslování), proto jedna sezóna nebo pár polí na volání.
+- Veřejná stránka (`megaubytko.cz/villa-rudolf`, sekce Ceny) ukazuje sezóny od dneška dál. Předběžnou rezervaci jde spočítat
+  bez odeslání: termín a počet osob, cena se ukáže vpravo, formulář vlevo **neodesílat**.
+- Záznam zápisu, roční sezóny, stav před zápisem a diff: `docs/audit-cen/2026-10-09-megaubytko.md` + `.json`.
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
