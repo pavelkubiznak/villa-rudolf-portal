@@ -190,7 +190,7 @@ takže z něj noci vzniknou jako `DTSTART … DTEND − 1`.
 | Airbnb | cena za **noc začínající D**; multikalendář zobrazuje noci, den odjezdu volný | `edit-selected-dates/OD/DO` = noci včetně | ověřeno 15. 9. 2026 |
 | FeWo-direkt / Vrbo | cena za **noc začínající D**; rezervace zobrazená jako blok příjezd→odjezd, den odjezdu půlený | `rail/minimumStay?selectionStart&selectionEnd` = noci | ověřeno 15. 9. 2026 pro min. pobyt; cenu ověřit stejně |
 | e-chalupy.cz | sezónní ceník „od–do“ — **neověřeno**, zda hranice sezóny je noc nebo den pobytu; obsazenost zobrazuje dny | administrace, sezónní ceník | **ověřit** (test 5.3) |
-| megaubytko.cz | **neověřeno** | — | **ověřit** (test 5.3) |
+| megaubytko.cz | roční sezóny „od–do“ = **noci včetně posledního dne** (administrace hlásí nepokryté *dny*); cena za noc podle sezóny té noci | sezóny v administraci (den.měsíc, bez roku) | ověřeno 9. 10. 2026: předběžná rezervace 24.–30. 12. 2027 = 1 × 18 000 + 5 × 20 000 = 118 000 Kč |
 
 Zásada pro audit: **snapshot v `docs/audit-cen/` má u každého kanálu pole `klic: "noc"`** a číslo
 ceny je vždy *cena noci začínající tím datem*. Když se u kanálu zjistí, že UI myslí dny pobytu,
