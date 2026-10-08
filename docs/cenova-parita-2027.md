@@ -212,6 +212,28 @@ všechno ručně — vrstva 2 je pohodlí, ne podmínka.
   kliknout přímo na číslo, cmd+A, napsat. Smíšený rozsah ukazuje „X – Y Kč“ a po kliknutí na tužku prázdné pole.
   Ověření nejrychleji přes interní dotaz getDLSHostCalendar + CustomSettingsQuery (viz audit 5. 10.).
 
+### 5.5 e-chalupy: sezónní ceník (zapsáno 9. 10. 2026)
+
+- Vstup `klient.e-chalupy.cz`: číslo objektu 18852 i heslo jsou v Chromu předvyplněné („pamatovat si heslo“), **na Přihlásit
+  kliká Pavel**. Odhlášení po 180 minutách nečinnosti. Odkazy v administraci nesou session v URL — nevypisovat je, klikat.
+- Všechno je v jednom formuláři **Změny prezentace → Ceník / kapacita** (`/prezentace-cenik/`, tři tlačítka „uložit údaje“,
+  každé uloží celý formulář včetně kapacity). Pole: `min_dni` (**jediné minimum nocí na celý rok**), cena za noc
+  `leto_cena` / `zima_cena` / `mimo_cena`, za víkend (2 noci) `week_*_cena`, `sezona_kdy` (vymezení sezón, volný text,
+  **max. 200 znaků**), `cenik_detaily` (Provoz, upřesnění ceníku, poplatky — max. 7 000 zn.), týdenní ceny sekcí
+  `vanoce` / `silvestr` / `jarni` / `velikonoce` + komentář (max. 210 zn.) a detail (500 zn.).
+- **Sekce Obsazenost → Vánoce / Silvestr sdílí stejná pole** (cena, komentář, detail) — měnit jen na jednom místě.
+  Obsazenost Vánoc a Silvestru („máme již obsazeno“) se bere z kalendáře rezervací.
+- Formulář umí jen tři cenové sezóny a jedno minimum → výjimky (zimní týdny 16 400, svátky, léto min. 5, Vánoce min. 6)
+  patří do textu `cenik_detaily` s termíny „od příjezdu do odjezdu“ na dvě sezóny dopředu. Ceny v polích celými čísly bez mezer.
+  Hodnoty jde nastavit skriptem (`form.elements[...]`) a pak kliknout na „uložit údaje“; po uložení se objeví „Uloženo“.
+- Typografie: data psát bez mezer (`26.6.`), místo spojovníku „až“ (server kolem spojovníku mezi písmeny přidává mezery,
+  viz `popisy-na-kanalech.md`). 9. 10. 2026 prošly texty beze změny.
+- Jazykové verze: czech-cottages.com (EN, adresa `czech-cottages.com/cottage-18852`) a echaty.sk (SK) berou ceny ze stejných
+  polí; texty se na czech-cottages.com strojově přeloží do 24 h (neklikat „vypnout automatické překlady“). echaty.sk ukazuje
+  texty česky.
+- Související: Obsazenost → Last minute a Víkendové pobyty mají vlastní ceny (9. 10. 2026 jen prošlé nabídky).
+- Záznam zápisu a záloha původních hodnot: `docs/audit-cen/2026-10-09-echalupy.md`.
+
 ## 6. Rizika a limity
 
 - **UI extranetů se mění.** Runbook je návod pro Clauda, ne křehký skript — když
