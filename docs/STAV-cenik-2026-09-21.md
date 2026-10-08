@@ -39,15 +39,28 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
   `CALENDAR_DRY_RUN=1` → `data/out/*.ics` nestojí na přímých prodejích, propadlý hold zmizel a nový se nepropíše — rozhodne Pavel. Supabase: Airbnb 25.–29. 3. 2027 (host v Supabase) na Airbnb neexistuje = duch; Booking 2.–6. 6. 2027
   a Airbnb 21.–31. 7. 2027 nemají hosta v Supabase (pobyt bez kontaktu). Tabulka po dnech: `docs/audit-cen/2026-10-06-dny.json`
   (bez jmen) + artefakt „Ceny po dnech na všech kanálech“.
+- 9. 10. 2026 **e-chalupy (objekt 18852)**: noc letní / zimní / mimo 14 900 / 14 900 / 13 400 Kč (dřív 12 900 / 12 900 / 11 900),
+  víkend = 2 × noc 29 800 / 29 800 / 26 800; Vánoce týden 126 000 (18 000/noc), Silvestr týden 140 000 (20 000/noc), v komentáři
+  termíny 2027 a min. 6 nocí; vymezení sezón = léto po týdnech So–So v červenci a srpnu (min. 5), zima od Nového roku do poloviny
+  března, svátky za cenu sezóny (min. 3); text „Provoz, poplatky, ceny“ s termíny 2027–2028 vč. zimních týdnů 16 400.
+  **Formulář má jen jedno minimum nocí (zůstává 2) a tři sezóny** — sezónní minima a 16 400 jsou jen v textu (e-chalupy jsou
+  poptávkové, minimum hlídá Pavel u poptávky). Ověřeno v administraci, na veřejné stránce CZ a na echaty.sk. **czech-cottages.com (EN)
+  9. 10. po půlnoci ještě staré ceny** (12 900 / 12 900 / 11 900, víkend 25 800 / 22 800) i bez cache — vlastní kopie dat, přenáší se
+  se zpožděním (texty „do 24 h“); **zkontrolovat do 10. 10.**, jinak napsat správcům. Diff: 0 úseků pod cenou.
+  Záznam a záloha původních hodnot: `docs/audit-cen/2026-10-09-echalupy.md` + `.json`.
+- 9. 10. 2026 **Megaubytko**: řeší samostatná relace (zápis 9. 10.).
 - **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
-  e-chalupy CZ/EN + Megaubytko ručně (heslo má Pavel) — tam jsou dnes celé staré ceny; FeWo okno 24 měsíců až po cenách 2028;
+  czech-cottages.com (EN verze e-chalup) do 10. 10. zkontrolovat, že převzal nové ceny; FeWo okno 24 měsíců až po cenách 2028;
   Booking plánovač výchozí cena 529 → 641 €; nevratná Booking 8 → 10 %.
 
 ### Zbývá (poznámky z auditu 5. 10.)
 - FeWo „Frühestmögliche Buchung“ 18 → 24 měsíců až PO zápisu FeWo cen duben–říjen 2028 (jinak se otevře za 549–589 €).
 - Booking Plánovač dostupnosti: výchozí cena nových dnů 529 € → mimosezóna 641 € (otevírá 16 měsíců dopředu).
 - Booking otevřený do 1. 7. 2028; ručně jde nejdál ~16. 8. 2028 (léto 2028 celé zatím ne).
-- Megaubytko: hlavička „od 4 990 Kč“ a ID 13334 ověřit v administraci; e-chalupy administrace nečtena (heslo).
+- Megaubytko: řeší samostatná relace (zápis 9. 10.).
+- e-chalupy: text ceníku jmenuje termíny 2027–2028 → přepsat při každé změně výjimek v ceníku a nejpozději v září 2027
+  doplnit sezónu 2028/29 (+ komentář u Vánoc a Silvestru na rok 2028). Podzimní prázdniny 2028 ceník zatím nemá (mimo 13 400),
+  vymezení sezón na e-chalupách je obecně slibuje „za cenu sezóny“ — doplnit výjimku do ceníku i termín do textu.
 
 **Původně:** Zápis do extranetů NEPROBĚHL. Jde jen asistovaně přes Chrome s Pavlem u počítače (API nejsou, channel manager
 zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy ručně. Odhad: 3 portály ~1 h, e-chalupy + Megaubytko ~30 min.
@@ -59,7 +72,8 @@ zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy 
 2. Zima 2027 (2. 1.–13. 3.) vč. špiček 6.–12. 2. a 20.–26. 2. na všech třech portálech.
 3. Léto 2028 (1. 7.–1. 9.) + Vánoce 2028 (23. 12. 2028–6. 1. 2029) — Booking až kalendář dosáhne.
 4. Mimosezóna od října 2026 + výjimky (Velikonoce, máj, podzim 2027; zima 2028 vč. špičky 26. 2.–3. 3.).
-5. e-chalupy (CZ + anglická verze) a Megaubytko: sezónní ceník 13 400 / 14 900 / 18 000 / 20 000; doplnit ID Megaubytka do ceníku.
+5. ✅ e-chalupy 9. 10. 2026 (CZ + echaty.sk ověřeno, czech-cottages.com zatím staré ceny — kontrola do 10. 10.) — sezónní ceník 13 400 / 14 900 / 18 000 / 20 000;
+   Megaubytko řeší samostatná relace (zápis 9. 10.); doplnit ID Megaubytka do ceníku.
 6. Nastavení: Booking nevratná 8 → 10 %; Airbnb nevratná volba zapnout, last-minute −15 % v prémiových obdobích vypnout, Smart Pricing off.
 7. Re-audit každého zapsaného rozsahu → `docs/audit-cen/RRRR-MM-DD.json`, `node scripts/cenik.mjs diff <snapshot>`.
 
@@ -69,5 +83,8 @@ Plán pro konkrétní kanál: `node scripts/cenik.mjs plan --kanal booking|airbn
 - Dvě mimosezónní hladiny: listopad–polovina března (mimo prázdniny) na 12 400? (`docs/trhy-hostu-2026-09.md` sekce 3)
 - Květen–červen jako sezóna 14 900 (německé svátky, 22 z 34 pobytů) — dnes jen výjimka 24. 4.–8. 5.
 - Polsko do `data/svatky.json` + váhy trhů DE 3 : CZ 2,5 : PL 1,5 : NL 1 : BE 0,5.
-- Ověřit: provize Airbnb 15,5 % po 13. 10., Payments by Booking ve faktuře, dny × noci na e-chalupách a Megaubytku.
+- Ověřit: provize Airbnb 15,5 % po 13. 10., Payments by Booking ve faktuře, dny × noci na Megaubytku
+  (e-chalupy: ceník je bez kalendáře, text od 9. 10. říká „termíny jsou od příjezdu do odjezdu“).
+- e-chalupy mají prázdné týdenní ceny sekcí „jarní prázdniny“ a „Velikonoce“ — vyplnit = objekt se ukáže i v těch sekcích
+  (např. Velikonoce čt–po 4 × 14 900 = 59 600 Kč). Nevyplněno, rozhodne Pavel.
 - Necommitnuté změny v repu: `git status` — commitnout po kontrole.

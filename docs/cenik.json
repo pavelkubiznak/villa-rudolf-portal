@@ -206,7 +206,7 @@
       "primy": true,
       "provize_pct": 0,
       "poplatek_hosta_pct": 0,
-      "_pozn": "web villarudolf.com = e-chalupy (CZ i anglická mutace) = čistý výnos. Sezónní ceník ručně v administraci; anglická verze zvlášť (ověřit, zda přebírá ceny automaticky)."
+      "_pozn": "web villarudolf.com = e-chalupy (CZ, EN czech-cottages.com, SK echaty.sk) = čistý výnos. Sezónní ceník ručně v administraci (runbook docs/cenova-parita-2027.md 5.5): tři sezóny + jedno minimum nocí, výjimky jen v textu; jazykové verze berou ceny ze stejných polí, texty EN se strojově překládají do 24 h. Zapsáno 9. 10. 2026."
     },
     "megaubytko": {
       "nazev": "Megaubytko.cz",
