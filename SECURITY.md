@@ -46,7 +46,7 @@ Nasazuje se přes GitHub Actions jen allowlist souborů — `docs/`, `scripts/`,
 |---|---|---|
 | Admin klíč `/sprava/` | u majitele; v DB jen `vr_admin_config.admin_key_sha256` | nový hash do configu (SQL v site), nový klíč do prohlížeče; `token_enc` starých pobytů je šifrovaný starým klíčem → po rotaci je nelze zobrazit (nový token = upsert) |
 | Deploy key počasí (zápis do `main`) | GitHub Deploy keys + `/root/.ssh/vr_deploy_key` na Hetzneru | postup v [`docs/provoz-runbook.md`](docs/provoz-runbook.md) kap. 3; při podezření smazat klíč na GitHubu jako první |
-| Purge | **žádný secret** — retence běží v DB přes pg_cron (`vr_purge_expired_cron()` bez parametru, EXECUTE nemá nikdo) | nic k rotaci; starý `purge-expired.sh` na Hetzneru smazat |
+| Purge | **žádný secret** — retence běží v DB přes pg_cron (`vr_purge_expired_cron()` bez parametru, EXECUTE nemá nikdo) | nic k rotaci; starý `purge-expired.sh` na Hetzneru odstraněn 11. 10. 2026 |
 | Supabase `service_role` | jen Supabase Dashboard | Dashboard → Settings → API → regenerate; používá ho n8n v site |
 
 ## Známá rizika (vědomě přijatá / k rozhodnutí)

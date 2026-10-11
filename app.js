@@ -302,7 +302,8 @@ function sanitizeTrip(t){
   t.links=(Array.isArray(t.links)?t.links:[])
     .filter(l=>{const ok=l&&typeof l.url==='string'&&/^https:\/\//i.test(l.url); // žádné javascript:, data:, http:
       if(!ok)console.warn('trips.json: zahazuji odkaz u',t.id,l&&l.url); return ok;})
-    .map(l=>Object.assign({},l,{icon:ICONS.has(l.icon)?l.icon:'globe'}));
+    .map(l=>{const byLang={};for(const [k,u] of Object.entries(l.urlByLang||{}))if(typeof u==='string'&&/^https:\/\//i.test(u))byLang[k]=u; // web v jazyce hosta (jen https)
+      return Object.assign({},l,{icon:ICONS.has(l.icon)?l.icon:'globe',urlByLang:byLang});});
   return t;
 }
 
@@ -651,7 +652,7 @@ function render(data,token){
     if(t.crossBorderId&&(party.children&&party.children.length))warns.push(L.idDocs);
     if(t.group&&t.group.capacity)warns.push(L.capacity);
     for(const wn of warns)telo+=`<div class="note"><svg class="icon"><use href="#i-alert"></use></svg><span>${esc(wn)}</span></div>`;
-    telo+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc(l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div>`;
+    telo+=`<div class="links">${(t.links||[]).map(l=>`<a target="_blank" rel="noopener" href="${esc((l.urlByLang&&l.urlByLang[lang])||l.url)}"><svg class="icon"><use href="#i-${l.icon}"></use></svg><span>${esc(tt(l.label,lang))}</span></a>`).join('')}</div>`;
     if(!compact)return `<div class="card trip" id="${t.id}" style="--acc:${t.accent}">${hlava}${telo}</div>`;
     return `<details class="card trip" id="${t.id}" style="--acc:${t.accent}"><summary>`
       +`<div class="sum">${hlava}<div class="smeta">${doprava}</div></div>`

@@ -151,6 +151,7 @@ const rozmeryJpeg = (buf) => {
   while (i < buf.length - 9) {
     if (buf[i] !== 0xff) { i++; continue; }
     const m = buf[i + 1];
+    if (m === 0xff) { i++; continue; } // výplňové FF FF před markerem
     if (m === 0xc0 || m === 0xc1 || m === 0xc2) return { height: buf.readUInt16BE(i + 5), width: buf.readUInt16BE(i + 7) };
     if (m === 0xd8 || m === 0x01 || (m >= 0xd0 && m <= 0xd7)) { i += 2; continue; }
     i += 2 + buf.readUInt16BE(i + 2);
