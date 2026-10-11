@@ -1,7 +1,7 @@
 /* Villa Rudolf portal — service worker (PWA, offline-first)
  * Strategie: navigace network-first (cache pod jedním klíčem './', bez query – ?t= se do cache nedostane),
- * forecast.json network-first, ostatní ./data/* stale-while-revalidate, zbytek same-origin (app.js,
- * track.js, fonty, ikony) cache-first. Do cache jde jen res.ok && res.type === 'basic' – chybové
+ * app.js/track.js a forecast.json network-first (nová logika se projeví hned, bez zvednutí CACHE),
+ * ostatní ./data/* stale-while-revalidate, zbytek same-origin (fonty, ikony, manifest) cache-first. Do cache jde jen res.ok && res.type === 'basic' – chybové
  * a cizí (opaque) odpovědi se neukládají. */
 // Verzi zvyš při každé změně sw.js – activate smaže staré cache,
 // takže hosté se starým katalogem dostanou data hned, ne až na druhé načtení.
@@ -43,7 +43,8 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          if (cacheable(res)) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put('./', copy)).catch(() => {}); }
+          // přesměrovanou odpověď (GH Pages /x → /x/) Chrome z cache pro navigaci odmítne – neukládat
+          if (cacheable(res) && !res.redirected) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put('./', copy)).catch(() => {}); }
           return res;
         })
         .catch(() => caches.match('./').then((m) => m || Response.error()))
@@ -80,7 +81,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Ostatní same-origin GET (app.js, track.js, fonty, ikony, manifest): cache-first, s dopsáním do cache.
+  // app.js / track.js: network-first jako stránka – jinak by host s nainstalovanou PWA dostal nový
+  // index.html a starý JS z cache, dokud by někdo nezvedl CACHE. Offline → poslední kopie.
+  if (/\/(app|track)\.js$/.test(url.pathname)) {
+    event.respondWith(
+      fetch(req).then((res) => {
+        if (cacheable(res)) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {}); }
+        return res;
+      }).catch(() => caches.match(req).then((m) => m || Response.error()))
+    );
+    return;
+  }
+
+  // Ostatní same-origin GET (fonty, ikony, manifest): cache-first, s dopsáním do cache.
   // Pád sítě bez kopie v cache → Response.error() (síťová chyba), ne neošetřená výjimka v respondWith.
   event.respondWith(
     caches.match(req).then((cached) => {
