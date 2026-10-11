@@ -45,7 +45,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Vždy špička main, ne github.sha: při volání z forecast.yml (workflow_call) je
           # github.sha stav main PŘED pushem nového forecast.json a nasadil by se starý.
