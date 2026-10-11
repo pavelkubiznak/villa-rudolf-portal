@@ -30,6 +30,8 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   rekonstrukce; 4 jazyky, po termínu smazat), `checked` (datum ověření údajů proti oficiálnímu webu, RRRR-MM-DD),
   `links[].urlByLang` (web výletu v jazyce hosta; `url` zůstává česká / výchozí), `photo` {`url` https, `credit`,
   `source`} – jen vlastní nebo volně licencované fotky, autor a licence patří do `credit`.
+  Fotky leží u nás v `data/img/<id>.jpg`: `python3 -I scripts/fotky.py --zapsat` stáhne odkazované snímky z Wikimedia
+  Commons, zmenší je na 1024 px a přepíše `photo.url` (původní adresa zůstane v `photo.original`, přehled `data/img/FOTKY.md`).
 - `data/demo-guest.json` — ukázkový host pro `?t=demo`, bez reálných dat.
 - `supabase/schema.sql` — tabulky `vr_bookings`, RPC `vr_verify_token` / `vr_update_party`.
   Zdroj pravdy schématu je ale `villa-rudolf-site/supabase/migrations/` — migrace piš tam,
