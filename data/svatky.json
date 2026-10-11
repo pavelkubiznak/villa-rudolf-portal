@@ -1,13 +1,14 @@
 {
-  "_pozn": "Školní prázdniny zdrojových trhů Villy Rudolf (DE, NL, BE, CZ) pro nacenění 2027–2028. Rozsahy od–do včetně (kalendářní dny volna). Rozsahy Po–Pá skript sám roztahuje o přilehlý víkend. Státní svátky se v datech NEVEDOU — počítá je scripts/cenik.mjs z pravidel (Velikonoce apod.). Váhy = obyvatelstvo regionu v milionech (přibližně); vahy_zemi = kolik který trh pro vilu znamená (1 = rovnocenné; doladit podle skutečných rezervací).",
-  "verze": "2026-09-16",
+  "_pozn": "Školní prázdniny zdrojových trhů Villy Rudolf (DE, NL, BE, CZ, PL) pro nacenění 2027–2028. Rozsahy od–do včetně (kalendářní dny volna). Rozsahy Po–Pá skript sám roztahuje o přilehlý víkend. Státní svátky se v datech NEVEDOU — počítá je scripts/cenik.mjs z pravidel (Velikonoce apod.). Váhy = obyvatelstvo regionu v milionech (přibližně); vahy_zemi = kolik který trh pro vilu znamená (1 = rovnocenné; doladit podle skutečných rezervací).",
+  "verze": "2026-10-11",
   "zdroje": {
     "DE": "schulferien.org (přepis KMK), načteno 16. 9. 2026; podzim 2028 u HB/NI/MV/ST/SH má zdroj sloučené rozsahy — před naceňováním podzimu 2028 ověřit na kmk.org/service/ferien.html",
     "NL": "medilexonderwijs.nl (adviesdata Rijksoverheid) 2026-27 a 2027-28; herfst/voorjaar jsou doporučené, školy se mohou odchýlit",
     "BE": "kampkompas.be (Vlaanderen) a RTBF (Fédération Wallonie-Bruxelles, arrêté 20. 11. 2025) — 2026-27 až 2028-29",
-    "CZ": "MŠMT Organizace školního roku 2026/2027 (č.j. MSMT-12071/2022-5) a 2027/2028"
+    "CZ": "MŠMT Organizace školního roku 2026/2027 (č.j. MSMT-12071/2022-5) a 2027/2028",
+    "PL": "MEN (gov.pl/web/edukacja): Kalendarz roku szkolnego 2026/2027 (15. 5. 2026, https://www.gov.pl/web/edukacja/ministerstwo-edukacji-narodowej-oglosilo-kalendarz-roku-szkolnego-20262027), Terminy ferii zimowych 2026/2027 (https://www.gov.pl/web/edukacja/terminy-ferii-zimowych-w-roku-szkolnym-20262027) a 2027/2028 (2. 4. 2026, https://www.gov.pl/web/edukacja/terminy-ferii-zimowych-w-roku-szkolnym-20272028); načteno 11. 10. 2026. Přestávky a wakacje 2027/28 odvozené z rozporządzenia o organizacji roku szkolnego (Dz.U. 2002 nr 46 poz. 432, ISAP WDU20020460432) – označené overit, kalendář 2027/2028 MEN zveřejní zpravidla v květnu 2027 na https://www.gov.pl/web/edukacja/kalendarz-roku-szkolnego"
   },
-  "vahy_zemi": { "DE": 1, "NL": 1, "BE": 1, "CZ": 1 },
+  "vahy_zemi": { "DE": 1, "NL": 1, "BE": 1, "CZ": 1, "PL": 1 },
   "zeme": {
     "DE": {
       "nazev": "Německo",
@@ -120,6 +121,33 @@
         "D": { "nazev": "Praha 1–5, Brno a jižní Morava, Domažlice, Tachov, Louny, Karviná", "obyv": 2.28, "okresy": ["Praha 1 až 5", "Blansko", "Brno-město", "Brno-venkov", "Břeclav", "Hodonín", "Vyškov", "Znojmo", "Domažlice", "Tachov", "Louny", "Karviná"], "prazdniny": [ {"nazev": "jarní", "od": "2027-02-22", "do": "2027-02-28"}, {"nazev": "jarní", "od": "2028-03-06", "do": "2028-03-12"} ] },
         "E": { "nazev": "Praha 6–10, Karlovarsko, Nymburk, J. Hradec, Litoměřice, Děčín, Přerov, Frýdek-Místek", "obyv": 1.82, "okresy": ["Praha 6 až 10", "Cheb", "Karlovy Vary", "Sokolov", "Nymburk", "Jindřichův Hradec", "Litoměřice", "Děčín", "Přerov", "Frýdek-Místek"], "prazdniny": [ {"nazev": "jarní", "od": "2027-03-01", "do": "2027-03-07"}, {"nazev": "jarní", "od": "2028-03-13", "do": "2028-03-19"} ] },
         "F": { "nazev": "Zlínsko, Praha-východ/západ, Mělník, Rakovník, Plzeňsko, Hradec Králové, Teplice, Nový Jičín", "obyv": 1.88, "okresy": ["Kroměříž", "Uherské Hradiště", "Vsetín", "Zlín", "Praha-východ", "Praha-západ", "Mělník", "Rakovník", "Plzeň-město", "Plzeň-sever", "Plzeň-jih", "Hradec Králové", "Teplice", "Nový Jičín"], "prazdniny": [ {"nazev": "jarní", "od": "2027-03-08", "do": "2027-03-14"}, {"nazev": "jarní", "od": "2028-02-07", "do": "2028-02-13"} ] }
+      }
+    },
+    "PL": {
+      "nazev": "Polsko",
+      "_pozn": "Pro vilu jsou relevantní západní vojvodství (hosté z Wrocławi, Bydgoszcze, Torunia, Reska): DS dolnośląskie, WP wielkopolskie, KP kujawsko-pomorskie, ZP zachodniopomorskie; ostatních 12 je tu pro úplnost oficiálního kalendáře – při vážení poptávky zvážit, zda je nebrat. Ferie zimowe (2 týdny) jdou ve třech turách, skupiny vojvodství MEN každý rok přeskládá a vyhlašuje ~2 roky dopředu; 2027 i 2028 jsou oficiální. Zimowa przerwa świąteczna 23.–31. 12., wiosenna przerwa čtvrtek před Velikonocemi až úterý po nich, výuka končí nejbližší pátek po 20. 6., wakacje od následující soboty do 31. 8. – pro 2027/28 odvozeno z rozporządzenia (overit). Státní svátky PL (1. 1., 6. 1., Velikonoční pondělí, 1. 5., 3. 5., Boží tělo, 15. 8., 1. 11., 11. 11., 24.–26. 12.) počítá scripts/cenik.mjs. Váhy = obyvatelstvo v milionech (GUS 2023, zaokrouhleno).",
+      "spolecne": [
+        {"nazev": "zimowa przerwa świąteczna", "od": "2026-12-23", "do": "2026-12-31"}, {"nazev": "wiosenna przerwa świąteczna", "od": "2027-03-25", "do": "2027-03-30"}, {"nazev": "wakacje", "od": "2027-06-26", "do": "2027-08-31"},
+        {"nazev": "zimowa przerwa świąteczna", "od": "2027-12-23", "do": "2027-12-31", "overit": true}, {"nazev": "wiosenna przerwa świąteczna", "od": "2028-04-13", "do": "2028-04-18", "overit": true}, {"nazev": "wakacje", "od": "2028-06-24", "do": "2028-08-31", "overit": true},
+        {"nazev": "zimowa przerwa świąteczna", "od": "2028-12-23", "do": "2028-12-31", "overit": true}
+      ],
+      "regiony": {
+        "DS": { "nazev": "Dolnośląskie (Wrocław)", "obyv": 2.9, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-02-14", "do": "2028-02-27"} ] },
+        "WP": { "nazev": "Wielkopolskie (Poznań)", "obyv": 3.5, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "KP": { "nazev": "Kujawsko-pomorskie (Bydgoszcz, Toruń)", "obyv": 2.0, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "ZP": { "nazev": "Zachodniopomorskie (Szczecin)", "obyv": 1.7, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "LB": { "nazev": "Lubuskie", "obyv": 1.0, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "PM": { "nazev": "Pomorskie", "obyv": 2.4, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-01", "do": "2027-02-14"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "PD": { "nazev": "Podlaskie", "obyv": 1.1, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "SK": { "nazev": "Świętokrzyskie", "obyv": 1.2, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-01", "do": "2027-02-14"}, {"nazev": "ferie zimowe", "od": "2028-01-17", "do": "2028-01-30"} ] },
+        "MZ": { "nazev": "Mazowieckie (Warszawa)", "obyv": 5.5, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-01", "do": "2027-02-14"}, {"nazev": "ferie zimowe", "od": "2028-01-31", "do": "2028-02-13"} ] },
+        "WN": { "nazev": "Warmińsko-mazurskie", "obyv": 1.4, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-01-31", "do": "2028-02-13"} ] },
+        "LD": { "nazev": "Łódzkie", "obyv": 2.4, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-01-31", "do": "2028-02-13"} ] },
+        "PK": { "nazev": "Podkarpackie", "obyv": 2.1, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-01-31", "do": "2028-02-13"} ] },
+        "OP": { "nazev": "Opolskie", "obyv": 0.95, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-02-14", "do": "2028-02-27"} ] },
+        "LU": { "nazev": "Lubelskie", "obyv": 2.0, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-01", "do": "2027-02-14"}, {"nazev": "ferie zimowe", "od": "2028-02-14", "do": "2028-02-27"} ] },
+        "MA": { "nazev": "Małopolskie (Kraków)", "obyv": 3.4, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-02-15", "do": "2027-02-28"}, {"nazev": "ferie zimowe", "od": "2028-02-14", "do": "2028-02-27"} ] },
+        "SL": { "nazev": "Śląskie (Katowice)", "obyv": 4.3, "prazdniny": [ {"nazev": "ferie zimowe", "od": "2027-01-18", "do": "2027-01-31"}, {"nazev": "ferie zimowe", "od": "2028-02-14", "do": "2028-02-27"} ] }
       }
     }
   }
