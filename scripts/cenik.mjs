@@ -160,6 +160,16 @@ function statniSvatky(rok) {
       { datum: F(7, 6), nazev: "Jan Hus" }, { datum: F(9, 28), nazev: "Sv. Václav" }, { datum: F(10, 28), nazev: "Vznik ČSR" },
       { datum: F(11, 17), nazev: "Den boje za svobodu" }, { datum: F(12, 24), nazev: "Štědrý den" }, { datum: F(12, 25), nazev: "1. svátek vánoční" }, { datum: F(12, 26), nazev: "2. svátek vánoční" },
     ],
+    // Polsko (dni ustawowo wolne od pracy; Wigilia je volná od roku 2025). Zielone Świątki připadají na neděli.
+    PL: [
+      { datum: F(1, 1), nazev: "Nowy Rok" }, { datum: F(1, 6), nazev: "Trzech Króli" },
+      { datum: E(0), nazev: "Wielkanoc" }, { datum: E(1), nazev: "Poniedziałek Wielkanocny" },
+      { datum: F(5, 1), nazev: "Święto Pracy" }, { datum: F(5, 3), nazev: "Święto Konstytucji 3 Maja" },
+      { datum: E(49), nazev: "Zielone Świątki" }, { datum: E(60), nazev: "Boże Ciało" },
+      { datum: F(8, 15), nazev: "Wniebowzięcie NMP" }, { datum: F(11, 1), nazev: "Wszystkich Świętych" },
+      { datum: F(11, 11), nazev: "Święto Niepodległości" }, { datum: F(12, 24), nazev: "Wigilia" },
+      { datum: F(12, 25), nazev: "Boże Narodzenie" }, { datum: F(12, 26), nazev: "Drugi dzień Bożego Narodzenia" },
+    ],
   };
 }
 

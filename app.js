@@ -288,7 +288,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','
 // trips.json je hranice důvěry (čte ho i villarudolf.com; do main může zapsat deploy key na Hetzneru).
 // Hodnoty, které se vkládají do HTML/SVG bez esc() – id do href/id, accent do style/fill, icon do
 // href="#i-…", travelMin, url odkazů – proto prochází whitelistem. Neplatný id = výlet se zahodí.
-const SLUG=/^[a-z0-9-]{1,40}$/, HEX=/^#[0-9a-f]{3,8}$/i;
+const SLUG=/^[a-z0-9-]{1,40}$/, HEX=/^#[0-9a-f]{6}$/i; // mapLum() počítá jas jen pro 6 hex znaků
 // množina ikon = <symbol id="i-…"> v index.html (app.js se načítá až za nimi)
 const ICONS=new Set(Array.from(document.querySelectorAll('symbol[id^="i-"]')).map(s=>s.id.slice(2)));
 function sanitizeTrip(t){
@@ -300,7 +300,8 @@ function sanitizeTrip(t){
   t.icon=ICONS.has(t.icon)?t.icon:'pin';
   const tm=Number(t.travelMin); t.travelMin=Number.isFinite(tm)?tm:null;
   t.links=(Array.isArray(t.links)?t.links:[])
-    .filter(l=>l&&typeof l.url==='string'&&/^https:\/\//i.test(l.url)) // žádné javascript:, data:, http:
+    .filter(l=>{const ok=l&&typeof l.url==='string'&&/^https:\/\//i.test(l.url); // žádné javascript:, data:, http:
+      if(!ok)console.warn('trips.json: zahazuji odkaz u',t.id,l&&l.url); return ok;})
     .map(l=>Object.assign({},l,{icon:ICONS.has(l.icon)?l.icon:'globe'}));
   return t;
 }
