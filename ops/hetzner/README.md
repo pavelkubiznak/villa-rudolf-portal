@@ -2,7 +2,7 @@
 
 Server `sintera-velin` (Hetzner, Ubuntu, běží v UTC, sdílený s projekty SINTERA – radar, doklady,
 n8n, hlídač). Přístup `ssh sintera-velin` jako root. Pro portál na něm běží **jediná** věc:
-sběr počasí. Stav ověřen 11. 10. 2026.
+sběr počasí. Stav ověřen a uklizen 11. 10. 2026 (viz sekce o mazání rezervací).
 
 ## Sběr počasí (`refresh-weather.sh`)
 
@@ -57,17 +57,20 @@ Z Macu bez serveru: `node scripts/fetch-forecast.mjs` v repu (zapíše `data/for
    Když se rozešel, `git fetch origin && git reset --hard origin/main` (skript to dělá sám).
 3. Push odmítnut: ověř, že deploy key v GitHubu (Settings → Deploy keys) existuje a má zápis;
    `ssh -i /root/.ssh/vr_deploy_key -T git@github.com` má odpovědět „Hi pavelkubiznak/villa-rudolf-portal!“.
-4. GitHub incident (8. 10. 2026 `fatal error in commit_refs`) – nic nedělat, další běh projde.
+4. GitHub incident (7. 10. 2026 15:15 UTC `fatal error in commit_refs`) – nic nedělat, další běh projde.
 5. Hosté: web villarudolf.com/pruvodce/ i portál čtou `data/forecast.json` z GitHub Pages
    (cache max-age 600 s), takže po úspěšném pushi je předpověď živá do 10 minut.
 
-## Mazání prošlých rezervací – ZRUŠENO na serveru
+## Mazání prošlých rezervací – na serveru zrušeno 11. 10. 2026
 
 `/opt/vr-portal/purge-expired.sh` (cron `40 4 * * *`, hlídač `vr-purge`) volal RPC
 `vr_purge_expired` anon klíčem; od lockdownu 15. 9. 2026 končil denně chybou 42501 a nic nemazal.
 Od 11. 10. 2026 retenci dělá **pg_cron job `vr-purge-expired` přímo v Supabase** (migrace v repu
-`villa-rudolf-site`). Na serveru se má smazat řádek z crontabu, soubor skriptu (obsahuje anon klíč
-a purge secret – proto není v repu) a úloha `vr-purge` z hlídače; přesný postup v [`crontab.txt`](crontab.txt).
+`villa-rudolf-site`, `20261011_vr_purge_cron.sql`). Na serveru je od 11. 10. 2026 řádek z crontabu pryč,
+skript přesunutý do `/root/vr-portal-purge-expired.sh.bak-2026-10-11` (obsahuje anon klíč a starý secret –
+proto nikdy nebyl v repu) a úloha `vr-purge` v hlídači zakomentovaná; podrobnosti v [`crontab.txt`](crontab.txt).
+Kontrola běhů: `select status, return_message, start_time from cron.job_run_details where jobid =
+(select jobid from cron.job where jobname = 'vr-purge-expired') order by start_time desc limit 5;`
 
 ## Rizika, o kterých se ví
 
