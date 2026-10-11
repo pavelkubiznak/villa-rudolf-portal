@@ -1,0 +1,306 @@
+{
+ "_meta": {
+  "datum_auditu": "2026-10-09",
+  "rozsah": "2026-10-09 až 2029-01-05 (noci), jen e-chalupy (objekt 18852)",
+  "metoda": "po zápisu ceníku 9. 10. 2026: hodnoty přečtené z administrace klient.e-chalupy.cz (Ceník / kapacita) po uložení, ověřené na veřejné stránce CZ a na echaty.sk; úseky přepsané z uloženého textu (sezona_kdy + cenik_detaily), ne z ceníku",
+  "chybi": [
+   "czech-cottages.com (EN) — 9. 10. 2026 po půlnoci ukazoval pořád staré ceny (noc 12 900 / 12 900 / 11 900, víkend 25 800 / 25 800 / 22 800) i bez cache; vlastní kopie dat, přenáší se se zpožděním — zkontrolovat do 10. 10."
+  ],
+  "pozn": "Bez jmen hostů. e-chalupy jsou poptávkové (žádná okamžitá rezervace) — minima nocí se nevynucují, formulář má jen jedno globální minimum (2); sezónní minima a zimní týdny 16 400 jsou jen v textu. Megaubytko řeší samostatná relace (zápis 9. 10.)."
+ },
+ "echalupy": {
+  "objekt": "18852",
+  "mena": "CZK",
+  "zdroj": "administrace Ceník / kapacita po uložení + www.e-chalupy.cz/ubytovani-svoboda-nad-upou-vila-rudolf-o18852 + echaty.sk/villa-rudolf-vila-svoboda-nad-upou-o18852",
+  "nastaveni": {
+   "min_noci": 2,
+   "min_noci_text": {
+    "leto": 5,
+    "svatky": 3,
+    "vanoce_silvestr": 6,
+    "zimni_tyden_1_8_1_2028": 3,
+    "jinak": 2
+   },
+   "cena_noc": {
+    "letni": 14900,
+    "zimni": 14900,
+    "mimo": 13400
+   },
+   "cena_vikend_2_noci": {
+    "leto": 29800,
+    "zima": 29800,
+    "mimo": 26800
+   },
+   "vanoce_tyden": 126000,
+   "silvestr_tyden": 140000,
+   "jarni_prazdniny": null,
+   "velikonoce_ctvrtek_pondeli": null,
+   "sezona_kdy": "Letní sezóna: týdny od soboty do soboty v červenci a srpnu, min. 5 nocí\nZimní sezóna: od Nového roku do poloviny března\nVelikonoce, květnové svátky a podzimní prázdniny za cenu sezóny, min. 3 noci",
+   "anglicka_verze": "czech-cottages.com/villa-svoboda-nad-upou-villa-rudolf-18852 (z /cottage-18852) — 9. 10. po půlnoci staré ceny 12 900 / 12 900 / 11 900 a víkend 25 800 / 25 800 / 22 800; vymezení sezón a Vánoce/Silvestr nezobrazuje; název „Villa Rudolfův Dvůr“",
+   "slovenska_verze": "echaty.sk — nové ceny ověřeny 9. 10. 2026, texty česky",
+   "last_minute": "jen prošlé nabídky z února 2026 (termíny 28. 2.–3. 4. 2026)",
+   "vikendove_pobyty": "jen prošlé víkendy z roku 2024",
+   "pred_zapisem": {
+    "zdroj": "klient.e-chalupy.cz → Změny prezentace → Ceník / kapacita, objekt 18852, přečteno 8. 10. 2026 večer před zápisem",
+    "min_dni": 2,
+    "typ_ceny": "za celý objekt",
+    "noc_tyden": "za noc",
+    "leto_cena": 12900,
+    "zima_cena": 12900,
+    "mimo_cena": 11900,
+    "week_typ_ceny": "za celý objekt",
+    "week_leto_cena": 25800,
+    "week_zima_cena": 25800,
+    "week_mimo_cena": 22800,
+    "sezona_kdy": "Letní sezóna: 1.5.-31.10.\nZimní sezóna: 15.12.-31.3.",
+    "cenik_detaily": "Provoz celoročně. Možnost ubytování i na víkend nebo prodloužený víkend. Silvestrovské pobyty. Vánoční pobyty. Velikonoce. K dispozici vyhřívaný bazén s vysokým zastřešením vyhřívaný na 27-28°C, sauna, dětské hřiště, lanový park, stolní tenis, v noci krásně osvícená zahrada s gabionovým ohništěm, velká pergola, opékání/grilování, lyžárna. Poplatek obecnímu úřadu dle místní vyhlášky (25 kč), platí se za dospělou osobu/noc. \nCena za celý objekt:\nZimní sezóna do 22 osob 12.900,-Kč za dům a den.\nLetní sezóna do 22 osob 12.900,-Kč za dům a den.\nMimosezóna do 22 osob 11.900,-Kč za dům a den.\nVíkendové pobyty po dohodě.\nPři objednávce celého objektu se platí vratná kauce 5000,- Kč., z ní je odečtena cena úklidu/prádelny ve výši 3500,-Kč. Energie jsou součástí ceny.\nDomácí mazlíček 500,- Kč/pobyt",
+    "zaskrtnuto": [
+     "provoz v letní sezoně",
+     "provoz v zimní sezoně",
+     "víkendové pobyty",
+     "Vánoce",
+     "Silvestr"
+    ],
+    "silvestr": 99900,
+    "silvestr_notes": "cena za silvestrovský týden",
+    "silvestr_detail": "",
+    "vanoce": 94900,
+    "vanoce_notes": "cena za Vánoční týden",
+    "vanoce_detail": "",
+    "jarni": null,
+    "velikonoce": null,
+    "last_minute": "4 nabídky z února 2026 na termíny 28. 2.–3. 4. 2026 (prošlé, „běžně 11 900 Kč/noc“)",
+    "vikendove_pobyty": "6 víkendů z roku 2024 po 15 900 Kč (prošlé)",
+    "en_poplatky": "anglický strojový překlad cenik_detaily (899 zn.), se starými cenami 12 900 / 11 900"
+   }
+  },
+  "useky": [
+   {
+    "od": "2026-10-09",
+    "do": "2026-12-18",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2027-01-01",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu",
+    "stav": "rezervace (Vánoce a Silvestr 2026 obsazeno)"
+   },
+   {
+    "od": "2027-01-02",
+    "do": "2027-01-05",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna",
+    "stav": "rezervace (Vánoce a Silvestr 2026 obsazeno)"
+   },
+   {
+    "od": "2027-01-06",
+    "do": "2027-02-05",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2027-02-06",
+    "do": "2027-02-12",
+    "cena": 16400,
+    "min_noci": 2,
+    "sezona_kanalu": "zimní týden 16 400 (jen text)"
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 16400,
+    "min_noci": 2,
+    "sezona_kanalu": "zimní týden 16 400 (jen text)"
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-03-13",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2027-03-14",
+    "do": "2027-03-24",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2027-03-25",
+    "do": "2027-04-03",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Velikonoce (text)"
+   },
+   {
+    "od": "2027-04-04",
+    "do": "2027-04-23",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2027-04-24",
+    "do": "2027-05-08",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "květnové svátky (text)"
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-06-25",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-09-03",
+    "cena": 14900,
+    "min_noci": 5,
+    "sezona_kanalu": "Letní sezóna"
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-10-22",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2027-10-23",
+    "do": "2027-11-05",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "podzimní prázdniny (text)"
+   },
+   {
+    "od": "2027-11-06",
+    "do": "2027-12-17",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-24",
+    "cena": 18000,
+    "min_noci": 6,
+    "sezona_kanalu": "Vánoce (pole: týden 126 000)"
+   },
+   {
+    "od": "2027-12-25",
+    "do": "2027-12-31",
+    "cena": 20000,
+    "min_noci": 6,
+    "sezona_kanalu": "Silvestr (pole: týden 140 000)"
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-07",
+    "cena": 16400,
+    "min_noci": 3,
+    "sezona_kanalu": "zimní týden 16 400, min. 3 (jen text)"
+   },
+   {
+    "od": "2028-01-08",
+    "do": "2028-02-25",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2028-02-26",
+    "do": "2028-03-03",
+    "cena": 16400,
+    "min_noci": 2,
+    "sezona_kanalu": "zimní týden 16 400 (jen text)"
+   },
+   {
+    "od": "2028-03-04",
+    "do": "2028-03-18",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2028-03-19",
+    "do": "2028-04-07",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2028-04-08",
+    "do": "2028-04-22",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Velikonoce (text)"
+   },
+   {
+    "od": "2028-04-23",
+    "do": "2028-04-28",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2028-04-29",
+    "do": "2028-05-06",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "květnové svátky (text)"
+   },
+   {
+    "od": "2028-05-07",
+    "do": "2028-06-30",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2028-07-01",
+    "do": "2028-09-01",
+    "cena": 14900,
+    "min_noci": 5,
+    "sezona_kanalu": "Letní sezóna"
+   },
+   {
+    "od": "2028-09-02",
+    "do": "2028-12-22",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimo sezónu"
+   },
+   {
+    "od": "2028-12-23",
+    "do": "2028-12-29",
+    "cena": 18000,
+    "min_noci": 6,
+    "sezona_kanalu": "Vánoce (text)"
+   },
+   {
+    "od": "2028-12-30",
+    "do": "2029-01-05",
+    "cena": 20000,
+    "min_noci": 6,
+    "sezona_kanalu": "Silvestr (text)"
+   }
+  ]
+ }
+}
