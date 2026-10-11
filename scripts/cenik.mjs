@@ -7,7 +7,7 @@
 //   node scripts/cenik.mjs plan [volby]              plán na kanál: úsek → cena, min. noci, otevřeno/zavřeno
 //   node scripts/cenik.mjs diff docs/audit-cen/<datum>.json [volby]
 //                                                    porovná snímek auditu s ceníkem (kde je kanál pod cenou)
-//   node scripts/cenik.mjs svatky [rok]              státní svátky DE/NL/BE/CZ spočítané z pravidel (+ prodloužené víkendy)
+//   node scripts/cenik.mjs svatky [rok]              státní svátky spočítané z pravidel ve statniSvatky() (+ prodloužené víkendy)
 //   node scripts/cenik.mjs poptavka [volby]          týden po týdnu (So–So): podíl obyvatel na prázdninách po zemích,
 //                                                    svátky, sezóna a cena z ceníku; --navrh vypíše týdny, kde je
 //                                                    poptávka vysoká a ceník má jen mimosezónu (kandidáti na výjimku)
@@ -24,8 +24,20 @@
 //   --navrh                                (poptavka) jen týdny, kde poptávka ≥ prah a sezóna je „mimo“
 //   --prah 40                              (poptavka) práh v % pro --navrh (výchozí 40)
 //   --bez-indexace                         nepočítat roční indexaci z cenik.json (ceny v základním roce)
-//   --vyjimky soubor.json                  přidat výjimky z jiného souboru (např. docs/cenik-navrh-vyjimky.json)
+//   --vyjimky soubor.json                  přidat výjimky z jiného souboru (mají přednost před výjimkami v ceníku).
+//                                          Formát = stejný jako cenik.json: {"vyjimky":[{…}]}, každá výjimka má
+//                                          "od","do" (noci YYYY-MM-DD včetně), "min_noci", "duvod" a buď pevný
+//                                          "noc" (čistý výnos v Kč), nebo "jako":"zima|leto|vanoce" s volitelným
+//                                          "koef" (násobek, 1.1 = +10 %), "rok" (rok ceny pro indexaci) a
+//                                          "premiova":true. Šablonu vypíše `poptavka --navrh`.
 //   --cenik soubor.json                    použít jiný ceník než docs/cenik.json (návrh k porovnání)
+//
+// Volby bez hodnoty (--md, --json, --navrh, --bez-indexace) lze psát kdekoli, i před pozicovým
+// argumentem: `svatky --md 2028` = markdown pro rok 2028. Neznámá volba je chyba (exit 1).
+//
+// Země pro poptávku se berou z klíčů data/svatky.json (zeme), ne z kódu. Země bez pravidel ve
+// statniSvatky() (např. PL po přidání do svatky.json) se počítá jen z prázdnin a víkendů; státní
+// svátky pro ni doplň do statniSvatky(). Váha trhu = svatky.vahy_zemi[země], chybějící = 1.
 //
 // Nic nezapisuje do extranetů. Zápis je asistovaný přes Chrome podle docs/cenova-parita-2027.md sekce 5.
 
@@ -109,7 +121,9 @@ function velikonoce(rok) { // neděle velikonoční (Meeus/Jones/Butcher)
   const mes = Math.floor((h + l - 7 * m + 114) / 31), den = ((h + l - 7 * m + 114) % 31) + 1;
   return new Date(Date.UTC(rok, mes - 1, den));
 }
-// vrací { DE: [{datum, nazev, regiony}], NL: [...], BE: [...], CZ: [...] } — regiony = null znamená celostátní
+// vrací { DE: [{datum, nazev, regiony}], NL: [...], BE: [...], CZ: [...] } — regiony = null znamená celostátní.
+// Klíče nemusí pokrývat všechny země ze svatky.json: pro zemi bez záznamu se počítá s prázdným seznamem
+// (viz svatkyZeme), takže přidání trhu do dat skript nerozbije – jen mu chybí svátky, dokud se sem nedoplní.
 function statniSvatky(rok) {
   const v = velikonoce(rok);
   const E = (n) => addDays(v, n);
@@ -154,6 +168,8 @@ function statniSvatky(rok) {
 // nebo most (pracovní den sevřený mezi svátkem/prázdninami a víkendem).
 const svatkyCache = new Map();
 function svatkyRoku(rok) { if (!svatkyCache.has(rok)) svatkyCache.set(rok, statniSvatky(rok)); return svatkyCache.get(rok); }
+// svátky jedné země v roce; země bez pravidel → [] (nepadat na undefined.some)
+const svatkyZeme = (rok, zeme) => svatkyRoku(rok)[zeme] ?? [];
 function rozsahy(zeme, reg) {
   const z = svatky.zeme[zeme];
   const vse = [...(z.spolecne ?? []), ...z.regiony[reg].prazdniny];
@@ -167,7 +183,7 @@ function rozsahy(zeme, reg) {
 const rozsahyCache = new Map();
 function rozsahyReg(zeme, reg) { const k = zeme + reg; if (!rozsahyCache.has(k)) rozsahyCache.set(k, rozsahy(zeme, reg)); return rozsahyCache.get(k); }
 function jeSvatek(t, zeme, reg) {
-  return svatkyRoku(t.getUTCFullYear())[zeme].some((s) => s.datum.getTime() === t.getTime() && (!s.regiony || s.regiony.includes(reg)));
+  return svatkyZeme(t.getUTCFullYear(), zeme).some((s) => s.datum.getTime() === t.getTime() && (!s.regiony || s.regiony.includes(reg)));
 }
 function volnoBezMostu(t, zeme, reg) {
   const dow = t.getUTCDay();
@@ -199,13 +215,14 @@ function tydenPoptavka(sobota) {
     for (let i = 1; i <= 5; i++) s += podilVolna(addDays(sobota, i + 1), z); // noc So+i → den So+i+1
     out.zeme[z] = s / 5;
   }
-  const vahy = svatky.vahy_zemi;
+  const vahy = svatky.vahy_zemi ?? {};
   let sv = 0, sw = 0;
+  // váha trhu z vahy_zemi; země bez záznamu (nově přidaná) má váhu 1 = rovnocenná ostatním
   for (const z of zeme) { sv += out.zeme[z] * (vahy[z] ?? 1); sw += vahy[z] ?? 1; }
   out.mix = sv / sw;
   for (let i = 0; i < 7; i++) {
     const t = addDays(sobota, i);
-    for (const z of zeme) for (const s of svatkyRoku(t.getUTCFullYear())[z]) if (s.datum.getTime() === t.getTime()) out.svatky.push(`${z}: ${s.nazev} (${cz(t).replace(/ \d{4}$/, "")})${s.regiony ? " [" + s.regiony.join(",") + "]" : ""}`);
+    for (const z of zeme) for (const s of svatkyZeme(t.getUTCFullYear(), z)) if (s.datum.getTime() === t.getTime()) out.svatky.push(`${z}: ${s.nazev} (${cz(t).replace(/ \d{4}$/, "")})${s.regiony ? " [" + s.regiony.join(",") + "]" : ""}`);
   }
   return out;
 }
@@ -283,6 +300,9 @@ function tabulka(hlavicka, radky, md) {
 }
 
 // ---------- CLI ----------
+// Přepínače bez hodnoty nikdy nespolknou následující pozicový argument (`svatky --md 2028`).
+const VOLBY_BEZ_HODNOTY = new Set(["md", "json", "navrh", "bez-indexace"]);
+const VOLBY_S_HODNOTOU = new Set(["kanal", "od", "do", "jen", "dnes", "prah", "vyjimky", "cenik"]);
 const argv = process.argv.slice(2);
 const cmd = argv.shift();
 const opt = {};
@@ -290,8 +310,12 @@ const pos = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i].startsWith("--")) {
     const k = argv[i].slice(2);
-    const v = argv[i + 1] && !argv[i + 1].startsWith("--") ? argv[++i] : true;
-    opt[k] = v;
+    if (VOLBY_BEZ_HODNOTY.has(k)) opt[k] = true;
+    else if (VOLBY_S_HODNOTOU.has(k)) {
+      const v = argv[i + 1];
+      if (v == null || v.startsWith("--")) { console.error(`Volba --${k} potřebuje hodnotu (viz hlavička souboru)`); process.exit(1); }
+      opt[k] = argv[++i];
+    } else { console.error(`Neznámá volba --${k} (viz hlavička souboru)`); process.exit(1); }
   } else pos.push(argv[i]);
 }
 bezIndexace = !!opt["bez-indexace"];
@@ -398,9 +422,9 @@ if (cmd === "kalendar") {
     const info = denInfo(t, sezony);
     const zitra = addDays(t, 1); // noc t → volno následující den
     let sv = 0, sw = 0; const podil = {};
-    for (const z of zemeK) { const p = podilVolna(zitra, z); podil[z] = Math.round(p * 100); sv += p * (svatky.vahy_zemi[z] ?? 1); sw += svatky.vahy_zemi[z] ?? 1; }
+    for (const z of zemeK) { const p = podilVolna(zitra, z); podil[z] = Math.round(p * 100); sv += p * (svatky.vahy_zemi?.[z] ?? 1); sw += svatky.vahy_zemi?.[z] ?? 1; }
     const sv_dne = [];
-    for (const z of zemeK) for (const x of svatkyRoku(t.getUTCFullYear())[z]) if (x.datum.getTime() === t.getTime()) sv_dne.push(`${z}: ${x.nazev}${x.regiony ? " (" + x.regiony.join(", ") + ")" : ""}`);
+    for (const z of zemeK) for (const x of svatkyZeme(t.getUTCFullYear(), z)) if (x.datum.getTime() === t.getTime()) sv_dne.push(`${z}: ${x.nazev}${x.regiony ? " (" + x.regiony.join(", ") + ")" : ""}`);
     dny.push({ d: iso(t), s: info.sezona, noc: info.noc, min: info.min_noci, o: ctx.h.otevreno(t) || /^výjimka/.test(info.sezona) && t <= addDays(ctx.h.konecKlouzaveho, 31), mix: Math.round((sv / sw) * 100), podil, sv: sv_dne,
       ceny: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, cenaKanalu(info.noc, k)])),
       host: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, rozpad(info.noc, k).host])), cisty: Object.fromEntries(Object.keys(cenik.kanaly).map((k) => [k, rozpad(info.noc, k).cisty])) });
@@ -468,8 +492,9 @@ if (cmd === "poptavka") {
   console.log(`Týden = noci So–Pá; % = podíl obyvatel země, kteří mají v pracovních dnech toho týdne volno (prázdniny, svátky, mosty).`);
   if (opt.navrh) console.log(`Jen týdny s mixem ≥ ${Math.round(prah * 100)} % v mimosezóně — kandidáti na výjimku v cenik.json.`);
   console.log();
-  tabulka(["příjezd So", "DE", "NL", "BE", "CZ", "mix", "sezóna", "noc (Kč)", "svátky v týdnu"], vyber.map((w) => [
-    iso(w.od), pct(w.zeme.DE), pct(w.zeme.NL), pct(w.zeme.BE), pct(w.zeme.CZ), pct(w.mix), w.sezona, w.noc.toLocaleString("cs-CZ"), w.svatky.map((x) => x.replace(/ \[.*\]/, "")).join("; "),
+  const zemeP = Object.keys(svatky.zeme); // sloupce podle dat, ne natvrdo DE/NL/BE/CZ
+  tabulka(["příjezd So", ...zemeP, "mix", "sezóna", "noc (Kč)", "svátky v týdnu"], vyber.map((w) => [
+    iso(w.od), ...zemeP.map((z) => pct(w.zeme[z])), pct(w.mix), w.sezona, w.noc.toLocaleString("cs-CZ"), w.svatky.map((x) => x.replace(/ \[.*\]/, "")).join("; "),
   ]), opt.md);
   if (opt.navrh) {
     console.log(`\nŠablona výjimek (cena = mimosezóna, doplň):`);
