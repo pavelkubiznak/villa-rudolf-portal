@@ -1,0 +1,16 @@
+# Řádky z `crontab -l` uživatele root na velínu (sintera-velin), které patří Villa Rudolf.
+# Opsáno 11. 10. 2026. Server běží v UTC. Ostatní řádky crontabu patří jiným projektům (sintera-radar,
+# sync na Drive, zálohy) a sem nepatří.
+#
+# Počasí pro portál a web – 2× denně, log /var/log/vr-weather.log, po úspěchu odpíchne hlídač vr-pocasi:
+15 5,15 * * * /opt/vr-portal/refresh-weather.sh >> /var/log/vr-weather.log 2>&1 && /usr/local/bin/hlidac-pip vr-pocasi
+
+# ZRUŠENO – ke smazání ze serveru:
+#   40 4 * * * /opt/vr-portal/purge-expired.sh >> /var/log/vr-weather.log 2>&1 && /usr/local/bin/hlidac-pip vr-purge
+# Mazání prošlých rezervací (vr_purge_expired) je od 11. 10. 2026 pg_cron job 'vr-purge-expired' přímo
+# v Supabase (migrace v repu villa-rudolf-site). Skript na serveru volal RPC anon klíčem a od lockdownu
+# 15. 9. 2026 končil každý den chybou 42501 (permission denied). Na serveru smazat:
+#   - tento řádek z `crontab -e`
+#   - soubor /opt/vr-portal/purge-expired.sh (obsahuje anon klíč a purge secret, do repa NEPATŘÍ)
+#   - řádek `vr-purge` z /etc/hlidac/ulohy.conf a značku /var/lib/hlidac/vr-purge
+#     (jinak hlídač bude denně hlásit prošlou úlohu)
