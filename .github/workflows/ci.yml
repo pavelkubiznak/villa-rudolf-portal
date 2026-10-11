@@ -1,0 +1,109 @@
+name: CI
+
+# Kontroly dat a aplikace bez npm závislostí (jen Node 20).
+# - validate: parsování všech JSON, scripts/validate-trips.mjs, node --check, zákaz externích
+#   hostů v index.html, varování při změně aplikace bez zvednutí verze cache v sw.js.
+# - links: týdenní kontrola odkazů ve výletech (neblokuje – cizí výpadek není naše chyba).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1' # pondělí 06:00 UTC – spouští jen job links
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # kvůli porovnání sw.js s base větví PR
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Parsovat všechny JSON (data/, docs/, docs/audit-cen/, manifest)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const jsonIn = (dir) => fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => dir + "/" + f) : [];
+            const files = [...jsonIn("data"), ...jsonIn("docs"), ...jsonIn("docs/audit-cen"), "manifest.webmanifest"];
+            let bad = 0;
+            for (const f of files) {
+              try { JSON.parse(fs.readFileSync(f, "utf8")); }
+              catch (e) { bad++; console.error(`::error file=${f}::${e.message}`); }
+            }
+            console.log(`${files.length} JSON souborů zkontrolováno, ${bad} chyb`);
+            process.exit(bad ? 1 : 0);
+          '
+
+      - name: Validace data/trips.json a forecast.json
+        run: |
+          if [ -e scripts/validate-trips.mjs ]; then
+            node scripts/validate-trips.mjs --forecast
+          else
+            echo "::warning::scripts/validate-trips.mjs v této větvi ještě není – validace trips.json přeskočena"
+          fi
+
+      - name: Syntaxe JS (node --check)
+        run: |
+          set -eu
+          for f in app.js track.js sw.js scripts/*.mjs; do
+            [ -e "$f" ] || continue
+            node --check "$f"
+            echo "OK $f"
+          done
+
+      - name: index.html bez Google Fonts a Supabase
+        run: |
+          if grep -n -E 'fonts\.googleapis|supabase\.co' index.html; then
+            echo "::error file=index.html::index.html nesmí odkazovat na fonts.googleapis (fonty jsou self-hostované ve fonts/) ani na supabase.co (portál Supabase nevolá – hosté s reálným tokenem jdou na villarudolf.com/pruvodce/)"
+            exit 1
+          fi
+          echo "OK – žádný externí host"
+
+      - name: Verze cache v sw.js při změně aplikace (jen varování)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -eu
+          changed=$(git diff --name-only "$BASE_SHA...HEAD" -- index.html app.js sw.js || true)
+          if [ -z "$changed" ]; then echo "Aplikace se nezměnila."; exit 0; fi
+          ver() { grep -oE "const CACHE = '[^']+'" | head -1; }
+          old=$(git show "$BASE_SHA:sw.js" 2>/dev/null | ver || true)
+          new=$(ver < sw.js || true)
+          echo "Změněno: $(echo "$changed" | tr '\n' ' ')"
+          echo "CACHE base: ${old:-?}  |  CACHE PR: ${new:-?}"
+          if [ "$old" = "$new" ]; then
+            echo "::warning file=sw.js::Změnil se index.html/app.js/sw.js, ale CACHE v sw.js zůstal ${new:-?} – hosté s nainstalovanou PWA dostanou starou verzi (cache-first). Zvedni verzi, pokud se mění precache nebo aplikace."
+          fi
+
+  links:
+    # Mrtvé odkazy ve výletech – hlásí, neblokuje (cizí web může být zrovna mimo).
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Kontrola odkazů v trips.json
+        run: |
+          if [ -e scripts/validate-trips.mjs ]; then
+            node scripts/validate-trips.mjs --links
+          else
+            echo "::warning::scripts/validate-trips.mjs neexistuje – kontrola odkazů přeskočena"
+          fi

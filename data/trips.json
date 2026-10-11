@@ -1,5 +1,5 @@
 {
- "_comment": "Katalog výletů a jídla Villa Rudolf. Jeden zdroj pravdy pro web i Supabase seed. Texty i18n (cs/de/en). Tagy pohánějí doporučovací jádro (`seasons`: [\"summer\"]/[\"winter\"], bez pole = celoročně; hranice sezón drží index.html podle assets/season.js na webu). Pole category+zone pro filtrování, sekce food pro tipy na jídlo.",
+ "_comment": "Katalog výletů (trips) a tipů na jídlo (food) Villa Rudolf – jediný zdroj pravdy. Čtou ho: portál (index.html/app.js v tomto repu), web villarudolf.com (assets/planner.js, assets/site.js, tv/tv.js – cross-origin přes GitHub Pages) a scripts/fetch-forecast.mjs (lokality pro počasí). `id` je trvalý veřejný klíč (QR na TV, #hash odkazy, forecast.json, „už jsme byli“ hostů) – nikdy nepřejmenovávat, přejmenování = nový záznam. Texty i18n cs/de/en/pl. Tagy pohánějí doporučovací jádro (`seasons`: [\"summer\"]/[\"winter\"], bez pole = celoročně; winter = 1. 12.–31. 3., summer = 1. 4.–14. 10., mezi tím jen celoroční). Pravidla polí: data/trips.schema.json, kontrola: node scripts/validate-trips.mjs, kontrakt: docs/datovy-kontrakt.md.",
  "trips": [
   {
    "id": "snezka-cablecar",
@@ -17,7 +17,7 @@
    "rainOk": false,
    "lovesHeat": false,
    "needsClearLowWind": true,
-   "effort": "moderate",
+   "effort": "medium",
    "stairs": false,
    "crossBorderId": false,
    "minAge": 0,
@@ -70,10 +70,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem do Pece",
-      "de": "Mapy.cz – Route nach Pec",
-      "pl": "Mapy.cz – samochodem do Pecu",
-      "en": "Mapy.cz – drive to Pec"
+      "cs": "Mapy.com – autem do Pece",
+      "de": "Mapy.com – Route nach Pec",
+      "pl": "Mapy.com – samochodem do Pecu",
+      "en": "Mapy.com – drive to Pec"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
@@ -97,7 +97,7 @@
    "rainOk": true,
    "lovesHeat": false,
    "needsClearLowWind": false,
-   "effort": "moderate",
+   "effort": "medium",
    "stairs": true,
    "crossBorderId": false,
    "minAge": 5,
@@ -160,10 +160,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem",
-      "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem",
-      "en": "Mapy.cz – drive from the villa"
+      "cs": "Mapy.com – autem",
+      "de": "Mapy.com – Route",
+      "pl": "Mapy.com – samochodem",
+      "en": "Mapy.com – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.906,50.634&routeType=car_fast_traffic"
     }
@@ -187,7 +187,7 @@
    "rainOk": false,
    "lovesHeat": false,
    "needsClearLowWind": false,
-   "effort": "moderate",
+   "effort": "medium",
    "stairs": false,
    "crossBorderId": false,
    "minAge": 0,
@@ -251,10 +251,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß",
-      "pl": "Mapy.cz – pieszo od willi",
-      "en": "Mapy.cz – walk from the villa"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß",
+      "pl": "Mapy.com – pieszo od willi",
+      "en": "Mapy.com – walk from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7912,50.6287&routeType=foot_hiking"
     }
@@ -263,9 +263,11 @@
    "zone": "villa",
    "photo": {
     "url": "https://pavelkubiznak.github.io/villa-rudolf-portal/data/img/baumwipfelpfad.jpg",
-    "credit": "Susankovav · Wikimedia Commons · CC BY-SA 4.0",
+    "credit": "Susankovav · Wikimedia Commons · CC BY-SA 4.0 · zmenšeno",
     "source": "https://commons.wikimedia.org/w/index.php?curid=165151601",
-    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg/1280px-Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg"
+    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg/1280px-Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg",
+    "width": 1024,
+    "height": 771
    }
   },
   {
@@ -342,10 +344,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky",
-      "de": "Mapy.cz – zu Fuß",
-      "pl": "Mapy.cz – pieszo",
-      "en": "Mapy.cz – walk from the villa"
+      "cs": "Mapy.com – pěšky",
+      "de": "Mapy.com – zu Fuß",
+      "pl": "Mapy.com – pieszo",
+      "en": "Mapy.com – walk from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7805,50.6315&routeType=foot_hiking"
     }
@@ -363,9 +365,11 @@
    "checked": "2026-10-11",
    "photo": {
     "url": "https://pavelkubiznak.github.io/villa-rudolf-portal/data/img/janske-hallenbad.jpg",
-    "credit": "ŠJů · Wikimedia Commons · CC BY 4.0",
+    "credit": "ŠJů · Wikimedia Commons · CC BY 4.0 · zmenšeno",
     "source": "https://commons.wikimedia.org/w/index.php?curid=144095773",
-    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg/1280px-Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg"
+    "original": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg/1280px-Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg",
+    "width": 1024,
+    "height": 768
    }
   },
   {
@@ -443,10 +447,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem",
-      "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem",
-      "en": "Mapy.cz – drive from the villa"
+      "cs": "Mapy.com – autem",
+      "de": "Mapy.com – Route",
+      "pl": "Mapy.com – samochodem",
+      "en": "Mapy.com – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6094,50.6264&routeType=car_fast_traffic"
     }
@@ -524,10 +528,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem",
-      "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem",
-      "en": "Mapy.cz – drive from the villa"
+      "cs": "Mapy.com – autem",
+      "de": "Mapy.com – Route",
+      "pl": "Mapy.com – samochodem",
+      "en": "Mapy.com – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7286,50.7790&routeType=car_fast_traffic"
     }
@@ -604,10 +608,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem",
-      "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem",
-      "en": "Mapy.cz – drive from the villa"
+      "cs": "Mapy.com – autem",
+      "de": "Mapy.com – Route",
+      "pl": "Mapy.com – samochodem",
+      "en": "Mapy.com – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.4296,50.7710&routeType=car_fast_traffic"
     }
@@ -685,10 +689,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem",
-      "de": "Mapy.cz – Route",
-      "pl": "Mapy.cz – samochodem",
-      "en": "Mapy.cz – drive from the villa"
+      "cs": "Mapy.com – autem",
+      "de": "Mapy.com – Route",
+      "pl": "Mapy.com – samochodem",
+      "en": "Mapy.com – drive from the villa"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7346,50.6985&routeType=car_fast_traffic"
     }
@@ -712,7 +716,7 @@
    "rainOk": false,
    "lovesHeat": false,
    "needsClearLowWind": false,
-   "effort": "moderate",
+   "effort": "medium",
    "stairs": false,
    "crossBorderId": false,
    "minAge": 12,
@@ -764,10 +768,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – půjčovna",
-      "de": "Mapy.cz – Verleih",
-      "pl": "Mapy.cz – wypożyczalnia",
-      "en": "Mapy.cz – rental shop"
+      "cs": "Mapy.com – půjčovna",
+      "de": "Mapy.com – Verleih",
+      "pl": "Mapy.com – wypożyczalnia",
+      "en": "Mapy.com – rental shop"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7621,50.6388&routeType=car_fast_traffic"
     }
@@ -847,15 +851,20 @@
       "en": "mladebuky.cz",
       "pl": "mladebuky.cz"
      },
-     "url": "https://mladebuky.cz/en/hricky-buky"
+     "url": "https://mladebuky.cz/detsky-zabavni-park-hricky-buky",
+     "urlByLang": {
+      "de": "https://mladebuky.cz/en/hricky",
+      "en": "https://mladebuky.cz/en/hricky",
+      "pl": "https://mladebuky.cz/pl/hricky"
+     }
     },
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.839,50.609&routeType=car_fast_traffic"
     }
@@ -943,10 +952,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß ab Villa",
-      "en": "Mapy.cz – walk from the villa",
-      "pl": "Mapy.cz – pieszo od willi"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß ab Villa",
+      "en": "Mapy.com – walk from the villa",
+      "pl": "Mapy.com – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8094,50.6326&routeType=foot_hiking"
     }
@@ -1031,10 +1040,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß ab Villa",
-      "en": "Mapy.cz – walk from the villa",
-      "pl": "Mapy.cz – pieszo od willi"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß ab Villa",
+      "en": "Mapy.com – walk from the villa",
+      "pl": "Mapy.com – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8052,50.6303&routeType=foot_hiking"
     }
@@ -1120,10 +1129,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß ab Villa",
-      "en": "Mapy.cz – walk from the villa",
-      "pl": "Mapy.cz – pieszo od willi"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß ab Villa",
+      "en": "Mapy.com – walk from the villa",
+      "pl": "Mapy.com – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.811656,50.633707&routeType=foot_hiking"
     }
@@ -1205,10 +1214,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß ab Villa",
-      "en": "Mapy.cz – walk from the villa",
-      "pl": "Mapy.cz – pieszo od willi"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß ab Villa",
+      "en": "Mapy.com – walk from the villa",
+      "pl": "Mapy.com – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.811605,50.63349&routeType=foot_hiking"
     }
@@ -1290,10 +1299,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – pěšky od vily",
-      "de": "Mapy.cz – zu Fuß ab Villa",
-      "en": "Mapy.cz – walk from the villa",
-      "pl": "Mapy.cz – pieszo od willi"
+      "cs": "Mapy.com – pěšky od vily",
+      "de": "Mapy.com – zu Fuß ab Villa",
+      "en": "Mapy.com – walk from the villa",
+      "pl": "Mapy.com – pieszo od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.805395,50.628414&routeType=foot_hiking"
     }
@@ -1376,10 +1385,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
@@ -1461,10 +1470,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
@@ -1550,10 +1559,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7689,50.702&routeType=car_fast_traffic"
     }
@@ -1639,10 +1648,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7336,50.6936&routeType=car_fast_traffic"
     }
@@ -1724,10 +1733,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8201,50.6608&routeType=car_fast_traffic"
     }
@@ -1810,10 +1819,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8206,50.7447&routeType=car_fast_traffic"
     }
@@ -1885,20 +1894,20 @@
     {
      "icon": "globe",
      "label": {
-      "cs": "veselyvylet.cz",
-      "de": "veselyvylet.cz",
-      "en": "veselyvylet.cz",
-      "pl": "veselyvylet.cz"
+      "cs": "krnap.cz",
+      "de": "krnap.cz",
+      "en": "krnap.cz",
+      "pl": "krnap.cz"
      },
-     "url": "https://veselyvylet.cz/cz/vv9.php"
+     "url": "https://www.krnap.cz/navstevnici/muzea/muzeum-vapenka/"
     },
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.845,50.696&routeType=car_fast_traffic"
     }
@@ -1975,15 +1984,15 @@
       "en": "veselyvylet.cz",
       "pl": "veselyvylet.cz"
      },
-     "url": "https://veselyvylet.cz/cz/vv8.php"
+     "url": "https://veselyvylet.cz/turisticke-cile/aichelburg/"
     },
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7914,50.6686&routeType=car_fast_traffic"
     }
@@ -2064,15 +2073,15 @@
       "en": "dotek.eu",
       "pl": "dotek.eu"
      },
-     "url": "https://www.dotek.eu/"
+     "url": "https://www.dotek.eu/Uvodni-strana.html"
     },
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8192,50.6545&routeType=car_fast_traffic"
     }
@@ -2157,10 +2166,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.9121688,50.5658288&routeType=car_fast_traffic"
     }
@@ -2246,10 +2255,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.92825,50.56518&routeType=car_fast_traffic"
     }
@@ -2334,10 +2343,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.1209,50.6142&routeType=car_fast_traffic"
     }
@@ -2420,10 +2429,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8079,50.4323&routeType=car_fast_traffic"
     }
@@ -2506,10 +2515,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.84043,50.61743&routeType=car_fast_traffic"
     }
@@ -2593,10 +2602,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
@@ -2682,10 +2691,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
@@ -2767,10 +2776,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7341,50.7064&routeType=car_fast_traffic"
     }
@@ -2845,10 +2854,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8206,50.7447&routeType=car_fast_traffic"
     }
@@ -2921,10 +2930,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.79,50.638&routeType=car_fast_traffic"
     }
@@ -3006,10 +3015,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8302,50.6497&routeType=car_fast_traffic"
     }
@@ -3094,10 +3103,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.9124,50.5659&routeType=car_fast_traffic"
     }
@@ -3180,10 +3189,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.709,50.677&routeType=car_fast_traffic"
     }
@@ -3265,10 +3274,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7285,50.689&routeType=car_fast_traffic"
     }
@@ -3351,10 +3360,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8007,50.6349&routeType=car_fast_traffic"
     }
@@ -3440,10 +3449,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8012,50.6347&routeType=car_fast_traffic"
     }
@@ -3528,10 +3537,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
@@ -3616,10 +3625,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7305,50.691&routeType=car_fast_traffic"
     }
@@ -3705,10 +3714,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7679,50.69&routeType=car_fast_traffic"
     }
@@ -3794,10 +3803,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.70571,50.64106&routeType=car_fast_traffic"
     }
@@ -3883,10 +3892,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.8226,50.7459&routeType=car_fast_traffic"
     }
@@ -3971,10 +3980,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
@@ -4059,10 +4068,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.7807,50.6306&routeType=car_fast_traffic"
     }
@@ -4147,10 +4156,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.77087,50.63078&routeType=car_fast_traffic"
     }
@@ -4235,10 +4244,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.729,50.689&routeType=car_fast_traffic"
     }
@@ -4320,10 +4329,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.3319,50.5862&routeType=car_fast_traffic"
     }
@@ -4403,10 +4412,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.2665,50.5668&routeType=car_fast_traffic"
     }
@@ -4486,10 +4495,10 @@
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=15.6318,50.3665&routeType=car_fast_traffic"
     }
@@ -4523,7 +4532,7 @@
     "adult"
    ],
    "category": "viewpoint",
-   "zone": "villa",
+   "zone": "near",
    "group": {
     "groupTariffMin": null,
     "reservation": false,
@@ -4922,17 +4931,22 @@
    },
    "links": [
     {
-     "icon": "globe",
-     "label": "Facebook",
-     "url": "https://www.facebook.com/DVORACEKDUSAN/"
+     "icon": "pin",
+     "label": {
+      "cs": "Mapy.com – restaurace",
+      "de": "Mapy.com – Restaurant",
+      "en": "Mapy.com – restaurant",
+      "pl": "Mapy.com – restauracja"
+     },
+     "url": "https://mapy.com/turisticka?q=Restaurace%20U%20Kostela%2C%20Broumov"
     },
     {
      "icon": "pin",
      "label": {
-      "cs": "Mapy.cz – autem od vily",
-      "de": "Mapy.cz – Route ab Villa",
-      "en": "Mapy.cz – drive from the villa",
-      "pl": "Mapy.cz – samochodem od willi"
+      "cs": "Mapy.com – autem od vily",
+      "de": "Mapy.com – Route ab Villa",
+      "en": "Mapy.com – drive from the villa",
+      "pl": "Mapy.com – samochodem od willi"
      },
      "url": "https://mapy.com/fnc/v1/route?mapset=outdoor&start=15.8136,50.62545&end=16.3305,50.5855&routeType=car_fast_traffic"
     }

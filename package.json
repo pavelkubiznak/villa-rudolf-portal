@@ -1,0 +1,14 @@
+{
+  "name": "villa-rudolf-portal",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-trips.mjs",
+    "validate:links": "node scripts/validate-trips.mjs --links",
+    "forecast": "node scripts/fetch-forecast.mjs",
+    "demo": "python3 -m http.server 8767"
+  }
+}

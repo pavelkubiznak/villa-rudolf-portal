@@ -1,0 +1,77 @@
+name: GitHub Pages
+
+# Nasazuje na GitHub Pages JEN veřejnou část repa (aplikace + data) – allowlist níže.
+#
+# Proč allowlist: do 11. 10. 2026 běžel legacy Jekyll build přímo z větve main a servíroval
+# CELÉ repo jako web – docs/*.md vyrenderované jako HTML (CLAUDE.html, cenová logika,
+# snímky auditů cen se jmény hostů), supabase/schema.sql i docs/cenik.json byly veřejně
+# na github.io bez noindex (nález infra-01). Tady se do _site kopíruje jen to, co host
+# a villarudolf.com (assets/planner.js, assets/site.js, tv/tv.js) opravdu čtou:
+# index.html, app.js, track.js, sw.js, manifest.webmanifest, robots.txt, icons/, data/, fonts/.
+#
+# Přepnutí zdroje Pages z „main (legacy)“ na „GitHub Actions“ se dělá ručně přes
+# `gh api -X PUT repos/pavelkubiznak/villa-rudolf-portal/pages -f build_type=workflow`
+# – dokud se nepřepne, tento workflow sice proběhne, ale Pages dál servíruje legacy build.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'scripts/**'
+      - 'supabase/**'
+      - 'ops/**'
+      - '*.md'
+  # Volá ho forecast.yml po pushi nového forecast.json – push přes GITHUB_TOKEN
+  # jiné workflow nespouští, takže bez tohoto by se počasí na Pages nikdy nenasadilo.
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  # Rozběhlé nasazení nerušit (doporučení GitHubu pro Pages) – čeká se jen na poslední ve frontě.
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Vždy špička main, ne github.sha: při volání z forecast.yml (workflow_call) je
+          # github.sha stav main PŘED pushem nového forecast.json a nasadil by se starý.
+          ref: main
+
+      - name: Složit _site jen z veřejných souborů (allowlist)
+        run: |
+          set -eu
+          mkdir _site
+          cp index.html sw.js manifest.webmanifest robots.txt .nojekyll _site/
+          cp -R icons data _site/
+          # app.js, track.js a fonts/ vznikají v souběžné větvi auditu – při prvním
+          # běhu ještě nemusí existovat, proto s ochranou.
+          for f in app.js track.js; do
+            if [ -e "$f" ]; then cp "$f" _site/; fi
+          done
+          if [ -d fonts ]; then cp -R fonts _site/; fi
+          find _site -name .DS_Store -delete
+          echo "Obsah _site:"
+          find _site -type f | sort
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
