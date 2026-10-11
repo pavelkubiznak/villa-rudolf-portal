@@ -1,6 +1,7 @@
 # Název „Villa Rudolf“ na všech kanálech — stav a návrh
 
-Stav k 17. 9. 2026. **Jen návrh — v extranetech nebylo nic změněno.** Zápis až po výslovném
+Stav k 17. 9. 2026, doplněno 11. 10. 2026: rozhodnuto 21. 9. 2026; **Airbnb zapisuje Pavel ručně od 21. 9. 2026** (kap. 3.2),
+ostatní kanály podle [`popisy-na-kanalech.md`](popisy-na-kanalech.md) kap. 6a. Zápis vždy až po výslovném
 souhlasu Pavla, kanál po kanálu (postup v kapitole 5).
 
 Zadání (Pavel, 17. 9. 2026): všude „Villa Rudolf, Svoboda nad Úpou“ a za tím, kde to portál dovolí,

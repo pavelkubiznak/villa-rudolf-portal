@@ -1,3 +1,5 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – spojka kalendář ↔ rezervace běží přes `uidh` ve `/sprava/` (`villa-rudolf-site`), `vr_create_booking` je od 11. 10. 2026 pro anon zakázaná a bod 10 „doplnit vr_create_booking / vr_purge_expired do schema.sql" neplatí (schema.sql tohoto repa je jen kontrakt pro čtení). Živý stav: [`villa-rudolf-site/MAPA-SYSTEMU.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/MAPA-SYSTEMU.md).
+
 # Propojení kalendáře a portálu — zadání — NEPLATNÉ
 
 > ## ⛔ NEPLATNÉ ZADÁNÍ (13. 8. 2026)
