@@ -8,7 +8,7 @@ Stav odpovídá sloučení auditní větve 11. 10. 2026.
 | Co | Kde | Kdy | Stopa |
 |---|---|---|---|
 | **GitHub Pages** (`pavelkubiznak.github.io/villa-rudolf-portal/`) | GitHub, větev `main` | po každém pushi do `main`, ~1 min | Actions workflow `.github/workflows/pages.yml` publikuje jen allowlist (`index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `robots.txt`, `icons/`, `data/`, `fonts/`); `docs/`, `scripts/`, `supabase/`, `CLAUDE.md` se na web nedostanou. *Dnes:* legacy build z celé větve. |
-| **CI** | GitHub Actions | každý PR a push | `node scripts/validate-trips.mjs` + parse všech JSON; červené = nenasazovat |
+| **CI** | GitHub Actions (`ci.yml`; vedle něj `forecast.yml` jen ruční) | každý PR a push | `node scripts/validate-trips.mjs` + parse všech JSON; červené = nenasazovat |
 | **Počasí** | Hetzner `sintera-velin` (178.104.207.97), root crontab `15 5,15 * * *` → `/opt/vr-portal/refresh-weather.sh` | 05:15 a 15:15 UTC | `/var/log/vr-weather.log`; commity `chore: refresh forecast.json` od `vr-weather-bot`; hlídač `/etc/hlidac/ulohy.conf` úloha `vr-pocasi` (limit 26 h, `hlidac-pip` po úspěšném běhu) |
 | **Deploy key** (push počasí) | GitHub → Settings → Deploy keys: „velin vr-portal (obnoveno 2026-09-30)", ED25519, **se zápisem**; privátní část `/root/.ssh/vr_deploy_key` na velínu | — | jediný klíč, který smí do `main` bez PR |
 | **Retence hostů** | Supabase, `pg_cron` job `vr-purge-expired` → `public.vr_purge_expired_cron()` | 04:40 UTC denně | `cron.job_run_details`; migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql` (nasazeno 11. 10. 2026) |
@@ -104,8 +104,8 @@ Totéž na všech Macích/worktrees (`git fetch && git reset --hard origin/main`
 
 **…velín shoří**
 Počasí: stačí jakýkoli stroj s Node 20 a deploy keyem — `git clone`, `node scripts/fetch-forecast.mjs`, commit, push
-(obsah `refresh-weather.sh` je v záloze `backup-critical.sh`; skript není v repu — **zvážit verzovat bez secretů
-v `ops/hetzner/`**). Retence běží v DB, nic neztrácí. Umami a n8n jsou věc site/Sintery.
+(kopie `refresh-weather.sh`, crontab a popis velínu jsou v `ops/hetzner/`; bez stroje jde počasí spustit i ručně přes
+`.github/workflows/forecast.yml` – `workflow_dispatch`, commituje GITHUB_TOKENem bez deploy keye). Retence běží v DB, nic neztrácí. Umami a n8n jsou věc site/Sintery.
 
 ## 4. Nasazení změn z tohoto repa
 

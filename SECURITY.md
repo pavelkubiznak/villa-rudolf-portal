@@ -3,7 +3,7 @@
 ## Kam hlásit
 
 Zranitelnost nebo podezření na únik dat: **rezervace@villarudolf.com**. Nepište to do veřejných issues.
-Ozveme se do 3 pracovních dnů. Postup na naší straně je v [`docs/ochrana-udaju.md`](docs/ochrana-udaju.md) kap. 7.
+Postup na naší straně je v [`docs/ochrana-udaju.md`](docs/ochrana-udaju.md) kap. 7.
 
 ## Co je veřejné záměrně (prosím nehlásit)
 

@@ -41,7 +41,8 @@ Statická PWA bez buildu, bez frameworku, bez npm závislostí; Node 20 jen pro 
 - `supabase/schema.sql` — **jen kontrakt pro čtení**: sloupce `vr_bookings` a dvě RPC, které průvodce volá.
   Zdroj pravdy schématu je `villa-rudolf-site/supabase/migrations/`.
 - `docs/` — viz `docs/README.md` (status každého souboru). Historie v `docs/archiv/` s bannery.
-- `.github/workflows/` — Pages (allowlist) a CI (validace dat).
+- `.github/workflows/` — `pages.yml` (Pages jen z allowlistu), `ci.yml` (validace dat, parse JSON, kontroly),
+  `forecast.yml` (počasí jako GitHub Action – jen ruční `workflow_dispatch`; schedule se zapne, až se vypne cron na velínu).
 
 **Jádro existuje ve dvou kopiích:** `app.js` tady a `villa-rudolf-site/assets/planner.js` (to používají hosté).
 Změna `eligible` / `scoreTrip` / `WIND_LIMIT_KMH` / `CAT` se dělá v obou, nebo se vyčlení. Vážení se ladí
@@ -86,7 +87,8 @@ přidat pole = OK, přejmenovat/smazat = nejdřív PR v site. Soubory v `data/` 
   v DB `sha256(token)` pro ověření + `token_enc` (pgp_sym_encrypt admin klíčem) pro opětovné zobrazení odkazu;
   `expires_at = departure + 14 dní`. Host dostává `villarudolf.com/pruvodce/?t=…` v uvítací zprávě (T−7).
 - `vr_verify_token(text)` vrací jméno, jazyk, termín, party — **bez `notes`** (od 11. 10. 2026).
-  `vr_update_party(text,int,int[],text[])`; tříparametrová varianta je smazaná. Kontrakt: `supabase/schema.sql`.
+  `vr_update_party(text,int,int[],text[])` (dnes ji nic nevolá – planner.js party jen čte; nechána pro budoucí
+  úpravu party na webu); tříparametrová varianta je smazaná. Kontrakt: `supabase/schema.sql`.
 - **Retence běží v DB přes pg_cron** `vr-purge-expired` 04:40 UTC: 30 dní po odjezdu anonymizace kontaktu
   (phone/email/door_code/notes/cleaning_note/token_enc pryč, token znehodnocen), výmaz pobytu po 6 letech
   (evidence osob ze zákona). Migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql`, nasazeno 11. 10. 2026.
