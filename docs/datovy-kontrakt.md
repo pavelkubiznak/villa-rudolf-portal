@@ -34,7 +34,7 @@ Pravidla, která z tabulky plynou:
 
 ## 2. `data/trips.json`
 
-Nejvyšší úroveň: `{ "_comment": string, "trips": Trip[], "food": Food[] }`. Dnes 53 výletů a 7 restaurací
+Nejvyšší úroveň: `{ "_comment": string, "trips": Trip[], "food": Food[] }`. Počet položek se nepíše natvrdo (viz `_comment`)
 (počet se nepíše natvrdo nikam do dokumentace — `node -e` jednořádek nebo `site.js` `loadTripCounts()`).
 
 ### 2.1 Lokalizované texty
@@ -56,7 +56,7 @@ Povinná (mají je všechny záznamy):
 | `travelMin` | int | dojezd od vily v minutách (auto, nebo pěšky u `byFoot`) |
 | `byFoot` | bool | start pěšky od vily (bonus v jádru) |
 | `outdoor`, `indoorOrCovered`, `rainOk`, `lovesHeat`, `needsClearLowWind` | bool | tagy pro jádro: hezky → ven, déšť → pod střechu, hřeben jen za jasna a bez větru |
-| `effort` | enum | `easy` \| `medium` \| `hard`. Hodnota `moderate` (dnes 4 záznamy) je chyba dat a sjednocuje se na `medium`; jádro rozlišuje jen `easy` a `hard` |
+| `effort` | enum | `easy` \| `medium` \| `hard`. `moderate` se nepoužívá (sjednoceno na `medium` 11. 10. 2026, validátor ji odmítne); jádro rozlišuje jen `easy` a `hard` |
 | `stairs` | bool | schody/kočárek (malus pro batolata) |
 | `crossBorderId` | bool | potřeba doklad (Polsko) |
 | `minAge` | int | minimální věk (0 = bez omezení) |
@@ -114,9 +114,10 @@ Hranice sezón pro katalog výletů (lyže vs. koupání), **ne** pro ceník:
 
 Výlet se zobrazí, když nemá `seasons`, nebo když průnik jeho `seasons` s obdobím pobytu není prázdný
 (pobyt přes hranici = obě sezóny). Dvě místa, která hranici znají: `app.js` (`seasonOf`) v tomhle repu
-a site (`assets/season.js` + `planner.js` `seasonOk`, který bere sezónu z `S.season`). Dřívější hranice zimy
-„15. 10." v `index.html` na main byla rozpor s webem — od 11. 10. 2026 platí hranice výše (portál `app.js`, site `planner.js` po sloučení PR #43); při změně hranic se mění
-obě místa v jednom dni.
+a site `planner.js` (`seasonOf`/`seasonOk`, po sloučení PR #43). Sezóna VÝLETŮ je záměrně jiná než sezóna
+WEBU v site `assets/season.js` (zima od 15. 10. – řídí ceny, vzhled a přepínač Léto/Zima na `/vylety/`);
+do 11. 10. 2026 měl portál i planner hranici 15. 10. jako web, takže v říjnu a listopadu doporučoval lyžařské
+areály. Při změně hranic výletů se mění `app.js` + `planner.js` v jednom dni; `season.js` se nemění.
 
 ## 5. `data/forecast.json`
 
@@ -160,7 +161,7 @@ a při příští úpravě se vypustí.
 ## 7. `docs/cenik.json` a `node scripts/cenik.mjs kalendar --json` (build-time kontrakt pro web)
 
 `villa-rudolf-site/tools/gen-cenik-web.mjs` čte přímo z `cenik.json`: `verze`, `sezony.{vanoce,leto,zima,mimo}.{noc,min_noci}`,
-`vyjimky[].{od,do,jako,koef,min_noci}`; a z výstupu `kalendar --json`: `kanaly[<klíč>].primy` (právě jeden kanál `primy: true`),
+`vyjimky[].{od,do,jako}` (pole `koef` a `min_noci` výjimek čte jen `scripts/cenik.mjs`); a z výstupu `kalendar --json`: `kanaly[<klíč>].primy` (právě jeden kanál `primy: true`),
 `dny[].{d, s, ceny[<kanál>], min}`. Přejmenování těchto klíčů nebo změna tvaru `kalendar --json` rozbije ceny na homepage
 ve všech jazycích — test je v site `tools/test-cenik-web.mjs` (ručně). Úplný seznam klíčů: `docs/cenik.json` (`_pozn` u každého).
 
