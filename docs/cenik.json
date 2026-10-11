@@ -25,7 +25,7 @@
       "pravidlo": "týden So–So obsahující 24. 12. + týden So–So obsahující 31. 12.",
       "premiova": true,
       "noc": 18000,
-      "min_noci": 5,
+      "min_noci": 6,
       "_pozn": "18 000 = sezóna × 1,21; Silvestrovský týden výjimkou 20 000 (benchmark 17. 9. 2026). Potvrzeno 21. 9. 2026."
     },
     "leto": {
@@ -110,7 +110,7 @@
       "do": "2027-12-31",
       "jako": "vanoce",
       "koef": 1.11,
-      "min_noci": 5,
+      "min_noci": 6,
       "rok": 2027,
       "premiova": true,
       "duvod": "Silvestr: nejnapjatější termín regionu (benchmark 17. 9. 2026), +11 % nad Vánoce = 20 000"
@@ -216,11 +216,11 @@
   },
   "min_noci_pravidla": {
     "leto": 5,
-    "vanoce": 5,
-    "silvestr": 5,
+    "vanoce": 6,
+    "silvestr": 6,
     "zima": 2,
     "mimo": 2,
     "vyjimky_svatky": 3,
-    "_pozn": "Nikde a nikdy 1 noc. Léto 5 (upsell na týden ručně), Vánoce a Silvestr 5, zima 2 (čt/pá–ne/po), mimo 2, svátkové výjimky 3. Příjezdové dny neomezovat (medián pobytu 4 noci, týden jen čtvrtina pobytů)."
+    "_pozn": "Nikde a nikdy 1 noc. Léto 5 (upsell na týden ručně), Vánoce a Silvestr 6 (Pavel 5. 10. 2026), zima 2 (čt/pá–ne/po), mimo 2, svátkové výjimky 3. Příjezdové dny neomezovat (medián pobytu 4 noci, týden jen čtvrtina pobytů)."
   }
 }
