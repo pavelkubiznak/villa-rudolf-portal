@@ -1,0 +1,81 @@
+name: Počasí (forecast.json)
+
+# ALTERNATIVA k cronu na Hetzneru (/opt/vr-portal/refresh-weather.sh, 15 5,15 * * *).
+# Zatím JEN ruční spuštění (workflow_dispatch). Plán (schedule) je zakomentovaný: zapne se,
+# až Pavel rozhodne vypnout cron na Hetzneru – oba zároveň by se tloukly (dva pushe do main
+# ve stejnou minutu, druhý by byl odmítnut jako non-fast-forward).
+#
+# Výhody proti Hetzneru: žádný deploy key se zápisem do main na sdíleném root serveru,
+# žádný server, selhání workflow GitHub sám mailuje. Po 2–3 ověřených bězích jde deploy key
+# smazat (gh api -X DELETE repos/pavelkubiznak/villa-rudolf-portal/keys/<id>).
+# Nevýhody: cron v Actions mívá zpoždění 5–30 min i víc (fronta GitHubu), takže čas běhu
+# není přesný; plánované workflow ve veřejném repu se vypne po 60 dnech bez aktivity v repu
+# – tady nehrozí, commity tohoto workflow samy aktivitu udržují.
+#
+# Push přes GITHUB_TOKEN nespouští jiné workflow, proto se Pages nasazují tady (job deploy
+# volá pages.yml přes workflow_call) – jinak by hosté nový forecast.json nikdy neviděli.
+
+on:
+  # schedule:
+  #   - cron: '15 5,15 * * *' # stejný čas jako Hetzner; odkomentovat až po vypnutí cronu tam
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forecast
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      pushed: ${{ steps.push.outputs.pushed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0 # kvůli `git pull --rebase`, kdyby main mezitím popojel
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Stáhnout předpověď z yr.no
+        run: node scripts/fetch-forecast.mjs
+
+      - name: Validace forecast.json
+        run: |
+          if [ -e scripts/validate-trips.mjs ]; then
+            node scripts/validate-trips.mjs --forecast
+          else
+            node -e 'const f = JSON.parse(require("fs").readFileSync("data/forecast.json", "utf8")); if (!f.generatedAt || !f.byLocation || !f.byLocation.villa) { console.error("forecast.json: chybí generatedAt/byLocation.villa"); process.exit(1); } console.log("OK", Object.keys(f.byLocation).length, "lokalit");'
+          fi
+
+      - id: push
+        name: Commit a push jen při změně
+        run: |
+          set -eu
+          if git diff --quiet -- data/forecast.json; then
+            echo "forecast.json beze změny – nic se nepushuje"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name  "vr-weather-bot"
+          git config user.email "noreply@github.com"
+          git add data/forecast.json
+          git commit -q -m "chore: refresh forecast.json ($(date -u +%FT%TZ))"
+          git pull -q --rebase origin main
+          git push -q origin HEAD:main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.pushed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
