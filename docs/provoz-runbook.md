@@ -1,18 +1,18 @@
 # Provoz: co běží kde, jak to zkontrolovat a co dělat, když to stojí
 
 Stav k 11. 10. 2026. Časy jsou **UTC** (server i pg_cron běží v UTC; SELČ = +2 h, SEČ = +1 h).
-Kde je něco označené „cílový stav", nasazuje to jiná větev auditu z 11. 10. 2026 — po sloučení ověřit a slovo smazat.
+Stav odpovídá sloučení auditní větve 11. 10. 2026.
 
 ## 1. Co běží kde
 
 | Co | Kde | Kdy | Stopa |
 |---|---|---|---|
-| **GitHub Pages** (`pavelkubiznak.github.io/villa-rudolf-portal/`) | GitHub, větev `main` | po každém pushi do `main`, ~1 min | *cílový stav:* Actions workflow `.github/workflows/pages.yml` publikuje jen allowlist (`index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `robots.txt`, `icons/`, `data/`, `fonts/`); `docs/`, `scripts/`, `supabase/`, `CLAUDE.md` se na web nedostanou. *Dnes:* legacy build z celé větve. |
-| **CI** | GitHub Actions | každý PR a push | *cílový stav:* `node scripts/validate-trips.mjs` + parse všech JSON; červené = nenasazovat |
+| **GitHub Pages** (`pavelkubiznak.github.io/villa-rudolf-portal/`) | GitHub, větev `main` | po každém pushi do `main`, ~1 min | Actions workflow `.github/workflows/pages.yml` publikuje jen allowlist (`index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `robots.txt`, `icons/`, `data/`, `fonts/`); `docs/`, `scripts/`, `supabase/`, `CLAUDE.md` se na web nedostanou. *Dnes:* legacy build z celé větve. |
+| **CI** | GitHub Actions | každý PR a push | `node scripts/validate-trips.mjs` + parse všech JSON; červené = nenasazovat |
 | **Počasí** | Hetzner `sintera-velin` (178.104.207.97), root crontab `15 5,15 * * *` → `/opt/vr-portal/refresh-weather.sh` | 05:15 a 15:15 UTC | `/var/log/vr-weather.log`; commity `chore: refresh forecast.json` od `vr-weather-bot`; hlídač `/etc/hlidac/ulohy.conf` úloha `vr-pocasi` (limit 26 h, `hlidac-pip` po úspěšném běhu) |
 | **Deploy key** (push počasí) | GitHub → Settings → Deploy keys: „velin vr-portal (obnoveno 2026-09-30)", ED25519, **se zápisem**; privátní část `/root/.ssh/vr_deploy_key` na velínu | — | jediný klíč, který smí do `main` bez PR |
 | **Retence hostů** | Supabase, `pg_cron` job `vr-purge-expired` → `public.vr_purge_expired_cron()` | 04:40 UTC denně | `cron.job_run_details`; migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql` (nasazeno 11. 10. 2026) |
-| ~~Purge na Hetzneru~~ | `/opt/vr-portal/purge-expired.sh`, crontab `40 4 * * *` | — | **zaniká**: od 15. 9. do 11. 10. 2026 denně padal (anon klíč, 42501). Po nasazení pg_cron smazat řádek z crontabu, soubor (obsahuje anon klíč + starý secret) a úlohu `vr-purge` z `/etc/hlidac/ulohy.conf` |
+| ~~Purge na Hetzneru~~ | `/opt/vr-portal/purge-expired.sh`, crontab `40 4 * * *` | — | **zrušen 11. 10. 2026**: od 15. 9. denně padal (anon klíč, 42501). Řádek z crontabu pryč, soubor přesunut do `/root/vr-portal-purge-expired.sh.bak-2026-10-11`, úloha `vr-purge` v `/etc/hlidac/ulohy.conf` zakomentována (viz `ops/hetzner/`) |
 | **Záloha serveru** | Hetzner `/opt/backup-critical.sh`, crontab `50 4 * * *` | 04:50 UTC | zálohuje i `/opt/vr-portal` (klon repa) — viz `ochrana-udaju.md` kap. 5 (zálohy na Google Drive) |
 | **Umami** (analytika) | Hetzner, Docker, dashboard `https://178-104-207-97.sslip.io` | živě | cookieless; web villarudolf.com je v Umami pod webem „Villa Rudolf - Kalex (DE)" |
 | **n8n** | Hetzner, `127.0.0.1:5678` (zvenku nedostupné) | — | denní e-mail `VrDailyTasks`, platby `VrPaymentWatch001`, konflikty — vše v site, tady nic |
@@ -75,7 +75,7 @@ má vrátit `max-age=600` a `access-control-allow-origin: *`.
 chybný `trips.json` rozbije `/pruvodce/`, `/vylety/` i TV.
 
 **…Pages neběží / 404**
-GitHub → Settings → Pages musí být „GitHub Actions" (cílový stav) a workflow `pages.yml` zelený; při legacy buildu
+GitHub → Settings → Pages musí být „GitHub Actions" (přepnuto 11. 10. 2026) a workflow `pages.yml` zelený; při legacy buildu
 Jekyll občas selže na souboru s `{{` — re-run. Zkontrolovat, že `.nojekyll` / allowlist nezměnil cesty `data/…`.
 
 **…pg_cron job neběží nebo vrací chybu**
@@ -86,7 +86,7 @@ Rozšíření `pg_cron` musí být zapnuté: Dashboard → Database → Extensio
 **…host napíše, že odkaz na průvodce nefunguje**
 Token platí **odjezd + 14 dní** a po anonymizaci (30 dní) je znehodnocený — to je správně. Nový pobyt téhož hosta =
 nový token ve `/sprava/`. Starý odkaz `pavelkubiznak.github.io/villa-rudolf-portal/?t=…` se od 11. 10. 2026 přesměruje
-na `villarudolf.com/pruvodce/?t=…` (cílový stav `app.js`).
+na `villarudolf.com/pruvodce/?t=…` (`app.js`, funkce `presmerujHosta`).
 
 **…je podezření na kompromitaci velínu nebo deploy keye**
 Deploy key má zápis do `main` — útočník by mohl podvrhnout `trips.json` (odkazy `links[].url` jdou do `href` na webu i TV).

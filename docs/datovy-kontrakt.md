@@ -4,7 +4,7 @@ Stav k 11. 10. 2026. Soubory v `data/` tohoto repa jsou **veřejné API** pro vi
 Cokoli se tu přejmenuje nebo smaže, rozbije web bez varování. Tenhle dokument říká, kdo co čte,
 jaká pole jsou povinná, jaké hodnoty smí mít, a jak se dělá změna bezpečně.
 
-Ověřování: `node scripts/validate-trips.mjs` proti `data/trips.schema.json` (cílový stav; běží v CI
+Ověřování: `node scripts/validate-trips.mjs` proti `data/trips.schema.json` (běží i v CI
 před každým nasazením). Dokud validátor neexistuje, aspoň `node -e 'JSON.parse(require("fs").readFileSync("data/trips.json","utf8"))'`.
 
 ## 1. Kdo čte co
@@ -115,7 +115,7 @@ Hranice sezón pro katalog výletů (lyže vs. koupání), **ne** pro ceník:
 Výlet se zobrazí, když nemá `seasons`, nebo když průnik jeho `seasons` s obdobím pobytu není prázdný
 (pobyt přes hranici = obě sezóny). Dvě místa, která hranici znají: `app.js` (`seasonOf`) v tomhle repu
 a site (`assets/season.js` + `planner.js` `seasonOk`, který bere sezónu z `S.season`). Dřívější hranice zimy
-„15. 10." v `index.html` na main byla rozpor s webem — cílový stav je ten výše; při změně hranic se mění
+„15. 10." v `index.html` na main byla rozpor s webem — od 11. 10. 2026 platí hranice výše (portál `app.js`, site `planner.js` po sloučení PR #43); při změně hranic se mění
 obě místa v jednom dni.
 
 ## 5. `data/forecast.json`
@@ -175,7 +175,7 @@ ve všech jazycích — test je v site `tools/test-cenik-web.mjs` (ručně). Úp
 | **Změnit `cat` nebo CAT** | čtyři místa, viz sekce 5 |
 | **Změnit klíč v `cenik.json`** | zároveň `scripts/cenik.mjs` a site `tools/gen-cenik-web.mjs` + `test-cenik-web.mjs` |
 
-Validátor `scripts/validate-trips.mjs` + `data/trips.schema.json` (cílový stav, CI) hlídá: povinná pole a typy, enumy
+Validátor `scripts/validate-trips.mjs` + `data/trips.schema.json` (lokálně i v CI) hlídá: povinná pole a typy, enumy
 z tohoto dokumentu, čtyři jazyky všude, `id` unikátní a ve tvaru regexu, osm `id` z jádra existuje, `photo.url` https
 na `data/img/`, `checked` ve tvaru data. Co validátor nehlídá, hlídá tenhle dokument.
 

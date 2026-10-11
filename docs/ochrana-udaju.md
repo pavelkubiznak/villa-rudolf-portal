@@ -48,8 +48,8 @@ Co se **neděje**: žádné profilování pro reklamu, žádné předávání ko
   SECURITY DEFINER RPC s `search_path=public`; admin RPC ověřují hash klíče + rate limit; purge jen vlastník DB / service_role.
 - `vr_verify_token` vrací hostovi jen jméno, jazyk, termín a party — interní poznámka majitele (`notes`) se od 11. 10. 2026 neposílá.
 - Veřejné repo: secret scanning + push protection zapnuté; žádný service_role, admin klíč ani jména hostů (kap. 8).
-- Demo průvodce v tomto repu Supabase nevolá; hosty s tokenem přesměruje na villarudolf.com (cílový stav 11. 10. 2026).
-- Hetzner: root přístup jen klíčem; n8n jen na localhostu; skript s anon klíčem a starým purge secretem (`purge-expired.sh`) se maže.
+- Demo průvodce v tomto repu Supabase nevolá; hosty s tokenem přesměruje na villarudolf.com (od 11. 10. 2026).
+- Hetzner: root přístup jen klíčem; n8n jen na localhostu; skript s anon klíčem a starým purge secretem (`purge-expired.sh`) byl 11. 10. 2026 z `/opt/vr-portal` odstraněn (záloha jen pro root).
 - Zálohy: `backup-critical.sh` 04:50 UTC → Drive; Supabase vlastní zálohy podle plánu projektu (ověřit v Dashboard → Database → Backups).
 
 ## 5. Lhůty (jedno číslo pro každou věc)
@@ -62,7 +62,7 @@ Co se **neděje**: žádné profilování pro reklamu, žádné předávání ko
 | Účetní doklady | podle zákona o účetnictví | iDoklad, účetní |
 | Analytika (Umami) | bez PII | — |
 | Zálohy na Drive | **k rozhodnutí** (dnes bez rotace a bez šifrování) | `backup-critical.sh` |
-| Data v prohlížeči hosta | `localStorage` jen u hosta: site `vrGuide` (navštívené výlety, nastavení wizardu), `vrLang`; cache katalogu 6 h. Demo průvodce tady: jen demo party. Žádná PII hosta se v prohlížeči nedrží (cílový stav; starý `index.html` ukládal jméno a `notes` do `vr-guest-<token>` bez expirace) | host sám (vymazání dat webu) |
+| Data v prohlížeči hosta | `localStorage` jen u hosta: site `vrGuide` (navštívené výlety, nastavení wizardu), `vrLang`; cache katalogu 6 h. Demo průvodce tady: jen demo party. Žádná PII hosta se v prohlížeči nedrží (od 11. 10. 2026; starý `index.html` ukládal jméno a `notes` do `vr-guest-<token>` bez expirace) | host sám (vymazání dat webu) |
 
 Do 11. 10. 2026 retence **neběžela** (26 dní; Hetzner skript volal funkci anon klíčem). Hostům se v demo průvodci
 navíc říkalo „odkaz platí 30 dní po odjezdu" — správně je 14. Obojí opraveno 11. 10. 2026.

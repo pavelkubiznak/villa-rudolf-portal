@@ -77,7 +77,7 @@ přidat pole = OK, přejmenovat/smazat = nejdřív PR v site. Soubory v `data/` 
 - **Počasí:** cron na Hetzneru `15 5,15 * * *` **UTC** (`/opt/vr-portal/refresh-weather.sh`: `git reset --hard origin/main`,
   `node scripts/fetch-forecast.mjs`, commit `chore: refresh forecast.json`, push deploy keyem přímo do `main`).
   Tyhle commity při čtení historie přeskakuj: `git log --invert-grep --grep='refresh forecast'`.
-  Hetzner cron dělá **jen počasí** — purge tam zaniká.
+  Hetzner cron dělá **jen počasí** — purge tam byl 11. 10. 2026 zrušen (`ops/hetzner/`).
 - Runbook (kontroly, co dělat když, klíče): `docs/provoz-runbook.md`.
 
 ## Tokeny hostů a data v DB (ověřeno 11. 10. 2026)
