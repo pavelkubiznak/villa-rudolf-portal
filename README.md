@@ -1,46 +1,87 @@
-# Villa Rudolf – guest portal (Fáze 1)
+# Villa Rudolf – portal
 
-Mobilní, osobní průvodce pro hosty. Generuje se z dat (1 šablona, žádné HTML per host),
-počasí živě z yr.no (serverově cachované), doporučovací jádro řadí výlety podle
-**počasí × věku dětí × velikosti skupiny**, analytika přes self-hosted Umami.
+Datový sklad pro systém Villy Rudolf (Svoboda nad Úpou, Krkonoše) a demo průvodce pro hosty.
+Žádný build, žádný framework, žádné npm závislosti. Veřejné repo, GitHub Pages:
+`https://pavelkubiznak.github.io/villa-rudolf-portal/`.
 
-## Co je hotové (běží hned v demo režimu)
-- `index.html` — mobilní aplikace průvodce (čte `?t=<token>`; bez Supabase = demo).
-- `data/trips.json` — katalog výletů + tagy pro jádro (jeden zdroj pravdy).
-- `data/forecast.json` — počasí z yr.no (generuje `scripts/fetch-forecast.mjs`).
-- `data/demo-guest.json` — ukázkový host (`?t=demo`), žádná reálná data.
-- `scripts/fetch-forecast.mjs` — serverový sběr počasí (cron, respektuje ToS met.no).
-- `supabase/schema.sql` — tabulka `vr_bookings` + token RPC `vr_verify_token` / `vr_update_party`.
+Kde co v celém systému běží, říká [`villa-rudolf-site/MAPA-SYSTEMU.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/MAPA-SYSTEMU.md).
+Pravidla pro práci v tomhle repu: [`CLAUDE.md`](CLAUDE.md). Index dokumentace: [`docs/README.md`](docs/README.md).
 
-Demo: otevři `index.html?t=demo`.
+## Co tu žije
 
-## Architektura
-Rezervace (extranet) → **token** v **Supabase** (`vr_bookings`, jen hash tokenu; dnes se
-zakládá ručně, viz níže) → **statická stránka** (GitHub Pages) čte přes token →
-**jádro** (počasí × věk × skupina × sezóna) → výpis. Počasí dodává **cron** (`forecast.json`),
-návštěvy/kliky měří **Umami**. Ruční kroky: založení tokenu a vložení odkazu do zprávy hostovi.
+| Co | Soubory | Kdo to čte |
+|---|---|---|
+| Katalog výletů a restaurací (4 jazyky, tagy pro doporučení) | `data/trips.json`, fotky `data/img/` | villarudolf.com `/pruvodce/`, `/vylety/`, homepage, `/tv/`, `/k/`; demo tady |
+| Počasí pro vilu a každý výlet (9 dní, yr.no) | `data/forecast.json` ← `scripts/fetch-forecast.mjs` (cron 2× denně) | totéž |
+| Ceník — ceny, min. noci, horizont, výjimky pro všechny kanály | `docs/cenik.json`, `scripts/cenik.mjs`, prázdniny `data/svatky.json` | web (`site/tools/gen-cenik-web.mjs`), runbook zápisu do extranetů |
+| Texty objektu a stav na kanálech | `docs/text-villa-rudolf.md`, `docs/popisy-na-kanalech.md`, `docs/nazev-na-kanalech.md` | Airbnb / Booking / FeWo / e-chalupy ručně, `site/tv/texty.js` |
+| Snímky auditů cen | `docs/audit-cen/` | `scripts/cenik.mjs diff` |
+| Demo průvodce (PWA) | `index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `fonts/`, `icons/` | kdokoli na `?t=demo`; host s reálným tokenem je přesměrován na `villarudolf.com/pruvodce/?t=…` |
 
-## Kroky k ostrému provozu
-1. **Hosting:** nasaď tuto složku na GitHub Pages nebo Cloudflare Pages (doména je na Cloudflare).
-2. **Supabase:** HOTOVO (2026-07-05) — schéma `vr_bookings` + `vr_verify_token`/`vr_update_party`
-   běží v projektu `fpknbrzbqpalguajskut` (sdílený, vr_ prefix); CFG v `index.html` je zapojené.
-3. **Počasí cron:** HOTOVO (2026-07-05) — `/opt/vr-portal/refresh-weather.sh` na Hetzneru,
-   cron `15 5,15 * * *`, push přes deploy key, log `/var/log/vr-weather.log`.
-4. **Ingest tokenů: NENÍ automatický** (ověřeno 12. 9. 2026). Workflow „VR – nový host" je jen
-   webhook bez volajícího a Gmail jako zdroj nestačí (Booking neposílá jméno ani termín, Airbnb
-   nemailuje vůbec) — podrobně v `CLAUDE.md`. Tokeny se zakládají ručně přes `vr_create_booking`;
-   budoucí ingest musí brát data z extranetu, ne z mailu.
-5. **Doručení odkazu:** vlož odkaz do zprávy hostovi v extranetu Booking.com (1 copy-paste),
-   nebo QR karta ve vile. (Booking.com nedává e-mail hosta a blokuje bot-odkazy — proto ruční vložení.)
+Průvodce, který hosté skutečně používají, je `villarudolf.com/pruvodce/` (site `assets/planner.js`). Tady je jeho
+demo a druhá kopie doporučovacího jádra (`partyFlags` → `eligible` → `scoreTrip` → `whyBadges` → `buildPlan`).
 
-## Doporučovací jádro (kde co měnit)
-- Tagy výletů: `data/trips.json` (`outdoor`, `indoorOrCovered`, `rainOk`, `lovesHeat`,
-  `needsClearLowWind`, `effort`, `stairs`, `minAge`, `bestFor`, `group`, `crossBorderId`).
-- Logika skóre a tvrdé filtry: `scoreTrip()` / `eligible()` v `index.html`.
-- v1 je záměrně jednoduchá (hezky→ven, déšť→pod střechu + pár tvrdých pravidel);
-  vážení dolaď podle dat z Umami.
+## Jak tečou data
 
-## Bezpečnost / GDPR
-- Hostova data jen v Supabase (EU), v repu žádné PII. Ukládá se jen hash tokenu.
-- `expires_at` (departure + 30 dní) → odkaz po pobytu přestane platit; cron maže staré.
-- Stránka má `noindex`; Umami je cookieless.
+```
+platformy (Booking · Airbnb · FeWo · e-chalupy · Megaubytko)
+   │ iCal
+   ▼
+villa-booking-calendar ── history.json (uidh, termín, platforma; bez jmen) ──▶ villa-rudolf-site /sprava/
+                                                                                 │ jméno, kontakt, token (48 hex)
+                                                                                 ▼
+                                                                           Supabase vr_* (PII, EU-West-2)
+                                                                                 ▲ vr_verify_token / vr_update_party
+                                                                                 │
+villa-rudolf-portal  data/trips.json + data/forecast.json ──────────────▶ villarudolf.com /pruvodce/ /vylety/ /tv/ /k/
+                     docs/cenik.json ──(gen-cenik-web.mjs, build)──────▶ villarudolf.com homepage (ceny)
+```
+
+Tenhle repo nic ze site ani z kalendáře nečte a do Supabase nezapisuje. Retenci dat hostů dělá pg_cron v DB
+(anonymizace 30 dní po odjezdu, výmaz po 6 letech) — nasazeno ze site 11. 10. 2026.
+
+## Spuštění dema
+
+```bash
+python3 -m http.server 8767
+open http://localhost:8767/?t=demo
+```
+
+`fetch()` a service worker potřebují http; z `file://` se data nenačtou. Bez Supabase, bez instalace.
+
+## Validace dat
+
+```bash
+node scripts/validate-trips.mjs          # trips.json proti data/trips.schema.json (totéž běží v CI)
+node --check app.js                      # po každé změně JS
+node scripts/cenik.mjs plan              # před zápisem cen do extranetu
+```
+
+Co je v datech povinné, jaké hodnoty smí mít a co se nesmí přejmenovat: [`docs/datovy-kontrakt.md`](docs/datovy-kontrakt.md).
+`data/forecast.json` se needituje ručně a nepatří do PR (generuje bot).
+
+## Nasazení
+
+`main` = produkce. Push do `main` spustí GitHub Actions, které na Pages publikují jen allowlist
+(`index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `robots.txt`, `icons/`, `data/`, `fonts/`);
+`docs/`, `scripts/`, `supabase/` a `CLAUDE.md` na web nejdou. CI před tím validuje `trips.json` a parsuje všechny JSON.
+Změny jdou přes větev a PR. Cron počasí pushuje `chore: refresh forecast.json` přímo do `main` 2× denně —
+před prací `git pull`. Hosté vidí změnu dat se zpožděním až ~6 h (cache webu), viz datový kontrakt.
+
+## Provoz
+
+Co běží kde (Pages, cron počasí na Hetzneru, pg_cron v Supabase, zálohy, hlídač), týdenní kontroly a postupy
+„když…" (forecast zestárl, push odmítnut, Pages neběží, rotace deploy keye, přepis historie):
+[`docs/provoz-runbook.md`](docs/provoz-runbook.md).
+
+## Bezpečnost a GDPR
+
+- Co je veřejné záměrně (anon klíč, Umami id, `data/` jako API), co do repa nikdy nepatří, model tokenu a rotace
+  klíčů: [`SECURITY.md`](SECURITY.md). Hlášení: `rezervace@villarudolf.com`.
+- Správce, záznam o činnostech, zpracovatelé (Supabase UK, GitHub/Fastly, Hetzner, Google), lhůty
+  (token 14 dní po odjezdu, kontakt 30 dní, evidence 6 let), žádosti hostů a postup při incidentu:
+  [`docs/ochrana-udaju.md`](docs/ochrana-udaju.md).
+- **Žádné PII v repu.** Jména hostů, která se tu od srpna 2026 objevila v auditech cen, byla 11. 10. 2026 odstraněna
+  (`051c9c0`); v historii zůstávají do rozhodnutí o přepisu.
+- Licence: kód, texty a data © Sintera Czech s.r.o. / Pavel Kubizňák, všechna práva vyhrazena; fotky CC BY / CC BY-SA 4.0,
+  písma SIL OFL — [`LICENSE.md`](LICENSE.md).
