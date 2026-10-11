@@ -34,7 +34,7 @@ jobs:
         run: |
           node -e '
             const fs = require("fs");
-            const jsonIn = (dir) => fs.readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => dir + "/" + f);
+            const jsonIn = (dir) => fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => dir + "/" + f) : [];
             const files = [...jsonIn("data"), ...jsonIn("docs"), ...jsonIn("docs/audit-cen"), "manifest.webmanifest"];
             let bad = 0;
             for (const f of files) {

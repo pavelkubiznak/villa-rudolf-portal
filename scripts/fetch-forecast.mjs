@@ -20,7 +20,7 @@
 //      hosté dál vidí předchozí platnou předpověď; refresh-weather.sh (set -e) pak nic necommitne
 //      a hlídač vr-pocasi se neodpíchne, takže se o výpadku dozvíme z ranního e-mailu hlídače.
 //
-// Každý požadavek má timeout 20 s a při HTTP 429/5xx nebo síťové chybě se opakuje 3× s pauzou 2 s.
+// Každý požadavek má timeout 20 s a při HTTP 429/5xx nebo síťové chybě dělají se až 3 pokusy celkem s pauzou 2 s.
 // Hlavičky Expires / If-Modified-Since z ToS met.no záměrně NEřešíme: 2 běhy denně × ~54 lokalit
 // = ~108 požadavků/den, hluboko pod limity met.no (20 req/s); data se stejně mění každých 6 h.
 //
