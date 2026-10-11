@@ -15,7 +15,7 @@ sběr počasí. Stav ověřen a uklizen 11. 10. 2026 (viz sekce o mazání rezer
 | hlídač | úloha `vr-pocasi` v `/etc/hlidac/ulohy.conf`, limit 26 h, úroveň `chyba`; značka `/var/lib/hlidac/vr-pocasi` (zapisuje `hlidac-pip vr-pocasi` až po úspěšném doběhnutí skriptu) |
 | deploy key | `/root/.ssh/vr_deploy_key` (ED25519, v GitHubu „velin vr-portal (obnoveno 2026-09-30)“, **se zápisem do main**) |
 | Node | v20.20.2 (systémové `node`), bez npm závislostí |
-| záloha | `/opt/backup-critical.sh` (04:50 UTC) balí i `/opt/vr-portal` a tento skript |
+| záloha | `/opt/backup-critical.sh` (04:50 UTC) balí i `/opt/vr-portal` a tento skript; od 11. 10. 2026 jsou archivy šifrované `age` (klíč `/root/.age/zaloha.key` + kopie u Pavla), `/root/.ssh` s deploy keyem se nezálohuje — [`docs/provoz-runbook.md`](../../docs/provoz-runbook.md) kap. 6 |
 
 Co skript dělá: `git fetch` + `git reset --hard origin/main` (každý push do main se tím na server
 nasadí sám), `node scripts/fetch-forecast.mjs` (54 lokalit = vila + výlety z `data/trips.json`,
@@ -80,4 +80,5 @@ Kontrola běhů: `select status, return_message, start_time from cron.job_run_de
   smazat a `/opt/vr-portal` zrušit.
 - Skript na serveru není pod gitem – proto tahle složka. Po reinstalaci serveru: naklonovat repo
   do `/opt/vr-portal`, zkopírovat `refresh-weather.sh`, vygenerovat nový deploy key, přidat řádek
-  z `crontab.txt` a úlohu `vr-pocasi` do `/etc/hlidac/ulohy.conf`.
+  z `crontab.txt` a úlohu `vr-pocasi` do `/etc/hlidac/ulohy.conf`. Zálohy z Drive otevře jen klíč `age`
+  z Pavlova 1Password (`/root/.age/zaloha.key`), deploy key v nich záměrně není.
