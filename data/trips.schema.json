@@ -1,0 +1,148 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://pavelkubiznak.github.io/villa-rudolf-portal/data/trips.schema.json",
+ "title": "Villa Rudolf – katalog výletů a tipů na jídlo (data/trips.json)",
+ "description": "Datový kontrakt pro data/trips.json. Konzumenti: portál (index.html/app.js), villarudolf.com (assets/planner.js, assets/site.js, tv/tv.js), scripts/fetch-forecast.mjs. Nic z existujících polí se neodstraňuje ani nemění tvar – jen přibývají nepovinná pole. Kontroluje `node scripts/validate-trips.mjs`, který z tohoto souboru čte required/enum/pattern/rozsahy a navíc hlídá, co JSON Schema neumí (viz `x-pravidla`). Podrobně docs/datovy-kontrakt.md.",
+ "x-pravidla": [
+  "id je trvalý veřejný klíč (QR na TV, #hash odkazy, forecast.json byLocation, „už jsme byli“ hostů) – nikdy nepřejmenovávat; změna = nový záznam. Unikátní napříč trips i food.",
+  "byFoot: true ⇔ zone 'villa' (start pěšky od vily; travelMin = minuty autem jako alternativa, 0–10; doporučeno walkMin). Konzumenti u byFoot ukazují „pěšky od vily“ bez ohledu na travelMin. Výjimka: výlet s interestOnly: true (okruh začínající u vily, např. moto-okruh-vila) má byFoot false, zone 'near' a smí mít travelMin 0 – karta pak říká „výlet přímo od vily“.",
+  "zone = délka výletu, ne jen dojezd: villa = pěšky od vily, near = půlden a dojezd autem ≤ 35 min, far = celý den (typicky ≥ 25 min nebo effort hard).",
+  "effort: easy = kočárek / bez převýšení, medium = do 2 h chůze nebo schody, hard = celodenní túra nebo > 500 m převýšení.",
+  "seasons: ['winter'] = 1. 12.–31. 3., ['summer'] = 1. 4.–14. 10., bez pole = celoročně; mezi 15. 10. a 30. 11. se nabízí jen celoroční výlety.",
+  "minAge ≥ 5 ⇒ bestFor bez 'toddler'; minAge ≥ 12 ⇒ bez 'child'. outdoor nebo indoorOrCovered musí být true; needsClearLowWind ⇒ outdoor.",
+  "Texty (name, tagline, desc, openNote, price, warn, links[].label jako objekt) mají všechny čtyři jazyky neprázdné; stejný text ve dvou jazycích je varování (kromě name a popisků bez mezery, např. domén).",
+  "links[].url: https://. http:// projde jen s varováním (web bez platného certifikátu, např. farmapark-muchomurka). Popisek mapového odkazu říká doménu, na které URL opravdu je (Mapy.com).",
+  "photo.url u našich fotek: https://pavelkubiznak.github.io/villa-rudolf-portal/data/img/<id>.jpg – soubor musí v data/img existovat, width/height sedět a kredit u CC BY / CC BY-SA obsahovat „zmenšeno“ (scripts/fotky.py).",
+  "checked = datum posledního ověření cen a otevírací doby (ISO, ne v budoucnu); starší než rok = varování. warn = dočasné upozornění, po termínu smazat (validátor jen připomene)."
+ ],
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["trips", "food"],
+ "properties": {
+  "_comment": {"type": "string", "description": "Komentář pro editory – co je katalog, kdo ho čte, kde je kontrakt."},
+  "trips": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/trip"}, "description": "Výlety. Pořadí v souboru nic neznamená, jádro řadí podle skóre."},
+  "food": {"type": "array", "items": {"$ref": "#/$defs/food"}, "description": "Tipy na jídlo – jen informační karty bez doporučovacích tagů."}
+ },
+ "$defs": {
+  "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 40, "description": "Trvalý klíč (site tv.js: ^[a-z0-9-]{1,40}$). Nepřejmenovávat."},
+  "text": {"type": "string", "minLength": 1, "pattern": "^\\S([\\s\\S]*\\S)?$", "description": "Neprázdný text bez mezer na krajích."},
+  "i18n": {
+   "type": "object", "additionalProperties": false, "required": ["cs", "de", "en", "pl"],
+   "properties": {"cs": {"$ref": "#/$defs/text"}, "de": {"$ref": "#/$defs/text"}, "en": {"$ref": "#/$defs/text"}, "pl": {"$ref": "#/$defs/text"}},
+   "description": "Text ve všech jazycích hostů."
+  },
+  "isoDate": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+  "https": {"type": "string", "pattern": "^https://", "maxLength": 2000},
+  "url": {"type": "string", "pattern": "^https?://", "maxLength": 2000, "description": "Odkaz pro hosta; https povinné, http jen s varováním."},
+  "coords": {
+   "type": "object", "additionalProperties": false, "required": ["lat", "lon"],
+   "properties": {
+    "lat": {"type": "number", "minimum": 50.3, "maximum": 51.0},
+    "lon": {"type": "number", "minimum": 15.2, "maximum": 16.5},
+    "alt": {"type": "integer", "minimum": 200, "maximum": 1700, "description": "Nadmořská výška v m – fetch-forecast.mjs ji posílá yr.no."}
+   },
+   "description": "WGS84; rozsah = Krkonoše a Broumovsko (vč. polské strany)."
+  },
+  "linkIcon": {"enum": ["globe", "pin", "ticket", "route"], "description": "Ikona odkazu = symbol i-<icon> v index.html."},
+  "link": {
+   "type": "object", "additionalProperties": false, "required": ["icon", "label", "url"],
+   "properties": {
+    "icon": {"$ref": "#/$defs/linkIcon"},
+    "label": {"oneOf": [{"$ref": "#/$defs/text"}, {"$ref": "#/$defs/i18n"}], "description": "Řetězec jen pro doménu/název (stejný ve všech jazycích), jinak objekt cs/de/en/pl."},
+    "url": {"$ref": "#/$defs/url"},
+    "urlByLang": {
+     "type": "object", "additionalProperties": false,
+     "properties": {"de": {"$ref": "#/$defs/https"}, "en": {"$ref": "#/$defs/https"}, "pl": {"$ref": "#/$defs/https"}},
+     "description": "Jazykové varianty webu; `url` je česká (výchozí)."
+    }
+   }
+  },
+  "photo": {
+   "type": "object", "additionalProperties": false, "required": ["url", "credit", "source", "original", "width", "height"],
+   "properties": {
+    "url": {"$ref": "#/$defs/https", "description": "Absolutní adresa fotky u nás (site tv.js testuje ^https://)."},
+    "credit": {"$ref": "#/$defs/text", "description": "Autor · zdroj · licence · zmenšeno – zobrazuje se u fotky."},
+    "source": {"$ref": "#/$defs/https", "description": "Stránka souboru na Wikimedia Commons."},
+    "original": {"$ref": "#/$defs/https", "description": "Původní adresa obrázku, ze které se stahovalo."},
+    "width": {"type": "integer", "minimum": 1, "maximum": 4096},
+    "height": {"type": "integer", "minimum": 1, "maximum": 4096},
+    "licenseUrl": {"$ref": "#/$defs/https", "description": "Nepovinné: odkaz na text licence (creativecommons.org)."},
+    "alt": {"$ref": "#/$defs/i18n", "description": "Nepovinné: alternativní text obrázku."}
+   }
+  },
+  "group": {
+   "type": "object", "additionalProperties": false, "required": ["groupTariffMin", "reservation", "capacity"],
+   "properties": {
+    "groupTariffMin": {"type": ["integer", "null"], "minimum": 2, "description": "Od kolika osob platí skupinová cena; null = není."},
+    "reservation": {"type": "boolean", "description": "Skupina (vila má až 22 osob) by měla rezervovat předem."},
+    "capacity": {"type": ["boolean", "integer", "null"], "minimum": 1, "description": "true = kapacita je omezená (detail v openNote), číslo = konkrétní limit osob, false/null = neřeší se."}
+   },
+   "description": "Tagy pro velkou skupinu."
+  },
+  "trip": {
+   "type": "object", "additionalProperties": false,
+   "required": ["id", "icon", "accent", "coords", "travelMin", "byFoot", "outdoor", "indoorOrCovered", "rainOk", "lovesHeat", "needsClearLowWind", "effort", "stairs", "crossBorderId", "minAge", "bestFor", "category", "zone", "group", "name", "tagline", "desc", "openNote", "price", "links"],
+   "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "icon": {"enum": ["sun", "cloud", "cloud-sun", "cloud-rain", "mountain", "fort", "tree", "waves", "flame", "zap", "bike", "play", "chevron", "pin", "globe", "ticket", "info", "alert", "clock", "users", "calendar", "route", "edit", "map", "utensils"], "description": "Symbol i-<icon> v index.html (seznam = všechny <symbol id=\"i-…\">; validátor hlídá, že se nerozešly)."},
+    "accent": {"type": "string", "pattern": "^#[0-9a-f]{6}$", "description": "Barva karty, malé hex – interpoluje se do style/fill bez escapování."},
+    "coords": {"$ref": "#/$defs/coords"},
+    "travelMin": {"type": "integer", "minimum": 0, "maximum": 180, "description": "Minuty autem od vily; 0 u výletů pěšky od vily."},
+    "walkMin": {"type": "integer", "minimum": 1, "maximum": 600, "description": "Nepovinné: minuty pěšky od vily (u byFoot)."},
+    "driveMin": {"type": "integer", "minimum": 1, "maximum": 180, "description": "Nepovinné: minuty autem, když se dá jít i jet (doplněk k travelMin)."},
+    "byFoot": {"type": "boolean"},
+    "outdoor": {"type": "boolean"},
+    "indoorOrCovered": {"type": "boolean"},
+    "rainOk": {"type": "boolean"},
+    "lovesHeat": {"type": "boolean"},
+    "needsClearLowWind": {"type": "boolean"},
+    "effort": {"enum": ["easy", "medium", "hard"]},
+    "stairs": {"type": "boolean"},
+    "crossBorderId": {"type": "boolean", "description": "Je potřeba doklad – výlet je v Polsku."},
+    "minAge": {"type": "integer", "minimum": 0, "maximum": 18},
+    "bestFor": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["toddler", "child", "teen", "adult"]}},
+    "category": {"enum": ["viewpoint", "culture", "water", "adrenalin", "kids", "animals", "rain", "walk"]},
+    "zone": {"enum": ["villa", "near", "far"]},
+    "seasons": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"enum": ["summer", "winter"]}, "description": "Chybí = celoročně."},
+    "interests": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["moto"]}, "description": "Zájmy hosta (vr_bookings.interests), které výlet zvýhodní."},
+    "interestOnly": {"type": "boolean", "description": "true = ukázat jen hostům s daným zájmem."},
+    "group": {"$ref": "#/$defs/group"},
+    "name": {"$ref": "#/$defs/i18n"},
+    "tagline": {"$ref": "#/$defs/i18n"},
+    "desc": {"$ref": "#/$defs/i18n"},
+    "openNote": {"$ref": "#/$defs/i18n", "description": "Otevírací doba a praktické poznámky."},
+    "price": {"$ref": "#/$defs/i18n", "description": "Ceny jako text, s rokem (např. „ceny 2026“)."},
+    "warn": {"$ref": "#/$defs/i18n", "description": "Dočasné upozornění (zavírací den, rekonstrukce) – po termínu smazat."},
+    "links": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"$ref": "#/$defs/link"}},
+    "photo": {"$ref": "#/$defs/photo"},
+    "checked": {"$ref": "#/$defs/isoDate", "description": "Datum posledního ověření cen a otevírací doby."}
+   },
+   "allOf": [
+    {"if": {"properties": {"byFoot": {"const": true}}}, "then": {"properties": {"zone": {"const": "villa"}}}},
+    {"if": {"properties": {"zone": {"const": "villa"}}}, "then": {"properties": {"byFoot": {"const": true}, "travelMin": {"maximum": 10}}}},
+    {"if": {"properties": {"zone": {"const": "near"}}}, "then": {"properties": {"travelMin": {"maximum": 35}}}},
+    {"if": {"required": ["interestOnly"], "properties": {"interestOnly": {"const": true}}}, "then": {"required": ["interests"]}},
+    {"if": {"properties": {"needsClearLowWind": {"const": true}}}, "then": {"properties": {"outdoor": {"const": true}}}},
+    {"if": {"properties": {"minAge": {"minimum": 5}}}, "then": {"properties": {"bestFor": {"items": {"not": {"const": "toddler"}}}}}},
+    {"if": {"properties": {"minAge": {"minimum": 12}}}, "then": {"properties": {"bestFor": {"items": {"not": {"enum": ["toddler", "child"]}}}}}},
+    {"anyOf": [{"properties": {"outdoor": {"const": true}}}, {"properties": {"indoorOrCovered": {"const": true}}}]}
+   ]
+  },
+  "food": {
+   "type": "object", "additionalProperties": false,
+   "required": ["id", "coords", "travelMin", "byFoot", "name", "tagline", "desc", "openNote", "links"],
+   "properties": {
+    "id": {"$ref": "#/$defs/id"},
+    "coords": {"$ref": "#/$defs/coords"},
+    "travelMin": {"type": "integer", "minimum": 0, "maximum": 120},
+    "byFoot": {"type": "boolean"},
+    "name": {"$ref": "#/$defs/i18n"},
+    "tagline": {"$ref": "#/$defs/i18n"},
+    "desc": {"$ref": "#/$defs/i18n"},
+    "openNote": {"$ref": "#/$defs/i18n"},
+    "links": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"$ref": "#/$defs/link"}},
+    "checked": {"$ref": "#/$defs/isoDate"}
+   }
+  }
+ }
+}
