@@ -1,120 +1,134 @@
-# Villa Rudolf – guest portal
+# Villa Rudolf – portal (data o výletech a počasí, ceník, texty; demo průvodce)
 
 > 🗺️ **Mapa celého systému Villa Rudolf:**
 > [`villa-rudolf-site/MAPA-SYSTEMU.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/MAPA-SYSTEMU.md)
 > — **přečti ji dřív, než začneš.**
 >
-> ⚠️ **Tohle repo NENÍ hlavní systém.** Provozní jádro (web, admin `/sprava/`, evidence hostů,
-> migrace databáze) žije v **`villa-rudolf-site`** na villarudolf.com. Role tohohle repa je dnes
-> hlavně **zdroj dat o výletech a počasí** (`data/trips.json`, `data/forecast.json`).
+> ⚠️ **Tohle repo NENÍ hlavní systém.** Provozní jádro (web, `/sprava/`, `/registrace/`, `/pruvodce/`,
+> migrace databáze, n8n) žije ve **`villa-rudolf-site`** na villarudolf.com.
 
-Mobilní průvodce pro hosty vily. Statická PWA bez build kroku a bez frameworku:
-jeden HTML soubor + JSON data + Supabase pro tokeny hostů. Běží OSTRÝ provoz.
+## Role repa (od 10/2026): datový a rozhodovací sklad
 
-Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, než začneš měnit chování.
+1. **Katalog výletů a počasí** `data/trips.json`, `data/forecast.json`, `data/demo-guest.json` — veřejné API pro
+   villarudolf.com (`/pruvodce/`, `/vylety/`, homepage, `/tv/`, `/k/`) i pro demo tady. Kontrakt: `docs/datovy-kontrakt.md`.
+2. **Ceník** `docs/cenik.json` + `scripts/cenik.mjs` + `data/svatky.json` — zdroj pravdy pro ceny, min. noci
+   a horizont na Booking / Airbnb / FeWo / e-chalupy / Megaubytko; web si z něj generuje ceny (`site/tools/gen-cenik-web.mjs`).
+3. **Texty objektu** `docs/text-villa-rudolf.md` + stav kanálů (`docs/popisy-na-kanalech.md`, `docs/nazev-na-kanalech.md`)
+   a **snímky cenových auditů** `docs/audit-cen/`.
+4. **`index.html` + `app.js` = demo/ukázka průvodce** (`?t=demo`, lišta „toto je ukázka"). Host s reálným tokenem
+   (`?t=` jiný než demo, nebo token v `localStorage` z dřívější PWA) se **přesměruje na
+   `https://villarudolf.com/pruvodce/?t=<token>`**, kde žije udržovaný průvodce. Supabase se odsud nevolá.
+
+Statická PWA bez buildu, bez frameworku, bez npm závislostí; Node 20 jen pro skripty. Běží ostrý provoz
+(data čte web, který hosté používají). Index dokumentace: `docs/README.md`.
 
 ## Struktura
 
-- `index.html` — **celá aplikace** (HTML + CSS + JS inline, ~740 řádků). Není build, není bundler.
-  - `<style>` od ř. 16, SVG ikony (`<symbol id="i-…">`) od ř. 138, JS od ř. 166.
-  - Doporučovací jádro: `partyFlags()`, `eligible()`, `scoreTrip()`, `whyBadges()`, `buildPlan()`.
-  - Vykreslení: `render()` (~ř. 561). Mapa: `buildMapSection()` / `renderMapInner()`.
-  - Filtrování: chipy + `applyFilter()` na konci souboru.
-  - Karta výletu je `.trip`, nadpis `h3` (na tom závisí Umami tracking na konci souboru).
-- `data/trips.json` — katalog výletů, **jediný zdroj pravdy**. Objekt s klíči `trips` (53 položek) a `food`.
-  Tagy pro jádro: `outdoor`, `indoorOrCovered`, `rainOk`, `lovesHeat`, `needsClearLowWind`,
-  `effort`, `stairs`, `minAge`, `bestFor`, `group`, `crossBorderId`, `category`, `zone`,
-  `seasons` (`["summer"]`/`["winter"]`, chybí = celoročně; hranice zimy 15. 10. – 31. 3. jako na webu).
-  Nepovinná pole pro detail výletu (zatím je čte průvodce na TV, `villa-rudolf-site/tv/tv.js`; od 11. 10. 2026):
-  `walkMin` / `driveMin` (minuty pěšky a autem u výletů „pěšky od vily“), `warn` (dočasná výjimka – sanitární den,
-  rekonstrukce; 4 jazyky, po termínu smazat), `checked` (datum ověření údajů proti oficiálnímu webu, RRRR-MM-DD),
-  `links[].urlByLang` (web výletu v jazyce hosta; `url` zůstává česká / výchozí), `photo` {`url` https, `credit`,
-  `source`} – jen vlastní nebo volně licencované fotky, autor a licence patří do `credit`.
-  Fotky leží u nás v `data/img/<id>.jpg`: `python3 -I scripts/fotky.py --zapsat` stáhne odkazované snímky z Wikimedia
-  Commons, zmenší je na 1024 px a přepíše `photo.url` (původní adresa zůstane v `photo.original`, přehled `data/img/FOTKY.md`).
-- `data/demo-guest.json` — ukázkový host pro `?t=demo`, bez reálných dat.
-- `supabase/schema.sql` — tabulky `vr_bookings`, RPC `vr_verify_token` / `vr_update_party`.
-  Zdroj pravdy schématu je ale `villa-rudolf-site/supabase/migrations/` — migrace piš tam,
-  aplikuj `supabase db query --linked --file …` a pak `notify pgrst, 'reload schema'`
-  (bez toho PostgREST novou funkci nevidí a vrací 404).
-  Projekt `fpknbrzbqpalguajskut` (sdílený se SINTERA, proto prefix `vr_`).
-- `scripts/fetch-forecast.mjs` — sběr počasí z yr.no, běží cronem na Hetzneru. Cron dělá před
-  během `git reset --hard origin/main`, takže push z Macu ho nasadí sám; **feature commity
-  se ale nasazují jen ručním pushem z Macu** — na začátku session kontroluj `git status -sb`.
-- `docs/cenik.json` + `scripts/cenik.mjs` — **ceník = zdroj pravdy pro ceny, min. noci a horizont**
-  na Booking/Airbnb/FeWo/e-chalupy. Zadání a runbook auditu i asistovaného zápisu přes Chrome:
-  `docs/cenova-parita-2027.md` (API kanálů nejsou, channel manager zamítnut — `docs/kanaly-jedno-misto.md`).
-  Snímky auditů v `docs/audit-cen/`. Před zápisem do extranetu vždy `node scripts/cenik.mjs plan`.
-  **Podle čeho ceny na 2027/2028** (prázdniny DE/NL/BE/CZ v `data/svatky.json`, `cenik.mjs poptavka`,
-  indexace, dny × noci, kontrola): `docs/cenova-logika-2027-2028.md`. Konvence: noc = datum, kdy host spí.
-  **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
-  odkud hosté jezdí `docs/trhy-hostu-2026-09.md`). **Zápis do extranetů ještě NEPROBĚHL — stav a pořadí: `docs/STAV-cenik-2026-09-21.md`.**
-- `docs/text-villa-rudolf.md` — **zdroj pravdy pro texty**: hlas a styl (co se smí a co ne),
-  ověřená fakta a master text v češtině. Všechno na kanálech i na webu se odvozuje odsud,
-  nikdy naopak. Distribuce a stav kanálů je v `docs/popisy-na-kanalech.md`.
-- `docs/popisy-na-kanalech.md` — **audit popisů na Airbnb / Bookingu / FeWo / e-chalupách**
-  (21. 9. 2026) + jednotné znění textů CZ/EN/DE a otevřené body. Fakta o objektu jsou tam
-  potvrzená Pavlem; web `villa-rudolf-site/index.html` je zastaralejší. Booking má **dva objekty**:
-  `12558473 Villa Rudolf` (živý) a `353795 Rudolfův dvůr` (zavřený, 4 nepřečtené zprávy) —
-  popis si Booking generuje sám z vybavení, volný text je jen profil hostitele a house rules.
-  Názvy objektu řeší `docs/nazev-na-kanalech.md`.
-- `docs/n8n-booking-ingest.md` — dokumentace n8n workflow „VR – nový host". Pozor: je to
-  **webhook, ne automat** (`POST /webhook/vr-new-guest` → `vr_create_booking`). Žádný Gmail
-  trigger ani poller kanálů neexistuje — viz „Tokeny se nezakládají samy" níže.
-- `sw.js` + `manifest.webmanifest` — PWA vrstva, relativní cesty kvůli GitHub Pages subpath.
+- `index.html` — HTML + CSS (`<style>` hned za `<head>`, SVG sprite `<symbol id="i-…">`), CSP přes
+  `<meta http-equiv="Content-Security-Policy">` (Pages hlavičky neumí), lišta demo režimu.
+- `app.js` — veškerý JS: konfigurace `CFG`, `I18N` (cs/de/en/pl), `CAT` (kategorie počasí), **doporučovací jádro**
+  `partyFlags()` → `eligible()` → `scoreTrip()` → `whyBadges()` → `buildPlan()`, vykreslení `render()`, mapa
+  `buildMapSection()` / `renderMapInner()`, filtry (chipy + `applyFilter()`), přesměrování hostů s tokenem.
+  Karta výletu je `.trip`, nadpis `h3` — na tom závisí tracking.
+- `track.js` — Umami (cookieless, `data-exclude-search` ať se token nikdy nezapíše) + event „Link-Klick".
+- `sw.js` + `manifest.webmanifest` — PWA, relativní cesty kvůli subpath na Pages. Při změně `sw.js` zvýšit `CACHE`.
+- `fonts/` — Spectral a Instrument Sans self-hostované (SIL OFL), žádný Google Fonts.
+- `data/` — `trips.json` (jediný zdroj pravdy katalogu; objekt `{trips, food}`), `forecast.json` (**needitovat**,
+  generuje cron), `demo-guest.json` (smyšlený host), `svatky.json` (prázdniny DE/NL/BE/CZ pro ceník),
+  `img/` (fotky výletů, licence v `img/FOTKY.md` a `LICENSE.md`).
+- `scripts/` — `fetch-forecast.mjs` (počasí z yr.no, běží cronem), `cenik.mjs` (ceník → plán na kanály, audit, kalendář),
+  `validate-trips.mjs` (validace katalogu proti `data/trips.schema.json`, běží v CI), `fotky.py` (zmenšení fotek, Pillow).
+- `supabase/schema.sql` — **jen kontrakt pro čtení**: sloupce `vr_bookings` a dvě RPC, které průvodce volá.
+  Zdroj pravdy schématu je `villa-rudolf-site/supabase/migrations/`.
+- `docs/` — viz `docs/README.md` (status každého souboru). Historie v `docs/archiv/` s bannery.
+- `.github/workflows/` — Pages (allowlist) a CI (validace dat).
+
+**Jádro existuje ve dvou kopiích:** `app.js` tady a `villa-rudolf-site/assets/planner.js` (to používají hosté).
+Změna `eligible` / `scoreTrip` / `WIND_LIMIT_KMH` / `CAT` se dělá v obou, nebo se vyčlení. Vážení se ladí
+podle dat z Umami, ne od stolu; v1 je záměrně jednoduchá (hezky → ven, déšť → pod střechu, pár tvrdých pravidel).
 
 ## Jak to testovat
 
-Otevři `index.html?t=demo` v prohlížeči — bez Supabase běží demo režim s daty
-z `data/demo-guest.json`. Žádný server ani `npm install` není potřeba.
+```bash
+python3 -m http.server 8767      # v kořeni repa
+open http://localhost:8767/?t=demo
+```
 
-Reálný host se načítá přes `?t=<token>`; v Supabase je uložený jen `sha256(token)`.
+`fetch()` i service worker potřebují http — z `file://` se data nenačtou a stránka zůstane na „…".
+Bez tokenu nebo s `?t=demo` běží demo z `data/demo-guest.json`; s jiným tokenem stránka přesměruje na villarudolf.com.
 
-## Na co si dát pozor
+Data: `node scripts/validate-trips.mjs` (totéž, co CI) a `node -e 'JSON.parse(require("fs").readFileSync("data/trips.json","utf8"))'`.
+Po každé změně JS `node --check app.js`.
 
-- **`data/forecast.json` needituj ručně.** Generuje ho cron na Hetzneru (`15 5,15 * * *`,
-  `/opt/vr-portal/refresh-weather.sh`) a automaticky commituje. Před prací udělej `git pull`,
-  jinak dostaneš konflikt. Commity `chore: refresh forecast.json` v historii jsou tenhle cron,
-  ne skutečné změny — při čtení historie je přeskakuj.
-- **Žádné PII do repa.** Data hostů patří jen do Supabase (EU). V repu je pouze demo host.
-- Stránka má `noindex`, Umami je cookieless. Analytika je na konci `index.html`.
-- Doporučovací logika v1 je záměrně jednoduchá. Vážení se ladí podle dat z Umami,
-  ne od stolu.
+## Datový kontrakt (přečti před změnou `data/`)
 
-## Stav doručování odkazu (důležité)
+`docs/datovy-kontrakt.md`. Zkratka: `id` výletu je trvalý veřejný klíč (QR na TV, forecast, hardcoded v jádru) —
+nikdy se nepřejmenovává; `effort` = `easy|medium|hard`; `zone` = `villa|near|far` (délka výletu, ne dojezd);
+texty vždy `{cs, de, en, pl}`; sezóna výletů `winter` 1. 12.–31. 3., `summer` 1. 4.–14. 10., mezi tím jen celoroční;
+přidat pole = OK, přejmenovat/smazat = nejdřív PR v site. Soubory v `data/` se nepřejmenovávají, repo také ne.
 
-README krok 5: odkaz na portál se hostovi vkládá **ručně** do zprávy v extranetu
-Booking.com, protože Booking.com nedává e-mail hosta a blokuje bot-odkazy.
-**Automatické rozesílání přes WhatsApp v tomhle repu neexistuje** — slovo „whatsapp"
-se tu nevyskytuje ani jednou. Pokud se na něm pracuje, je to na straně n8n na Hetzneru,
-ne tady. Než začneš cokoliv programovat, ověř, co už v n8n stojí.
+## Nasazení a provoz
 
-### Jak tokeny vznikají doopravdy (ověřeno 15. 9. 2026)
+- **`main` = produkce.** Push do `main` → GitHub Actions nasadí na Pages **jen allowlist**
+  (`index.html`, `app.js`, `track.js`, `sw.js`, `manifest.webmanifest`, `robots.txt`, `icons/`, `data/`, `fonts/`);
+  `docs/`, `scripts/`, `supabase/`, `CLAUDE.md` se na web nedostanou. CI validuje `trips.json` a parsuje všechny JSON.
+- Změny jdou přes větev a PR; **feature commity se nasazují až mergem/pushem z Macu** — na začátku session
+  `git status -sb` a `git pull` (bot commituje 2× denně).
+- **Počasí:** cron na Hetzneru `15 5,15 * * *` **UTC** (`/opt/vr-portal/refresh-weather.sh`: `git reset --hard origin/main`,
+  `node scripts/fetch-forecast.mjs`, commit `chore: refresh forecast.json`, push deploy keyem přímo do `main`).
+  Tyhle commity při čtení historie přeskakuj: `git log --invert-grep --grep='refresh forecast'`.
+  Hetzner cron dělá **jen počasí** — purge tam zaniká.
+- Runbook (kontroly, co dělat když, klíče): `docs/provoz-runbook.md`.
 
-Workflow `VrNewGuestWf001` (webhook `vr-new-guest`) je slepá větev — nic ho nevolá, 0 spuštění.
-**Tokeny ale nevznikají tudy.** Živá cesta je ve `villa-rudolf-site`:
+## Tokeny hostů a data v DB (ověřeno 11. 10. 2026)
 
-1. Kalendář (`villa-booking-calendar`, iCal každé 3 h) publikuje `history.json` → každý pobyt má `uidh`.
-2. `/sprava/` ho zobrazí jako „pobyt bez kontaktu“; majitel doplní jméno, jazyk, telefon.
-3. `vr_admin_upsert_booking` založí řádek v `vr_bookings` **a vygeneruje token** (48 hex).
-   Od 15. 9. 2026 se ukládá i zašifrovaný admin klíčem (`token_enc`), takže odkazy
-   `/pruvodce/?t=` a `/registrace/?t=` jdou zobrazit na každém zařízení bez regenerace.
-4. Odkaz na průvodce je od 15. 9. 2026 součástí uvítací zprávy (T−7) — dřív se neposílal vůbec.
+- Token **vzniká ve `/sprava/`** (site, `vr_admin_upsert_booking`): 48 hex z `gen_random_bytes(24)`;
+  v DB `sha256(token)` pro ověření + `token_enc` (pgp_sym_encrypt admin klíčem) pro opětovné zobrazení odkazu;
+  `expires_at = departure + 14 dní`. Host dostává `villarudolf.com/pruvodce/?t=…` v uvítací zprávě (T−7).
+- `vr_verify_token(text)` vrací jméno, jazyk, termín, party — **bez `notes`** (od 11. 10. 2026).
+  `vr_update_party(text,int,int[],text[])`; tříparametrová varianta je smazaná. Kontrakt: `supabase/schema.sql`.
+- **Retence běží v DB přes pg_cron** `vr-purge-expired` 04:40 UTC: 30 dní po odjezdu anonymizace kontaktu
+  (phone/email/door_code/notes/cleaning_note/token_enc pryč, token znehodnocen), výmaz pobytu po 6 letech
+  (evidence osob ze zákona). Migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql`, nasazeno 11. 10. 2026.
+  Kontrolní SQL v `docs/provoz-runbook.md`.
+- Migrace se píšou do site, aplikují `supabase db query --linked --file …` (nebo konektor) a pak
+  `notify pgrst, 'reload schema'` — bez toho PostgREST novou funkci nevidí (404). Projekt `fpknbrzbqpalguajskut`,
+  sdílený se SINTERA (prefix `vr_`), region eu-west-2 (Londýn).
+- Rozesílání zpráv hostům, denní e-mail, párování plateb řeší `/sprava/` a n8n v site; tady nic.
+  Workflow `VrNewGuestWf001` (webhook) nikdy nic nevolalo — `docs/archiv/n8n-booking-ingest.md`.
 
-Stav 15. 9. 2026: všech 25 potvrzených pobytů v kalendáři má rezervaci s tokenem. Šest pobytů
-bez rezervace jsou servisní bloky (rekonstrukce schodů) a nepotvrzené termíny bez smlouvy —
-podle `verified.json` kalendáře správně bez hosta. Denní e-mail (`VrDailyTasks`) hlásí nový
-nespárovaný pobyt od T−35 (potvrzení jde v T−30).
+## PII — pravidlo a co se stalo
 
-Gmail jako zdroj dat nestačí (ověřeno 12. 9. 2026): Booking mailuje jen číslo rezervace,
-Airbnb o rezervacích nemailuje, FeWo posílá vlákna zájemců. Jméno hosta se bere z extranetu
-ručně při zakládání ve `/sprava/` — to je jediný ruční krok a zatím není co automatizovat.
+**Žádné PII do repa.** Data hostů patří jen do Supabase. Platí i pro snímky auditů cen, poznámky o úklidu
+a cenové dokumenty: rezervaci popisuj **termínem a počtem osob, nikdy jménem**. Před commitem
+`git diff | grep -iE 'rezervace [A-ZÁ-Ž][a-zá-ž]+'`. Stránka má `noindex`, Umami je cookieless a token nezapisuje.
 
-**Hosté dostávají `villarudolf.com/pruvodce/?t=…`** (planner v site čte `trips.json` a
-`forecast.json` odsud), ne `pavelkubiznak.github.io/villa-rudolf-portal/`. Změny v `index.html`
-tohoto repa vidí jen hosté se starým odkazem.
+11. 10. 2026: audit našel křestní (2× celá) jména hostů v `docs/audit-cen/2026-08-12.*`, `docs/cenova-logika-2027-2028.md`,
+`docs/cenovy-kalendar-2027-2028.md` a `docs/uklid-ical-2026-08.md` (dnes v `docs/archiv/`), od 13. 8. 2026. Odstraněno commitem `051c9c0`;
+**v git historii veřejného repa zůstávají** — rozhodnutí o `git filter-repo` + force-push (a `reset --hard` klonu na Hetzneru)
+je Pavlovo. Postup a incident: `docs/ochrana-udaju.md`, `SECURITY.md`.
+
+## Ceník, texty, kanály
+
+- **Ceník** `docs/cenik.json` + `scripts/cenik.mjs` (`plan`, `diff`, `poptavka`, `kalendar`). Před zápisem do extranetu
+  vždy `node scripts/cenik.mjs plan`. Runbook auditu a asistovaného zápisu přes Chrome: `docs/cenova-parita-2027.md`
+  sekce 4–5 (API kanálů nejsou, channel manager zamítnut — `docs/kanaly-jedno-misto.md`). Podle čeho ceny 2027/2028
+  (prázdniny v `data/svatky.json`, indexace, dny × noci): `docs/cenova-logika-2027-2028.md`. Konvence: noc = datum, kdy host spí.
+  **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
+  odkud hosté jezdí `docs/trhy-hostu-2026-09.md`).
+- **Zápis do extranetů proběhl 5.–9. 10. 2026** (Booking/FeWo/Airbnb Vánoce + Silvestr + zima 2027 a léto 2028,
+  e-chalupy a Megaubytko 9. 10.; mimosezóna na portálech zatím stará). **Živý stav je jen ve větvích PR #4
+  (`claude/echalupy-cenik-932db6`) a PR #5 (`claude/megaubytko-cenik`)** — na `main` je `docs/STAV-cenik-2026-09-21.md`
+  i `docs/cenik.json` (horizont, min. noci 6 o Vánocích, id Megaubytka) **zastaralý do jejich sloučení**. Pořadí: PR #3 → #4 → #5,
+  #4 nerebasovat. Pasti zápisu (Booking plánovač přepisuje ceny, Airbnb 2 roky, FeWo konec kalendáře) jsou ve STAV na větvích.
+- **Texty**: `docs/text-villa-rudolf.md` je zdroj pravdy (hlas, názvosloví, fakta, master text CZ+EN+DE v blocích A–L);
+  všechno na kanálech se odvozuje odsud. Vzorem hlasu je web villarudolf.com (apartmá Suite, Pokoj 1–4, altán; DE tyká).
+  **Opravený půdorys je v PR #3** (`claude/texty-hlas-webu`): apartmá **není v podkroví** (půlka 1. patra + 2 ložnice
+  v podkroví), Pokoje 1–3 jsou v přízemí, obě kuchyně plnohodnotné — verze na `main` to má špatně.
+- **Kanály**: audit popisů a stav distribuce `docs/popisy-na-kanalech.md` (Booking má dva objekty: `12558473 Villa Rudolf`
+  živý, `353795 Rudolfův dvůr` zavřený), názvy `docs/nazev-na-kanalech.md`.
 
 ## Jazyk
 
-Kód, komentáře i dokumentace jsou česky. Uživatelské rozhraní je vícejazyčné
-(`I18N`, hosté cs/de/en) — texty výletů jsou v `trips.json` jako objekty `{cs, de, en}`.
+Kód, komentáře i dokumentace česky. UI hostů cs/de/en/pl (`I18N` v `app.js`, fallback `de`); texty výletů
+v `trips.json` jako `{cs, de, en, pl}`, všechny čtyři povinné. Piš pro Pavla: krátké věty, fakta, žádné marketingové fráze.
