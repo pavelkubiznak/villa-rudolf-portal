@@ -1,3 +1,5 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – workflow `VrNewGuestWf001` (webhook `vr-new-guest`) nikdy nic nevolalo (0 spuštění) a tokeny tudy nevznikají; od 11. 10. 2026 je `vr_create_booking` pro anon zakázaná (site migrace `20261011_vr_portal_hardening.sql`). Token má 48 hex (ne 32), platí odjezd + 14 dní a zakládá ho `/sprava/` (`vr_admin_upsert_booking`). Sekce „Denní úklid" s anon klíčem je nepoužitelná – retenci dělá pg_cron v DB. Živý stav: [`../../CLAUDE.md`](../../CLAUDE.md) („Tokeny hostů") a [`../provoz-runbook.md`](../provoz-runbook.md). Ponecháno jen kvůli šablonám uvítací zprávy.
+
 # n8n workflow „VR – nový host"
 
 Automatický příjem nové rezervace přes **webhook** → založení hosta v Supabase (`vr_bookings`

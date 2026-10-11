@@ -1,0 +1,20 @@
+# https://editorconfig.org – kód i data: UTF-8, LF, 2 mezery.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# trips.json a forecast.json mají odsazení 1 mezera (JSON.stringify(x, null, 1)).
+[data/*.json]
+indent_size = 1
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4

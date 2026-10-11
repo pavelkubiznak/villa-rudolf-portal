@@ -3,6 +3,12 @@
 Stav k 13. 8. 2026. Navazuje na [`cenova-parita-2027.md`](cenova-parita-2027.md) a na první audit.
 Otázka zněla: dá se to spravovat z jednoho místa, ideálně přes API?
 
+> **Stav 11. 10. 2026:** sekce 1–2 (channel manager zamítnut, provize a měny kanálů) platí dál a odkazuje na ně
+> `CLAUDE.md`. Sekce 3 (vlastní iCal hub na Hetzneru) se realizovala jinak — kalendář `villa-booking-calendar`
+> (GitHub Action každé 3 h, od 17. 9. 2026 výstupní feedy `data/out/*.ics`, čtení kanálů zvlášť); podle sekce 3 nic nestav.
+> Sekce 4: bod 2 rozhodnut 21. 9. 2026 — e-chalupy a web nesou čistý výnos, portály se dopočítávají přes provizi
+> (`cenik.json`); body 1 a 3 jsou tím bezpředmětné.
+
 ## 1. Krátká odpověď
 
 **Přímé API k vlastnímu objektu nedostaneme ani u jednoho z velkých kanálů.** Není to

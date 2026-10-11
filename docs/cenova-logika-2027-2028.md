@@ -15,8 +15,8 @@ je nastavit na 2027 a 2028?*
    dnešní tři sezóny sedí na léto a Vánoce, ale **zima leden–únor za 14 000 Kč je z pohledu prázdnin
    přestřelená ve většině týdnů a podstřelená ve dvou**, a v mimosezóně je **šest týdnů s poptávkou
    40–50 %** (Velikonoce, 1. máj, podzimní prázdniny), které ceník cení jako obyčejný listopad. Sekce 2.
-3. **Inflace:** navrhuju roční indexaci **4 %** od základního roku 2027 (v `cenik.json` jako
-   `indexace`, označeno `k_potvrzeni`). Ne 2 % podle celkové inflace — ubytovací služby v ČR zdražují
+3. **Inflace:** roční indexace **4 %**; základní rok v `cenik.json` je **2028** (Pavel 21. 9. 2026:
+   hladiny 13 400 / 14 900 platí do léta 2028, indexace naskočí až od roku 2029). Ne 2 % podle celkové inflace — ubytovací služby v ČR zdražují
    6,8 % ročně a služby 4,5 %. Sekce 3.
 4. **Další kritéria**, která u 16lůžkové vily dávají smysl: délka pobytu, předstih nákupu, tempo prodeje,
    kurz. Co smysl nedává: víkendové příplatky a dynamické ceny po dnech. Sekce 4.
@@ -199,7 +199,7 @@ se cizí konvence nesmí dostat.
 
 ### 5.3 Test, který to rozhodne (5 minut v Chrome, read-only)
 
-Vzít jednu známou rezervaci, např. **Simon 16 os., 19.–25. 9. 2026** (příjezd 19., odjezd 25. → noci
+Vzít jednu známou rezervaci, např. **rezervace 16 os., 19.–25. 9. 2026** (příjezd 19., odjezd 25. → noci
 19.–24., šest nocí), a na každém kanálu se podívat, jak je označené **25. 9.**:
 
 - buňka 25. 9. je *volná / prodejná* → kanál pracuje s nocemi (konvence sedí),
@@ -297,7 +297,7 @@ Nic z toho není podmínka provozu; je to pořadí, ve kterém by se z „asisto
 - [x] indexace v `cenik.json` + ve skriptu (`k_potvrzeni`)
 - [x] konvence noc = datum příjezdu noci zapsaná (5.1), tabulka kanálů (5.2)
 - [x] kalendář po nocích s cenou na každém kanálu (17. 9. 2026 – 31. 3. 2028): `node scripts/cenik.mjs kalendar`,
-      navržené výjimky v [`cenik-navrh-vyjimky.json`](cenik-navrh-vyjimky.json) (`--vyjimky`), NEPOTVRZENO — 17. 9. 2026
+      navržené výjimky byly v `cenik-navrh-vyjimky.json` (smazán 22. 9. 2026); platné výjimky jsou v [`cenik.json`](cenik.json) → `vyjimky` (rozhodnuto 21. 9. 2026)
 - [ ] rozhodnutí 1–5 → zapsat do `cenik.json` (sezóna zima / výjimky / indexace / váhy)
 - [ ] test dny × noci na e-chalupách a megaubytku (5.3) při příštím auditu
 - [ ] ověřit podzim 2028 DE (`overit` v datech) na kmk.org před naceňováním podzimu 2028; Vánoce 2028 NL (zatím chybí) a BE/CZ (`overit`)

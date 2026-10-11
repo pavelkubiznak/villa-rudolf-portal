@@ -1,7 +1,8 @@
 # Cenový kalendář 21. 9. 2026 – léto 2028: návrh podle zadání z 21. 9. 2026
 
-Stav k 21. 9. 2026. Návrh, **nic z toho není zapsané v extranetech ani v živém ceníku** — čísla jsou
-v [`cenik-navrh-2026-09-21.json`](cenik-navrh-2026-09-21.json) a počítá je `scripts/cenik.mjs … --cenik docs/cenik-navrh-2026-09-21.json`.
+Stav: rozhodnuto 21. 9. 2026 (A–D), zapsáno v [`cenik.json`](cenik.json) verze 2026-09-21; zápis do extranetů
+běží od 5. 10. 2026 (stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md), do sloučení PR #4/#5 aktuální jen ve větvích).
+Návrhový soubor `cenik-navrh-2026-09-21.json` už neexistuje — příkazy níže běží nad živým ceníkem bez `--cenik`. Sekce 2 = referenční tabulka úseků.
 Navazuje na [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md) (prázdniny, výjimky, model čistého výnosu)
 a na benchmark konkurence ze 17. 9. 2026 (artefakt „Krkonošský cenový benchmark“, airbnb.cz + booking.com, 16 hostů; shrnutí v sekci 4).
 
@@ -19,7 +20,7 @@ Portály musí po provizi vynést totéž, proto je cena pro hosta na portálu =
 | Silvestr (týden s 31. 12.) | 20 000 Kč | 956 € | 23 700 Kč | 884 € (host ≈ 955 €) |
 
 Kurz 24,6 Kč/€. Booking nevratný plán = −8 % (sezóna 656 €, tj. čistých 13 700). Po provizi vychází na všech třech
-portálech 13 400 / 14 900 ± 0,3 % (`node scripts/cenik.mjs provize 2027 --cenik docs/cenik-navrh-2026-09-21.json`).
+portálech 13 400 / 14 900 ± 0,3 % (`node scripts/cenik.mjs provize 2027`).
 
 Pro hosta je to v sezóně **713 € × 7 = 4 991 €/týden ≈ 277 €/os. při 18 lidech** (skutečný medián skupiny, Pavel 21. 9.; dnes 569 € → 221 €/os.);
 mimo sezónu 641 € × 7 = 4 487 € ≈ 249 €/os. Na osobu a noc: 40 € v sezóně, 36 € mimo.
@@ -42,9 +43,9 @@ Sloupec „období“ říká, odkud cena plyne (sezóna z pravidla, nebo výjim
 | noci od | do | nocí | období | přímo Kč | Booking € | Airbnb Kč | FeWo € | min. | stav |
 |---|---|---|---|---|---|---|---|---|---|
 | 21. 9. 2026 | 18. 12. 2026 | 89 | mimo | 13 400 | 641 | 15 900 | 592 | 2 | otevřeno |
-| 19. 12. 2026 | 1. 1. 2027 | 14 | Vánoce 2026 — **prodáno** (Mandy + blok) | 18 000 | 861 | 21 300 | 795 | 5 | — |
+| 19. 12. 2026 | 1. 1. 2027 | 14 | Vánoce 2026 — **prodáno** (rezervace + blok) | 18 000 | 861 | 21 300 | 795 | 5 | — |
 | 2. 1. 2027 | 5. 2. 2027 | 35 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
-| 6. 2. 2027 | 12. 2. 2027 | 7 | špička: krokus VL + Winterferien SN/BY/MV (**prodáno** Richard 12 os.) | 16 400 | 784 | 19 400 | 725 | 2 | — |
+| 6. 2. 2027 | 12. 2. 2027 | 7 | špička: krokus VL + Winterferien SN/BY/MV (**prodáno** rezervace 12 os.) | 16 400 | 784 | 19 400 | 725 | 2 | — |
 | 13. 2. 2027 | 19. 2. 2027 | 7 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
 | 20. 2. 2027 | 26. 2. 2027 | 7 | špička: voorjaar NL + détente FWB | 16 400 | 784 | 19 400 | 725 | 2 | otevřeno |
 | 27. 2. 2027 | 28. 2. 2027 | 2 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
@@ -113,7 +114,7 @@ i Allgäu (91–335 tis.); prodáváme 900–1 000 km cesty za skibus bez řetě
 
 ## 5. Dnešní extranety proti návrhu (audit 12. 8. 2026 + zápis 15. 9.)
 
-`node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json --cenik docs/cenik-navrh-2026-09-21.json`:
+`node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json`:
 
 | kanál | dnes | návrh | rozdíl |
 |---|---|---|---|
@@ -134,7 +135,7 @@ Dvě věci, které z toho plynou hned:
    za 523 €/noc, na FeWo je „Sandra B.“ 27. 12.–3. 1. jako tentativní (16 hostů). Pokud se kterákoli potvrdí, je Silvestr
    2027 pryč za ~11 000 čistého. **Vánoce + Silvestr 2027 zapsat jako první**, ještě před zimou.
 2. **Podzim 2026 (od teď do 18. 12.)** je na Airbnb z větší části blokovaný nebo prodaný (audit: říjen–prosinec „blok“ +
-   rezervace Sabine, Frederika). Zvýšení na 641 € tam tedy skoro nic neriskuje; volných nocí je málo.
+   dvě rezervace). Zvýšení na 641 € tam tedy skoro nic neriskuje; volných nocí je málo.
 
 Pořadí zápisu (podle rizika, ne podle kalendáře): Vánoce + Silvestr 2027 → zima 2027 (leden–březen, včetně špiček) →
 léto 2028 + Vánoce 2028 → mimosezóna 2026–2027 a výjimky → zima 2028. Runbook zápisu zůstává `cenova-parita-2027.md` sekce 5.
@@ -154,18 +155,18 @@ léto 2028 + Vánoce 2028 → mimosezóna 2026–2027 a výjimky → zima 2028. 
 ## 7. Jak s tím pracovat
 
 ```bash
-node scripts/cenik.mjs provize 2027 2028 --cenik docs/cenik-navrh-2026-09-21.json   # hladiny → kanály
-node scripts/cenik.mjs kalendar --od 2026-09-21 --do 2028-09-02 --cenik docs/cenik-navrh-2026-09-21.json   # den po dni
-node scripts/cenik.mjs plan --kanal booking --cenik docs/cenik-navrh-2026-09-21.json   # plán zápisu na kanál
-node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json --cenik docs/cenik-navrh-2026-09-21.json   # dnešek × návrh
+node scripts/cenik.mjs provize 2027 2028                       # hladiny → kanály
+node scripts/cenik.mjs kalendar --od 2026-09-21 --do 2028-09-02   # den po dni
+node scripts/cenik.mjs plan --kanal booking                     # plán zápisu na kanál
+node scripts/cenik.mjs diff docs/audit-cen/2026-08-12.json      # snímek auditu × ceník
 ```
 
-Po potvrzení A–D: obsah návrhu přepsat do `docs/cenik.json` (verze, `model.primo`, sezóny, `indexace.rok_zaklad`, `vyjimky`),
-návrh a `cenik-navrh-vyjimky.json` smazat, a zapisovat do extranetů v pořadí ze sekce 5.
+Rozhodnutí A–D byla potvrzena 21. 9. 2026 a přepsána do `docs/cenik.json` (verze, `model.primo`, sezóny, `indexace.rok_zaklad`, `vyjimky`);
+návrh i `cenik-navrh-vyjimky.json` byly smazány 22. 9. 2026. Zápis do extranetů v pořadí ze sekce 5 běží od 5. 10. 2026.
 
 - [x] hladiny 13 400 / 14 900 přepočtené na Booking / Airbnb / FeWo / přímo (sekce 0)
 - [x] kalendář 21. 9. 2026 – 2. 9. 2028 po úsecích včetně výjimek, Vánoc a Silvestra (sekce 2)
 - [x] `scripts/cenik.mjs --cenik <soubor>` a `model.primo: "cisty_vynos"` (přímá cena = čistý výnos)
-- [ ] rozhodnutí A–D → `docs/cenik.json`
-- [ ] zápis do extranetů (nejdřív Vánoce + Silvestr 2027) + re-audit
+- [x] rozhodnutí A–D → `docs/cenik.json` (21. 9. 2026)
+- [x] zápis do extranetů: Vánoce + Silvestr 2027 na Booking / FeWo / Airbnb 5. 10. 2026, další kroky v `STAV-cenik-2026-09-21.md`
 - [ ] report tempa prodeje zimy 2027 za novou cenu

@@ -1,3 +1,5 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – modul kontaktů existuje jako `/sprava/` ve `villa-rudolf-site` (`sprava.js`, `vr_admin_upsert_booking`), tenhle návrh se nikdy neimplementoval. Odkazy na `supabase/schema.sql` tohoto repa jsou zastaralé (schéma je v site `supabase/migrations/`). Živý stav: [`villa-rudolf-site/MAPA-SYSTEMU.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/MAPA-SYSTEMU.md).
+
 # Modul vkládání kontaktů hostů — implementační zadání — NEPLATNÉ
 
 > ## ⛔ NEPLATNÉ ZADÁNÍ (13. 8. 2026)

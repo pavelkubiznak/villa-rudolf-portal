@@ -1,9 +1,11 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – „čistá hvězda přes e-chalupy" platila od 13. 8. do 17. 9. 2026; od 17. 9. 2026 platformy importují výstupní feedy `data/out/*.ics` z `villa-booking-calendar` a kalendář čte kanály zvlášť (MULTI mód). Živý stav: [`villa-rudolf-site/STAV.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/STAV.md) (sekce Kalendář).
+
 # Úklid iCal vazeb — postup krok za krokem
 
 > **PROVEDENO 13. 8. 2026** (Claude přes Chrome, Pavel u toho). Výsledek dole
 > v kapitole „Co se skutečně stalo".
 
-Stav k 13. 8. 2026. Vychází z mapy v [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md).
+Stav k 13. 8. 2026. Vychází z mapy v [`kanaly-jedno-misto.md`](../kanaly-jedno-misto.md).
 Cíl: **každý kanál bere obsazenost jednou cestou** — přes e-chalupy jako relé.
 Bez kódu, bez předplatného, jen klikání v extranetech.
 
@@ -48,7 +50,7 @@ U položky `Fewo-direkt.de` svítí **„chyba při importu, bude ověřeno spr�
    „bude ověřeno správcem", takže to může být na jejich straně.
 
 **Ověření:** v kalendáři rezervací e-chalup musí být vidět rezervace, které vznikly
-na FeWo (Glen Gelmroth 14.–18. 5. 2027 tam je už teď; přibýt má tentativní
+na FeWo (rezervace 14.–18. 5. 2027 tam je už teď; přibýt má tentativní
 Sandra B. 27. 12. 2027 – 3. 1. 2028).
 
 > Pozn.: chybějící Sandra nemusí být jen touhle chybou — je vedená jako „Unter Vorbehalt"
@@ -184,7 +186,7 @@ ne kvůli tomuhle termínu.
   Příčina nalezena: FeWo má vypnuté **„Auch Buchungen unter Vorbehalt erfassen"**
   (kalendář → ⚙ → Verfügbarkeit → Verknüpfen Sie Ihre Kalender → Schritt 1),
   takže tentativní rezervace do exportu nedává. Do rozhodnutí hlídat ručně.
-- **Export FeWo nese křestní jména hostů** („Reserved - Glen") a putují tak do e-chalup
+- **Export FeWo nese křestní jména hostů** („Reserved - <křestní jméno>") a putují tak do e-chalup
   a dál. Výstup budoucího hubu musí být anonymizovaný.
 - **„Auch Buchungen unter Vorbehalt erfassen" není ukládané nastavení** — je to jen
   přepínač, který přidá do exportní adresy `&includeTentative=true`. Kdo by v FeWo

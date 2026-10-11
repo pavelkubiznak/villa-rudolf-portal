@@ -1,127 +1,121 @@
 -- ═══════════════════════════════════════════════════════════════════════════════
--- Villa Rudolf guest portal — schéma Supabase
--- Projekt: fpknbrzbqpalguajskut (sdílený multi-app, EU London) — vše s prefixem vr_.
--- Poslední ověření proti živé DB: 2026-09-15 (sloupce tabulky + seznam funkcí, aplikována migrace interests)
+-- Villa Rudolf — KOPIE PRO ČTENÍ: co z databáze používá průvodce pro hosty
 --
--- ⚠️ TENTO SOUBOR NENÍ ÚPLNÝ. V živé databázi navíc existují funkce, jejichž definice
---    tady chybí (byly vytvořené přímo ve Studiu, nikdy se nezapsaly do repa):
+-- ZDROJ PRAVDY SCHÉMATU NENÍ TENHLE SOUBOR, ale migrace ve villa-rudolf-site:
+--   /Users/pavelkubiznak/villa-rudolf-site/supabase/migrations/
+-- Migrace, které se týkají vr_bookings a token RPC (v pořadí nasazení):
+--   20260724_vr_retention.sql          anonymized_at, retence 6 let, první vr_purge_expired
+--   20260908_vr_purge_lockdown.sql     vr_purge_expired jen service_role, secret jako hash v configu
+--   20260915_vr_token_enc.sql          token_enc (pgp_sym_encrypt admin klíčem), vr_admin_upsert_booking
+--                                      generuje 48 hex token a expires_at = departure + 14 dní
+--   20260915_vr_interests.sql          interests text[], vr_verify_token vrací party.interests,
+--                                      čtyřparametrová vr_update_party
+--   20261011_vr_portal_hardening.sql   vr_verify_token bez notes, tříparametrová vr_update_party smazána,
+--                                      vr_create_booking jen pro vlastníka DB, tabulkové granty anon pryč
+--   20261011_vr_purge_cron.sql         pg_cron job 'vr-purge-expired' 04:40 UTC → vr_purge_expired_cron()
+-- Novou migraci piš TAM, aplikuj `supabase db query --linked --file …` (nebo konektor Supabase)
+-- a pak `notify pgrst, 'reload schema'` — bez toho PostgREST novou funkci nevidí a vrací 404.
 --
---      • vr_create_booking(p_secret, p_booking_ref, p_token_hash, p_first, p_last,
---                          p_lang, p_arrival, p_departure, p_adults, p_children, p_expires)
---        volá n8n workflow „VR – nový host"      → viz docs/n8n-booking-ingest.md
---      • vr_purge_expired(p_secret)
---        volá /opt/vr-portal/purge-expired.sh na Hetzneru (denní úklid, >30 dní po odjezdu)
---
---    Obě autorizují ingest secretem (p_secret). Secret v repu NENÍ a nikdy být nesmí.
---
---    DOPLNIT PŘED PSANÍM JAKÉKOLI MIGRACE — jinak se píše naslepo. Export z SQL editoru:
---
---      select p.proname || '(' || pg_get_function_identity_arguments(p.oid) || ')' as sig,
---             pg_get_functiondef(p.oid) as def
---        from pg_proc p join pg_namespace n on n.oid = p.pronamespace
---       where n.nspname = 'public' and p.proname like 'vr%'
---       order by 1;
---
---    ⚠️ Pokud je secret v těle funkce natvrdo, PŘED commitem ho nahraď zástupným textem —
---       tohle repo je veřejné.
---
--- Poznámky:
---   • pgcrypto je na Supabase ve schématu extensions -> extensions.digest(...)
---   • raw token hosta = 32 hex znaků (128 bit); v DB je jen sha256 hash
---   • expires_at = departure + 30 dní
---   • Plánované změny (ical_uidh, vr_list_stays) zatím NEJSOU nasazené —
---     viz docs/modul-kontaktu.md, bod 3. Do tohoto souboru patří až po nasazení.
+-- Projekt: fpknbrzbqpalguajskut (sdílený se SINTERA, proto prefix vr_), region AWS eu-west-2 (Londýn).
+-- Poslední ověření proti živé DB: 11. 10. 2026 (sloupce, granty, seznam funkcí).
 -- ═══════════════════════════════════════════════════════════════════════════════
 
-create extension if not exists pgcrypto;
-
-create table if not exists public.vr_bookings (
-  id           uuid primary key default gen_random_uuid(),
-  booking_ref  text unique,
-  token_hash   text not null unique,
-  first_name   text,
-  last_name    text,
-  lang         text default 'de',
-  arrival      date not null,
-  departure    date not null,
-  adults       int  default 2,
-  children     int[] default '{}',
-  notes        text,
-  created_at   timestamptz default now(),
-  expires_at   timestamptz,
-  -- sloupce doplněné přímo v živé DB (ověřeno 12. 9. 2026), v repu dosud chyběly:
-  uidh          text,          -- sha256(iCal UID)[:16] — spojka na history.json kalendáře
-  platform      text,          -- 'Booking.com' | 'Airbnb' | 'Fewo-direkt' | 'E-chalupy' | 'Přímá'
-  phone         text,          -- PII, jen v DB
-  email         text,          -- PII, jen v DB
-  door_code     text,
-  anonymized_at timestamptz,   -- po anonymizaci se jméno v konfliktech nezobrazuje
-  interests     text[] default '{}'  -- zájmy party (whitelist: 'moto'); migrace 2026-08-13-interests.sql, v živé DB od 15. 9. 2026
-);
-
-alter table public.vr_bookings enable row level security;
-
-create or replace function public.vr_verify_token(p_token text)
-returns json
-language sql
-security definer
-set search_path = public
-as $$
-  select json_build_object(
-    'name', json_build_object('first', b.first_name, 'last', b.last_name),
-    'lang', b.lang,
-    'arrival', b.arrival,
-    'departure', b.departure,
-    'party', json_build_object('adults', b.adults, 'children', b.children,
-                               'interests', coalesce(b.interests, '{}')),
-    'notes', b.notes
-  )
-  from public.vr_bookings b
-  where b.token_hash = encode(extensions.digest(p_token, 'sha256'), 'hex')
-    and (b.expires_at is null or b.expires_at > now())
-  limit 1;
-$$;
-
--- Tříparametrová varianta zůstává kvůli klientům se starou verzí index.html v service workeru.
--- Vedle ní od 15. 9. 2026 běží čtyřparametrová (p_interests text[]) – definice v 2026-08-13-interests.sql.
-create or replace function public.vr_update_party(p_token text, p_adults int, p_children int[])
-returns json
-language sql
-security definer
-set search_path = public
-as $$
-  update public.vr_bookings b
-     set adults = coalesce(least(greatest(p_adults,1),30), b.adults),
-         children = case when p_children is null then b.children
-                         when array_length(p_children,1) > 20 then b.children
-                         else (select coalesce(array_agg(least(greatest(a,0),17)), '{}') from unnest(p_children) a)
-                    end
-   where b.token_hash = encode(extensions.digest(p_token, 'sha256'), 'hex')
-     and (b.expires_at is null or b.expires_at > now())
-  returning json_build_object('ok', true);
-$$;
-
-revoke all on function public.vr_verify_token(text) from public;
-revoke all on function public.vr_update_party(text, int, int[]) from public;
-grant execute on function public.vr_verify_token(text) to anon;
-grant execute on function public.vr_update_party(text, int, int[]) to anon;
-
--- ═══════════════════════════════════════════════════════════════════════════════
--- OBSAH TOHOTO SOUBORU
---   tabulka   vr_bookings
---   funkce    vr_verify_token(text)              [anon]
---             vr_update_party(text, int, int[])  [anon]
+-- ───────────────────────────────────────────────────────────────────────────────
+-- Tabulka vr_bookings — 22 sloupců (živá DB 11. 10. 2026). Jen pro orientaci, nevytvářet odsud.
+-- ───────────────────────────────────────────────────────────────────────────────
+--   id             uuid         primary key, gen_random_uuid()
+--   booking_ref    text         unique; číslo rezervace z kanálu (nepovinné)
+--   token_hash     text         not null unique; sha256(token) hex — jediné, podle čeho se host ověřuje
+--   token_enc      bytea        pgp_sym_encrypt(token, admin klíč) — aby šel odkaz znovu ukázat ve /sprava/
+--   first_name     text         PII
+--   last_name      text         PII
+--   lang           text         'cs' | 'de' | 'en' | 'pl' (default 'de')
+--   arrival        date         not null
+--   departure      date         not null
+--   adults         int          default 2
+--   children       int[]        věky dětí, default '{}'
+--   interests      text[]       zájmy party, whitelist 'moto'; default '{}'
+--   notes          text         interní poznámka majitele — hostovi se NEPOSÍLÁ (od 11. 10. 2026)
+--   cleaning_note  text         přání hosta pro úklid (postýlka, dřívější příjezd); veřejné přes vr_public_cleaning_notes
+--   phone          text         PII, jen v DB
+--   email          text         PII, jen v DB
+--   door_code      text         vstupní kód (vydává /sprava/, čte Home Assistant přes vr_ha_*)
+--   platform       text         'Booking.com' | 'Airbnb' | 'Fewo-direkt' | 'E-chalupy' | 'Přímá' …
+--   uidh           text         sha256(iCal UID)[:16] — spojka na history.json kalendáře
+--   created_at     timestamptz  default now()
+--   expires_at     timestamptz  = departure + 14 dní (nastavuje vr_admin_upsert_booking i při každé úpravě)
+--   anonymized_at  timestamptz  vyplní pg_cron 30+ dní po odjezdu (phone/email/door_code/notes/cleaning_note/
+--                               token_enc → null, token_hash → náhodný); ostatní zůstává do 6 let
 --
--- CHYBÍ (existuje živě, definice nutno exportovat — viz hlavička; těla sem NEkopíruj
--- bez nahrazení secretů). Signatury z živé DB k 12. 9. 2026:
---   vr_create_booking(p_secret, p_booking_ref, p_token_hash, p_first, p_last, p_lang,
---                     p_arrival, p_departure, p_adults, p_children, p_expires)   [ingest secret]
---   vr_purge_expired(p_secret)                                                   [ingest secret]
---   vr_apply_conflicts(p_conflicts jsonb)            ← n8n VrConflictWatch, tabulka vr_conflicts
---   vr_admin_*(p_admin_key, …)                       ← /sprava/ na villarudolf.com (10 funkcí)
---   vr_album_*(p_token, …), vr_persons_*(p_token, …) ← album a evidence hostů (site)
---   vr_checkin(…), vr_request(…)                     ← formuláře na site
--- Další tabulky s prefixem vr_ (mimo tenhle soubor): vr_conflicts, vr_persons, vr_requests,
--- vr_registrations, vr_msglog, vr_album_photos, vr_admin_config, vr_admin_rl.
--- Schéma pravdy pro site je villa-rudolf-site/supabase/migrations/.
--- ═══════════════════════════════════════════════════════════════════════════════
+-- RLS zapnuté, 0 policies, tabulkové granty pro anon/authenticated odebrány (11. 10. 2026).
+-- Jediný přístup zvenku je přes SECURITY DEFINER RPC níže.
+
+-- ───────────────────────────────────────────────────────────────────────────────
+-- RPC, které průvodce volá (site /pruvodce/ = assets/planner.js; demo portál v tomhle repu
+-- od 11. 10. 2026 Supabase nevolá vůbec — hosty s tokenem přesměrovává na villarudolf.com/pruvodce/).
+-- Volá se anon klíčem přes PostgREST: POST /rest/v1/rpc/<funkce>, hlavičky apikey + Authorization: Bearer <anon>.
+-- ───────────────────────────────────────────────────────────────────────────────
+
+-- vr_verify_token(p_token text) → json                                   [EXECUTE: anon]
+--   definice: 20261011_vr_portal_hardening.sql (bod 3)
+--   vrací jeden objekt, nebo null když token neexistuje / vypršel / pobyt je anonymizovaný:
+--   {
+--     "name":      { "first": text, "last": text },
+--     "lang":      "cs" | "de" | "en" | "pl",
+--     "arrival":   "YYYY-MM-DD",
+--     "departure": "YYYY-MM-DD",
+--     "party":     { "adults": int, "children": int[], "interests": text[] }
+--   }
+--   BEZ "notes" (interní poznámka majitele se hostovi neposílá). Klient musí počítat s null.
+
+-- vr_update_party(p_token text, p_adults int, p_children int[], p_interests text[]) → json   [EXECUTE: anon]
+--   definice: 20260915_vr_interests.sql
+--   uloží složení party k platnému tokenu, vrací {"ok": true}; hodnoty se ořezávají
+--   (dospělí 1–30, nejvýš 20 dětí, věk 0–17, interests jen z whitelistu 'moto').
+--   Tříparametrová varianta (bez p_interests) je od 11. 10. 2026 smazaná.
+
+-- Změna návratového JSON vr_verify_token = změna kontraktu pro planner.js v site → nejdřív
+-- upravit klienta, pak migraci, pak notify pgrst, pak smoke test:
+--   curl -s -X POST https://fpknbrzbqpalguajskut.supabase.co/rest/v1/rpc/vr_verify_token \
+--     -H "apikey: <anon>" -H "Authorization: Bearer <anon>" -H "Content-Type: application/json" \
+--     -d '{"p_token":"<token testovacího pobytu ze /sprava/>"}'
+
+-- ───────────────────────────────────────────────────────────────────────────────
+-- Ostatní vr_* v živé DB — jen výčet, definice v site supabase/migrations/
+-- ───────────────────────────────────────────────────────────────────────────────
+-- Funkce (kdo je volá):
+--   vr_admin_*  (p_admin_key, hash v vr_admin_config, rate limit vr_admin_rl)  ← /sprava/ na villarudolf.com
+--     assign_payment, conflicts, delete_booking, delete_contract, delete_hold, door_codes, fee_report,
+--     get_config, get_contract, ignore_payment, list_bookings, list_contracts, list_holds, list_payments,
+--     list_requests, msg_log, person_exempt, persons, set_cleaning_note, set_config, set_hold_status,
+--     set_request_status, ubyport_mark, ubyport_reports, ubyport_undo, upsert_booking, upsert_contract, upsert_hold
+--   vr_persons_add / _add_by_date / _delete / _list (p_token)  ← /registrace/ (evidence osob)
+--   vr_album_* (p_token)                                        ← /album/ (+ Edge Function album)
+--   vr_request, vr_checkin                                      ← veřejné formuláře site (rate limit)
+--   vr_tv_event (whitelist, 300/h), vr_fridge_open (20/h)       ← /tv/ a lednice
+--   vr_public_holds, vr_public_cleaning_notes                   ← kalendář villa-booking-calendar (bez auth, anonymní)
+--   vr_ha_stay, vr_ha_door_codes, vr_ha_report_door_codes, vr_ha_tv_stats (klíč v hlavičce) ← Home Assistant ve vile
+--   vr_apply_conflicts, vr_ingest_payments, vr_ubyport_due, vr_fee_rate, vr_purge_expired(p_secret)  [jen service_role] ← n8n
+--   vr_purge_expired_cron()                                     [nikdo zvenku; volá pg_cron jako vlastník DB]
+--   vr_create_booking(…)                                        [od 11. 10. 2026 jen vlastník DB; mrtvá cesta, nic ji nevolá]
+--   pomocné: vr_cz_is_workday, vr_cz_add_workdays, vr_easter_sunday, vr_ubyport_deadline, vr_hold_uidh, vr_hold_account_mismatch
+-- Tabulky: vr_bookings, vr_persons, vr_requests, vr_registrations, vr_msglog, vr_album_photos, vr_admin_config,
+--   vr_admin_rl, vr_conflicts, vr_holds, vr_payments, vr_contracts, vr_fee_rates, vr_ubyport_reports,
+--   vr_fridge_sessions, vr_fridge_attempts, vr_door_codes_ha, vr_tv_events.
+--   (vr_requests / vr_registrations / vr_album_photos a funkce vr_checkin, vr_album_* vznikly ve Studiu;
+--   jejich definice v migracích chybí — site STAV.md „Schéma není úplné".)
+
+-- ───────────────────────────────────────────────────────────────────────────────
+-- Export skutečných definic z živé DB (SQL editor Supabase, read-only). Před commitem čehokoli
+-- odsud nahraď secrety zástupným textem — repo je veřejné.
+-- ───────────────────────────────────────────────────────────────────────────────
+--   select p.proname || '(' || pg_get_function_identity_arguments(p.oid) || ')' as sig,
+--          pg_get_functiondef(p.oid) as def
+--     from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+--    where n.nspname = 'public' and p.proname like 'vr%'
+--    order by 1;
+--
+--   select column_name, data_type, column_default
+--     from information_schema.columns
+--    where table_schema = 'public' and table_name = 'vr_bookings'
+--    order by ordinal_position;
