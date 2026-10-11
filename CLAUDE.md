@@ -106,9 +106,11 @@ a cenové dokumenty: rezervaci popisuj **termínem a počtem osob, nikdy jménem
 `git diff | grep -iE 'rezervace [A-ZÁ-Ž][a-zá-ž]+'`. Stránka má `noindex`, Umami je cookieless a token nezapisuje.
 
 11. 10. 2026: audit našel křestní (2× celá) jména hostů v `docs/audit-cen/2026-08-12.*`, `docs/cenova-logika-2027-2028.md`,
-`docs/cenovy-kalendar-2027-2028.md` a `docs/uklid-ical-2026-08.md` (dnes v `docs/archiv/`), od 13. 8. 2026. Odstraněno commitem `051c9c0`;
-**v git historii veřejného repa zůstávají** — rozhodnutí o `git filter-repo` + force-push (a `reset --hard` klonu na Hetzneru)
-je Pavlovo. Postup a incident: `docs/ochrana-udaju.md`, `SECURITY.md`.
+`docs/cenovy-kalendar-2027-2028.md`, `docs/uklid-ical-2026-08.md` (dnes v `docs/archiv/`) a `docs/kanaly-jedno-misto.md`,
+od 12. 8. 2026. Odstraněno commitem `b199822` (původně `051c9c0`) a **historie všech větví přepsána 11. 10. 2026 21:30 UTC**
+(`git filter-repo --sensitive-data-removal --replace-text`, 235 z 341 commitů; hashe od `a81eb3a`, dřív `efc858d`, jsou nové).
+Klon na velínu i lokální worktrees resetovány a vyčištěny. Staré commity zůstávají v cache GitHubu (`refs/pull/*`, přímé URL)
+do vyřízení ticketu u GitHub Support. Postup a incident: `docs/ochrana-udaju.md` kap. 7, `SECURITY.md`, `docs/provoz-runbook.md`.
 
 ## Ceník, texty, kanály
 

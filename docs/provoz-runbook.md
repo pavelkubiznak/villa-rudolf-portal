@@ -97,10 +97,26 @@ Deploy key má zápis do `main` — útočník by mohl podvrhnout `trips.json` (
    veřejnou část nahrát jako deploy key **s právem zápisu** (jiná cesta pro push počasí dnes není), `chmod 600`.
 4. Zvážit variantu bez klíče na serveru: počasí jako GitHub Action (`workflow_dispatch` + cron) — pak deploy key zaniká.
 
-**…se přepsala historie repa (filter-repo kvůli PII)**
-Klon na velínu má divergentní historii → push počasí by navždy padal. Hned po force-pushi:
-`ssh root@178.104.207.97 'git -C /opt/vr-portal fetch && git -C /opt/vr-portal reset --hard origin/main'`.
-Totéž na všech Macích/worktrees (`git fetch && git reset --hard origin/main`). Otevřené PR se musí rebasovat.
+**…se přepsala historie repa (filter-repo kvůli PII)** — provedeno 11. 10. 2026 21:30 UTC
+Jak: čistý klon z GitHubu, `git filter-repo --sensitive-data-removal --replace-text <náhrady> --prune-empty never`
+(235 z 341 commitů, hashe od `a81eb3a` = 12. 8. 2026 jsou nové; stromy mimo `docs/` ověřeny shodné u všech commitů),
+pak `git push --force-with-lease=refs/heads/<větev>:<staré SHA>` pro každou větev (15). Co musí následovat:
+1. Velín (cron by se srovnal sám, ale staré objekty by zůstaly na disku a v zálohách):
+   `ssh sintera-velin 'cd /opt/vr-portal && export GIT_SSH_COMMAND="ssh -i /root/.ssh/vr_deploy_key -o IdentitiesOnly=yes" && git fetch --prune origin && git reset --hard origin/main && git reflog expire --expire=now --all && git gc --prune=now'`
+   — bez `GIT_SSH_COMMAND` končí fetch na `Permission denied (publickey)`. Pak ruční běh `/opt/vr-portal/refresh-weather.sh` ověří push.
+2. Mac: `git fetch --prune` a v každém worktree `git reset --hard origin/<větev>`, nakonec
+   `git reflog expire --expire=now --all && git gc --prune=now`. Cizí sessions nesmí force-pushnout starý stav větve.
+3. Otevřené PR se **nerebasují**: přepisuje se celý graf, merge-base zůstává; stačí `gh pr list` (stav konfliktů se nemění).
+4. GitHub drží staré commity přes přímé URL a v `refs/pull/*/head` i zavřených PR → ticket na <https://support.github.com>
+   (ze svého účtu). Šablona (EN):
+   > Subject: Remove cached commits after a sensitive-data history rewrite (pavelkubiznak/villa-rudolf-portal)
+   > On 2026-10-11 I rewrote the full history of the public repository pavelkubiznak/villa-rudolf-portal with git filter-repo
+   > to remove personal data (guest names) from documentation files under docs/, and force-pushed all branches.
+   > Please remove cached views and the pull request refs (refs/pull/*/head, refs/pull/*/merge, PRs #1–#16) that still
+   > reference the old commits, and garbage-collect so the old objects are no longer reachable.
+   > First changed commit (old): efc858d5cb1101b36d883b2aa8c10b3e64d17e1a. Example old commit still reachable:
+   > c8f61af5f5e6f269b55f78cefebd475dc3995b43. The data was never credentials, only names.
+5. Zálohy `/opt/backup-critical.sh` (Disk) před 12. 10. 2026 obsahují původní `.git` — rotace je rozhodnutí v `ochrana-udaju.md` kap. 9.
 
 **…velín shoří**
 Počasí: stačí jakýkoli stroj s Node 20 a deploy keyem — `git clone`, `node scripts/fetch-forecast.mjs`, commit, push

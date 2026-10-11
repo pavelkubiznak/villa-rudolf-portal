@@ -55,4 +55,5 @@ Nasazuje se přes GitHub Actions jen allowlist souborů — `docs/`, `scripts/`,
   podvrhnout `trips.json` (odkazy jdou do `href` na webu i TV). Alternativa: počasí jako GitHub Action bez klíče na serveru.
 - Supabase projekt je sdílený se SINTERA (jedno `public` schéma). Chyba v SECURITY DEFINER funkci jednoho projektu
   otevírá data druhého. Alternativa: vlastní projekt (`docs/ochrana-udaju.md` kap. 9).
-- Jména hostů jsou v git historii do 11. 10. 2026 (odstraněno v `051c9c0`); přepis historie je rozhodnutí majitele.
+- Jména hostů byla v git historii 12. 8.–11. 10. 2026; historie všech větví byla 11. 10. 2026 přepsána (`git filter-repo`).
+  Staré commity drží jen cache GitHubu a `refs/pull/*` do vyřízení ticketu u GitHub Support (`docs/ochrana-udaju.md` kap. 7).
