@@ -26,7 +26,7 @@ jobs:
         with:
           fetch-depth: 0 # kvůli porovnání sw.js s base větví PR
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
 
@@ -96,7 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
 

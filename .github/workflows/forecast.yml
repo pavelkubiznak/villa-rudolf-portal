@@ -39,7 +39,7 @@ jobs:
           ref: main
           fetch-depth: 0 # kvůli `git pull --rebase`, kdyby main mezitím popojel
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
 
