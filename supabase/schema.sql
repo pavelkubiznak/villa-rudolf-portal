@@ -17,7 +17,7 @@
 -- a pak `notify pgrst, 'reload schema'` — bez toho PostgREST novou funkci nevidí a vrací 404.
 --
 -- Projekt: fpknbrzbqpalguajskut (sdílený se SINTERA, proto prefix vr_), region AWS eu-west-2 (Londýn).
--- Poslední ověření proti živé DB: 11. 10. 2026 (sloupce, granty, seznam funkcí).
+-- Podle auditu 11. 10. 2026 (read-only dotazy do živé DB: sloupce, granty, seznam funkcí).
 -- ═══════════════════════════════════════════════════════════════════════════════
 
 -- ───────────────────────────────────────────────────────────────────────────────
@@ -72,6 +72,8 @@
 --   definice: 20260915_vr_interests.sql
 --   uloží složení party k platnému tokenu, vrací {"ok": true}; hodnoty se ořezávají
 --   (dospělí 1–30, nejvýš 20 dětí, věk 0–17, interests jen z whitelistu 'moto').
+--   DNES JI ŽÁDNÝ KLIENT NEVOLÁ: site planner.js volá jen vr_verify_token (party z DB jen čte),
+--   demo portál Supabase nevolá vůbec. Ponechána pro budoucí úpravu party ve /pruvodce/.
 --   Tříparametrová varianta (bez p_interests) je od 11. 10. 2026 smazaná.
 
 -- Změna návratového JSON vr_verify_token = změna kontraktu pro planner.js v site → nejdřív
