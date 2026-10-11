@@ -48,10 +48,13 @@ jede v Pavlově Chrome profilu, takže přihlášení do všech extranetů už t
 
 | Kanál | Měna | Kde se ceny nastavují | Identifikace |
 |---|---|---|---|
-| Booking.com | CZK | extranet → Kalendář a ceny (hromadná úprava rozsahu dat) | hotel_id 12558473 |
-| Airbnb | EUR | kalendář hostitele, výběr rozsahu dat | airbnb.cz/hosting |
+| Booking.com | EUR | extranet → Kalendář a ceny (hromadná úprava rozsahu dat) | hotel_id 12558473 |
+| Airbnb | CZK | kalendář hostitele, výběr rozsahu dat | airbnb.cz/hosting |
 | FeWo-direkt (Vrbo) | EUR | ceny/sazby, sezónní pravidla | propertyId 106405316 / FEWO 5510810 |
 | e-chalupy.cz | CZK | administrace, sezónní ceník | objekt 18852 |
+| megaubytko.cz | CZK | administrace, roční sezóny | id 13334 |
+
+(Měny opraveny 11. 10. 2026 podle auditu 12. 8. 2026 a `cenik.json`: Booking i FeWo v EUR, Airbnb v CZK — dřív tu bylo obráceně.)
 
 Poznámky:
 
@@ -325,7 +328,7 @@ Zima 2027 i 2028 je všude pod cílem (529 €/12 900–13 200 Kč ≈ o 1 000 K
 na FeWo+Airbnb; léto 2028 na Airbnb ověřit; anomálie Booking (11. 9. 2026 za 319 €,
 17.–20. 7. 2027 za 529 €); min. noci 2 v létě (viz 7.2).
 
-## 8. Konkurence očima hosta — zadání rešerše (zatím NESPUŠTĚNO)
+## 8. Konkurence očima hosta — zadání rešerše (persona překonána, viz `trhy-hostu-2026-09.md`)
 
 Otázka, na kterou to má odpovědět: **co si můžeme dovolit?** Ceník podle bodu 2 umí držet parity,
 ale výši základní ceny z něj nevyčteš. Dnes ji drží zkušenost; tohle má být druhý zdroj.
@@ -394,9 +397,9 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
 - [x] totéž na Booking.com — léto 2027 a Vánoce 2027 hotovo 15. 9. 2026 (bod 5.2); léto 2028 až kalendář dosáhne
 - [x] FeWo min. noci 5 — léto 2027, Vánoce 2027, léto 2028 hotovo 15. 9. 2026 (bod 5.3)
 - [ ] Booking 15.–28. 8. 2027 „No inventory“ — ověřit záměr, případně otevřít
-- [ ] první asistovaný zápis + ověřovací re-audit
+- [x] první asistovaný zápis 5. 10. 2026 (Booking / FeWo / Airbnb: Vánoce + Silvestr 2027), další 6. a 9. 10. 2026 (léto 2028, e-chalupy, Megaubytko) — stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md); do sloučení PR #4 a #5 je aktuální verze toho souboru jen ve větvích `claude/echalupy-cenik-932db6` a `claude/megaubytko-cenik`
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
-- [ ] rešerše konkurence z pohledu beneluxské skupiny (bod 8) → `docs/konkurence-benelux.md`
+- [x] rešerše konkurence — persona z bodu 8 (Benelux) překonána: domovní kniha ukázala jádro ve východním Německu, Benelux jen 15 % pobytů → [`trhy-hostu-2026-09.md`](trhy-hostu-2026-09.md) (21. 9. 2026)
 - [x] kalendáře prázdnin a svátků DE/NL/BE/CZ 2027–2028, poptávkový přehled, návrh indexace 4 %,
       konvence dny × noci — 16. 9. 2026, [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md);
       rozhodnutí 1–5 tam čekají na Pavla

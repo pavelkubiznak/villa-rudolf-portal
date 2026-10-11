@@ -1,3 +1,5 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – schéma `vr_stay_guests` nikdy nevzniklo; evidence osob běží ve `villa-rudolf-site` jako `/registrace/` nad `vr_persons` (migrace `20260724_vr_persons.sql`, `20260724_vr_retention.sql`), poplatek obci řeší `20260923_vr_poplatek.sql`, hlášení cizinců UbyPort. Skript `scripts/kontrola-evidence.mjs` v repu není. Živý stav: [`villa-rudolf-site/STAV.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/STAV.md).
+
 # Evidence hostů a poplatek z pobytu — návrh přechodu z Google Formu do databáze
 
 Stav k 30. 7. 2026. Dnes běží evidence v Google Formu → Sheet

@@ -1,9 +1,11 @@
+> **ARCHIV (11. 10. 2026):** historický návrh/stav. Neodpovídá dnešnímu provozu – „čistá hvězda přes e-chalupy" platila od 13. 8. do 17. 9. 2026; od 17. 9. 2026 platformy importují výstupní feedy `data/out/*.ics` z `villa-booking-calendar` a kalendář čte kanály zvlášť (MULTI mód). Živý stav: [`villa-rudolf-site/STAV.md`](https://github.com/pavelkubiznak/villa-rudolf-site/blob/main/STAV.md) (sekce Kalendář).
+
 # Úklid iCal vazeb — postup krok za krokem
 
 > **PROVEDENO 13. 8. 2026** (Claude přes Chrome, Pavel u toho). Výsledek dole
 > v kapitole „Co se skutečně stalo".
 
-Stav k 13. 8. 2026. Vychází z mapy v [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md).
+Stav k 13. 8. 2026. Vychází z mapy v [`kanaly-jedno-misto.md`](../kanaly-jedno-misto.md).
 Cíl: **každý kanál bere obsazenost jednou cestou** — přes e-chalupy jako relé.
 Bez kódu, bez předplatného, jen klikání v extranetech.
 
