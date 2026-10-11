@@ -25,6 +25,11 @@ Podrobný přehled architektury a stavu je v `README.md` — přečti si ho, ne�
   Tagy pro jádro: `outdoor`, `indoorOrCovered`, `rainOk`, `lovesHeat`, `needsClearLowWind`,
   `effort`, `stairs`, `minAge`, `bestFor`, `group`, `crossBorderId`, `category`, `zone`,
   `seasons` (`["summer"]`/`["winter"]`, chybí = celoročně; hranice zimy 15. 10. – 31. 3. jako na webu).
+  Nepovinná pole pro detail výletu (zatím je čte průvodce na TV, `villa-rudolf-site/tv/tv.js`; od 11. 10. 2026):
+  `walkMin` / `driveMin` (minuty pěšky a autem u výletů „pěšky od vily“), `warn` (dočasná výjimka – sanitární den,
+  rekonstrukce; 4 jazyky, po termínu smazat), `checked` (datum ověření údajů proti oficiálnímu webu, RRRR-MM-DD),
+  `links[].urlByLang` (web výletu v jazyce hosta; `url` zůstává česká / výchozí), `photo` {`url` https, `credit`,
+  `source`} – jen vlastní nebo volně licencované fotky, autor a licence patří do `credit`.
 - `data/demo-guest.json` — ukázkový host pro `?t=demo`, bez reálných dat.
 - `supabase/schema.sql` — tabulky `vr_bookings`, RPC `vr_verify_token` / `vr_update_party`.
   Zdroj pravdy schématu je ale `villa-rudolf-site/supabase/migrations/` — migrace piš tam,
