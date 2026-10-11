@@ -48,7 +48,7 @@ U položky `Fewo-direkt.de` svítí **„chyba při importu, bude ověřeno spr�
    „bude ověřeno správcem", takže to může být na jejich straně.
 
 **Ověření:** v kalendáři rezervací e-chalup musí být vidět rezervace, které vznikly
-na FeWo (Glen Gelmroth 14.–18. 5. 2027 tam je už teď; přibýt má tentativní
+na FeWo (rezervace 14.–18. 5. 2027 tam je už teď; přibýt má tentativní
 Sandra B. 27. 12. 2027 – 3. 1. 2028).
 
 > Pozn.: chybějící Sandra nemusí být jen touhle chybou — je vedená jako „Unter Vorbehalt"
@@ -184,7 +184,7 @@ ne kvůli tomuhle termínu.
   Příčina nalezena: FeWo má vypnuté **„Auch Buchungen unter Vorbehalt erfassen"**
   (kalendář → ⚙ → Verfügbarkeit → Verknüpfen Sie Ihre Kalender → Schritt 1),
   takže tentativní rezervace do exportu nedává. Do rozhodnutí hlídat ručně.
-- **Export FeWo nese křestní jména hostů** („Reserved - Glen") a putují tak do e-chalup
+- **Export FeWo nese křestní jména hostů** („Reserved - <křestní jméno>") a putují tak do e-chalup
   a dál. Výstup budoucího hubu musí být anonymizovaný.
 - **„Auch Buchungen unter Vorbehalt erfassen" není ukládané nastavení** — je to jen
   přepínač, který přidá do exportní adresy `&includeTentative=true`. Kdo by v FeWo

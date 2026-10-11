@@ -42,9 +42,9 @@ Sloupec „období“ říká, odkud cena plyne (sezóna z pravidla, nebo výjim
 | noci od | do | nocí | období | přímo Kč | Booking € | Airbnb Kč | FeWo € | min. | stav |
 |---|---|---|---|---|---|---|---|---|---|
 | 21. 9. 2026 | 18. 12. 2026 | 89 | mimo | 13 400 | 641 | 15 900 | 592 | 2 | otevřeno |
-| 19. 12. 2026 | 1. 1. 2027 | 14 | Vánoce 2026 — **prodáno** (Mandy + blok) | 18 000 | 861 | 21 300 | 795 | 5 | — |
+| 19. 12. 2026 | 1. 1. 2027 | 14 | Vánoce 2026 — **prodáno** (rezervace + blok) | 18 000 | 861 | 21 300 | 795 | 5 | — |
 | 2. 1. 2027 | 5. 2. 2027 | 35 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
-| 6. 2. 2027 | 12. 2. 2027 | 7 | špička: krokus VL + Winterferien SN/BY/MV (**prodáno** Richard 12 os.) | 16 400 | 784 | 19 400 | 725 | 2 | — |
+| 6. 2. 2027 | 12. 2. 2027 | 7 | špička: krokus VL + Winterferien SN/BY/MV (**prodáno** rezervace 12 os.) | 16 400 | 784 | 19 400 | 725 | 2 | — |
 | 13. 2. 2027 | 19. 2. 2027 | 7 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
 | 20. 2. 2027 | 26. 2. 2027 | 7 | špička: voorjaar NL + détente FWB | 16 400 | 784 | 19 400 | 725 | 2 | otevřeno |
 | 27. 2. 2027 | 28. 2. 2027 | 2 | zima 2027 | 14 900 | 713 | 17 600 | 658 | 2 | otevřeno |
@@ -134,7 +134,7 @@ Dvě věci, které z toho plynou hned:
    za 523 €/noc, na FeWo je „Sandra B.“ 27. 12.–3. 1. jako tentativní (16 hostů). Pokud se kterákoli potvrdí, je Silvestr
    2027 pryč za ~11 000 čistého. **Vánoce + Silvestr 2027 zapsat jako první**, ještě před zimou.
 2. **Podzim 2026 (od teď do 18. 12.)** je na Airbnb z větší části blokovaný nebo prodaný (audit: říjen–prosinec „blok“ +
-   rezervace Sabine, Frederika). Zvýšení na 641 € tam tedy skoro nic neriskuje; volných nocí je málo.
+   dvě rezervace). Zvýšení na 641 € tam tedy skoro nic neriskuje; volných nocí je málo.
 
 Pořadí zápisu (podle rizika, ne podle kalendáře): Vánoce + Silvestr 2027 → zima 2027 (leden–březen, včetně špiček) →
 léto 2028 + Vánoce 2028 → mimosezóna 2026–2027 a výjimky → zima 2028. Runbook zápisu zůstává `cenova-parita-2027.md` sekce 5.

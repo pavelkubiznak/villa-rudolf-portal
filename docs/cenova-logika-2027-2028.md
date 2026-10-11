@@ -199,7 +199,7 @@ se cizí konvence nesmí dostat.
 
 ### 5.3 Test, který to rozhodne (5 minut v Chrome, read-only)
 
-Vzít jednu známou rezervaci, např. **Simon 16 os., 19.–25. 9. 2026** (příjezd 19., odjezd 25. → noci
+Vzít jednu známou rezervaci, např. **rezervace 16 os., 19.–25. 9. 2026** (příjezd 19., odjezd 25. → noci
 19.–24., šest nocí), a na každém kanálu se podívat, jak je označené **25. 9.**:
 
 - buňka 25. 9. je *volná / prodejná* → kanál pracuje s nocemi (konvence sedí),
