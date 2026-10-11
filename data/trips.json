@@ -260,7 +260,12 @@
     }
    ],
    "category": "viewpoint",
-   "zone": "villa"
+   "zone": "villa",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg/1280px-Stezka_korunami_strom%C5%AF_Krkono%C5%A1e_2024.jpg",
+    "credit": "Susankovav · Wikimedia Commons · CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/w/index.php?curid=165151601"
+   }
   },
   {
    "id": "janske-hallenbad",
@@ -311,22 +316,27 @@
     "pl": "Basen z wód mineralnych (27 °C), jacuzzi, przeciwprąd i świat saun – tuż za kolonadą."
    },
    "openNote": {
-    "cs": "pro veřejnost po–pá 16–21, so–ne 13–21",
-    "de": "öffentlich Mo–Fr 16–21, Sa–So 13–21",
-    "en": "public Mon–Fri 16–21, Sat–Sun 13–21",
-    "pl": "dla publiczności pon–pt 16–21, sob–niedz 13–21"
+    "cs": "pro veřejnost po–pá 16:00–21:00, so–ne 13:00–21:00",
+    "de": "öffentlich Mo–Fr 16:00–21:00, Sa–So 13:00–21:00",
+    "en": "open to the public Mon–Fri 16:00–21:00, Sat–Sun 13:00–21:00",
+    "pl": "dla publiczności pon–pt 16:00–21:00, sob–niedz 13:00–21:00"
    },
    "price": {
-    "cs": "bazén 240 Kč · bazén+sauny dospělí 400 Kč",
-    "de": "Bad 240 Kč · Bad+Sauna Erwachsene 400 Kč",
-    "en": "pool 240 Kč · pool+sauna adults 400 Kč",
-    "pl": "basen 240 Kč · basen+sauny dorośli 400 Kč"
+    "cs": "bazén na 2 hodiny: dospělí 240 Kč, děti 3–14 let 190 Kč, rodina 2+2 780 Kč · bazén se saunami na 2 hodiny: dospělí 400 Kč",
+    "de": "Bad für 2 Stunden: Erwachsene 240 Kč, Kinder 3–14 J. 190 Kč, Familie 2+2 780 Kč · Bad mit Saunen für 2 Stunden: Erwachsene 400 Kč",
+    "en": "pool for 2 hours: adults 240 Kč, children 3–14 190 Kč, family 2+2 780 Kč · pool with saunas for 2 hours: adults 400 Kč",
+    "pl": "basen na 2 godziny: dorośli 240 Kč, dzieci 3–14 lat 190 Kč, rodzina 2+2 780 Kč · basen z saunami na 2 godziny: dorośli 400 Kč"
    },
    "links": [
     {
      "icon": "globe",
      "label": "janskelazne.com",
-     "url": "https://www.janskelazne.com/aquacentrum/"
+     "url": "https://www.janskelazne.com/wellness-centrum/",
+     "urlByLang": {
+      "de": "https://de.janskelazne.com/wellness-centrum/",
+      "en": "https://en.janskelazne.com/wellness-centrum/",
+      "pl": "https://pl.janskelazne.com/wellness-centrum/"
+     }
     },
     {
      "icon": "pin",
@@ -340,7 +350,21 @@
     }
    ],
    "category": "water",
-   "zone": "villa"
+   "zone": "villa",
+   "walkMin": 59,
+   "driveMin": 6,
+   "warn": {
+    "cs": "16. 12. 2026 je bazén zavřený (sanitární den). Venkovní vířivky a venkovní sauna jsou kvůli rekonstrukci terasy dočasně mimo provoz.",
+    "de": "Am 16. 12. 2026 ist das Bad geschlossen (Reinigungstag). Außen-Whirlpools und Außensauna sind wegen Umbau der Terrasse vorübergehend außer Betrieb.",
+    "en": "The pool is closed on 16 Dec 2026 (maintenance day). The outdoor whirlpools and outdoor sauna are temporarily out of service while the terrace is rebuilt.",
+    "pl": "16. 12. 2026 basen jest zamknięty (dzień sanitarny). Zewnętrzne jacuzzi i sauna zewnętrzna są tymczasowo nieczynne z powodu przebudowy tarasu."
+   },
+   "checked": "2026-10-11",
+   "photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg/1280px-Aquacentrum_Jansk%C3%A9_L%C3%A1zn%C4%9B%2C_z_Rekrea%C4%8Dn%C3%AD_ulice.jpg",
+    "credit": "ŠJů · Wikimedia Commons · CC BY 4.0",
+    "source": "https://commons.wikimedia.org/w/index.php?curid=144095773"
+   }
   },
   {
    "id": "aqua-vrchlabi",
