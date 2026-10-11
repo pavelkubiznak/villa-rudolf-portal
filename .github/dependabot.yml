@@ -1,0 +1,8 @@
+# Jen GitHub Actions – repo nemá npm závislosti. Hlídá nové verze akcí v .github/workflows/.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
