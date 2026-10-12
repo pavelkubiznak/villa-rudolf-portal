@@ -14,6 +14,7 @@ Stav odpovídá sloučení auditní větve 11. 10. 2026.
 | **Retence hostů** | Supabase, `pg_cron` job `vr-purge-expired` → `public.vr_purge_expired_cron()` | 04:40 UTC denně | `cron.job_run_details`; migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql` (nasazeno 11. 10. 2026) |
 | ~~Purge na Hetzneru~~ | `/opt/vr-portal/purge-expired.sh`, crontab `40 4 * * *` | — | **zrušen 11. 10. 2026**: od 15. 9. denně padal (anon klíč, 42501). Řádek z crontabu pryč, soubor přesunut do `/root/vr-portal-purge-expired.sh.bak-2026-10-11`, úloha `vr-purge` v `/etc/hlidac/ulohy.conf` zakomentována (viz `ops/hetzner/`) |
 | **Záloha serveru** | Hetzner `/opt/backup-critical.sh`, crontab `50 4 * * *` | 04:50 UTC | `/var/log/vr-backup.log`; hlídač `zaloha-kriticka` (pípne až po uploadu na Drive). Od 11. 10. 2026 **všechny archivy šifrované `age`** už při vzniku, klíč `/root/.age/zaloha.key` + kopie u Pavla — kap. 6. Zálohuje i `/opt/vr-portal` (klon repa) |
+| **Zálohy Sintery** (doklady, cestovní příkazy) | Hetzner, systemd `doklady-backup.timer` 01:30 UTC a `cp-backup.timer` 03:20 UTC, uživatel `doklady` | denně | hlídače `doklady-backup` a `cp-backup` (pípnou až po uploadu) v ranním e-mailu. Od 12. 10. 2026 **šifrované stejným klíčem `age`** — kap. 6 |
 | **Umami** (analytika) | Hetzner, Docker, dashboard `https://178-104-207-97.sslip.io` | živě | cookieless; web villarudolf.com je v Umami pod webem „Villa Rudolf - Kalex (DE)" |
 | **n8n** | Hetzner, `127.0.0.1:5678` (zvenku nedostupné) | — | denní e-mail `VrDailyTasks`, platby `VrPaymentWatch001`, konflikty — vše v site, tady nic |
 | **Supabase** | projekt `fpknbrzbqpalguajskut`, dashboard `https://supabase.com/dashboard/project/fpknbrzbqpalguajskut` | — | sdílený se SINTERA; schéma v site `supabase/migrations/` |
@@ -175,6 +176,39 @@ zálohy pryč: `age-keygen -o /root/.age/zaloha.key`, nový `recipients.txt`, ko
 
 První noční šifrovaný běh 12. 10. 2026 04:50 UTC proběhl zeleně (10 souborů `.age`, hlídač pípl po uploadu). Nešifrované složky
 na Drive z doby před přepnutím (13. 9.–11. 10. 2026, 29 složek) byly 12. 10. 2026 přesunuty do koše Drive (`rclone purge`, vratné
-30 dní). Lokální nešifrované složky na velínu odrotují do 19. 10. 2026. Zálohy dokladů (`/opt/doklady/backup_data.sh`) a cestovních
-příkazů (`cp_backup.py`, od 12. 10. 2026 zase běží — chyběl service_role klíč v `/etc/doklady/cp.env`) jdou na Drive zatím
-nešifrované — věc Sintery, stejný recept.
+30 dní). Lokální nešifrované složky na velínu odrotují do 19. 10. 2026.
+
+### 6.1 Zálohy Sintery: doklady a cestovní příkazy (od 12. 10. 2026 šifrované stejným klíčem)
+
+Obě služby běží jako uživatel `doklady` přes systemd: `doklady-backup.timer` 01:30 UTC → `/opt/doklady/backup_data.sh`,
+`cp-backup.timer` 03:20 UTC → `/opt/doklady/cp_backup.py` (ten od 12. 10. 2026 zase běží — chyběl service_role klíč
+v `/etc/doklady/cp.env`). Remote `gdrive_pavel:` (conf `/opt/doklady/data/rclone.conf`, **ne** `gdrive:`), cíl
+`SINTERA/ÚČETNICTVÍ Sintera/Zálohy/`. Šifrují veřejnou částí klíče záloh velínu: `/etc/doklady/age-recipients.txt`
+(root 644, kopie `/root/.age/recipients.txt`; `/etc/doklady` má group `doklady`, aby ho služba přečetla). Uživatel `doklady`
+umí jen šifrovat; dešifruje root na velínu (`/root/.age/zaloha.key`) nebo Pavel klíčem z Klíčenky. **Při výměně klíče
+aktualizovat obě kopie veřejné části.**
+
+- **Doklady:** do 11. 10. 2026 `rclone sync` zrcadla `aktualni/` v plaintextu. Teď denně celý `/opt/doklady/data` jako
+  `doklady/archivy/doklady-<den>.tar.gz.age` (~0,4 GB, 30 dní) a jen JSON stavy `doklady/snapshoty/stavy-<den>.tar.gz.age` (90 dní).
+  Vyjmuto: `rclone.conf`, `sessions.json`, e-mailová cache, náhledy PDF, `*.tmp`, `*.bak.*`. Běh trvá ~15 min (archiv 25 s,
+  upload na Drive ~0,5 MB/s), limit služby 60 min.
+- **Cestovní příkazy:** `cestovni-prikazy/cestovni-prikazy-<den>.json.age` + vždy přepsaný `nejnovejsi.json.age`.
+- **Pojistky** jako u velínu: kontrola klíče před startem, nic bez `.age` se nenahraje, jakákoli chyba = exit 1 → `ExecStartPost`
+  `hlidac-pip` nepípne a `doklady-alert@` pošle e-mail. Hlídač: `doklady-backup`, `cp-backup` (26 h).
+- Ruční test mimo ostrou složku: `DOKLADY_BACKUP_DEST="gdrive_pavel:…/Zálohy/doklady-test" sudo -u doklady /opt/doklady/backup_data.sh`,
+  u cestovních příkazů `CP_BACKUP_DEST=…` (pak složku na Drive smazat). Původní skripty: `/opt/doklady/*.bak.20261012-075731`.
+- Plaintext na Drive (`aktualni/` 508 souborů, 70 starých snapshotů, 2 JSONy z prvního běhu cp-backup) přesunut 12. 10. 2026
+  do koše Drive (vratné 30 dní).
+
+**Kontrola** (přidat k týdenní):
+
+```bash
+ssh sintera-velin 'cat /var/lib/hlidac/doklady-backup /var/lib/hlidac/cp-backup; rclone --config /opt/doklady/data/rclone.conf lsf --files-only -R "gdrive_pavel:SINTERA/ÚČETNICTVÍ Sintera/Zálohy" | grep -v "\.age$"'
+```
+
+**Obnova** (na velínu jako root; na Macu s klíčem z Klíčenky stejně jako výše):
+
+```bash
+rclone --config /opt/doklady/data/rclone.conf cat "gdrive_pavel:SINTERA/ÚČETNICTVÍ Sintera/Zálohy/doklady/archivy/doklady-2026-10-12.tar.gz.age" | age -d -i /root/.age/zaloha.key | tar xzf - -C /obnova
+rclone --config /opt/doklady/data/rclone.conf cat "gdrive_pavel:SINTERA/ÚČETNICTVÍ Sintera/Zálohy/cestovni-prikazy/nejnovejsi.json.age" | age -d -i /root/.age/zaloha.key > nejnovejsi.json
+```
