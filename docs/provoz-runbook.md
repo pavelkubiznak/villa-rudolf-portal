@@ -108,8 +108,12 @@ pak `git push --force-with-lease=refs/heads/<větev>:<staré SHA>` pro každou v
 2. Mac: `git fetch --prune` a v každém worktree `git reset --hard origin/<větev>`, nakonec
    `git reflog expire --expire=now --all && git gc --prune=now`. Cizí sessions nesmí force-pushnout starý stav větve.
 3. Otevřené PR se **nerebasují**: přepisuje se celý graf, merge-base zůstává; stačí `gh pr list` (stav konfliktů se nemění).
-4. GitHub drží staré commity přes přímé URL a v `refs/pull/*/head` i zavřených PR → ticket na <https://support.github.com>
-   (ze svého účtu). Šablona (EN):
+4. GitHub drží staré commity přes přímé URL a v `refs/pull/*/head` i zavřených PR → <https://support.github.com>
+   (ze svého účtu) → Contact us → účet → Repositories: nahoře je tlačítko **„Clear cached views with our Virtual Agent“**,
+   které ticket založí samo (12. 10. 2026 takto vznikl #4848942): „Yes, but I need help removing of cached commits“ →
+   „No – Just the repository“ → `owner/repo` → in pull requests: Yes → **„Remove the commit references“** (nikdy
+   „Remove these pull requests“, to by smazalo PR) → zdůvodnění. Stav v <https://support.github.com/tickets>.
+   Ruční formulář jen jako záloha; šablona (EN):
    > Subject: Remove cached commits after a sensitive-data history rewrite (pavelkubiznak/villa-rudolf-portal)
    > On 2026-10-11 I rewrote the full history of the public repository pavelkubiznak/villa-rudolf-portal with git filter-repo
    > to remove personal data (guest names) from documentation files under docs/, and force-pushed all branches.
