@@ -81,4 +81,4 @@ Kontrola běhů: `select status, return_message, start_time from cron.job_run_de
 - Skript na serveru není pod gitem – proto tahle složka. Po reinstalaci serveru: naklonovat repo
   do `/opt/vr-portal`, zkopírovat `refresh-weather.sh`, vygenerovat nový deploy key, přidat řádek
   z `crontab.txt` a úlohu `vr-pocasi` do `/etc/hlidac/ulohy.conf`. Zálohy z Drive otevře jen klíč `age`
-  z Pavlova 1Password (`/root/.age/zaloha.key`), deploy key v nich záměrně není.
+  z Klíčenky na Pavlově Macu („age klíč zálohy velín“ → `/root/.age/zaloha.key`), deploy key v nich záměrně není.

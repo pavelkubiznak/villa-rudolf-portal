@@ -63,7 +63,7 @@ Co se **neděje**: žádné profilování pro reklamu, žádné předávání ko
 | Evidence osob (`vr_persons`), UbyPort | **6 let** | `vr_purge_expired_cron` maže pobyt až po 6 letech (cascade) |
 | Účetní doklady | podle zákona o účetnictví | iDoklad, účetní |
 | Analytika (Umami) | bez PII | — |
-| Zálohy na Drive | **30 dní** (lokálně na velínu 7 dní); od 11. 10. 2026 šifrované `age`, nešifrované složky z 12. 9.–11. 10. 2026 odrotují nejpozději 11. 11. 2026 | `backup-critical.sh` (`rclone delete --min-age 30d`) |
+| Zálohy na Drive | **30 dní** (lokálně na velínu 7 dní); od 11. 10. 2026 šifrované `age`, nešifrované složky z doby před tím smazány 12. 10. 2026 (koš Drive, vratné 30 dní) | `backup-critical.sh` (`rclone delete --min-age 30d`) |
 | Data v prohlížeči hosta | `localStorage` jen u hosta: site `vrGuide` (navštívené výlety, nastavení wizardu), `vrLang`; cache katalogu 6 h. Demo průvodce tady: jen demo party. Žádná PII hosta se v prohlížeči nedrží (od 11. 10. 2026; starý `index.html` ukládal jméno a `notes` do `vr-guest-<token>` bez expirace) | host sám (vymazání dat webu) |
 
 Do 11. 10. 2026 retence **neběžela** (26 dní; Hetzner skript volal funkci anon klíčem). Hostům se v demo průvodci
@@ -120,7 +120,8 @@ Host může chtít přístup, opravu, výmaz, omezení, přenositelnost nebo ná
    doplnit lhůty z kap. 5 (14 / 30 dní / 6 let), větu o Umami a seznam zpracovatelů. Průvodce na site `/pruvodce/`
    na `/podminky/` neodkazuje — doplnit odkaz do patičky.
 3. ~~**Zálohy na Google Drive**: šifrovat před uploadem a dát jim rotaci.~~ **Hotovo 11. 10. 2026** (`age`, rotace 30 dní byla
-   už dřív; `provoz-runbook.md` kap. 6). Zbývá: Pavel uloží kopii klíče do 1Password a potvrdí → smazat staré nešifrované složky na Drive.
+   už dřív; `provoz-runbook.md` kap. 6). Kopie klíče v Klíčence na Macu majitele, staré nešifrované složky na Drive smazány 12. 10. 2026.
+   Doporučení: ještě papírová kopie klíče (Mac nemá funkční Time Machine).
 4. **Historie repa**: `git filter-repo` ano/ne (kap. 7). Pokud ne, zapsat sem „ponecháno vědomě, nízké riziko".
 5. **RPC pro anonymizaci na žádost** (`vr_admin_anonymize_booking`) ve `/sprava/`, ať se výmaz nedělá „Smazat pobyt".
 6. **Google Fonts** na site `/pruvodce/` → self-host (tento repo má `fonts/`), ať se IP hosta neposílá Googlu.
