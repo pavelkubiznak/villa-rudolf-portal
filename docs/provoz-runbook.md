@@ -13,7 +13,7 @@ Stav odpovídá sloučení auditní větve 11. 10. 2026.
 | **Deploy key** (push počasí) | GitHub → Settings → Deploy keys: „velin vr-portal (obnoveno 2026-09-30)", ED25519, **se zápisem**; privátní část `/root/.ssh/vr_deploy_key` na velínu | — | jediný klíč, který smí do `main` bez PR |
 | **Retence hostů** | Supabase, `pg_cron` job `vr-purge-expired` → `public.vr_purge_expired_cron()` | 04:40 UTC denně | `cron.job_run_details`; migrace `villa-rudolf-site/supabase/migrations/20261011_vr_purge_cron.sql` (nasazeno 11. 10. 2026) |
 | ~~Purge na Hetzneru~~ | `/opt/vr-portal/purge-expired.sh`, crontab `40 4 * * *` | — | **zrušen 11. 10. 2026**: od 15. 9. denně padal (anon klíč, 42501). Řádek z crontabu pryč, soubor přesunut do `/root/vr-portal-purge-expired.sh.bak-2026-10-11`, úloha `vr-purge` v `/etc/hlidac/ulohy.conf` zakomentována (viz `ops/hetzner/`) |
-| **Záloha serveru** | Hetzner `/opt/backup-critical.sh`, crontab `50 4 * * *` | 04:50 UTC | zálohuje i `/opt/vr-portal` (klon repa) — viz `ochrana-udaju.md` kap. 5 (zálohy na Google Drive) |
+| **Záloha serveru** | Hetzner `/opt/backup-critical.sh`, crontab `50 4 * * *` | 04:50 UTC | `/var/log/vr-backup.log`; hlídač `zaloha-kriticka` (pípne až po uploadu na Drive). Od 11. 10. 2026 **všechny archivy šifrované `age`** už při vzniku, klíč `/root/.age/zaloha.key` + kopie u Pavla — kap. 6. Zálohuje i `/opt/vr-portal` (klon repa) |
 | **Umami** (analytika) | Hetzner, Docker, dashboard `https://178-104-207-97.sslip.io` | živě | cookieless; web villarudolf.com je v Umami pod webem „Villa Rudolf - Kalex (DE)" |
 | **n8n** | Hetzner, `127.0.0.1:5678` (zvenku nedostupné) | — | denní e-mail `VrDailyTasks`, platby `VrPaymentWatch001`, konflikty — vše v site, tady nic |
 | **Supabase** | projekt `fpknbrzbqpalguajskut`, dashboard `https://supabase.com/dashboard/project/fpknbrzbqpalguajskut` | — | sdílený se SINTERA; schéma v site `supabase/migrations/` |
@@ -121,7 +121,8 @@ pak `git push --force-with-lease=refs/heads/<větev>:<staré SHA>` pro každou v
 **…velín shoří**
 Počasí: stačí jakýkoli stroj s Node 20 a deploy keyem — `git clone`, `node scripts/fetch-forecast.mjs`, commit, push
 (kopie `refresh-weather.sh`, crontab a popis velínu jsou v `ops/hetzner/`; bez stroje jde počasí spustit i ručně přes
-`.github/workflows/forecast.yml` – `workflow_dispatch`, commituje GITHUB_TOKENem bez deploy keye). Retence běží v DB, nic neztrácí. Umami a n8n jsou věc site/Sintery.
+`.github/workflows/forecast.yml` – `workflow_dispatch`, commituje GITHUB_TOKENem bez deploy keye). Retence běží v DB, nic neztrácí. Umami a n8n jsou věc site/Sintery;
+jejich zálohy leží na Drive jako `.age` a otevře je jen klíč z Klíčenky Pavlova Macu (kap. 6).
 
 ## 4. Nasazení změn z tohoto repa
 
@@ -142,3 +143,54 @@ Počasí: stačí jakýkoli stroj s Node 20 a deploy keyem — `git clone`, `nod
 | Anon klíč Supabase | veřejný záměrně (v site `planner.js`); chrání ho RLS + SECURITY DEFINER RPC |
 | Purge secret | **už není potřeba** — pg_cron volá funkci bez parametru; `vr_purge_expired(p_secret)` zůstává jen pro service_role |
 | SSH na velín | root, klíč na Macu Pavla; tailnet `sintera-radar` |
+| Klíč `age` k zálohám velínu | velín `/root/.age/zaloha.key` (root, 600) + **kopie v Klíčence na Macu Pavla** (Keychain Access → login → „age klíč zálohy velín“); bez něj jsou zálohy na Drive trvale nečitelné (kap. 6) |
+
+## 6. Zálohy velínu (od 11. 10. 2026 šifrované)
+
+`/opt/backup-critical.sh` (root crontab `50 4 * * *` UTC, log `/var/log/vr-backup.log`) balí Umami (pg_dump), n8n (volume
++ SQLite s credentials), doklady, radar, konfigurace stacků, `/root`, `/etc` a aplikace v `/opt` včetně `/opt/vr-portal`.
+Lokálně `/opt/backups/<datum>/` 7 dní, na Drive `gdrive:Backups/sintera-radar/<datum>/` 30 dní (`rclone delete --min-age 30d`).
+Dumpy DB intranetu (`intranet/*.age`) šifruje už intranet, jejich klíč na velínu není.
+
+**Šifrování:** každý archiv vzniká rovnou jako `.age` (`tar | gzip | age -R /root/.age/recipients.txt`), nešifrovaný archiv
+neexistuje ani lokálně, ani na Drive (jen SQLite snapshot `.tmp` na pár sekund). Klíč `/root/.age/zaloha.key`, veřejná část
+`/root/.age/recipients.txt`. **Záložní kopie klíče je v Klíčence na Macu Pavla** (Keychain Access, klíčenka „login“, položka
+„age klíč zálohy velín“, uloženo 12. 10. 2026 rovnou ze serveru; v poznámce položky je i veřejný klíč a postup obnovy). Nikde jinde
+není, Google ho nemá. Mac dnes nemá funkční Time Machine, takže ideálně ještě papírová kopie řádku `AGE-SECRET-KEY-1…` do trezoru.
+
+Ze `system.tar.gz` jsou vyjmuty `/root/.ssh` (deploy key a klíč k intranetu → při obnově nové, kap. 3), `/root/*.bak-*`
+(staré secrety), `/root/.age` (klíč k téhle záloze) a `/root/.config/rclone` (token na Drive → při obnově `rclone config` znovu;
+bez něj se k záloze stejně nedostaneš, takže v ní nepomůže).
+
+Skript před prací ověří, že klíč k příjemcům sedí (jinak skončí, než vyrobí nečitelnou zálohu), před uploadem odmítne cokoli,
+co nekončí `.age`, a `hlidac-pip zaloha-kriticka` zapíše až po úspěšném `rclone copy --checksum` (do 11. 10. to dělal `&&` v crontabu).
+Ruční test do oddělené složky: `STAMP=2026-10-12-test /opt/backup-critical.sh` (pak složku lokálně i na Drive smazat).
+
+**Kontrola** (týdně, spolu s počasím):
+
+```bash
+ssh sintera-velin 'tail -n 4 /var/log/vr-backup.log; cat /var/lib/hlidac/zaloha-kriticka; rclone lsf --files-only -R gdrive:Backups/sintera-radar | grep -v "\.age$"'
+```
+
+Poslední příkaz nemá vypsat nic — na Drive smí být jen `.age`. Hlídač: úloha `zaloha-kriticka` (26 h) v ranním e-mailu.
+
+**Obnova** souboru (na velínu; na Macu `brew install age` a klíč z Klíčenky — Keychain Access → login → „age klíč zálohy velín“ →
+Show password — uložit jako soubor `zaloha.key` s `chmod 600`):
+
+```bash
+rclone cat gdrive:Backups/sintera-radar/2026-10-12/umami-db.sql.gz.age | age -d -i /root/.age/zaloha.key | gunzip > umami-db.sql
+rclone cat gdrive:Backups/sintera-radar/2026-10-12/system.tar.gz.age | age -d -i /root/.age/zaloha.key | tar xzf - -C /obnova
+```
+
+Bez serveru: složku stáhnout z Drive (web, nebo `rclone` s vlastním přihlášením) a dešifrovat stejně.
+
+**Když se klíč na serveru ztratí** (reinstalace, smazaný `/root` jako 30. 9. 2026): vrátit řádek `AGE-SECRET-KEY-1…` z Klíčenky
+do `/root/.age/zaloha.key` (700/600) a `age-keygen -y zaloha.key > recipients.txt`. Když chybí i kopie v Klíčence, jsou dosavadní
+zálohy pryč: `age-keygen -o /root/.age/zaloha.key`, nový `recipients.txt`, kopii hned do Klíčenky
+(`ssh sintera-velin 'grep ^AGE-SECRET-KEY- /root/.age/zaloha.key'` → `security add-generic-password …`) — od další noci jsou zálohy zase čitelné.
+
+První noční šifrovaný běh 12. 10. 2026 04:50 UTC proběhl zeleně (10 souborů `.age`, hlídač pípl po uploadu). Nešifrované složky
+na Drive z doby před přepnutím (13. 9.–11. 10. 2026, 29 složek) byly 12. 10. 2026 přesunuty do koše Drive (`rclone purge`, vratné
+30 dní). Lokální nešifrované složky na velínu odrotují do 19. 10. 2026. Zálohy dokladů (`/opt/doklady/backup_data.sh`) a cestovních
+příkazů (`cp_backup.py`, od 12. 10. 2026 zase běží — chyběl service_role klíč v `/etc/doklady/cp.env`) jdou na Drive zatím
+nešifrované — věc Sintery, stejný recept.
