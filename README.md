@@ -81,7 +81,8 @@ Co běží kde (Pages, cron počasí na Hetzneru, pg_cron v Supabase, zálohy, h
 - Správce, záznam o činnostech, zpracovatelé (Supabase UK, GitHub/Fastly, Hetzner, Google), lhůty
   (token 14 dní po odjezdu, kontakt 30 dní, evidence 6 let), žádosti hostů a postup při incidentu:
   [`docs/ochrana-udaju.md`](docs/ochrana-udaju.md).
-- **Žádné PII v repu.** Jména hostů, která se tu od srpna 2026 objevila v auditech cen, byla 11. 10. 2026 odstraněna
-  (`051c9c0`); v historii zůstávají do rozhodnutí o přepisu.
+- **Žádné PII v repu.** Jména hostů, která se tu od 12. 8. 2026 objevila v auditech cen a cenových poznámkách, byla
+  11. 10. 2026 odstraněna (`b199822`) a tentýž den byla **přepsána historie všech větví** (`git filter-repo`), takže v repu
+  nejsou ani zpětně. Staré commity drží jen cache GitHubu do vyřízení ticketu u GitHub Support (`docs/ochrana-udaju.md` kap. 7).
 - Licence: kód, texty a data © Sintera Czech s.r.o. / Pavel Kubizňák, všechna práva vyhrazena; fotky CC BY / CC BY-SA 4.0,
   písma SIL OFL — [`LICENSE.md`](LICENSE.md).
