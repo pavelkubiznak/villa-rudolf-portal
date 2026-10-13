@@ -99,7 +99,7 @@ Host může chtít přístup, opravu, výmaz, omezení, přenositelnost nebo ná
 
 | Datum | Co | Rozsah | Riziko | Opatření | Oznámeno |
 |---|---|---|---|---|---|
-| 11. 10. 2026 | Křestní (3× celá) jména hostů + termíny + počty osob ve veřejném repu (`docs/audit-cen/2026-08-12.*`, `docs/cenova-logika-2027-2028.md`, `docs/cenovy-kalendar-2027-2028.md`, `docs/uklid-ical-2026-08.md` — dnes v `docs/archiv/`, `docs/kanaly-jedno-misto.md`), od 12. 8. 2026 | 13 osob, bez kontaktů | nízké | jména odstraněna commitem `b199822` (dřív `051c9c0`); **historie všech větví přepsána 11. 10. 2026 21:30 UTC** (`git filter-repo --sensitive-data-removal --replace-text`, 235 z 341 commitů, 15 větví force-push s lease, první změněný commit `a81eb3a`, dřív `efc858d`); klon na velínu a lokální worktrees resetovány a vyčištěny (`gc --prune=now`); přepis odstranil i jedno křestní jméno s iniciálou, které audit minul (tentativní rezervace 27. 12. 2027 – 3. 1. 2028, 6 souborů). **Zbývá:** ticket GitHub Support na vyčištění cache a `refs/pull/*` (šablona v `provoz-runbook.md`), staré zálohy klonu `/opt/vr-portal` na Disku (kap. 9 bod 3) | ÚOOÚ ne (nízké riziko) |
+| 11. 10. 2026 | Křestní (3× celá) jména hostů + termíny + počty osob ve veřejném repu (`docs/audit-cen/2026-08-12.*`, `docs/cenova-logika-2027-2028.md`, `docs/cenovy-kalendar-2027-2028.md`, `docs/uklid-ical-2026-08.md` — dnes v `docs/archiv/`, `docs/kanaly-jedno-misto.md`), od 12. 8. 2026 | 13 osob, bez kontaktů | nízké | jména odstraněna commitem `b199822` (dřív `051c9c0`); **historie všech větví přepsána 11. 10. 2026 21:30 UTC** (`git filter-repo --sensitive-data-removal --replace-text`, 235 z 341 commitů, 15 větví force-push s lease, první změněný commit `a81eb3a`, dřív `efc858d`); klon na velínu a lokální worktrees resetovány a vyčištěny (`gc --prune=now`); přepis odstranil i jedno křestní jméno s iniciálou, které audit minul (tentativní rezervace 27. 12. 2027 – 3. 1. 2028, 6 souborů). **Ticket GitHub Support #4848942 „Clear Cached Views“ odeslán 12. 10. 2026** (Virtual Agent, postup v `provoz-runbook.md`); do vyřízení jsou staré commity dál dostupné přes přímé URL a `refs/pull/*`. Staré zálohy klonu: kap. 9 bod 3 (koš Drive) | ÚOOÚ ne (nízké riziko) |
 | 11. 10. 2026 | Retence neběžela 15. 9.–11. 10. 2026 (purge 42501), 5 rezervací s prošlým tokenem, 3 bez anonymizace po 30 dnech | 30 rezervací s kontakty v DB déle, než slibují podmínky | nízké (data nikam neunikla) | pg_cron `vr-purge-expired` 11. 10. 2026 | ne |
 | 11. 10. 2026 | Veřejný anon klíč četl tři SINTERA views (security_invoker off) | data jiného správce, 0 cizích volání v logu | nízké | site `20261011_vr_portal_hardening.sql` bod 5 | ne (věc SINTERA) |
 
@@ -123,8 +123,9 @@ Host může chtít přístup, opravu, výmaz, omezení, přenositelnost nebo ná
    už dřív; `provoz-runbook.md` kap. 6). Kopie klíče v Klíčence na Macu majitele, staré nešifrované složky na Drive (13. 9.–11. 10. 2026,
    včetně záloh klonu s původním `.git` se jmény) přesunuty 12. 10. 2026 do koše Drive — definitivně zmizí do ~11. 11. 2026; lokální kopie
    na velínu odrotují do 19. 10. 2026. Doporučení: ještě papírová kopie klíče (Mac nemá funkční Time Machine).
-4. **Historie repa**: přepsána 11. 10. 2026 (kap. 7). Zbývá ticket u GitHub Support (šablona v `provoz-runbook.md`);
-   staré zálohy klonu na Disku viz bod 3 (v koši Drive).
+4. **Historie repa**: přepsána 11. 10. 2026, ticket GitHub Support #4848942 odeslán 12. 10. 2026 (kap. 7). Po jeho vyřízení
+   ověřit `gh api repos/pavelkubiznak/villa-rudolf-portal/commits/c8f61af5f5e6f269b55f78cefebd475dc3995b43` → 404
+   a PR #8 „Files changed“ bez starého obsahu. Staré zálohy klonu na Disku viz bod 3 (v koši Drive).
 5. **RPC pro anonymizaci na žádost** (`vr_admin_anonymize_booking`) ve `/sprava/`, ať se výmaz nedělá „Smazat pobyt".
 6. **Google Fonts** na site `/pruvodce/` → self-host (tento repo má `fonts/`), ať se IP hosta neposílá Googlu.
 7. **Osobní e-mail majitele** v User-Agentu `scripts/fetch-forecast.mjs` (veřejné repo) → `rezervace@villarudolf.com`.
