@@ -2,6 +2,21 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-10-17 · Umami: heslo a návštěvy z AI vs. objednávky
+
+**Cíl (Pavel):** zjistit, kolik lidí přišlo na villarudolf.com standardně a kolik přes ChatGPT, Claude či jinou AI, a jestli to jde dát do souvislosti s objednávkami.
+
+**Hotové a ověřené**
+- Heslo do Umami (`https://178-104-207-97.sslip.io`, uživatel `admin`) si Pavel 17. 10. nastavil sám skriptem (scratchpad, heslo nikde neuloženo); přihlášení funguje.
+- Návštěvy villarudolf.com 7.–17. 10. 2026 (první stránka návštěvy): ChatGPT 187 (7: 5, 8: 62, 9: 73, 10.: 47), vyhledávače 71 (hlavně google.com), sociální sítě 16, jiné weby 13, bez zdroje ~565. Claude, Perplexity, Gemini, Copilot: 0.
+- Lidé z ChatGPT jdou na `#rezervace`/`podminky` v 18 % návštěv, ostatní v 7–8 %. Délka (21 % nad 1 min) a počet stránek (1,5) jsou podobné.
+- Supabase: `vr_requests` (formulář na webu) má jen **1 poptávku** (9. 8., DE, mobil, Umami bez zdroje). 3 přímé rezervace, ostatní z portálů. `vr_bookings.created_at` = čas importu, ne objednávky → souvislost s objednávkami zatím nejde spočítat.
+- Skupina „bez zdroje“ obsahuje Pavlovy vlastní návštěvy, hosty z odkazů v e-mailech (`/pruvodce/`) a část z aplikace ChatGPT bez utm.
+
+**Další krok:** Pavlovi srozumitelně ukázat čísla výše (neviděl je, předchozí tah skončil jen okénkem) a zeptat se na **jedno**: zařídit ve villa-rudolf-site měření zdroje poptávky (Umami event při odeslání formuláře + sloupec `source` ve `vr_requests` z utm_source/referreru + zobrazení ve /sprava/). Doporučení: ano, jinak se souvislost s objednávkami nikdy nezjistí. Volitelně se hostů ve zprávě/registraci ptát „jak jste nás našli“.
+
+**Soubory a dotazy:** Umami SQL přes `ssh root@178.104.207.97` + `docker exec -i umami-db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"'` (SQL na stdin), tabulka `website_event` (hostname, utm_source, referrer_domain, visit_id); Supabase projekt `fpknbrzbqpalguajskut`, tabulky `vr_requests`, `vr_holds`, `vr_bookings`. Paměť `memory/umami-chatgpt-mereni.md`.
+
 ## 2026-10-17 · Hlášení cizinců: nová registrace z lednice a čtečka dokladu
 
 **Cíl (Pavel):** cizince hlásit na cizineckou policii (UbyPort) co nejvíc bez Pavla; další skupina (příjezd 18. 10., Booking, 9 dosp. + 3 děti, DE) už novou cestou.
