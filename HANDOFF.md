@@ -2,6 +2,23 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-10-23 · Kódy všech hostů v Seamu, zámek do Matteru (párování na vile přes Bluetooth)
+
+**Cíl (Pavel):** „zapiš v Seamu úplně všechny hosty“ (trial ještě ~10 dní) a „zařídit, aby to šlo přes Matter“.
+
+**Hotovo a ověřené**
+- Seam (klíč `~/jablotron - topení/.env`): 22 budoucích pobytů 24. 10. 2026 – 1. 11. 2027, kód = posl. 5 číslic telefonu, 15:00–10:00 místního času, všechny „unset“ bez chyb. Názvy bez jmen: „Kanál D. M. RRRR · vr:<uidh>“ (formát, který čte `custom_templates/zamek.jinja`). Bez kódu: přímý pobyt 30. 6.–3. 7. 2027 (chybí telefon).
+- HA 2026.10.2: služby `matter.set_lock_user` / `set_lock_credential` / `get_lock_info` existují; integrace `matter` běží (jen 2 zásuvky Tapo). `lock.vila_zamek` je z integrace `yale` (cloud) → přes Matter zatím nic.
+- Yale Home: řádek „Matter“ je šedý „Požadováno Bluetooth připojení“ → párovací kód se dá vytvořit jen s telefonem u zámku.
+
+**Neověřené:** zda L2 v Matteru hlásí podporu PIN (feature USR/PIN) – ukáže až `matter.get_lock_info` po spárování. Seam po konci trialu (~3. 11.) nejspíš kódy do zámku nezapíše.
+
+**Další krok:** až Pavel pošle párovací kód Matter (11 číslic nebo text QR „MT:…“) z vily, hned spárovat: `python3 ha.py` → WS `matter/commission` {"code": …, "network_only": true} (kód platí jen pár minut). Pak `matter.get_lock_info` / `get_lock_users`, zkušební kód přes `set_lock_user` + `set_lock_credential` (credential_type pin), ověřit v Yale Home, smazat. Když projde: kódy pobytů po 2. 11. přes Matter a smazat je v Seamu (duplicitní číslo zámek odmítne); pro časovou platnost automatizace v HA (založit při příjezdu, smazat při odjezdu).
+
+**Otevřené pro Pavla:** kdy bude na vile (párování chce Bluetooth u zámku) – doporučeno při nejbližší cestě, nejpozději do 2. 11.
+
+**Soubory:** poznámky `~/Library/Application Support/Claude/side-session-notes/local_51ef0a59-…/zamek-matter-2026-10-23.md` a `…/local_0bb649d7-…/zamek-matter.md` (20. 10.); `~/jablotron - topení/homeassistant/packages/zamek_kody.yaml`; Obsidian „Kódy do zámku bez placené služby“.
+
 ## 2026-10-23 · Uvítací zprávy 24. 10.–2. 11. a kódy zámku přes Matter místo Seamu
 
 **Cíl (Pavel):** uvítací zprávy všem hostům konce října a začátku listopadu, kódy ke dveřím v zámku. Seam (po trialu 5 $/měsíc) **nepoužívat** – kódy nahrávat přes **Matter** (zdarma; HA už má `matter.lock`).
