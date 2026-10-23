@@ -2,6 +2,23 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-10-23 · Uvítací zprávy 24. 10.–2. 11. a kódy zámku přes Matter místo Seamu
+
+**Cíl (Pavel):** uvítací zprávy všem hostům konce října a začátku listopadu, kódy ke dveřím v zámku. Seam (po trialu 5 $/měsíc) **nepoužívat** – kódy nahrávat přes **Matter** (zdarma; HA už má `matter.lock`).
+
+**Hotové a ověřené**
+- 3 pobyty: 24.–26. 10. (Airbnb, 14 osob), 28.–30. 10. (Airbnb, 16 + 2 batolata), 30. 10.–2. 11. (FeWo, 13). Uvítací zprávy odeslány 23. 10. přes Airbnb/FeWo i WhatsApp (texty a pravidla: paměť `uvitaci-zprava-rijen-2026.md`).
+- Kódy = posledních 5 číslic telefonu (`vr_bookings.phone`), platnost příjezd 15:00 – odjezd 10:00. Hostům už poslané, **nesmí se změnit**.
+- V Seamu (`~/jablotron - topení/.env` SEAM_API_KEY, device `bdeae4f7-…`): kód pobytu 24. 10. naplánovaný od 9. 10., kódy pobytů 28. 10. a 30. 10. jsem založil 23. 10. (stav „unset“ = čeká na začátek). HA automatizace `zamek_kody_pro_hosty_ze_spravy_pobytu` je vypnutá.
+
+**Neověřené:** jestli Matter v HA umí u Yale Linus L2 zakládat PIN kódy (služby `matter.set_lock_user`/`set_lock_credential` apod., časové omezení asi ne → založit a smazat automatizací). Co Seam udělá s kódy po konci trialu (~3. 11.).
+
+**Další krok:** v HA (`python3 ha.py` v `~/jablotron - topení`) ověřit, že Matter umí zapsat kód do zámku; když ano, založit přes Matter 3 kódy výše (stejná čísla, kód pro 24. 10. hned – host přijíždí zítra v 15:00), ověřit je v zámku a teprve pak smazat kódy v Seamu (jinak duplicitní kód, viz chyba `duplicate_code_on_device` 20. 10.). Když Matter neumí, nechat Seam do 2. 11. a říct Pavlovi.
+
+**Otevřené pro Pavla:** zápis do `vr_bookings`/`vr_admin_config` (heslo Wi-Fi, tokeny průvodce) pojistka nepovolila – doplnit ve /sprava/ ručně, nebo povolit SQL konektor. Doporučení: heslo Wi-Fi vložit ve /sprava/ → Nastavení.
+
+**Soubory:** `~/jablotron - topení/homeassistant/packages/zamek_kody.yaml`, `custom_templates/zamek.jinja`, HANDOFF tam (20. 10. „zámek bez Seamu“); paměť `zamek-kody-ha-nezaklada.md`, `uvitaci-zprava-rijen-2026.md`.
+
 ## 2026-10-17 · Umami: heslo a návštěvy z AI vs. objednávky
 
 **Cíl (Pavel):** zjistit, kolik lidí přišlo na villarudolf.com standardně a kolik přes ChatGPT, Claude či jinou AI, a jestli to jde dát do souvislosti s objednávkami.
