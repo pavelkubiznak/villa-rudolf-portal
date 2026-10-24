@@ -2,6 +2,20 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-10-24 · Vyúčtování po odjezdu: Booking 18.–24. 10. (taxa + nabíjení auta), poděkování a 10/10
+
+**Cíl (Pavel):** poděkovat („it means the world for us“), požádat o 10/10 na Bookingu, vyúčtovat pobytovou taxu a nabíjení auta, platba přes Revolut `https://revolut.me/pavelhuqh`. Nabíjení „udělej mu tabulku … ať to vypadá jako měřák, profesionálně, všechny dny od kdy do kdy, kolik to bylo, ať nejsou spory“.
+
+**Hotovo a ověřené:** taxa podle knihy hostů (Google Form, 11 zapsaných: 8 dospělých, 3 děti 11–14) = 8 × 6 nocí × 1 € = 48 €. Nabíjení z okruhu „Pergola a kůlna“ (HA `sensor.rudolf_pergola_a_kulna_energie`, mimo nabíjení 0,01 kWh/h), tři nabíjení po ~2,3 kW: 19. 10. ~10:00–21:30 = 23,66 kWh; 21. 10. ~18:00 – 22. 10. ~06:30 = 27,80 kWh; 23. 10. ~13:00 – 24. 10. ~00:30 = 24,15 kWh; celkem 75,61 kWh × 0,33 € = 24,95 € (sazba 0,33 €/kWh = jako elektřina ve smlouvách; Pavel odpověděl „OK“). Celkem 72,95 €. Krátké odběry ~1 kWh (20. 10. 02:00 a 08:00, 24. 10. 05:00; 4,1 kWh) se NEúčtují.
+
+**Neověřené:** přesné časy začátku a konce – mám jen hodinové součty. 5minutové hodnoty drží HA jen 10 dní (do ~29. 10.): `vila_historie` s `co` = „Pergola a kůlna příkon“ (`sensor.rudolf_pergola_a_kulna_prikon`) a krátkými okny kolem začátků a konců.
+
+**Další krok:** zjistit přesné časy z 5min příkonu, vyrobit obrázek „Ladeprotokoll E-Auto“ (vzhled měřidla: stav elektroměru na začátku a konci každého nabíjení, od–do, kWh, Kč/€, součet; plus řádek taxy). Postup jako u obrázků 17. 10.: HTML → headless Chrome `--screenshot`, `~/Downloads/villa-rudolf/`, poslat Pavlovi `SendUserFile`.
+
+**Otevřené pro Pavla (doporučení):** jedna, nebo dvě zprávy? Doporučuju **dvě**: dnes věcné poděkování + vyúčtování s obrázkem (bez hodnocení), zítra nebo po zaplacení zvlášť krátké poděkování s prosbou o 10/10 (prosba o hodnocení vedle žádosti o peníze působí jako obchod). Němčina **vyká** (host netyká). Posílat přes **WhatsApp** (telefon je ve `vr_bookings`), chat Bookingu odkazy na platbu mimo Booking blokuje.
+
+**Soubory:** vzor obrázků z 17. 10. ve scratchpadu staré session (`…/868fd352-…/scratchpad/abrechnung.html`, `zaehler.html`); paměť `doplatky-hostu-pres-revolut.md`; Obsidian „Villa Rudolf – hosté a pobyty“ (status čeká na Pavla).
+
 ## 2026-10-23 · Kódy všech hostů v Seamu, zámek do Matteru (párování na vile přes Bluetooth)
 
 **Cíl (Pavel):** „zapiš v Seamu úplně všechny hosty“ (trial ještě ~10 dní) a „zařídit, aby to šlo přes Matter“.
