@@ -2,6 +2,20 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-10-25 · Vyúčtování Booking 18.–24. 10.: obrázek hotový (74,30 €), zbývá odeslat zprávy
+
+**Cíl (Pavel):** „do vyúčtování mu dej všechna ta nabíjení, ať vidí, že měříme přesně“; poděkování a prosba o 10/10 zvlášť. Platba Revolut `https://revolut.me/pavelhuqh`.
+
+**Hotovo a ověřené (5min příkon okruhu Pergola a kůlna):** 3 dlouhá nabíjení po 19. 10. 10:24–21:29 23,66 kWh; st 21. 10. 18:28 – čt 22. 10. 06:28 27,80 kWh; pá 23. 10. 13:56 – so 24. 10. 00:27 24,15 kWh. 3 krátká dobití (taky auto – stálých 2,3 kW, světla berou desítky W): út 20. 10. 02:30–03:06 1,42; út 20. 10. 08:08–08:40 1,22; so 24. 10. 05:28–06:04 1,45 kWh. Celkem 79,70 kWh × 0,33 € = 26,30 € + taxa 8 × 6 × 1 € = 48 € → **74,30 €**. Pavel chce všech šest nabíjení na obrázku (hotovo).
+
+**Neověřené:** stavy měřáku na obrázku jsou dopočtené zpětně od stavu 24. 10. 19:36 (358,38 kWh), absolutně ±0,2 kWh; spotřeby jednotlivých nabíjení přesné. Kamera kůlna (Tapo) nemá v HA historii, snímky příjezdu auta jsou jen v aplikaci Tapo.
+
+**Taktika zpráv (doporučeno, Pavel se ptal):** dvě zprávy přes WhatsApp (ne chat Bookingu, ten blokuje platební odkazy), němčina vyká. 1) Hned: věcné poděkování + vyúčtování s obrázkem a Revolut odkazem, bez prosby o hodnocení. 2) Až přijde platba, nejpozději za 2–3 dny: krátké poděkování a prosba o 10/10 (Booking posílá pozvánku k hodnocení e-mailem). Prosba o hodnocení vedle žádosti o peníze působí jako obchod.
+
+**Další krok:** dát Pavlovi znovu obrázek (`SendUserFile`) a oba texty zpráv k odeslání (zpráva 1 s částkou 74,30 €, „3 Ladevorgänge und 3 kurze Nachladungen, zusammen 79,70 kWh“), počkat na jeho „posláno“, pak Obsidian „Villa Rudolf – hosté a pobyty“ (status, ask) a připomenout zprávu 2.
+
+**Soubory:** obrázek `~/Downloads/villa-rudolf/Ladeprotokoll 18.-24.10.2026.png`, HTML zdroj `~/Downloads/villa-rudolf/ladeprotokoll-18-24-10.html` (render: headless Chrome `--screenshot --force-device-scale-factor=2 --window-size=1280,1130`), verze bez krátkých dobití `…-bez-kratkych.html` (72,95 €). Texty zpráv a časy: sdílené poznámky `side-session-notes/local_fdac4d0e-…/nabijeni-18-24-10.md`.
+
 ## 2026-10-24 · Vyúčtování po odjezdu: Booking 18.–24. 10. (taxa + nabíjení auta), poděkování a 10/10
 
 **Cíl (Pavel):** poděkovat („it means the world for us“), požádat o 10/10 na Bookingu, vyúčtovat pobytovou taxu a nabíjení auta, platba přes Revolut `https://revolut.me/pavelhuqh`. Nabíjení „udělej mu tabulku … ať to vypadá jako měřák, profesionálně, všechny dny od kdy do kdy, kolik to bylo, ať nejsou spory“.
