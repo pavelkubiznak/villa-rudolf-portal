@@ -4,7 +4,7 @@
 čistý výnos = přímá cena: mimo 13 400 · sezóna (léto, zima) 14 900 · špičky 16 400 · Vánoce 18 000 · Silvestr 20 000.
 Portály přes provizi: Booking 641 / 713 / 784 / 861 / 956 € · Airbnb 15 900 / 17 600 / 19 400 / 21 300 / 23 700 Kč ·
 FeWo 592 / 658 / 725 / 795 / 884 €. Kalendář po úsecích: `docs/cenovy-kalendar-2027-2028.md` sekce 2.
-Nevratná −10 % (Booking rate plan, Airbnb volba, přímo ve smlouvě). Min. noci: léto 5, Vánoce+Silvestr 5, zima 2, mimo 2, svátky 3.
+Nevratná −10 % (Booking rate plan, Airbnb volba, přímo ve smlouvě). Min. noci: léto 5, Vánoce+Silvestr 6 (5. 10. 2026), zima 2, mimo 2, svátky 3.
 
 **Zápis do extranetů NEPROBĚHL.** Jde jen asistovaně přes Chrome s Pavlem u počítače (API nejsou, channel manager
 zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy ručně. Odhad: 3 portály ~1 h, e-chalupy + Megaubytko ~30 min.
