@@ -121,14 +121,14 @@ do vyřízení ticketu u GitHub Support. Postup a incident: `docs/ochrana-udaju.
   **Hladiny 13 400 / 14 900 / Vánoce 18 000 / Silvestr 20 000 potvrzeny 21. 9. 2026** (`docs/cenovy-kalendar-2027-2028.md`,
   odkud hosté jezdí `docs/trhy-hostu-2026-09.md`).
 - **Zápis do extranetů proběhl 5.–9. 10. 2026** (Booking/FeWo/Airbnb Vánoce + Silvestr + zima 2027 a léto 2028,
-  e-chalupy a Megaubytko 9. 10.; mimosezóna na portálech zatím stará). **Živý stav je jen ve větvích PR #4
-  (`claude/echalupy-cenik-932db6`) a PR #5 (`claude/megaubytko-cenik`)** — na `main` je `docs/STAV-cenik-2026-09-21.md`
-  i `docs/cenik.json` (horizont, min. noci 6 o Vánocích, id Megaubytka) **zastaralý do jejich sloučení**. Pořadí: PR #3 → #4 → #5,
-  #4 nerebasovat. Pasti zápisu (Booking plánovač přepisuje ceny, Airbnb 2 roky, FeWo konec kalendáře) jsou ve STAV na větvích.
+  e-chalupy a Megaubytko 9. 10.; mimosezóna na portálech zatím stará). Stav je v `docs/STAV-cenik-2026-09-21.md`;
+  `docs/cenik.json` má horizont 24 měsíců, min. noci 6 o Vánocích a Silvestru a id Megaubytka 13334 (PR #3, #4, #5
+  sloučeny větví `sloucit-cenik-2026-10-27`, postup v `docs/SLOUCENI-2026-10-27.md`). Megaubytko má roční sezóny:
+  po Novém roce 2028 posunout Vánoce/Silvestr (runbook `docs/cenova-parita-2027.md` 5.6). Pasti zápisu (Booking plánovač přepisuje ceny, Airbnb 2 roky, FeWo konec kalendáře) jsou ve STAV.
 - **Texty**: `docs/text-villa-rudolf.md` je zdroj pravdy (hlas, názvosloví, fakta, master text CZ+EN+DE v blocích A–L);
   všechno na kanálech se odvozuje odsud. Vzorem hlasu je web villarudolf.com (apartmá Suite, Pokoj 1–4, altán; DE tyká).
-  **Opravený půdorys je v PR #3** (`claude/texty-hlas-webu`): apartmá **není v podkroví** (půlka 1. patra + 2 ložnice
-  v podkroví), Pokoje 1–3 jsou v přízemí, obě kuchyně plnohodnotné — verze na `main` to má špatně.
+  Půdorys (z PR #3): apartmá **není v podkroví** (půlka 1. patra + 2 ložnice
+  v podkroví), Pokoje 1–3 jsou v přízemí, obě kuchyně plnohodnotné.
 - **Kanály**: audit popisů a stav distribuce `docs/popisy-na-kanalech.md` (Booking má dva objekty: `12558473 Villa Rudolf`
   živý, `353795 Rudolfův dvůr` zavřený), názvy `docs/nazev-na-kanalech.md`.
 

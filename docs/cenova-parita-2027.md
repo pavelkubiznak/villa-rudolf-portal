@@ -461,7 +461,7 @@ Proveditelnost ověřena 12. 8. 2026 sondou přes `claude-in-chrome` (read-only)
 - [x] totéž na Booking.com — léto 2027 a Vánoce 2027 hotovo 15. 9. 2026 (bod 5.2); léto 2028 až kalendář dosáhne
 - [x] FeWo min. noci 5 — léto 2027, Vánoce 2027, léto 2028 hotovo 15. 9. 2026 (bod 5.3)
 - [ ] Booking 15.–28. 8. 2027 „No inventory“ — ověřit záměr, případně otevřít
-- [x] první asistovaný zápis 5. 10. 2026 (Booking / FeWo / Airbnb: Vánoce + Silvestr 2027), další 6. a 9. 10. 2026 (léto 2028, e-chalupy, Megaubytko) — stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md); do sloučení PR #4 a #5 je aktuální verze toho souboru jen ve větvích `claude/echalupy-cenik-932db6` a `claude/megaubytko-cenik`
+- [x] první asistovaný zápis 5. 10. 2026 (Booking / FeWo / Airbnb: Vánoce + Silvestr 2027), další 6. a 9. 10. 2026 (léto 2028, e-chalupy, Megaubytko) — stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md)
 - [ ] měsíční rituál (audit + otevření dalšího měsíce) jako scheduled task — termín určit
 - [x] rešerše konkurence — persona z bodu 8 (Benelux) překonána: domovní kniha ukázala jádro ve východním Německu, Benelux jen 15 % pobytů → [`trhy-hostu-2026-09.md`](trhy-hostu-2026-09.md) (21. 9. 2026)
 - [x] kalendáře prázdnin a svátků DE/NL/BE/CZ 2027–2028, poptávkový přehled, návrh indexace 4 %,
