@@ -1,0 +1,1182 @@
+{
+ "_meta": {
+  "datum_auditu": "2026-10-05",
+  "rozsah": "2026-10-05 až 2028-10 (Airbnb), 2028-12 (FeWo); e-chalupy a Megaubytko z veřejného ceníku do 2028-03",
+  "metoda": "read-only: Airbnb interní kalendářní dotaz (getDLSHostCalendar + CustomSettingsQuery), FeWo buňky kalendáře + rail/minimumStay, e-chalupy a Megaubytko veřejná stránka objektu; Booking extranet List view (doplněno po přihlášení týž den)",
+  "chybi": [
+   "e-chalupy administrace (CZ i EN) — chce přihlášení číslem objektu + heslem; čteno jen veřejné CZ"
+  ],
+  "pozn": "Bez jmen hostů. Airbnb 'cena' = nativní cena noci (bez last-minute), 'cena_po_sleve' = co vidí host 0–14 dní předem."
+ },
+ "airbnb": {
+  "listing_id": "1122389326464885565",
+  "mena": "CZK",
+  "nastaveni": {
+   "zakladni_cena": 12900,
+   "smart_pricing": false,
+   "vikendova_cena": null,
+   "min_noci": 2,
+   "max_noci": 730,
+   "predbezne_oznameni": "tentýž den do 15:00",
+   "cas_na_pripravu": "žádný",
+   "okno_dostupnosti_mesicu": 24,
+   "okno_moznosti": "3/6/9/12/24 měsíců nebo všechna budoucí data (ověřit při změně)",
+   "otevreno_do": "2028-10-03",
+   "nepovolene_dny_prijezdu": [],
+   "nepovolene_dny_odjezdu": [],
+   "sleva_tydenni_pct": 0,
+   "sleva_mesicni_pct": 0,
+   "sleva_last_minute_pct": 15,
+   "sleva_last_minute_okno": "0–14 dní před příjezdem",
+   "brzka_rezervace": "nenastaveno",
+   "vlastni_promo": "žádná aktivní",
+   "nevratna_moznost": {
+    "zapnuto": true,
+    "sleva_pct": 10
+   },
+   "storno": "Středně přísné (krátkodobé i dlouhodobé)",
+   "ical_import": [
+    "e-chalupy",
+    "Villa Rudolf - vlastní kalendář"
+   ]
+  },
+  "min_noci_vlastni": [
+   {
+    "od": "2026-09-26",
+    "do": "2026-10-09",
+    "min_noci": 2
+   },
+   {
+    "od": "2026-11-02",
+    "do": "2026-11-08",
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-19",
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-20",
+    "do": "2026-12-26",
+    "min_noci": 7
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-19",
+    "min_noci": 6
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-27",
+    "min_noci": 7
+   },
+   {
+    "od": "2027-02-28",
+    "do": "2027-02-28",
+    "min_noci": 2
+   },
+   {
+    "od": "2027-03-19",
+    "do": "2027-06-25",
+    "min_noci": 2
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-06-26",
+    "min_noci": 6
+   },
+   {
+    "od": "2027-06-27",
+    "do": "2027-07-30",
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-31",
+    "do": "2027-07-31",
+    "min_noci": 6
+   },
+   {
+    "od": "2027-08-01",
+    "do": "2027-09-03",
+    "min_noci": 5
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2028-01-01",
+    "min_noci": 6
+   },
+   {
+    "od": "2028-07-01",
+    "do": "2028-09-01",
+    "min_noci": 5
+   }
+  ],
+  "useky": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-09",
+    "cena": 11900,
+    "stav": "volné",
+    "cena_po_sleve": 10115,
+    "pozn": "last-minute −15 % (0–14 dní)"
+   },
+   {
+    "od": "2026-10-10",
+    "do": "2026-10-15",
+    "cena": 8750,
+    "stav": "blok",
+    "cena_po_sleve": 7438,
+    "pozn": "last-minute −15 % (0–14 dní)"
+   },
+   {
+    "od": "2026-10-16",
+    "do": "2026-10-16",
+    "cena": 8750,
+    "stav": "blok"
+   },
+   {
+    "od": "2026-10-17",
+    "do": "2026-10-17",
+    "cena": 8750,
+    "stav": "volné (škrtnuté — jen odjezd/omezený příjezd)"
+   },
+   {
+    "od": "2026-10-18",
+    "do": "2026-10-23",
+    "cena": 8750,
+    "stav": "blok"
+   },
+   {
+    "od": "2026-10-24",
+    "do": "2026-10-25",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2026-10-26",
+    "do": "2026-10-27",
+    "cena": 11250,
+    "stav": "volné"
+   },
+   {
+    "od": "2026-10-28",
+    "do": "2026-10-29",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2026-10-30",
+    "do": "2026-12-17",
+    "cena": 11250,
+    "stav": "blok"
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "cena": 11250,
+    "stav": "volné (škrtnuté — jen odjezd/omezený příjezd)"
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-25",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2026-12-26",
+    "do": "2027-01-02",
+    "cena": 13500,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-01-09",
+    "cena": 11250,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-01-10",
+    "do": "2027-01-29",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-05",
+    "cena": 11250,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-02-06",
+    "do": "2027-02-12",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 11250,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-02-27",
+    "cena": 11900,
+    "stav": "volné (škrtnuté — jen odjezd/omezený příjezd)"
+   },
+   {
+    "od": "2027-02-28",
+    "do": "2027-03-03",
+    "cena": 11900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-03-04",
+    "do": "2027-03-06",
+    "cena": 11900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-03-07",
+    "do": "2027-03-31",
+    "cena": 11900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-04-01",
+    "do": "2027-04-28",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-04-29",
+    "do": "2027-05-01",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-05-02",
+    "do": "2027-05-04",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-05-05",
+    "do": "2027-05-08",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-05-09",
+    "cena": 12990,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-05-10",
+    "do": "2027-05-13",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-05-14",
+    "do": "2027-05-17",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-05-18",
+    "do": "2027-05-21",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-05-22",
+    "do": "2027-05-28",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-05-29",
+    "do": "2027-06-01",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-06-02",
+    "do": "2027-06-05",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-06-06",
+    "do": "2027-06-09",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-06-10",
+    "do": "2027-06-12",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-06-13",
+    "do": "2027-06-16",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-06-17",
+    "do": "2027-06-19",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-06-20",
+    "do": "2027-06-22",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-06-23",
+    "do": "2027-06-26",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-06-27",
+    "do": "2027-07-02",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-07-03",
+    "do": "2027-07-09",
+    "cena": 13990,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-07-10",
+    "do": "2027-07-11",
+    "cena": 13990,
+    "stav": "volné (škrtnuté — jen odjezd/omezený příjezd)"
+   },
+   {
+    "od": "2027-07-12",
+    "do": "2027-07-20",
+    "cena": 13990,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-07-21",
+    "do": "2027-08-06",
+    "stav": "rezervace"
+   },
+   {
+    "od": "2027-08-07",
+    "do": "2027-08-20",
+    "cena": 13990,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-08-21",
+    "do": "2027-08-29",
+    "cena": 13990,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-08-30",
+    "do": "2027-09-04",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-09-05",
+    "do": "2027-10-28",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-10-29",
+    "do": "2027-10-31",
+    "cena": 12900,
+    "stav": "blok"
+   },
+   {
+    "od": "2027-11-01",
+    "do": "2027-12-17",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2028-01-01",
+    "cena": 15655,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-01-15",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-01-16",
+    "do": "2028-05-24",
+    "cena": 13250,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-05-25",
+    "do": "2028-05-27",
+    "cena": 13250,
+    "stav": "blok"
+   },
+   {
+    "od": "2028-05-28",
+    "do": "2028-06-30",
+    "cena": 13250,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-07-01",
+    "do": "2028-07-14",
+    "cena": 14450,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-07-15",
+    "do": "2028-10-03",
+    "cena": 12900,
+    "stav": "volné"
+   },
+   {
+    "od": "2028-10-04",
+    "do": "2028-12-31",
+    "cena": 12900,
+    "stav": "blok"
+   }
+  ]
+ },
+ "fewo": {
+  "property_id": "106405316",
+  "fewo_id": "5510810",
+  "mena": "EUR",
+  "nastaveni": {
+   "standard_mietpreis": 529,
+   "sleva_mesicni_pct": 10,
+   "promotions": "2× pozastavené (Angehalten)",
+   "min_noci": 2,
+   "max_noci": 365,
+   "posledni_mozna_rezervace": "1 den předem",
+   "nejdrivejsi_rezervace_mesicu": 18,
+   "okno_moznosti": "bez omezení / 6 / 9 / 12 / 18 / 24 měsíců",
+   "otevreno_do": "2028-04-04",
+   "storno": "Moderate (100 % >30 dní, 50 % 14–30 dní)",
+   "nevratna": "FeWo nemá nevratný tarif v nastavení cen",
+   "ical_import": [
+    "e-chalupy",
+    "Villa Rudolf vlastní kalendář"
+   ]
+  },
+  "min_noci_rozsahy": [
+   {
+    "od": "2026-10-05",
+    "do": "2027-06-25",
+    "min_noci": 2
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-09-03",
+    "min_noci": 5
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2028-01-01",
+    "min_noci": "2-5 (smíšené)"
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-06-30",
+    "min_noci": 2
+   },
+   {
+    "od": "2028-07-01",
+    "do": "2028-09-01",
+    "min_noci": 5
+   }
+  ],
+  "useky": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-12-18",
+    "cena": 529
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2027-01-03",
+    "cena": 539
+   },
+   {
+    "od": "2027-01-04",
+    "do": "2027-07-02",
+    "cena": 529
+   },
+   {
+    "od": "2027-07-03",
+    "do": "2027-08-28",
+    "cena": 559
+   },
+   {
+    "od": "2027-08-29",
+    "do": "2027-12-17",
+    "cena": 529
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2028-01-01",
+    "cena": 639
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-01-15",
+    "cena": 529
+   },
+   {
+    "od": "2028-01-16",
+    "do": "2028-04-04",
+    "cena": 549
+   },
+   {
+    "od": "2028-04-05",
+    "do": "2028-06-30",
+    "cena": 549,
+    "stav": "blok",
+    "pozn": "mimo 18měsíční okno (přeškrtnuté)"
+   },
+   {
+    "od": "2028-07-01",
+    "do": "2028-08-31",
+    "cena": 589,
+    "stav": "blok",
+    "pozn": "mimo 18měsíční okno (přeškrtnuté)"
+   },
+   {
+    "od": "2028-09-01",
+    "do": "2028-12-22",
+    "cena": 549,
+    "stav": "blok",
+    "pozn": "mimo 18měsíční okno (přeškrtnuté)"
+   },
+   {
+    "od": "2028-12-23",
+    "do": "2028-12-31",
+    "cena": 689,
+    "stav": "blok",
+    "pozn": "mimo 18měsíční okno (přeškrtnuté)"
+   }
+  ]
+ },
+ "booking": {
+  "hotel_id": "12558473",
+  "room_id": "1255847301",
+  "mena": "EUR",
+  "nastaveni": {
+   "plany": [
+    "Standard Rate (ID 47181683, Flexibilní – 14 dní, obsazenost 22)",
+    "Nevratná (ID 48235993) = Standard × 0,92 (o 8 % levnější)"
+   ],
+   "min_noci": "Standard: většinou 2 (prázdné = výchozí), léto 2027 5, Vánoce 2027 5, Silvestr 2026 7, 1. 1. 2028 6; Nevratná: 2 do 2. 1. 2027, pak výchozí 4, léto/Vánoce 2027 5",
+   "planovac_dostupnosti": {
+    "zapnuto": true,
+    "obdobi": "16 měsíců (dnes 488 dní dopředu)",
+    "vychozi_cena_eur": 529,
+    "volby": "30 / 60 / 90 / 180 / 365 dní / 16 měsíců"
+   },
+   "otevreno_do": "2028-07-01",
+   "nabidky": "žádná aktivní (mobilní ani zemské slevy, last-minute ani early booker)",
+   "genius": "nezjištěno, v nabídkách neaktivní",
+   "pozn_mereni": "čteno List view po 62denních oknech s restrikcemi; řádek 'Pokoje k prodeji' se při importovaných blokacích posouvá, proto stav (volné/blok) u Bookingu není spolehlivý a v úsecích chybí"
+  },
+  "useky_standard_eur": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-09",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-10",
+    "do": "2026-10-16",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-17",
+    "do": "2026-10-27",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-28",
+    "do": "2026-12-17",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-26",
+    "cena": 539,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-27",
+    "do": "2027-01-02",
+    "cena": 539,
+    "min_noci": 7
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-01-29",
+    "cena": 529
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-12",
+    "cena": 499
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 529
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 499
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-04-12",
+    "cena": 529
+   },
+   {
+    "od": "2027-04-13",
+    "do": "2027-04-15",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-04-16",
+    "do": "2027-04-28",
+    "cena": 529
+   },
+   {
+    "od": "2027-04-29",
+    "do": "2027-04-30",
+    "cena": 499
+   },
+   {
+    "od": "2027-05-01",
+    "do": "2027-05-01",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-02",
+    "do": "2027-05-04",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-05",
+    "do": "2027-05-08",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-05-09",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-05-10",
+    "do": "2027-05-13",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-14",
+    "do": "2027-05-17",
+    "cena": 499,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-05-18",
+    "do": "2027-05-31",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-06-01",
+    "do": "2027-06-09",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-10",
+    "do": "2027-06-12",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-13",
+    "do": "2027-06-16",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-17",
+    "do": "2027-06-19",
+    "cena": 559,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-20",
+    "do": "2027-06-25",
+    "cena": 529,
+    "min_noci": 3
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-07-16",
+    "cena": 569,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-17",
+    "do": "2027-07-20",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-21",
+    "do": "2027-08-31",
+    "cena": 569,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-01",
+    "do": "2027-09-03",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-12-17",
+    "cena": 529,
+    "min_noci": 2
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-31",
+    "cena": 529,
+    "min_noci": 5
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-01",
+    "cena": 529,
+    "min_noci": 6
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-02-05",
+    "cena": 529
+   },
+   {
+    "od": "2028-02-06",
+    "do": "2028-07-01",
+    "cena": 549
+   },
+   {
+    "od": "2028-07-02",
+    "do": "2028-08-16",
+    "stav": "blok",
+    "pozn": "bez ceny a dostupnosti (0 pokojů k prodeji); extranet dál než ~16. 8. 2028 datum v URL ignoruje"
+   }
+  ],
+  "useky_nevratna_eur": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-09",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-10",
+    "do": "2026-10-16",
+    "cena": 459.08,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-17",
+    "do": "2026-10-27",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-10-28",
+    "do": "2026-12-17",
+    "cena": 459.08,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-18",
+    "cena": 486.68,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-19",
+    "do": "2026-12-26",
+    "cena": 495.88,
+    "min_noci": 2
+   },
+   {
+    "od": "2026-12-27",
+    "do": "2027-01-02",
+    "cena": 495.88,
+    "min_noci": 7
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-01-29",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-01-30",
+    "do": "2027-02-12",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-13",
+    "do": "2027-02-19",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-20",
+    "do": "2027-02-26",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-02-27",
+    "do": "2027-04-12",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-13",
+    "do": "2027-04-15",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-16",
+    "do": "2027-04-28",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-04-29",
+    "do": "2027-04-30",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-01",
+    "do": "2027-05-01",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-02",
+    "do": "2027-05-04",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-05",
+    "do": "2027-05-08",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-05-09",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-10",
+    "do": "2027-05-13",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-14",
+    "do": "2027-05-17",
+    "cena": 459.08,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-05-18",
+    "do": "2027-05-31",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-01",
+    "do": "2027-06-09",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-10",
+    "do": "2027-06-12",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-13",
+    "do": "2027-06-16",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-17",
+    "do": "2027-06-19",
+    "cena": 514.28,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-20",
+    "do": "2027-06-25",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-07-16",
+    "cena": 523.48,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-17",
+    "do": "2027-07-20",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-07-21",
+    "do": "2027-08-31",
+    "cena": 523.48,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-01",
+    "do": "2027-09-03",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-12-17",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-31",
+    "cena": 486.68,
+    "min_noci": 5
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-01",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2028-01-02",
+    "do": "2028-02-05",
+    "cena": 486.68,
+    "min_noci": 4
+   },
+   {
+    "od": "2028-02-06",
+    "do": "2028-07-01",
+    "cena": 505.08,
+    "min_noci": 4
+   }
+  ]
+ },
+ "echalupy": {
+  "objekt": "18852",
+  "mena": "CZK",
+  "zdroj": "veřejná stránka e-chalupy.cz/ubytovani-svoboda-nad-upou-vila-rudolf-o18852 (CZ)",
+  "nastaveni": {
+   "min_noci": 2,
+   "sezony": "letní 1.5.–31.10. 12 900 · zimní 15.12.–31.3. 12 900 · mimo 11 900 (víkend 25 800 / 22 800)",
+   "vanoce_tyden": 94900,
+   "silvestr_tyden": 99900,
+   "vanoce_silvestr_2026": "obsazeno",
+   "anglicka_verze": "nezjištěno — jen z administrace"
+  },
+  "useky": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-10-31",
+    "cena": 12900,
+    "min_noci": 2,
+    "sezona_kanalu": "letní"
+   },
+   {
+    "od": "2026-11-01",
+    "do": "2026-12-14",
+    "cena": 11900,
+    "min_noci": 2,
+    "sezona_kanalu": "mimo"
+   },
+   {
+    "od": "2026-12-15",
+    "do": "2027-03-31",
+    "cena": 12900,
+    "min_noci": 2,
+    "sezona_kanalu": "zimní"
+   },
+   {
+    "od": "2027-04-01",
+    "do": "2027-04-30",
+    "cena": 11900,
+    "min_noci": 2,
+    "sezona_kanalu": "mimo"
+   },
+   {
+    "od": "2027-05-01",
+    "do": "2027-10-31",
+    "cena": 12900,
+    "min_noci": 2,
+    "sezona_kanalu": "letní"
+   },
+   {
+    "od": "2027-11-01",
+    "do": "2027-12-14",
+    "cena": 11900,
+    "min_noci": 2,
+    "sezona_kanalu": "mimo"
+   },
+   {
+    "od": "2027-12-15",
+    "do": "2028-03-31",
+    "cena": 12900,
+    "min_noci": 2,
+    "sezona_kanalu": "zimní"
+   }
+  ]
+ },
+ "megaubytko": {
+  "id_objektu": "13334",
+  "id_pozn": "z názvu fotky a13334-villa-rudolf — ověřit v administraci",
+  "url": "megaubytko.cz/villa-rudolf",
+  "mena": "CZK",
+  "nastaveni": {
+   "hlavicka": "od 4 990 Kč / objekt / noc (nesedí s ceníkem — prověřit, možná stará nebo akční cena)",
+   "mesto": "Trutnov (v textu překlep 'Trustnov')",
+   "poplatky": "25 Kč/os/noc, 3 000 / 500 / 5 000 Kč za pobyt (typ nezjištěn)"
+  },
+  "useky": [
+   {
+    "od": "2026-10-05",
+    "do": "2026-12-19",
+    "cena": 11950,
+    "min_noci": 4,
+    "sezona_kanalu": "zimní mimosezóna"
+   },
+   {
+    "od": "2026-12-20",
+    "do": "2026-12-26",
+    "cena": 14500,
+    "min_noci": 7,
+    "sezona_kanalu": "Vánoce"
+   },
+   {
+    "od": "2026-12-27",
+    "do": "2027-01-02",
+    "cena": 16500,
+    "min_noci": 7,
+    "sezona_kanalu": "Silvestr"
+   },
+   {
+    "od": "2027-01-03",
+    "do": "2027-03-31",
+    "cena": 12950,
+    "min_noci": 4,
+    "sezona_kanalu": "zimní sezóna"
+   },
+   {
+    "od": "2027-04-01",
+    "do": "2027-06-30",
+    "cena": 11950,
+    "min_noci": 2,
+    "sezona_kanalu": "letní mimosezóna"
+   },
+   {
+    "od": "2027-07-01",
+    "do": "2027-08-31",
+    "cena": 12950,
+    "min_noci": 6,
+    "sezona_kanalu": "letní sezóna"
+   },
+   {
+    "od": "2027-09-01",
+    "do": "2027-12-19",
+    "cena": 11950,
+    "min_noci": 4,
+    "sezona_kanalu": "zimní mimosezóna"
+   },
+   {
+    "od": "2027-12-20",
+    "do": "2027-12-26",
+    "cena": 14500,
+    "min_noci": 7,
+    "sezona_kanalu": "Vánoce"
+   },
+   {
+    "od": "2027-12-27",
+    "do": "2028-01-02",
+    "cena": 16500,
+    "min_noci": 7,
+    "sezona_kanalu": "Silvestr"
+   },
+   {
+    "od": "2028-01-03",
+    "do": "2028-03-31",
+    "cena": 12950,
+    "min_noci": 4,
+    "sezona_kanalu": "zimní sezóna"
+   }
+  ]
+ }
+}
