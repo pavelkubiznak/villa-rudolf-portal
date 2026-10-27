@@ -10,6 +10,7 @@ Status: **živý** = popisuje dnešní stav, drž ho aktuální · **runbook** =
 | [`ochrana-udaju.md`](ochrana-udaju.md) | živý | správce, záznam o činnostech, zpracovatelé, lhůty, žádosti subjektů, incidenty, rozhodnutí pro Pavla |
 | [`cenik.json`](cenik.json) | **data** | ceník = zdroj pravdy pro ceny, min. noci, horizont a výjimky na všech kanálech; čte `scripts/cenik.mjs` a web (`site/tools/gen-cenik-web.mjs`) |
 | [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md) | živý | stav zápisu cen do extranetů (zápis běží od 5. 10. 2026; PR #4 a #5 sloučeny 27. 10. 2026, viz `SLOUCENI-2026-10-27.md`) |
+| [`SLOUCENI-2026-10-27.md`](SLOUCENI-2026-10-27.md) | záznam | sloučení PR #3–#5 (texty + ceník) do větve `sloucit-cenik-2026-10-27`: konflikty, ověření, postup push/PR |
 | [`cenova-parita-2027.md`](cenova-parita-2027.md) | runbook | audit a asistovaný zápis cen přes Chrome (sekce 4–5 jsou postup; sekce 0–3, 7–8 jsou rozhodnutí z 8.–9. 2026, čísla překonána ceníkem 21. 9.) |
 | [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md) | živý | podle čeho ceny 2027/2028: prázdniny DE/NL/BE/CZ, indexace, dny × noci, kontrola, model čistého výnosu |
 | [`cenovy-kalendar-2027-2028.md`](cenovy-kalendar-2027-2028.md) | živý | rozhodnutí A–D z 21. 9. 2026 a referenční tabulka úseků (sekce 2) |
