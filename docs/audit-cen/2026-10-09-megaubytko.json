@@ -1,0 +1,443 @@
+{
+ "_meta": {
+  "datum_auditu": "2026-10-09",
+  "rozsah": "2026-10-09 až 2029-01-05 (noci), jen Megaubytko (objekt 13334)",
+  "metoda": "po zápisu 9. 10. 2026: sezóny, ceník, cenová kategorie a poplatky přečtené z administrace (Úprava prezentace → Ceny a slevy) po uložení a znovunačtení, ověřené na veřejné stránce megaubytko.cz/villa-rudolf. Roční sezóny (den.měsíc, bez roku) rozepsané na data.",
+  "klic": "noc — sezóna Megaubytka „od–do“ = noci včetně posledního dne (ověřeno 9. 10. 2026: pobyt 24.–30. 12. 2027 = 1 × 18 000 + 5 × 20 000 = 118 000 Kč ve výpočtu předběžné rezervace; administrace navíc hlásí nepokryté DNY, ne noci)",
+  "pozn": "Bez jmen hostů. Sezóny jsou roční: nastavené podle kalendáře 2027 (Vánoce, Silvestr, léto 26. 6.–3. 9., podzimní prázdniny) a 2028 (TOP 1.–7. 1. a 26. 2.–3. 3., zima do 18. 3.); Velikonoce 25. 3.–23. 4. pokrývají Velikonoce 2027 i 2028, květnové svátky 24. 4.–8. 5. obojí. Kde se roky liší, platí vyšší cena (Pavel: radši neprodat než pod cenou)."
+ },
+ "megaubytko": {
+  "id_objektu": "13334",
+  "id_uzivatele": "u11972",
+  "url": "megaubytko.cz/villa-rudolf",
+  "mena": "CZK",
+  "nastaveni": {
+   "min_noci": {
+    "zakladni": 2,
+    "svatky_velikonoce_kveten_podzim": 3,
+    "top_1_7_1": 3,
+    "leto": 5,
+    "vanoce_silvestr": 6
+   },
+   "min_osob": 1,
+   "cenova_kategorie": {
+    "objekt_noc": [
+     13400,
+     20000
+    ],
+    "osoba_noc": [
+     610,
+     20000
+    ],
+    "zobrazovat": "cena za objekt / noc",
+    "hlavicka_inzeratu": "od 13 400 Kč / objekt / noc"
+   },
+   "poplatky": {
+    "uklid_pobyt": 3500,
+    "poplatek_obci": "25 Kč / osoba / noc, od 18 let",
+    "zvire_pobyt": 500,
+    "kauce_pobyt": 5000,
+    "v_cene": [
+     "ložní prádlo",
+     "dřevo do krbu",
+     "parkování",
+     "dětská postýlka",
+     "spotřeba energie",
+     "venkovní bazén"
+    ]
+   },
+   "sezony": [
+    {
+     "nazev": "TOP Sezóna",
+     "od": "01-01",
+     "do": "01-07",
+     "cena": 16400,
+     "min_noci": 3
+    },
+    {
+     "nazev": "Zimní sezóna",
+     "od": "01-08",
+     "do": "02-25",
+     "cena": 14900,
+     "min_noci": 2
+    },
+    {
+     "nazev": "TOP Sezóna",
+     "od": "02-26",
+     "do": "03-03",
+     "cena": 16400,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Zimní sezóna",
+     "od": "03-04",
+     "do": "03-18",
+     "cena": 14900,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Mimosezóna",
+     "od": "03-19",
+     "do": "03-24",
+     "cena": 13400,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Velikonoční pobyt",
+     "od": "03-25",
+     "do": "04-23",
+     "cena": 14900,
+     "min_noci": 3
+    },
+    {
+     "nazev": "Sezóna",
+     "od": "04-24",
+     "do": "05-08",
+     "cena": 14900,
+     "min_noci": 3
+    },
+    {
+     "nazev": "Letní mimosezóna",
+     "od": "05-09",
+     "do": "06-25",
+     "cena": 13400,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Letní sezóna",
+     "od": "06-26",
+     "do": "09-03",
+     "cena": 14900,
+     "min_noci": 5
+    },
+    {
+     "nazev": "Mimosezóna",
+     "od": "09-04",
+     "do": "10-22",
+     "cena": 13400,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Sezóna",
+     "od": "10-23",
+     "do": "11-05",
+     "cena": 14900,
+     "min_noci": 3
+    },
+    {
+     "nazev": "Zimní mimosezóna",
+     "od": "11-06",
+     "do": "12-17",
+     "cena": 13400,
+     "min_noci": 2
+    },
+    {
+     "nazev": "Vánoční pobyt",
+     "od": "12-18",
+     "do": "12-24",
+     "cena": 18000,
+     "min_noci": 6
+    },
+    {
+     "nazev": "Silvestr",
+     "od": "12-25",
+     "do": "12-31",
+     "cena": 20000,
+     "min_noci": 6
+    }
+   ],
+   "pred_zapisem": {
+    "zdroj": "docs/audit-cen/2026-10-05.json + administrace 9. 10. 2026 před uložením",
+    "sezony": [
+     [
+      "Zimní sezóna",
+      "1. 1. – 31. 3.",
+      12950,
+      4
+     ],
+     [
+      "Letní mimosezóna",
+      "1. 4. – 30. 6.",
+      11950,
+      2
+     ],
+     [
+      "Letní sezóna",
+      "1. 7. – 31. 8.",
+      12950,
+      6
+     ],
+     [
+      "Zimní mimosezóna",
+      "1. 9. – 20. 12.",
+      11950,
+      4
+     ],
+     [
+      "Vánoční pobyt",
+      "20. 12. – 27. 12.",
+      14500,
+      7
+     ],
+     [
+      "Silvestr",
+      "27. 12. – 3. 1.",
+      16500,
+      7
+     ]
+    ],
+    "cenova_kategorie": {
+     "objekt_noc": [
+      4990,
+      12500
+     ],
+     "osoba_noc": [
+      485,
+      12500
+     ]
+    },
+    "uklid_pobyt": 3000
+   }
+  },
+  "useky": [
+   {
+    "od": "2026-10-09",
+    "do": "2026-10-22",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimosezóna"
+   },
+   {
+    "od": "2026-10-23",
+    "do": "2026-11-05",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Sezóna"
+   },
+   {
+    "od": "2026-11-06",
+    "do": "2026-12-17",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní mimosezóna"
+   },
+   {
+    "od": "2026-12-18",
+    "do": "2026-12-24",
+    "cena": 18000,
+    "min_noci": 6,
+    "sezona_kanalu": "Vánoční pobyt"
+   },
+   {
+    "od": "2026-12-25",
+    "do": "2026-12-31",
+    "cena": 20000,
+    "min_noci": 6,
+    "sezona_kanalu": "Silvestr"
+   },
+   {
+    "od": "2027-01-01",
+    "do": "2027-01-07",
+    "cena": 16400,
+    "min_noci": 3,
+    "sezona_kanalu": "TOP Sezóna"
+   },
+   {
+    "od": "2027-01-08",
+    "do": "2027-02-25",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2027-02-26",
+    "do": "2027-03-03",
+    "cena": 16400,
+    "min_noci": 2,
+    "sezona_kanalu": "TOP Sezóna"
+   },
+   {
+    "od": "2027-03-04",
+    "do": "2027-03-18",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2027-03-19",
+    "do": "2027-03-24",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimosezóna"
+   },
+   {
+    "od": "2027-03-25",
+    "do": "2027-04-23",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Velikonoční pobyt"
+   },
+   {
+    "od": "2027-04-24",
+    "do": "2027-05-08",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Sezóna"
+   },
+   {
+    "od": "2027-05-09",
+    "do": "2027-06-25",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Letní mimosezóna"
+   },
+   {
+    "od": "2027-06-26",
+    "do": "2027-09-03",
+    "cena": 14900,
+    "min_noci": 5,
+    "sezona_kanalu": "Letní sezóna"
+   },
+   {
+    "od": "2027-09-04",
+    "do": "2027-10-22",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimosezóna"
+   },
+   {
+    "od": "2027-10-23",
+    "do": "2027-11-05",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Sezóna"
+   },
+   {
+    "od": "2027-11-06",
+    "do": "2027-12-17",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní mimosezóna"
+   },
+   {
+    "od": "2027-12-18",
+    "do": "2027-12-24",
+    "cena": 18000,
+    "min_noci": 6,
+    "sezona_kanalu": "Vánoční pobyt"
+   },
+   {
+    "od": "2027-12-25",
+    "do": "2027-12-31",
+    "cena": 20000,
+    "min_noci": 6,
+    "sezona_kanalu": "Silvestr"
+   },
+   {
+    "od": "2028-01-01",
+    "do": "2028-01-07",
+    "cena": 16400,
+    "min_noci": 3,
+    "sezona_kanalu": "TOP Sezóna"
+   },
+   {
+    "od": "2028-01-08",
+    "do": "2028-02-25",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2028-02-26",
+    "do": "2028-03-03",
+    "cena": 16400,
+    "min_noci": 2,
+    "sezona_kanalu": "TOP Sezóna"
+   },
+   {
+    "od": "2028-03-04",
+    "do": "2028-03-18",
+    "cena": 14900,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní sezóna"
+   },
+   {
+    "od": "2028-03-19",
+    "do": "2028-03-24",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimosezóna"
+   },
+   {
+    "od": "2028-03-25",
+    "do": "2028-04-23",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Velikonoční pobyt"
+   },
+   {
+    "od": "2028-04-24",
+    "do": "2028-05-08",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Sezóna"
+   },
+   {
+    "od": "2028-05-09",
+    "do": "2028-06-25",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Letní mimosezóna"
+   },
+   {
+    "od": "2028-06-26",
+    "do": "2028-09-03",
+    "cena": 14900,
+    "min_noci": 5,
+    "sezona_kanalu": "Letní sezóna"
+   },
+   {
+    "od": "2028-09-04",
+    "do": "2028-10-22",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Mimosezóna"
+   },
+   {
+    "od": "2028-10-23",
+    "do": "2028-11-05",
+    "cena": 14900,
+    "min_noci": 3,
+    "sezona_kanalu": "Sezóna"
+   },
+   {
+    "od": "2028-11-06",
+    "do": "2028-12-17",
+    "cena": 13400,
+    "min_noci": 2,
+    "sezona_kanalu": "Zimní mimosezóna"
+   },
+   {
+    "od": "2028-12-18",
+    "do": "2028-12-24",
+    "cena": 18000,
+    "min_noci": 6,
+    "sezona_kanalu": "Vánoční pobyt"
+   },
+   {
+    "od": "2028-12-25",
+    "do": "2028-12-31",
+    "cena": 20000,
+    "min_noci": 6,
+    "sezona_kanalu": "Silvestr"
+   },
+   {
+    "od": "2029-01-01",
+    "do": "2029-01-05",
+    "cena": 16400,
+    "min_noci": 3,
+    "sezona_kanalu": "TOP Sezóna"
+   }
+  ]
+ }
+}

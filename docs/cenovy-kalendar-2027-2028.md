@@ -1,7 +1,7 @@
 # Cenový kalendář 21. 9. 2026 – léto 2028: návrh podle zadání z 21. 9. 2026
 
 Stav: rozhodnuto 21. 9. 2026 (A–D), zapsáno v [`cenik.json`](cenik.json) verze 2026-09-21; zápis do extranetů
-běží od 5. 10. 2026 (stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md), do sloučení PR #4/#5 aktuální jen ve větvích).
+běží od 5. 10. 2026 (stav v [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md)).
 Návrhový soubor `cenik-navrh-2026-09-21.json` už neexistuje — příkazy níže běží nad živým ceníkem bez `--cenik`. Sekce 2 = referenční tabulka úseků.
 Navazuje na [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md) (prázdniny, výjimky, model čistého výnosu)
 a na benchmark konkurence ze 17. 9. 2026 (artefakt „Krkonošský cenový benchmark“, airbnb.cz + booking.com, 16 hostů; shrnutí v sekci 4).

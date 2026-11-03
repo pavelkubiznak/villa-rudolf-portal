@@ -9,12 +9,13 @@ Status: **živý** = popisuje dnešní stav, drž ho aktuální · **runbook** =
 | [`provoz-runbook.md`](provoz-runbook.md) | runbook | co běží kde (Pages, cron počasí, pg_cron, zálohy), kontroly, co dělat když…, přístupy |
 | [`ochrana-udaju.md`](ochrana-udaju.md) | živý | správce, záznam o činnostech, zpracovatelé, lhůty, žádosti subjektů, incidenty, rozhodnutí pro Pavla |
 | [`cenik.json`](cenik.json) | **data** | ceník = zdroj pravdy pro ceny, min. noci, horizont a výjimky na všech kanálech; čte `scripts/cenik.mjs` a web (`site/tools/gen-cenik-web.mjs`) |
-| [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md) | živý ⚠️ | stav zápisu cen do extranetů. **Na `main` zastaralý** („zápis neproběhl") — zápis běží od 5. 10. 2026 a aktuální verze je ve větvích PR #4 (`claude/echalupy-cenik-932db6`) a #5 (`claude/megaubytko-cenik`) do jejich sloučení |
+| [`STAV-cenik-2026-09-21.md`](STAV-cenik-2026-09-21.md) | živý | stav zápisu cen do extranetů (zápis běží od 5. 10. 2026; PR #4 a #5 sloučeny 27. 10. 2026, viz `SLOUCENI-2026-10-27.md`) |
+| [`SLOUCENI-2026-10-27.md`](SLOUCENI-2026-10-27.md) | záznam | sloučení PR #3–#5 (texty + ceník) do větve `sloucit-cenik-2026-10-27`: konflikty, ověření, postup push/PR |
 | [`cenova-parita-2027.md`](cenova-parita-2027.md) | runbook | audit a asistovaný zápis cen přes Chrome (sekce 4–5 jsou postup; sekce 0–3, 7–8 jsou rozhodnutí z 8.–9. 2026, čísla překonána ceníkem 21. 9.) |
 | [`cenova-logika-2027-2028.md`](cenova-logika-2027-2028.md) | živý | podle čeho ceny 2027/2028: prázdniny DE/NL/BE/CZ, indexace, dny × noci, kontrola, model čistého výnosu |
 | [`cenovy-kalendar-2027-2028.md`](cenovy-kalendar-2027-2028.md) | živý | rozhodnutí A–D z 21. 9. 2026 a referenční tabulka úseků (sekce 2) |
 | [`trhy-hostu-2026-09.md`](trhy-hostu-2026-09.md) | živý | odkud hosté jezdí (agregáty z domovní knihy) a jejich alternativy |
-| [`text-villa-rudolf.md`](text-villa-rudolf.md) | živý | zdroj pravdy pro texty: hlas, fakta o domě, master text CZ+EN+DE. **Opravený půdorys je v PR #3** (`claude/texty-hlas-webu`); verze na `main` má chybné „podkrovní apartmán" |
+| [`text-villa-rudolf.md`](text-villa-rudolf.md) | živý | zdroj pravdy pro texty: hlas, fakta o domě, master text CZ+EN+DE. Opravený půdorys (apartmá není v podkroví) z PR #3 |
 | [`popisy-na-kanalech.md`](popisy-na-kanalech.md) | živý | audit popisů na Airbnb / Booking / FeWo / e-chalupy, mapování bloků na pole kanálů, stav distribuce (6a) |
 | [`nazev-na-kanalech.md`](nazev-na-kanalech.md) | živý | název objektu na kanálech — rozhodnuto 21. 9. 2026, Airbnb zapisuje Pavel |
 | [`kanaly-jedno-misto.md`](kanaly-jedno-misto.md) | živý (sekce 1–2) | rozhodnutí „channel manager zamítnut" (13. 8. 2026), provize a měny kanálů; sekce 3 (iCal hub) je historie |
