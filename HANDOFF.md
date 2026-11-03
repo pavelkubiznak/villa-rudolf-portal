@@ -2,6 +2,16 @@
 
 Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
+## 2026-11-03 · Ceník a texty v main (PR #21 sloučen), PR #3–#5 zavřeny, web: #54 a #52 sloučeny
+
+**Cíl (Pavel, 3. 11.):** všechny repozitáře dotáhnout, „aby na konci byla tečka“. Session „Jedno řešení – 3. 11. 2026“ (`local_9ae49396-6503-40e7-8aa0-060791eed004`).
+
+**Hotovo a ověřené:** lokální `main` (6 předávek + 1 necommitnutá) přenesen na `origin/main` (33 automatických `forecast.json`) a pushnut; PR #21 sloučen (merge, kontrola validate SUCCESS), větev na GitHubu smazána (lokálně zůstává kvůli worktree staré session); PR #3 a #5 zavřeny s komentářem, #4 byl už sloučený. V portálu není žádný otevřený PR.
+
+**Web (villa-rudolf-site):** sloučeny #54 (zrušené rezervace neblokují kalendář, squash) a #52 (AI fáze 3: podmínky, info, pro koho, srovnání, FAQ ve 6 jazycích, merge); Pages nasazeno, IndexNow odesláno. #51 (volné termíny jako text) byl po tom v konfliktu – přenáší ho pomocná session (výsledek v mapě práce „Web vily – návštěvy z AI a poptávky“). #41 (zprávy T−10/T−2, konflikt od 11. 10.) a #53 (draft) = slepé koleje, doporučeno zavřít; rozhodne Pavel.
+
+**Otevřené pro Pavla:** PR #52 zveřejnil ve všech jazycích větu „záloha 30 % po potvrzení“ (text byl na webu už dřív) – ve skutečnosti se platí celá faktura nebo 50/50; rozhodnout, jestli větu změnit (jedna věta pro session). Zprávy hostům (74,30 € + 2× poděkování): hotové texty v Obsidianu „Villa Rudolf – hosté a pobyty“, odesílá Pavel.
+
 ## 2026-10-25 · Vyúčtování Booking 18.–24. 10.: obrázek hotový (74,30 €), zbývá odeslat zprávy
 
 **Cíl (Pavel):** „do vyúčtování mu dej všechna ta nabíjení, ať vidí, že měříme přesně“; poděkování a prosba o 10/10 zvlášť. Platba Revolut `https://revolut.me/pavelhuqh`.
