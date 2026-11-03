@@ -30,6 +30,16 @@ Nejnovější nahoře. Bez PII: pobyty termínem a počtem osob, nikdy jménem.
 
 **Soubory:** vzor obrázků z 17. 10. ve scratchpadu staré session (`…/868fd352-…/scratchpad/abrechnung.html`, `zaehler.html`); paměť `doplatky-hostu-pres-revolut.md`; Obsidian „Villa Rudolf – hosté a pobyty“ (status čeká na Pavla).
 
+## 2026-10-23 · Kódy hostů v Seamu: jména doplněna, trvalé kódy vráceny
+
+**Cíl (Pavel):** „zapiš všechny ty kódy a jména hostů do zámku“, ale „mělo by se to omezit na ten jejich pobyt“ (trvalé kódy nechce).
+
+**Hotovo a ověřené:** Seam dává time_bound kód do zámku až těsně před `starts_at` (podle dokumentace, nejde vynutit). Zkusil jsem 12 kódů převést na ongoing (trvalé, hned v zámku); Pavel to odmítl → všech 12 vráceno `/access_codes/update` na time_bound s původními časy. Kontrola 23. 10. večer: 23 kódů, všechny time_bound, čísla i časy shodné se zálohou, stav „unset“ (v zámku zatím nejsou, Seam je tam dá před příjezdem). Názvy od prosince: „Jméno Příjmení D. M. RRRR · vr:<uidh>“ (jména jen v Seamu/Yale, ne v repu). Seam má per-device limit na update → měnit po jednom za minutu. Záloha seznamu: scratchpad session `32d5f6e4-…/codes-zaloha.json`.
+
+**Důsledek:** po zrušení Seamu (~3. 11.) se kódy od prosince do zámku samy nedostanou → Matter musí fungovat dřív, jinak Seam o měsíc prodloužit nebo kódy s časem zadat v Yale Home ručně.
+
+**Další krok:** Pavel na vile (~2. 11.): párovací kód Matter → `matter/commission` {"code", "network_only": true}, ověřit PIN přes Matter, automatizace v HA (kód založit při příjezdu, smazat při odjezdu). Při rušení Seamu kódy nemazat ručně.
+
 ## 2026-10-23 · Kódy všech hostů v Seamu, zámek do Matteru (párování na vile přes Bluetooth)
 
 **Cíl (Pavel):** „zapiš v Seamu úplně všechny hosty“ (trial ještě ~10 dní) a „zařídit, aby to šlo přes Matter“.
