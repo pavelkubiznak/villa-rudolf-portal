@@ -58,12 +58,28 @@ Horizont ceníku 24 měsíců (Pavel 5. 10. 2026); měsíční úloha `vr-cenik-
   Vánoce na 23.–29. 12., Silvestr na 30. 12.–5. 1. a TOP na 6.–7. 1.** (jinak noci 1.–5. 1. 2029 vyjdou 16 400 místo 20 000).
   Ověřeno v administraci po znovunačtení, na veřejné stránce a výpočtem předběžné rezervace (dny × noci). Diff: pod cenou jen
   obsazené noci 2027 a 1.–5. 1. 2029. Záznam: `docs/audit-cen/2026-10-09-megaubytko.md` + `.json`.
-- **Další v pořadí:** léto 2028 + Vánoce 2028 (Booking jen do ~16. 8. 2028), pak mimosezóna od října 2026 + výjimky;
-  czech-cottages.com (EN verze e-chalup) do 10. 10. zkontrolovat, že převzal nové ceny; FeWo okno 24 měsíců až po cenách 2028;
-  Booking plánovač výchozí cena 529 → 641 €; nevratná Booking 8 → 10 %.
+- 16. 11. 2026 **Airbnb mimosezóna + výjimky + zima 2028** (krok 4): léto 2027 a Velikonoce/máj/podzim 2027 17 600 Kč,
+  zima 2028 8. 1.–18. 3. 17 600, špička 26. 2.–3. 3. 2028 19 400, Velikonoce a máj 2028 17 600, mimosezóna (10 úseků) 15 900.
+  Min. 3 o svátcích (Velikonoce, máj, podzim 2027, Velikonoce + máj 2028). Re-audit: plán sedí kromě listopadu 2026 (last-minute −15 %
+  → 13 515 Kč), Vánoc 2026 (obsazené) a zimy 2027 (min. 6–7, Pavel 5. 10.). Základní cena 12 900 Kč zatím nezměněna.
+- 17. 11. 2026 **Booking mimosezóna + výjimky + zima 2028** (Pavlovo „Ano, zapiš ceny“): Standard 713 € (léto 2027, Velikonoce/máj/podzim
+  2027, zima 2028 8. 1.–25. 2. a 4.–18. 3., Velikonoce + máj 2028), 784 € (26. 2.–3. 3. 2028), 641 € (9 úseků mimosezóny 17. 11. 2026–30. 6. 2028).
+  Re-audit v List view: 27 z 28 úseků sedí, výjimka Vánoce 2026 (539 €, obsazené/zavřené, neměněno). Nevratná všude −8 %.
+  Minima neměněna (Standard 2, o svátcích 2 místo 3 kromě 13.–15. 4., 5.–9. 5. a 1.–25. 6. 2027; Nevratná 4). Booking má data do 28. 7. 2028.
+- 16.–17. 11. 2026 **FeWo mimosezóna + výjimky + zima 2028**: 658 € (léto 2027, Velikonoce/máj/podzim 2027, zima 2028 8. 1.–25. 2.
+  a 4.–18. 3., Velikonoce + máj 2028), 725 € (26. 2.–3. 3. 2028), 592 € (mimosezóna 17. 11. 2026–31. 10. 2028, 10 úseků).
+  Re-audit 17. 11. z ročního pohledu kalendáře (ceny + minima): všech 31 úseků 2026–2028 sedí s plánem kromě Vánoc 2026 (539 €, obsazené).
+  Minima neměněna: o svátcích 2 místo 3. Od září 2028 FeWo dny ještě neprodává (okno rezervací), ceny jsou předepsané.
+  **Past:** po ~15 rychlých navigacích FeWo ukázal kontrolu „Bot or human?“ — mezi úseky čekat 10 s; hláška „Enter a rate between and NaN“
+  = panel se otevřel dřív, než se načetla data → otevřít přes `rail/manage?…`, čekat 10 s, pak „Rental prices and discounts“.
+  Snímek: `docs/audit-cen/2026-11-17.json` (bez jmen).
+- **Další v pořadí:** rozhodnutí Pavla níže (minima o svátcích, nevratná Booking, základní ceny Airbnb a FeWo); Airbnb Vánoce 2028
+  zapsat 23. 12. 2026 ráno; Booking 29. 7.–1. 9. 2028 a Vánoce 2028, až se kalendář posune; FeWo 1.–5. 1. 2029, až se otevře leden 2029;
+  FeWo 1. 11.–22. 12. 2028 má 549 € (za horizontem, zatím neprodává) — přepsat na 592 €, až se horizont posune (měsíční úloha).
 
 ### Zbývá (poznámky z auditu 5. 10.)
 - FeWo „Frühestmögliche Buchung“ 18 → 24 měsíců až PO zápisu FeWo cen duben–říjen 2028 (jinak se otevře za 549–589 €).
+  Ceny duben–říjen 2028 jsou od 17. 11. 2026 zapsané, přepnutí už nic neotevře za starou cenu.
 - Booking Plánovač dostupnosti: výchozí cena nových dnů 529 € → mimosezóna 641 € (otevírá 16 měsíců dopředu).
 - Booking otevřený do 1. 7. 2028; ručně jde nejdál ~16. 8. 2028 (léto 2028 celé zatím ne).
 - Megaubytko: po Novém roce 2028 posunout Vánoce/Silvestr/TOP na termíny 2028 (viz Zapsáno 9. 10.); Velikonoce 25. 3.–23. 4. vyhovují 2027 i 2028, v roce 2029 (1. 4.) zkontrolovat.
@@ -80,7 +96,8 @@ zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy 
    Pozor: visí žádost 27. 12.–2. 1. za 523 €/noc — nepotvrzovat. Pak FeWo (795/884/725 €) a Airbnb (21 300/23 700/19 400).
 2. Zima 2027 (2. 1.–13. 3.) vč. špiček 6.–12. 2. a 20.–26. 2. na všech třech portálech.
 3. Léto 2028 (1. 7.–1. 9.) + Vánoce 2028 (23. 12. 2028–6. 1. 2029) — Booking až kalendář dosáhne.
-4. Mimosezóna od října 2026 + výjimky (Velikonoce, máj, podzim 2027; zima 2028 vč. špičky 26. 2.–3. 3.).
+4. ✅ 16.–17. 11. 2026 Mimosezóna od listopadu 2026 + výjimky (Velikonoce, máj, podzim 2027; zima 2028 vč. špičky 26. 2.–3. 3.)
+   na Airbnb, Bookingu a FeWo — ceny ano, minima nocí ne (čeká na Pavla).
 5. ✅ e-chalupy 9. 10. 2026 (CZ + echaty.sk ověřeno, czech-cottages.com zatím staré ceny — kontrola do 10. 10.) — sezónní ceník 13 400 / 14 900 / 18 000 / 20 000;
    ✅ Megaubytko 9. 10. 2026 — 14 ročních sezón 13 400 / 14 900 / 16 400 / 18 000 / 20 000, ID 13334 v ceníku.
 6. Nastavení: Booking nevratná 8 → 10 %; Airbnb nevratná volba zapnout, last-minute −15 % v prémiových obdobích vypnout, Smart Pricing off.
@@ -89,6 +106,8 @@ zamítnut — `docs/kanaly-jedno-misto.md`); e-chalupy CZ+EN a Megaubytko vždy 
 Plán pro konkrétní kanál: `node scripts/cenik.mjs plan --kanal booking|airbnb|fewo|echalupy --jen cena` (a `--jen min_noci`).
 
 ## Otevřené (nespěchá, rozhodne Pavel)
+- Po zápisu 17. 11. 2026, každé zvlášť: minimum 3 noci o svátcích na Bookingu a FeWo (teď 2; ceník chce 3);
+  nevratná na Bookingu 8 → 10 %; základní cena Airbnb 12 900 → 15 900 Kč a FeWo 529 → 592 € (nově otevřené dny jinak dostanou starou cenu).
 - Dvě mimosezónní hladiny: listopad–polovina března (mimo prázdniny) na 12 400? (`docs/trhy-hostu-2026-09.md` sekce 3)
 - Květen–červen jako sezóna 14 900 (německé svátky, 22 z 34 pobytů) — dnes jen výjimka 24. 4.–8. 5.
 - Polsko do `data/svatky.json` + váhy trhů DE 3 : CZ 2,5 : PL 1,5 : NL 1 : BE 0,5.
